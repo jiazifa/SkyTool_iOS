@@ -1,2 +1,4 @@
 github "jdg/MBProgressHUD"
 github "PureLayout/PureLayout"
+github "ibireme/YYKit"
+github "hackiftekhar/IQKeyboardManager"

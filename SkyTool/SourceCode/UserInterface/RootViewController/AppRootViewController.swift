@@ -20,6 +20,8 @@ class AppRootViewController: UIViewController {
     weak var presentedPopover: UIPopoverPresentationController?
     weak var popoverPointToView: UIView?
     
+    public fileprivate(set) var sessionManager: SessionManager?
+    
     func updateOverlayWindowFrame() {
     }
     
@@ -60,6 +62,13 @@ class AppRootViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
     }
+    
+    public func launch(with launchOptions: LaunchOptions) {
+        let bundle = Bundle.main
+        let appVersion = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String
+        self.sessionManager = SessionManager.init(appVersion: appVersion!, delegate: appStateController)
+        self.sessionManager?.start(launchOptions: launchOptions)
+    }
 }
 
 extension AppRootViewController {
@@ -91,7 +100,15 @@ extension AppRootViewController {
         var viewController: UIViewController?
         
         switch appState {
-        case .headless, .main:
+        case .headless:
+            viewController = MainTabBarViewController()
+            
+        case .unauthenticated:
+            let coordinator = AuthenticationCoordinator(account: nil)
+            let loginViewController = LoginViewController(coordinator: coordinator)
+            viewController = AuthenNavigationViewController(rootViewController: loginViewController)
+            
+        case .authenticated(_):
             viewController = MainTabBarViewController()
         }
         
@@ -149,9 +166,9 @@ extension AppRootViewController {
     }
     
     func applicationDidTransition(to appState: AppState) {
-        if appState == .main {
-            // 如果有通知，放到这里处理
-        }
+//        if appState == .main {
+//            // 如果有通知，放到这里处理
+//        }
     }
     
     func reload() {

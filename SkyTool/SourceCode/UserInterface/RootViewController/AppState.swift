@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum AppState {
+enum AppState: Equatable {
     case headless // 启动页
-    case main //主页
+    case unauthenticated // 未登录状态
+    case authenticated(account: Account) // 主页
 }

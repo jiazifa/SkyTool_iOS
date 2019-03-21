@@ -60,6 +60,21 @@
 		23DEFCD8224342A900795E13 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCD7224342A900795E13 /* HomeController.swift */; };
 		23DEFCDB22435A5800795E13 /* ToolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCD922435A5800795E13 /* ToolCollectionViewCell.swift */; };
 		23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23DEFCDA22435A5800795E13 /* ToolCollectionViewCell.xib */; };
+		23DEFCE3224367A700795E13 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCDE224367A700795E13 /* AuthenticationCoordinator.swift */; };
+		23DEFCE4224367A700795E13 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCDF224367A700795E13 /* RegistViewController.swift */; };
+		23DEFCE5224367A700795E13 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCE0224367A700795E13 /* ChangePasswordViewController.swift */; };
+		23DEFCE7224367A700795E13 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCE2224367A700795E13 /* LoginViewController.swift */; };
+		23DEFCE9224369F800795E13 /* YYKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DEFCE8224369F800795E13 /* YYKit.framework */; };
+		23DEFCEC22436BE300795E13 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCEB22436BE300795E13 /* Account.swift */; };
+		23DEFCEF22436D9600795E13 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DEFCEE22436D9500795E13 /* IQKeyboardManagerSwift.framework */; };
+		23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCF0224373CD00795E13 /* AuthenNavigationViewController.swift */; };
+		23DEFCF4224375FF00795E13 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCF3224375FF00795E13 /* SessionManager.swift */; };
+		23DEFCF7224383BA00795E13 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCF6224383BA00795E13 /* KeyChainManager.swift */; };
+		23DEFCFA2243898E00795E13 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCF92243898E00795E13 /* AccountManager.swift */; };
+		23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCFB22438C1800795E13 /* AccountStore.swift */; };
+		23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCFD22438CFC00795E13 /* FileManager+Move.swift */; };
+		23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */; };
+		23DEFD0322439B6800795E13 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFD0222439B6800795E13 /* LoginCredentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +154,22 @@
 		23DEFCD7224342A900795E13 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		23DEFCD922435A5800795E13 /* ToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCollectionViewCell.swift; sourceTree = "<group>"; };
 		23DEFCDA22435A5800795E13 /* ToolCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolCollectionViewCell.xib; sourceTree = "<group>"; };
+		23DEFCDE224367A700795E13 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		23DEFCDF224367A700795E13 /* RegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
+		23DEFCE0224367A700795E13 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		23DEFCE2224367A700795E13 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		23DEFCE8224369F800795E13 /* YYKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YYKit.framework; path = Carthage/Build/iOS/YYKit.framework; sourceTree = "<group>"; };
+		23DEFCEB22436BE300795E13 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		23DEFCED22436CA700795E13 /* SkyTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SkyTool.entitlements; sourceTree = "<group>"; };
+		23DEFCEE22436D9500795E13 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
+		23DEFCF0224373CD00795E13 /* AuthenNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenNavigationViewController.swift; sourceTree = "<group>"; };
+		23DEFCF3224375FF00795E13 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		23DEFCF6224383BA00795E13 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		23DEFCF92243898E00795E13 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		23DEFCFB22438C1800795E13 /* AccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
+		23DEFCFD22438CFC00795E13 /* FileManager+Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Move.swift"; sourceTree = "<group>"; };
+		23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Protection.swift"; sourceTree = "<group>"; };
+		23DEFD0222439B6800795E13 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +177,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23DEFCEF22436D9600795E13 /* IQKeyboardManagerSwift.framework in Frameworks */,
+				23DEFCE9224369F800795E13 /* YYKit.framework in Frameworks */,
 				238362BC2240B8AA007B892D /* MBProgressHUD.framework in Frameworks */,
 				238362BB2240B7FC007B892D /* PureLayout.framework in Frameworks */,
 			);
@@ -192,6 +225,7 @@
 		238362352240A030007B892D /* SkyTool */ = {
 			isa = PBXGroup;
 			children = (
+				23DEFCED22436CA700795E13 /* SkyTool.entitlements */,
 				2383626B2240B7E3007B892D /* Libraries */,
 				2383626C2240B7E3007B892D /* Resources */,
 				2383626D2240B7E3007B892D /* SourceCode */,
@@ -221,6 +255,8 @@
 		238362672240A8A0007B892D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23DEFCEE22436D9500795E13 /* IQKeyboardManagerSwift.framework */,
+				23DEFCE8224369F800795E13 /* YYKit.framework */,
 				238362BA2240B7FC007B892D /* PureLayout.framework */,
 				238362682240A8A0007B892D /* MBProgressHUD.framework */,
 			);
@@ -244,6 +280,7 @@
 		2383626D2240B7E3007B892D /* SourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				23DEFCEA22436BC500795E13 /* Models */,
 				2383626E2240B7E3007B892D /* Component */,
 				238362812240B7E3007B892D /* UserInterface */,
 				238362952240B7E3007B892D /* Helpers */,
@@ -254,6 +291,8 @@
 		2383626E2240B7E3007B892D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				23DEFCF5224383A700795E13 /* KeyChainManager */,
+				23DEFCF2224375EB00795E13 /* SessionManager */,
 				23DEFB452240E2A600795E13 /* Http */,
 				2383626F2240B7E3007B892D /* Settings */,
 				238362732240B7E3007B892D /* Utils */,
@@ -286,6 +325,8 @@
 				2383627C2240B7E3007B892D /* UIViewController+Orientation.swift */,
 				2383627D2240B7E3007B892D /* String+utils.swift */,
 				2383627E2240B7E3007B892D /* Dispatch+delay.swift */,
+				23DEFCFD22438CFC00795E13 /* FileManager+Move.swift */,
+				23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -301,6 +342,7 @@
 		238362812240B7E3007B892D /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				23DEFCDD224367A700795E13 /* Authentication */,
 				23DEFCD42243424200795E13 /* Home */,
 				238362822240B7E3007B892D /* Settings */,
 				2383628C2240B7E3007B892D /* WebView */,
@@ -417,6 +459,53 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		23DEFCDD224367A700795E13 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				23DEFCDE224367A700795E13 /* AuthenticationCoordinator.swift */,
+				23DEFCDF224367A700795E13 /* RegistViewController.swift */,
+				23DEFCE0224367A700795E13 /* ChangePasswordViewController.swift */,
+				23DEFCE2224367A700795E13 /* LoginViewController.swift */,
+				23DEFCF0224373CD00795E13 /* AuthenNavigationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		23DEFCEA22436BC500795E13 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				23DEFD012243959E00795E13 /* Account */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		23DEFCF2224375EB00795E13 /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				23DEFCF3224375FF00795E13 /* SessionManager.swift */,
+			);
+			path = SessionManager;
+			sourceTree = "<group>";
+		};
+		23DEFCF5224383A700795E13 /* KeyChainManager */ = {
+			isa = PBXGroup;
+			children = (
+				23DEFCF6224383BA00795E13 /* KeyChainManager.swift */,
+			);
+			path = KeyChainManager;
+			sourceTree = "<group>";
+		};
+		23DEFD012243959E00795E13 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				23DEFCEB22436BE300795E13 /* Account.swift */,
+				23DEFCF92243898E00795E13 /* AccountManager.swift */,
+				23DEFCFB22438C1800795E13 /* AccountStore.swift */,
+				23DEFD0222439B6800795E13 /* LoginCredentials.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -486,6 +575,11 @@
 				TargetAttributes = {
 					238362322240A030007B892D = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					238362492240A032007B892D = {
 						CreatedOnToolsVersion = 10.1;
@@ -554,10 +648,14 @@
 			inputFileListPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/YYKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/YYKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -574,14 +672,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23DEFCF7224383BA00795E13 /* KeyChainManager.swift in Sources */,
 				238362B42240B7E3007B892D /* AppRootViewController.swift in Sources */,
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
+				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
 				238362B72240B7E3007B892D /* Helpers.swift in Sources */,
+				23DEFCE4224367A700795E13 /* RegistViewController.swift in Sources */,
 				2383629E2240B7E3007B892D /* ColorScheme.swift in Sources */,
+				23DEFD0322439B6800795E13 /* LoginCredentials.swift in Sources */,
 				238362A12240B7E3007B892D /* Reusable.swift in Sources */,
+				23DEFCE5224367A700795E13 /* ChangePasswordViewController.swift in Sources */,
 				238362AC2240B7E3007B892D /* SettingsCellDescriptorFactory.swift in Sources */,
 				238362AE2240B7E3007B892D /* SettingsCellDescriptorFactory+DebugOption.swift in Sources */,
 				2383629C2240B7E3007B892D /* SettingsPropertyFactory.swift in Sources */,
@@ -590,10 +693,13 @@
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
 				238362B62240B7E3007B892D /* DebugOption.swift in Sources */,
 				238362A82240B7E3007B892D /* ButtonWithLargerHitArea.swift in Sources */,
+				23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */,
 				238362372240A030007B892D /* AppDelegate.swift in Sources */,
 				23DEFCD322433E2000795E13 /* UIColor+Sky.swift in Sources */,
 				23DEFB4D2240FA1C00795E13 /* SkyNetworkError.swift in Sources */,
+				23DEFCFA2243898E00795E13 /* AccountManager.swift in Sources */,
 				23DEFCD62243425600795E13 /* HomeViewController.swift in Sources */,
+				23DEFCE3224367A700795E13 /* AuthenticationCoordinator.swift in Sources */,
 				238362A22240B7E3007B892D /* UIFont+FontSpec.swift in Sources */,
 				2383629A2240B7E3007B892D /* SettingsProperty.swift in Sources */,
 				238362A72240B7E3007B892D /* Dispatch+delay.swift in Sources */,
@@ -608,16 +714,21 @@
 				23DEFB512241CB3A00795E13 /* ParameterEncoding.swift in Sources */,
 				23DEFB472240E30400795E13 /* Request.swift in Sources */,
 				238362B32240B7E3007B892D /* AppStateController.swift in Sources */,
+				23DEFCF4224375FF00795E13 /* SessionManager.swift in Sources */,
 				238362A92240B7E3007B892D /* SettingsCell.swift in Sources */,
+				23DEFCE7224367A700795E13 /* LoginViewController.swift in Sources */,
 				23DEFB492240E42300795E13 /* Session.swift in Sources */,
+				23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */,
 				238362B92240B7E3007B892D /* SettingsPropertyName.swift in Sources */,
 				238362A02240B7E3007B892D /* UIColor+utils.swift in Sources */,
 				238362B22240B7E3007B892D /* AppState.swift in Sources */,
 				238362A32240B7E3007B892D /* FontScheme.swift in Sources */,
 				238362B02240B7E3007B892D /* SettingsViewController.swift in Sources */,
+				23DEFCEC22436BE300795E13 /* Account.swift in Sources */,
 				23DEFB4F2240FAB000795E13 /* Delegate.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
+				23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */,
 				238362B52240B7E3007B892D /* MainTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -793,6 +904,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
 				ENABLE_BITCODE = NO;
@@ -819,6 +931,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
 				ENABLE_BITCODE = NO;

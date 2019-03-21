@@ -17,6 +17,8 @@ class AppStateController {
     private(set) var lastState: AppState = .headless
     public weak var delegate: AppStateControllerDelegate?
     
+    fileprivate var loggedAccount: Account?
+    
     fileprivate var hasEnteredForeground = false
     init() {
         NotificationCenter.default.addObserver(self,
@@ -43,7 +45,10 @@ class AppStateController {
         if !hasEnteredForeground {
             return .headless
         }
-        return .main
+        if let account = self.loggedAccount {
+            return .authenticated(account: account)
+        }
+        return .unauthenticated
     }
     
     func updateAppState(completion: (() -> Void)? = nil) {
@@ -57,5 +62,20 @@ class AppStateController {
         } else {
             completion?()
         }
+    }
+}
+
+extension AppStateController: SessionManagerDelegate {
+    func sessionManagerDidFailToLogin(account: Account?, error: Error) {
+        
+    }
+    
+    func sessionManagerWillMigrateAccount(account: Account) {
+        self.loggedAccount = account
+        self.updateAppState()
+    }
+    
+    func sessionManagerWillLogout(error: Error?) {
+        
     }
 }
