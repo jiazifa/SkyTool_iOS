@@ -14,24 +14,23 @@ enum HttpMethod: String {
 }
 
 protocol HttpDecodable {
-    static func parse(data: Data) -> Self?
+    static func parse(data: Data) throws -> Self?
 }
 
 extension String: HttpDecodable {
-    static func parse(data: Data) -> String? {
+    static func parse(data: Data) throws -> String? {
         return String.init(data: data, encoding: .utf8)
     }
 }
 
 extension Dictionary: HttpDecodable {
-    static func parse(data: Data) -> Dictionary<Key, Value>? {
-        return try! JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? Dictionary<Key, Value> ?? nil
+    static func parse(data: Data) throws -> Dictionary<Key, Value>? {
+        return try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? Dictionary<Key, Value>
     }
 }
 
 protocol Request {
     associatedtype Response: HttpDecodable
-    
     var path: String { get }
     var method: HttpMethod { get }
     var parmeter: [String: Any] { get }
@@ -45,3 +44,4 @@ extension Request {
         return URLRequest.CachePolicy.reloadIgnoringLocalCacheData
     }
 }
+

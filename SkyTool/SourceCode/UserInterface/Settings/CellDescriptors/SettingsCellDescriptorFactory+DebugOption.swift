@@ -11,15 +11,20 @@ import UIKit
 
 extension SettingsCellDescriptorFactory {
     
-    func debugOptionGroup() -> SettingsExternalScreenCellDescriptor {
+    func debugOptionSection() -> SettingsSectionDescriptorType {
         
-        let element = SettingsExternalScreenCellDescriptor(title: "开发者选项") { () -> (UIViewController?) in
-            let rootElements: [SettingsCellDescriptorType] = []
-            let topSection = SettingsSectionDescriptor(cellDescriptors: rootElements)
-            let group = SettingsGroupCellDescriptor.init(items: [topSection], title: "开发者选项")
-            let viewController = SettingsTableViewController.init(group: group)
-            return viewController
-        }
+        var elements = [SettingsCellDescriptorType]()
+        elements.append(self.hostElement())
+        let section = SettingsSectionDescriptor(cellDescriptors: elements,
+                                                header: "开发者选项",
+                                                footer: nil,
+                                                visibilityAction: nil)
+        return section
+    }
+    
+    func hostElement() -> SettingsPropertyCellDescriptorType {
+        let property = self.settingsPropertyFactory.property(.touchuHostAddress)
+        let element = SettingsPropertyTextCellDescriptor.init(settingsProperty: property)
         return element
     }
 }

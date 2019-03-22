@@ -26,7 +26,7 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     
     weak public var delegate: SessionManagerDelegate?
     
-    private var accountManager: AccountManager
+    private(set) var accountManager: AccountManager
     
     private static var _shared: SessionManager?
     public static var shared: SessionManager {
@@ -66,6 +66,11 @@ extension SessionManager {
     func login(_ account: Account) {
         self.accountManager.addAndSelect(account)
         self.delegate?.sessionManagerWillMigrateAccount(account: account)
+    }
+    
+    func delete(account: Account) {
+        self.accountManager.remove(account)
+        self.delegate?.sessionManagerWillLogout(error: nil)
     }
 }
 

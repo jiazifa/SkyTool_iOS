@@ -144,12 +144,15 @@ class SettingsTableViewController: SettingsViewController {
     }
     
     func setupTableView() {
-        
+        let rect = CGRect.init(x: 0, y: 0, width: 0, height: 0.1)
+        let headerView = UIView.init(frame: rect)
+        self.tableView.tableHeaderView = headerView
         let allCellTypes: [SettingsTableCell.Type] = [SettingsTableCell.self,
                                                       SettingsStaticTextTableCell.self,
                                                       SettingsGroupCell.self,
                                                       SettingsToggleCell.self,
-                                                      SettingsValueCell.self]
+                                                      SettingsValueCell.self,
+                                                      SettingsTextCell.self]
         
         for aClass in allCellTypes {
             tableView.register(aClass, forCellReuseIdentifier: aClass.reuseIdentifier)
@@ -201,13 +204,14 @@ class SettingsTableViewController: SettingsViewController {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerFooterView = view as? UITableViewHeaderFooterView {
-            headerFooterView.textLabel?.textColor = UIColor(white: 1, alpha: 0.4)
+            headerFooterView.textLabel?.textColor = UIColor(white: 0.5, alpha: 0.4)
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         if let headerFooterView = view as? UITableViewHeaderFooterView {
-            headerFooterView.textLabel?.textColor = UIColor(white: 1, alpha: 0.4)
+            headerFooterView.textLabel?.textColor = UIColor(white: 0.5, alpha: 0.4)
         }
     }
+    
 }

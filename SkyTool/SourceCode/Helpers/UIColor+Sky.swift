@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @objc extension UIColor {
     
@@ -17,22 +18,4 @@ import UIKit
     class var stageBackground: UIColor {
         return UIColor.color("#FFF8F6")
     }
-}
-
-protocol ThemeProtocol {
-    
-}
-
-class SkyTheme: ThemeProtocol {
-    
-    private static var _shared: SkyTheme?
-    static var shared: SkyTheme {
-        return guardSharedProperty(_shared)
-    }
-}
-
-public class ThemeManager {
-    static var shared: ThemeManager = ThemeManager()
-    
-    var themes = [ThemeProtocol]()
 }

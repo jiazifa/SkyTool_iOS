@@ -57,6 +57,22 @@ class SettingsPropertyFactory {
             return SettingsBlockProperty(propertyName: propertyName,
                                          getAction: getAction,
                                          setAction: setAction)
+        case .touchuHostAddress:
+            let getAction: GetAction = { (property: SettingsBlockProperty) -> SettingsPropertyValue in
+                return SettingsPropertyValue.string(value: Settings.shared.touchHostAddress)
+            }
+            let setAction: SetAction = { (_, value) in
+                switch value {
+                case .string(value: let string):
+                    Settings.shared.touchHostAddress = string
+                default:
+                    fatalError()
+                }
+            }
+            return SettingsBlockProperty(propertyName: propertyName,
+                                         getAction: getAction,
+                                         setAction: setAction)
         }
+        
     }
 }

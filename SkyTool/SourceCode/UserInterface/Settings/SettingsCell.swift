@@ -134,6 +134,7 @@ protocol SettingsCellType: class {
     override func prepareForReuse() {
         super.prepareForReuse()
         preview = .none
+        iconImageView.image = nil
     }
     
     func setup() {
@@ -144,8 +145,8 @@ protocol SettingsCellType: class {
         iconImageView.contentMode = .center
         contentView.addSubview(iconImageView)
         iconImageView.autoPinEdge(toSuperviewEdge: .leading, withInset: 8.0)
-        iconImageView.autoSetDimension(.height, toSize: 16, relation: .lessThanOrEqual)
-        iconImageView.autoMatch(.width, to: .height, of: iconImageView)
+        iconImageView.autoMatch(.height, to: .width, of: iconImageView)
+        iconImageView.autoSetDimension(.width, toSize: 16, relation: .lessThanOrEqual)
         iconImageView.autoAlignAxis(toSuperviewMarginAxis: .horizontal)
         
         contentView.addSubview(cellNameLabel)
@@ -284,5 +285,70 @@ class SettingsValueCell: SettingsTableCell {
     
     @objc func onPropertyChanged(_ notification: Notification) {
         descriptor?.featureCell(self)
+    }
+}
+
+class SettingsTextCell: SettingsTableCell, UITextFieldDelegate {
+    var textInput: UITextField!
+    
+    override func setup() {
+        super.setup()
+        selectionStyle = .none
+        
+        textInput = TailEditingTextField.init(frame: .zero)
+        textInput.delegate = self
+        textInput.textAlignment = .right
+        textInput.textColor = UIColor.lightGray
+        textInput.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        
+        contentView.addSubview(textInput)
+        createConstraints()
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(onCellSelected(_:)))
+        contentView.addGestureRecognizer(tap)
+    }
+    
+    func createConstraints() {
+        let textInputSpacing = CGFloat(-16)
+        let trailingBoundaryView = accessoryView ?? contentView
+        
+        textInput.autoPinEdge(toSuperviewEdge: .top, withInset: 8)
+        textInput.autoPinEdge(toSuperviewEdge: .bottom, withInset: 8)
+        textInput.autoPinEdge(.right, to: .right, of: trailingBoundaryView, withOffset: textInputSpacing)
+        NSLayoutConstraint.activate([
+            cellNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: textInput.leadingAnchor, constant: textInputSpacing)
+        ])
+    }
+    
+    override func setupAccessibiltyElements() {
+        super.setupAccessibiltyElements()
+        
+        var currentElements = accessibilityElements ?? []
+        currentElements.append(textInput)
+        accessibilityElements = currentElements
+    }
+    
+    @objc func onCellSelected(_ tap: UITapGestureRecognizer) {
+        if !textInput.isFirstResponder {
+            textInput.becomeFirstResponder()
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string.rangeOfCharacter(from: CharacterSet.newlines) != .none {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text {
+            descriptor?.select(SettingsPropertyValue.string(value: text))
+        }
     }
 }

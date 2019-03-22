@@ -19,13 +19,12 @@ class SettingsCellDescriptorFactory {
     func rootGroup() -> SettingsControllerGeneratorType & SettingsInternalGroupCellDescriptorType {
         var rootElements: [SettingsCellDescriptorType] = []
         rootElements.append(introduceElement())
-//        rootElements.append(togglePushEnableElement())
-//        rootElements.append(passwordChangeElement())
-//        rootElements.append(feedBackElement())
         rootElements.append(versionElement())
+        rootElements.append(logoutElement())
         
+        let debugSection = debugOptionSection()
         let topSection = SettingsSectionDescriptor(cellDescriptors: rootElements)
-        return SettingsGroupCellDescriptor.init(items: [topSection], title: "系统设置")
+        return SettingsGroupCellDescriptor.init(items: [debugSection, topSection], title: "系统设置")
     }
     
     func versionElement() -> SettingsStaticTextCellDescriptor {
@@ -78,4 +77,21 @@ class SettingsCellDescriptorFactory {
         return element
     }
     
+    func logoutElement() -> SettingsCellDescriptorType {
+        let logoutAction: () -> () = {
+            guard let selectedAccount = SessionManager.shared.accountManager.selectedAccount else {
+                Log.fatalError("无账号可以登出")
+            }
+            SessionManager.shared.delete(account: selectedAccount)
+        }
+        return SettingsExternalScreenCellDescriptor(title: "注销登录", isDestructive: true, presentationStyle: .modal, presentationAction: { () -> (UIViewController?) in
+            let alert = UIAlertController.init(title: "登出", message: "确认登出吗？", preferredStyle: .alert)
+            let actionCancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            alert.addAction(actionCancel)
+            let actionLogout = UIAlertAction(title: "确定", style: .destructive, handler: { _ in logoutAction() })
+            alert.addAction(actionLogout)
+            return alert
+        })
+        
+    }
 }

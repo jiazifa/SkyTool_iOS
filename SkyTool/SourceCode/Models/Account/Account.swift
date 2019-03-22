@@ -16,6 +16,8 @@ public final class Account: NSObject, Codable {
     
     public var loginCredentials: LoginCredentials?
     
+    public private(set) var user_id: Int?
+    
     public let userIdentifier: UUID
     
     init(name: String,

@@ -19,6 +19,8 @@ public enum SettingsPropertyName: String, CustomStringConvertible {
     // User defaults
     case isPushEnabled = "UserDefaultPushDisabled"
     
+    case touchuHostAddress = "UserDefaultTouchuHostAddress"
+    
     public var changeNotificationName: String {
         return self.description + "ChangeNotification"
     }

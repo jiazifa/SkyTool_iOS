@@ -174,5 +174,7 @@ func SettingsPropertyLabelText(_ name: SettingsPropertyName) -> String {
     switch name {
     case .isPushEnabled:
         return "消息推送设置"
+    case .touchuHostAddress:
+        return "连接host设置"
     }
 }

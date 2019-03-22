@@ -76,6 +76,7 @@ extension AppStateController: SessionManagerDelegate {
     }
     
     func sessionManagerWillLogout(error: Error?) {
-        
+        self.loggedAccount = nil
+        self.updateAppState()
     }
 }

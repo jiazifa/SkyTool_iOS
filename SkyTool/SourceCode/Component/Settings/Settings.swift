@@ -9,6 +9,7 @@
 import UIKit
 
 let UserDefaultPushDisabled: String = "UserDefaultPushDisabled"
+let UserDefaultTouchHostAddress: String = "UserDefaultTouchHostAddress"
 let UserDefaultIntroduceUrlString: String = "UserDefaultIntroduceUrlString"
 
 class Settings {
@@ -20,6 +21,16 @@ class Settings {
         }
         set {
             self.defaults.set(newValue, forKey: UserDefaultPushDisabled)
+            self.synchronize()
+        }
+    }
+    
+    public var touchHostAddress: String {
+        get {
+            return self.defaults.string(forKey: UserDefaultTouchHostAddress) ?? "127.0.0.1"
+        }
+        set {
+            self.defaults.set(newValue, forKey: UserDefaultTouchHostAddress)
             self.synchronize()
         }
     }

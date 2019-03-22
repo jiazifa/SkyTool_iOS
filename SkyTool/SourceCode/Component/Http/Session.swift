@@ -90,11 +90,20 @@ class Session: NSObject {
         task.onResult.delegate(on: self) { (weakSelf, result) in
             switch result {
             case (_, _, let error?):
-                handler?(.failure(SkyNetworkError.responseFailed(reason: SkyNetworkError.ResponseErrorReason.URLSessionError(error))))
+                let  reson = SkyNetworkError.ResponseErrorReason.URLSessionError(error)
+                handler?(.failure(SkyNetworkError.responseFailed(reason: reson)))
                 break
             case (let data?, _, .none):
-                if let res = T.Response.parse(data: data) {
-                    handler?(.success(res))
+                do {
+                    if let res = try T.Response.parse(data: data) {
+                        handler?(.success(res))
+                    } else {
+                        let reson = SkyNetworkError.ResponseErrorReason.nonHTTPURLResponse
+                        handler?(.failure(SkyNetworkError.responseFailed(reason: reson)))
+                    }
+                } catch {
+                    let reson = SkyNetworkError.ResponseErrorReason.dataParsingFailed(T.Response.self, data, error)
+                    handler?(.failure(SkyNetworkError.responseFailed(reason: reson)))
                 }
                 break
             default:
@@ -105,7 +114,6 @@ class Session: NSObject {
         task.resume()
         return task
     }
-    
 }
 
 typealias SessionTaskResult = (Data?, URLResponse?, Error?)

@@ -65,6 +65,18 @@ class AppRootViewController: UIViewController {
     
     public func launch(with launchOptions: LaunchOptions) {
         let bundle = Bundle.main
+        /// initial color theme
+        guard let sharedContainerURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            preconditionFailure("Unable to get shared container URL")
+        }
+        let themeManager = ThemeManager.init(sharedDirectory: sharedContainerURL)
+        if let colorPath = bundle.path(forResource: "blue.json", ofType: nil)
+            , themeManager.selectedColorScheme == nil {
+            let url = URL(fileURLWithPath: colorPath)
+            let theme = ColorScheme.load(from: url)
+            themeManager.addAndSelect(theme!)
+        }
+        
         let appVersion = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String
         self.sessionManager = SessionManager.init(appVersion: appVersion!, delegate: appStateController)
         self.sessionManager?.start(launchOptions: launchOptions)

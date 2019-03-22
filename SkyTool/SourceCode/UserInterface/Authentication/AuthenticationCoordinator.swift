@@ -12,10 +12,10 @@ class AuthenticationCoordinator: NSObject {
     
     var currentViewController: UIViewController?
     
-    fileprivate(set) var account: Account?
+    fileprivate(set) var account: Account
     
     init(account: Account?) {
-        self.account = account
+        self.account = account ?? Account.init(name: "", userIdentifier: UUID.init())
         super.init()
     }
     
@@ -28,7 +28,9 @@ class AuthenticationCoordinator: NSObject {
     }
     
     func startLogin(name: String, password: String) {
-        let account = Account.init(name: name, userIdentifier: UUID.init())
+        
+        let credentials = LoginCredentials(email: name, phone: nil, hasPassword: true)
+        account.loginCredentials = credentials
         SessionManager.shared.login(account)
     }
 }
