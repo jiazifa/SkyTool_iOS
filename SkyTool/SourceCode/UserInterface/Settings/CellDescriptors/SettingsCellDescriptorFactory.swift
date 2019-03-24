@@ -24,11 +24,12 @@ class SettingsCellDescriptorFactory {
         
         let debugSection = debugOptionSection()
         let topSection = SettingsSectionDescriptor(cellDescriptors: rootElements)
-        return SettingsGroupCellDescriptor.init(items: [debugSection, topSection], title: "系统设置")
+        return SettingsGroupCellDescriptor.init(items: [debugSection, topSection],
+                                                title: "settings.system.setting.title".localized)
     }
     
     func versionElement() -> SettingsStaticTextCellDescriptor {
-        let element = SettingsStaticTextCellDescriptor.init(text: "版本")
+        let element = SettingsStaticTextCellDescriptor.init(text: "settings.system.version.title".localized)
         element.previewGenerator = { (_) -> SettingsCellPreview in
             guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") else { fatalError() }
             return SettingsCellPreview.text("v\(version)")
@@ -44,7 +45,7 @@ class SettingsCellDescriptorFactory {
 //            }
             if let url = Settings.shared.introduceUrl {
                 let viewController = WebViewController(url)
-                viewController.title = "湖北鄂车介绍"
+                viewController.title = "settings.system.introduction.title".localized
                 return viewController
             }
             return nil
@@ -59,20 +60,20 @@ class SettingsCellDescriptorFactory {
     }
     
     func feedBackElement() -> SettingsExternalScreenCellDescriptor {
-        let element = SettingsExternalScreenCellDescriptor(title: "功能反馈") { () -> (UIViewController?) in
+        let element = SettingsExternalScreenCellDescriptor(title: "settings.system.feedback.title".localized) { () -> (UIViewController?) in
             return nil
         }
         return element
     }
     
     func passwordChangeElement() -> SettingsExternalScreenCellDescriptor {
-        let element = SettingsExternalScreenCellDescriptor(title: "密码修改") { () -> (UIViewController?) in
+        let element = SettingsExternalScreenCellDescriptor(title: "settings.system.password.change.title".localized) { () -> (UIViewController?) in
             let viewController = ViewController()
-            viewController.title = "修改密码"
+            viewController.title = "settings.system.password.change.title".localized
             return viewController
         }
         element.previewGenerator = { (_) -> SettingsCellPreview in
-            return SettingsCellPreview.text("修改密码")
+            return SettingsCellPreview.text("settings.system.password.change.title".localized)
         }
         return element
     }
@@ -80,15 +81,15 @@ class SettingsCellDescriptorFactory {
     func logoutElement() -> SettingsCellDescriptorType {
         let logoutAction: () -> () = {
             guard let selectedAccount = SessionManager.shared.accountManager.selectedAccount else {
-                Log.fatalError("无账号可以登出")
+                Log.fatalError("settings.alert.no.account.logout.title".localized)
             }
             SessionManager.shared.delete(account: selectedAccount)
         }
-        return SettingsExternalScreenCellDescriptor(title: "注销登录", isDestructive: true, presentationStyle: .modal, presentationAction: { () -> (UIViewController?) in
-            let alert = UIAlertController.init(title: "登出", message: "确认登出吗？", preferredStyle: .alert)
-            let actionCancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        return SettingsExternalScreenCellDescriptor(title: "settings.system.logout.title".localized, isDestructive: true, presentationStyle: .modal, presentationAction: { () -> (UIViewController?) in
+            let alert = UIAlertController.init(title: "alert.logout.title".localized, message: "alert.logout.message".localized, preferredStyle: .alert)
+            let actionCancel = UIAlertAction(title: "alert.cancel.action".localized, style: .cancel, handler: nil)
             alert.addAction(actionCancel)
-            let actionLogout = UIAlertAction(title: "确定", style: .destructive, handler: { _ in logoutAction() })
+            let actionLogout = UIAlertAction(title: "alert.comfirm.action".localized, style: .destructive, handler: { _ in logoutAction() })
             alert.addAction(actionLogout)
             return alert
         })

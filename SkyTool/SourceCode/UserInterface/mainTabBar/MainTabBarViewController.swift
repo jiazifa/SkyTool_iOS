@@ -38,8 +38,9 @@ class MainTabBarViewController: UITabBarController {
     private func addHomeViewController() {
         let viewController = HomeViewController()
         let navigationController = UINavigationController.init(rootViewController: viewController)
+        navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.shadowImage = UIImage.init()
-        let title = "首页"
+        let title = "home".localized
         viewController.title = title
         let item = UITabBarItem.init(title: title,
                                      image: UIImage.init(named: "function"),
@@ -56,7 +57,7 @@ class MainTabBarViewController: UITabBarController {
         let viewController = SettingsTableViewController(group: rootGroup)
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.navigationBar.shadowImage = UIImage.init()
-        let title = "设置"
+        let title = "setting".localized
         viewController.title = title
         let item = UITabBarItem.init(title: title,
                                      image: UIImage.init(named: "setting"),

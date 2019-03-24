@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  SkyTool
+
+  Created by tree on 2019/3/22.
+  Copyright © 2019 treee. All rights reserved.
+*/
+
+"home" = "home";
+
+"setting" = "setting";
+
+"settings.system.setting.title" = "System Setting";
+"settings.system.hostAddress.title" = "Set Host";
+"settings.system.pushEnable.title" = "Push Enable";
+
+"settings.system.version.title" = "Version";
+"settings.system.introduction.title" = "Introduce";
+"settings.system.feedback.title" = "FeedBack";
+"settings.system.password.change.title" = "Password Change";
+"settings.system.logout.title" = "Logout";
+
+"alert.no.account.logout.title" = "No Account To Logout";
+"alert.logout.title" = "Logout";
+"alert.logout.message" = "Confirm to logout";
+"alert.cancel.action" = "Cancel";
+"alert.comfirm.action" = "Confirm";

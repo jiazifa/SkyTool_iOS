@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.background
         self.setupViews()
         self.createConstraints()
     }
@@ -43,10 +44,7 @@ class HomeViewController: UIViewController {
     }
     
     func createConstraints() {
-        self.collectionView.autoPinEdge(toSuperviewEdge: .top)
-        self.collectionView.autoPinEdge(toSuperviewEdge: .bottom)
-        self.collectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 10)
-        self.collectionView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
+        self.collectionView.autoPinEdgesToSuperviewSafeArea()
     }
 }
 
@@ -65,11 +63,29 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.contentView.backgroundColor = UIColor.randomColor()
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let request = TransportRequest(path: "/api/test", params: ["a": "bs"])
+        let handler: ResponseHandler = { resp in
+            switch resp.payload {
+            case .jsonDict(let json):
+                print("\(json)")
+            case .none:
+                print("no data, maybe error")
+            }
+        }
+        request.responseHandlers.append(handler)
+        Session.init().send(request)
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width / 2 - 10
+        var colum: CGFloat = 2
+        if UIDevice.current.isPad {
+            colum = 3
+        }
+        let width = collectionView.bounds.width / colum - 10
         let size = CGSize.init(width: width, height: width * CGFloat(0.55))
         return size
     }
