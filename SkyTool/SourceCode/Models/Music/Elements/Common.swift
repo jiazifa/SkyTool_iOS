@@ -100,30 +100,30 @@
 // <!ENTITY % start-stop-single "(start | stop | single)">
 // <!ENTITY % tied-type "(start | stop | continue | let-ring)">
 // <!ENTITY % tremolo-type "(start | stop | single | unmeasured)">
-public enum StartStop: String, Decodable{
+public enum StartStop: String, Codable {
     case start
     case stop
 }
 
-public enum StartStopContinue: String, Decodable {
+public enum StartStopContinue: String, Codable {
     case start
     case stop
     case `continue`
 }
 
-public enum StartStopSingle: String, Decodable {
+public enum StartStopSingle: String, Codable {
     case start
     case stop
     case single
 }
 
-public enum TiedType: String, Decodable {
+public enum TiedType: String, Codable {
     case start = "start"
     case stop = "stop"
     case letRight = "let-ring"
 }
 
-public enum TremoloType: String, Decodable {
+public enum TremoloType: String, Codable {
     case start
     case stop
     case single
@@ -145,7 +145,7 @@ public enum YesNoNumber {
 // > full, cue sized, grace cue sized, and oversized symbols.
 //
 // <!ENTITY % symbol-size "(full | cue | grace-cue | large)">
-public enum SymbolSize: String, Decodable {
+public enum SymbolSize: String, Codable {
     case full
     case cue
     case graceCue = "grace-cue"
@@ -184,7 +184,7 @@ public enum TopBottom {
 // > element.
 //
 // <!ENTITY % left-right "(left | right)">
-public enum LeftRight {
+public enum LeftRight: String, Codable {
     case left
     case right
 }
@@ -193,7 +193,7 @@ public enum LeftRight {
 // > number of lines in text decoration attributes.
 //
 // <!ENTITY % number-of-lines "(0 | 1 | 2 | 3)">
-public enum NumberOfLines: String {
+public enum NumberOfLines: String, Codable {
     case zero = "0"
     case one = "1"
     case two = "2"
@@ -211,7 +211,7 @@ public enum NumberOfLines: String {
 // > value is implied, the value is 1 by default.
 //
 // <!ENTITY % number-level "(1 | 2 | 3 | 4 | 5 | 6)">
-public enum NumberLevel: String, Decodable {
+public enum NumberLevel: String, Codable {
     case one = "1"
     case two = "2"
     case three = "3"
@@ -228,7 +228,7 @@ public enum NumberLevel: String, Decodable {
 // > voices.
 // >
 // <!ENTITY % beam-level "(1 | 2 | 3 | 4 | 5 | 6 | 7 | 8)">
-public enum BeamLevel: String {
+public enum BeamLevel: String, Codable {
     case one = "1"
     case two = "2"
     case three = "3"
@@ -246,7 +246,7 @@ public enum BeamLevel: String {
 // > piano pedal mark would be keyboardPedalPed, not U+E650.
 //
 // <!ENTITY % smufl-glyph-name "NMTOKEN">
-public struct SMuFLGlyph: Decodable, Equatable {
+public struct SMuFLGlyph: Codable, Equatable {
     let name: String
 }
 
@@ -315,7 +315,7 @@ public struct SMuFLGlyph: Decodable, Equatable {
 //     default-y     %tenths;    #IMPLIED
 //     relative-x    %tenths;    #IMPLIED
 //     relative-y    %tenths;    #IMPLIED">
-public struct Position: Decodable, Equatable {
+public struct Position: Codable, Equatable {
     let defaultX: Int // tenths
     let defaultY: Int // tenths
     let relativeX: Int // tenths
@@ -329,7 +329,7 @@ public struct Position: Decodable, Equatable {
 //<!ENTITY % placement
 //    "placement %above-below; #IMPLIED">
 //
-public enum Placement: String, Decodable {
+public enum Placement: String, Codable {
     case above
     case below
 }
@@ -341,7 +341,7 @@ public enum Placement: String, Decodable {
 //
 //<!ENTITY % orientation
 //    "orientation (over | under) #IMPLIED">
-public enum Orientation: String, Decodable {
+public enum Orientation: String, Codable {
     case over
     case under
 }
@@ -417,14 +417,14 @@ public struct Bezier {
 //     font-style   CDATA  #IMPLIED
 //     font-size    CDATA  #IMPLIED
 //     font-weight  CDATA  #IMPLIED">
-public struct Font: Decodable, Equatable {
+public struct Font: Codable, Equatable {
 
-    enum Style: String, Decodable, Equatable {
+    enum Style: String, Codable, Equatable {
         case normal
         case italic
     }
 
-    enum Size: String, Decodable, Equatable {
+    enum Size: String, Codable, Equatable {
         case extraExtraSmall = "xx-small"
         case extraSmall = "x-small"
         case small = "small"
@@ -434,7 +434,7 @@ public struct Font: Decodable, Equatable {
         case extraExtraLarge = "xx-large"
     }
 
-    enum Weight: String, Decodable, Equatable {
+    enum Weight: String, Codable, Equatable {
         case normal
         case bold
     }
@@ -459,7 +459,7 @@ public struct Font: Decodable, Equatable {
 //
 // <!ENTITY % color
 //    "color CDATA #IMPLIED">
-public struct Color: Decodable, Equatable {
+public struct Color: Codable, Equatable {
     let alpha: Int = 1
     let red: Int
     let green: Int
@@ -476,7 +476,7 @@ public struct Color: Decodable, Equatable {
 //    "underline  %number-of-lines;  #IMPLIED
 //     overline  %number-of-lines;   #IMPLIED
 //     line-through  %number-of-lines;   #IMPLIED">
-public struct TextDecoration: Decodable, Equatable {
+public struct TextDecoration: Codable, Equatable {
     let underline: Int = 0
     let overline: Int = 0
     let lineThrough: Int = 0
@@ -490,7 +490,7 @@ public struct TextDecoration: Decodable, Equatable {
 //
 // <!ENTITY % justify
 //    "justify (left | center | right) #IMPLIED">
-public enum Justification: String, Decodable {
+public enum Justification: String, Codable {
     case left
     case center
     case right
@@ -511,7 +511,7 @@ public enum Justification: String, Decodable {
 //
 // <!ENTITY % halign
 //    "halign (left | center | right) #IMPLIED">
-public enum HorizonalAlignment: String, Decodable, Equatable {
+public enum HorizonalAlignment: String, Codable, Equatable {
     case left
     case center
     case right
@@ -523,7 +523,7 @@ public enum HorizonalAlignment: String, Decodable, Equatable {
 //
 // <!ENTITY % valign
 //    "valign (top | middle | bottom | baseline) #IMPLIED">
-public enum VerticalAlignment: String, Decodable, Equatable {
+public enum VerticalAlignment: String, Codable, Equatable {
     case top
     case middle
     case bottom
@@ -536,65 +536,10 @@ public enum VerticalAlignment: String, Decodable, Equatable {
 //
 // <!ENTITY % valign-image
 //    "valign (top | middle | bottom) #IMPLIED">
-public enum VerticalImageAlignment: String, Decodable, Equatable {
+public enum VerticalImageAlignment: String, Codable, Equatable {
     case top
     case middle
     case bottom
-}
-
-// > The letter-spacing entity specifies text tracking.
-// > Values are either "normal" or a number representing
-// > the number of ems to add between each letter. The
-// > number may be negative in order to subtract space.
-// > The default is normal, which allows flexibility of
-// > letter-spacing for purposes of text justification.
-//
-// <!ENTITY % letter-spacing
-//    "letter-spacing CDATA #IMPLIED">
-public enum LetterSpacing: Decodable, Equatable {
-
-    case normal
-    case adjusted(Int)
-
-    enum CodingKeys: String, CodingKey {
-        case normal
-        case adjusted
-    }
-
-    public init(from decoder: Decoder) throws {
-        let keyed = try decoder.container(keyedBy: CodingKeys.self)
-        do {
-            self = .adjusted(try keyed.decode(Int.self, forKey: .adjusted))
-        } catch {
-            self = .normal
-        }
-    }
-}
-
-// > The line-height entity specified text leading. Values
-// > are either "normal" or a number representing the
-// > percentage of the current font height  to use for
-// > leading. The default is "normal". The exact normal
-// > value is implementation-dependent, but values
-// > between 100 and 120 are recommended.
-//
-// <!ENTITY % line-height
-//    "line-height CDATA #IMPLIED">
-public enum LineHeight: Decodable, Equatable {
-    case normal
-    case adjusted(Int)
-    enum CodingKeys: String, CodingKey {
-        case normal
-        case adjusted
-    }
-    public init(from decoder: Decoder) throws {
-        let keyed = try decoder.container(keyedBy: CodingKeys.self)
-        do {
-            self = .adjusted(try keyed.decode(Int.self, forKey: .adjusted))
-        } catch {
-            self = .normal
-        }
-    }
 }
 
 // > The text-direction entity is used to adjust and override
@@ -613,7 +558,7 @@ public enum LineHeight: Decodable, Equatable {
 //
 // <!ENTITY % text-direction
 //    "dir (ltr | rtl | lro | rlo) #IMPLIED">
-public enum TextDirection: String, Decodable, Equatable {
+public enum TextDirection: String, Codable, Equatable {
     case leftToRightEmbed = "ltr"
     case rightToLeftEmbed = "rtl"
     case leftToRightOverride = "lro"
@@ -629,7 +574,7 @@ public enum TextDirection: String, Decodable, Equatable {
 //
 // <!ENTITY % text-rotation
 //    "rotation CDATA #IMPLIED">
-public struct TextRotation: Decodable, Equatable {
+public struct TextRotation: Codable, Equatable {
     let degrees: Double
 }
 
@@ -638,7 +583,7 @@ public struct TextRotation: Decodable, Equatable {
 //
 // <!ENTITY % enclosure
 //    "enclosure %enclosure-shape; #IMPLIED">
-public struct Enclosure: Decodable, Equatable {
+public struct Enclosure: Codable, Equatable {
     // > The enclosure-shape entity describes the shape and
     // > presence / absence of an enclosure around text. A bracket
     // > enclosure is similar to a rectangle with the bottom line
@@ -649,7 +594,7 @@ public struct Enclosure: Decodable, Equatable {
     //      bracket | triangle | diamond | pentagon |
     //      hexagon | heptagon | octagon | nonagon |
     //      decagon | none)">
-    public enum Shape: String, Decodable, Equatable {
+    public enum Shape: String, Codable, Equatable {
         case rectangle
         case square
         case oval
@@ -676,7 +621,7 @@ public struct Enclosure: Decodable, Equatable {
 //    "%position;
 //     %font;
 //     %color;">
-public struct PrintStyle: Decodable, Equatable {
+public struct PrintStyle: Codable, Equatable {
     let position: Position
     let font: Font
     let color: Color
@@ -689,7 +634,7 @@ public struct PrintStyle: Decodable, Equatable {
 //    "%print-style;
 //     %halign;
 //     %valign;">
-public struct PrintStyleAlignment: Decodable, Equatable {
+public struct PrintStyleAlignment: Codable, Equatable {
     let printStyle: PrintStyle
     let horizontalAlignment: HorizonalAlignment
     let verticalAlignment: VerticalAlignment
@@ -766,7 +711,7 @@ public struct DashedFormatting {
 //     print-dot     %yes-no;  #IMPLIED
 //     %print-spacing;
 //     print-lyric   %yes-no;  #IMPLIED">
-public struct Printout: Decodable, Equatable {
+public struct Printout: Codable, Equatable {
     let printObject: Bool
     let printDot: Bool
     let printSpacing: Bool
@@ -788,7 +733,7 @@ public struct Printout: Decodable, Equatable {
 //     xml:space (default | preserve) #IMPLIED
 //     %text-direction;
 //     %enclosure;">
-public struct TextFormatting: Decodable, Equatable {
+public struct TextFormatting: Codable, Equatable {
     let justify: Justification
 }
 
@@ -805,13 +750,11 @@ public struct TextFormatting: Decodable, Equatable {
 //     %line-height;
 //     %text-direction;
 //     %enclosure;">
-public struct SymbolFormatting: Decodable, Equatable {
+public struct SymbolFormatting: Codable, Equatable {
     let justify: Justification
     let printStyleAlignment: PrintStyleAlignment
     let decoration: TextDecoration
     let rotation: TextRotation
-    let letterSpacing: LetterSpacing
-    let lineHeight: LineHeight
     let textDirection: TextDirection
     let enclosure: Enclosure
 }
@@ -827,7 +770,7 @@ public struct SymbolFormatting: Decodable, Equatable {
 //    "parentheses %yes-no;       #IMPLIED
 //     bracket     %yes-no;       #IMPLIED
 //     size        %symbol-size;  #IMPLIED">
-public struct LevelDisplay: Decodable, Equatable {
+public struct LevelDisplay: Codable, Equatable {
     let parentheses: Bool
     let bracket: Bool
     let size: SymbolSize
@@ -865,21 +808,21 @@ public struct LevelDisplay: Decodable, Equatable {
 //     beats         CDATA    #IMPLIED
 //     second-beat   CDATA    #IMPLIED
 //     last-beat     CDATA    #IMPLIED">
-public struct TrillSound: Decodable, Equatable {
+public struct TrillSound: Codable, Equatable {
 
-    public enum StartNote: String, Decodable {
+    public enum StartNote: String, Codable {
         case upper
         case main
         case below
     }
 
-    public enum TrillStep: String, Decodable {
+    public enum TrillStep: String, Codable {
         case whole
         case half
         case unison
     }
 
-    public enum TwoNoteTurn: String, Decodable {
+    public enum TwoNoteTurn: String, Codable {
         case whole
         case half
         case none
@@ -948,7 +891,7 @@ public struct TimeOnly {
 //
 // <!ENTITY % document-attributes
 //    "version  CDATA  '1.0'">
-public struct DocumentAttributes: Decodable {
+public struct DocumentAttributes: Codable {
     let version: String
 }
 
@@ -968,7 +911,7 @@ public struct DocumentAttributes: Decodable {
 //
 // <!ENTITY % smufl
 //    "smufl %smufl-glyph-name; #IMPLIED">
-public struct SMuFL: Decodable, Equatable {
+public struct SMuFL: Codable, Equatable {
     // TODO: Consider nesting Glyph in here.
     let glyph: SMuFLGlyph
 }
@@ -980,13 +923,13 @@ public struct SMuFL: Decodable, Equatable {
 // > across all the different component DTD modules.
 //
 // <!ENTITY % editorial "(footnote?, level?)">
-public struct Editorial: Decodable, Equatable {
+public struct Editorial: Codable, Equatable {
     let footnote: Footnote?
     let level: Level?
 }
 
 // <!ENTITY % editorial-voice "(footnote?, level?, voice?)">
-public struct EditorialVoice: Decodable, Equatable {
+public struct EditorialVoice: Codable, Equatable {
     let footnote: Footnote?
     let level: Level?
     let voice: Voice?
@@ -1007,7 +950,7 @@ public struct EditorialVoice: Decodable, Equatable {
 // <!ATTLIST footnote
 //    %text-formatting;
 // >
-public struct Footnote: Decodable, Equatable {
+public struct Footnote: Codable, Equatable {
     let text: String
     let formatting: TextFormatting
 }
@@ -1017,13 +960,13 @@ public struct Footnote: Decodable, Equatable {
 //    reference %yes-no; #IMPLIED
 //    %level-display;
 // >
-public struct Level: Decodable, Equatable {
+public struct Level: Codable, Equatable {
     let reference: Bool
     let levelDisplay: LevelDisplay
 }
 
 // <!ELEMENT voice (#PCDATA)>
-public struct Voice: Decodable, Equatable {
+public struct Voice: Codable, Equatable {
     let value: Int
 }
 
@@ -1039,13 +982,13 @@ public struct Voice: Decodable, Equatable {
 //    %print-style;
 //    %optional-unique-id;
 // >
-public struct Fermata: Decodable, Equatable {
+public struct Fermata: Codable, Equatable {
 
     // > The fermata text content represents the shape of the
     // > fermata sign and may be normal, angled, square,
     // > double-angled, double-square, double-dot, half-curve,
     // > curlew, or an empty string.
-    public enum Shape: String, Decodable {
+    public enum Shape: String, Codable {
         case normal
         case angled
         case square
@@ -1056,7 +999,7 @@ public struct Fermata: Decodable, Equatable {
         case curlew
     }
 
-    public enum Kind: String, Decodable {
+    public enum Kind: String, Codable {
         case upright
         case inverted
     }
@@ -1079,7 +1022,7 @@ public struct Fermata: Decodable, Equatable {
 //    %color;
 //    %trill-sound;
 // >
-public struct WavyLine: Decodable, Equatable {
+public struct WavyLine: Codable, Equatable {
     let type: StartStopContinue
     let number: NumberLevel
     let position: Position
@@ -1094,7 +1037,7 @@ public struct WavyLine: Decodable, Equatable {
 // > in a part.
 //
 // <!ELEMENT staff (#PCDATA)>
-public struct Staff: Decodable, Equatable {
+public struct Staff: Codable, Equatable {
     let value: Int
 }
 
@@ -1111,7 +1054,7 @@ public struct Staff: Decodable, Equatable {
 //    %optional-unique-id;
 //    %smufl;
 // >
-public struct Segno: Decodable, Equatable {
+public struct Segno: Codable, Equatable {
     let printStyleAlignment: PrintStyleAlignment
     let smufl: SMuFL
     let id: Int?
@@ -1123,7 +1066,7 @@ public struct Segno: Decodable, Equatable {
 //    %optional-unique-id;
 //    %smufl;
 //>
-public struct Coda: Decodable, Equatable {
+public struct Coda: Codable, Equatable {
     let printStyleAlignment: PrintStyleAlignment
     let smufl: SMuFL
     let id: Int?
@@ -1322,7 +1265,7 @@ public struct TablatureString {
 // <!ATTLIST display-text
 //    %text-formatting;
 // >
-public struct DisplayText: Decodable, Equatable {
+public struct DisplayText: Codable, Equatable {
     let value: String
     let formatting: TextFormatting
 }
@@ -1337,29 +1280,9 @@ public struct DisplayText: Decodable, Equatable {
 //    %text-formatting;
 //    %smufl;
 // >
-public struct AccidentalText: Decodable, Equatable {
+public struct AccidentalText: Codable, Equatable {
     let smufl: SMuFL
     let formatting: TextFormatting
-}
-
-public enum DisplayTextOrAccidentalText: Decodable, Equatable {
-
-    enum CodingKeys: String, CodingKey {
-        case displayText
-        case accidentalText
-    }
-
-    case displayText(DisplayText)
-    case accidentalText(AccidentalText)
-
-    public init(from decoder: Decoder) throws {
-        let keyed = try decoder.container(keyedBy: CodingKeys.self)
-        do {
-            self = .displayText(try keyed.decode(DisplayText.self, forKey: .displayText))
-        } catch {
-            self = .accidentalText(try keyed.decode(AccidentalText.self, forKey: .accidentalText))
-        }
-    }
 }
 
 // > The part-name-display and part-abbreviation-display
@@ -1378,8 +1301,7 @@ public enum DisplayTextOrAccidentalText: Decodable, Equatable {
 // <!ATTLIST part-name-display
 //    %print-object;
 // >
-public struct PartNameDisplay: Decodable, Equatable {
-    let metadata: [DisplayTextOrAccidentalText]
+public struct PartNameDisplay: Codable, Equatable {
     let printObject: Bool
 }
 
@@ -1388,8 +1310,7 @@ public struct PartNameDisplay: Decodable, Equatable {
 // <!ATTLIST part-abbreviation-display
 //    %print-object;
 // >
-public struct PartAbbreviationDisplay: Decodable, Equatable {
-    let metadata: [DisplayTextOrAccidentalText]
+public struct PartAbbreviationDisplay: Codable, Equatable {
     let printObject: Bool
 }
 

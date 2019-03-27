@@ -18,7 +18,7 @@
 // <!ELEMENT scaling (millimeters, tenths)>
 // <!ELEMENT millimeters (#PCDATA)>
 // <!ELEMENT tenths %layout-tenths;>
-public struct Scaling: Decodable, Equatable {
+public struct Scaling: Codable, Equatable {
     let millimeters: String
     let tenths: String
 }
@@ -32,9 +32,9 @@ public struct Scaling: Decodable, Equatable {
 //
 // <!ELEMENT page-layout ((page-height, page-width)?,
 //    (page-margins, page-margins?)?)>
-public struct PageLayout: Decodable, Equatable {
+public struct PageLayout: Codable, Equatable {
 
-    public struct Size: Decodable, Equatable {
+    public struct Size: Codable, Equatable {
         // <!ELEMENT page-height %layout-tenths;>
         let height: Int // tenths
         // <!ELEMENT page-width %layout-tenths;>
@@ -42,7 +42,7 @@ public struct PageLayout: Decodable, Equatable {
     }
 
     #warning("FIXME: Refactor Margins a little better to encode logic")
-    public struct Margins: Decodable, Equatable {
+    public struct Margins: Codable, Equatable {
         let even: PageMargins
         let odd: PageMargins?
     }
@@ -56,8 +56,8 @@ public struct PageLayout: Decodable, Equatable {
 // <!ATTLIST page-margins
 //    type (odd | even | both) #IMPLIED
 // >
-public struct PageMargins: Decodable, Equatable {
-    public enum Kind: String, Decodable, Equatable {
+public struct PageMargins: Codable, Equatable {
+    public enum Kind: String, Codable, Equatable {
         case odd
         case even
         case both
@@ -146,7 +146,7 @@ public struct PageMargins: Decodable, Equatable {
 //    (system-margins?, system-distance?,
 //     top-system-distance?, system-dividers?)>
 
-public struct SystemLayout: Decodable, Equatable {
+public struct SystemLayout: Codable, Equatable {
     let systemMargins: SystemMargins?
     let systemDistance: String // tenths
     let topSystemDistance: String?
@@ -156,7 +156,7 @@ public struct SystemLayout: Decodable, Equatable {
 // <!ELEMENT system-margins (left-margin, right-margin)>
 // <!ELEMENT system-distance %layout-tenths;>
 // <!ELEMENT top-system-distance %layout-tenths;>
-public struct SystemMargins: Decodable, Equatable {
+public struct SystemMargins: Codable, Equatable {
     let left: String // tenths
     let right: String // tenths
 }
@@ -175,7 +175,7 @@ public struct SystemMargins: Decodable, Equatable {
 //    system and the previous system.
 //
 // <!ELEMENT system-dividers (left-divider, right-divider)>
-public struct SystemDividers: Decodable, Equatable {
+public struct SystemDividers: Codable, Equatable {
     let left: Divider
     let right: Divider
 }
@@ -190,7 +190,7 @@ public struct SystemDividers: Decodable, Equatable {
 //    %print-object;
 //    %print-style-align;
 // >
-public struct Divider: Decodable, Equatable {
+public struct Divider: Codable, Equatable {
     let printObject: String?
     let printStyleAlignment: PrintStyleAlignment?
 }
@@ -219,7 +219,7 @@ public struct Divider: Decodable, Equatable {
 //
 //<!ELEMENT measure-layout (measure-distance?)>
 //<!ELEMENT measure-distance %layout-tenths;>
-public struct MeasureLayout: Decodable, Equatable {
+public struct MeasureLayout: Codable, Equatable {
     let distance: Int // layout-tenths
 }
 
@@ -300,7 +300,7 @@ public struct MeasureLayout: Decodable, Equatable {
 //    type CDATA #REQUIRED
 //>
 
-public struct Appearance: Equatable, Decodable {
+public struct Appearance: Equatable, Codable {
     let lineWidth: [String]?
     let noteSize: [String]?
     let distance: [String]?

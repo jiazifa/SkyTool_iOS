@@ -52,13 +52,11 @@ public struct Group {
 //    type %start-stop; #REQUIRED
 //    number CDATA "1"
 // >
-public struct PartGroup: Decodable, Equatable {
+public struct PartGroup: Codable, Equatable {
     let type: StartStop
     let number: String?
     let name: GroupName?
-    let nameDisplay: GroupNameDisplay?
     let abbreviation: GroupAbbreviation?
-    let abbreviationDisplay: GroupAbbreviationDisplay?
     let symbol: GroupSymbol?
     let barline: GroupBarline?
     // <!ELEMENT group-time EMPTY>
@@ -71,7 +69,7 @@ public struct PartGroup: Decodable, Equatable {
 //    %print-style;
 //    %justify;
 // >
-public struct GroupName: Decodable, Equatable {
+public struct GroupName: Codable, Equatable {
     let value: String
     let printStyle: PrintStyle?
     let justification: Justification?
@@ -82,33 +80,13 @@ public struct GroupName: Decodable, Equatable {
 // <!ATTLIST group-name-display
 //    %print-object;
 // >
-public struct GroupNameDisplay: Decodable, Equatable {
-    public enum Element: Decodable, Equatable {
-        case displayText(DisplayText)
-        case accidentalText(AccidentalText)
-        enum CodingKeys: String, CodingKey {
-            case displayText
-            case accidentalText
-        }
-        public init(from decoder: Decoder) throws {
-            let keyed = try decoder.container(keyedBy: CodingKeys.self)
-            do {
-                self = .displayText(try keyed.decode(DisplayText.self, forKey: .displayText))
-            } catch {
-                self = .accidentalText(try keyed.decode(AccidentalText.self.self, forKey: .accidentalText))
-            }
-        }
-    }
-    let elements: [Element]?
-    let printObject: Bool?
-}
 
 // <!ELEMENT group-abbreviation (#PCDATA)>
 // <!ATTLIST group-abbreviation
 //    %print-style;
 //    %justify;
 // >
-public struct GroupAbbreviation: Decodable, Equatable {
+public struct GroupAbbreviation: Codable, Equatable {
     let value: String
     let printStyle: PrintStyle?
     let justification: Justification?
@@ -119,26 +97,6 @@ public struct GroupAbbreviation: Decodable, Equatable {
 // <!ATTLIST group-abbreviation-display
 //    %print-object;
 // >
-public struct GroupAbbreviationDisplay: Decodable, Equatable {
-    public enum Element: Decodable, Equatable {
-        case displayText(DisplayText)
-        case accidentalText(AccidentalText)
-        enum CodingKeys: String, CodingKey {
-            case displayText
-            case accidentalText
-        }
-        public init(from decoder: Decoder) throws {
-            let keyed = try decoder.container(keyedBy: CodingKeys.self)
-            do {
-                self = .displayText(try keyed.decode(DisplayText.self, forKey: .displayText))
-            } catch {
-                self = .accidentalText(try keyed.decode(AccidentalText.self.self, forKey: .accidentalText))
-            }
-        }
-    }
-    let elements: [Element]?
-    let printObject: Bool?
-}
 
 // > The group-symbol element indicates how the symbol for
 // > a group is indicated in the score. Values include none,
@@ -149,8 +107,8 @@ public struct GroupAbbreviationDisplay: Decodable, Equatable {
 //    %position;
 //    %color;
 // >
-public struct GroupSymbol: Decodable, Equatable {
-    public enum Value: String, Decodable {
+public struct GroupSymbol: Codable, Equatable {
+    public enum Value: String, Codable {
         case none
         case brace
         case line
@@ -170,8 +128,8 @@ public struct GroupSymbol: Decodable, Equatable {
 // <!ATTLIST group-barline
 //    %color;
 // >
-public struct GroupBarline: Decodable, Equatable {
-    public enum Value: String, Decodable {
+public struct GroupBarline: Codable, Equatable {
+    public enum Value: String, Codable {
         case yes
         case no
         case mensurstrich = "Mensurstrich"

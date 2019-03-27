@@ -1411,7 +1411,6 @@ public struct Text {
     let color: Color
     let decoration: TextDecoration
     let rotation: TextRotation
-    let letterSpacing: LetterSpacing
     let direction: TextDirection
 }
 

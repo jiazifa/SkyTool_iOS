@@ -23,7 +23,7 @@
 // identification?, defaults?, credit*, part-list)">
 import Foundation
 
-public struct Score: Equatable {
+public struct Score: Codable, Equatable {
     let work: Work?
     let movementNumber: String?
     let movementTitle: String?
@@ -44,7 +44,7 @@ public struct Score: Equatable {
 // <!ELEMENT work (work-number?, work-title?, opus?)>
 // <!ELEMENT work-number (#PCDATA)>
 // <!ELEMENT work-title (#PCDATA)>
-public struct Work: Equatable {
+public struct Work: Codable, Equatable {
     let number: String?
     let title: String?
     let opus: Opus?
@@ -55,7 +55,7 @@ public struct Work: Equatable {
 //    %link-attributes;
 // >
 #warning("TODO: Implement Opus (LinkAttributes)")
-public struct Opus: Decodable, Equatable {
+public struct Opus: Codable, Equatable {
 //    let linkAttributes: LinkAttributes
 }
 
@@ -72,7 +72,7 @@ public struct Opus: Decodable, Equatable {
 // <!ELEMENT defaults (scaling?, page-layout?,
 //    system-layout?, staff-layout*, appearance?,
 //    music-font?, word-font?, lyric-font*, lyric-language*)>
-public struct Defaults: Decodable, Equatable {
+public struct Defaults: Codable, Equatable {
     let scaling: Scaling?
     let pageLayout: PageLayout?
     let systemLayout: SystemLayout? // TODO: SystemLayout
@@ -99,7 +99,7 @@ public struct Defaults: Decodable, Equatable {
 //    name CDATA #IMPLIED
 //    %font;
 // >
-public struct LyricFont: Decodable, Equatable {
+public struct LyricFont: Codable, Equatable {
     let number: String?
     let name: String?
     let font: Font
@@ -112,12 +112,8 @@ public struct LyricFont: Decodable, Equatable {
 //    xml:lang NMTOKEN #REQUIRED
 // >
 //
-public struct LyricLanguage: Decodable, Equatable {
+public struct LyricLanguage: Codable, Equatable {
     let number: String?
     let name: String?
     let language: String
 }
-
-// MARK: - Decoding
-extension Score: Decodable { }
-extension Work: Decodable { }

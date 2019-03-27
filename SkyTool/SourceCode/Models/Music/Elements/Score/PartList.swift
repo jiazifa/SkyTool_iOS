@@ -29,10 +29,10 @@
 //
 // <!ELEMENT part-list (part-group*, score-part,
 //    (part-group | score-part)*)>
-public struct PartList: Equatable {
+public struct PartList: Codable, Equatable {
     
-    let partGroup: [PartGroup]?
     let scorePart: [ScorePart]?
+    let partGroup: [PartGroup]?
     
     // MARK: - Decodable
     
@@ -41,8 +41,6 @@ public struct PartList: Equatable {
         case partGroup = "part-group"
     }
 }
-
-extension PartList: Decodable {}
 
 extension PartList {
 
@@ -68,7 +66,7 @@ extension PartList {
     // > provide more complete formatting control for how part names
     // > and abbreviations appear in a score.
     #warning("TODO: Add support for ScorePart print-style, print-object, and justify")
-    public struct ScorePart: Equatable {
+    public struct ScorePart: Codable, Equatable {
 
         // > The part-name indicates the full name of the musical part.
         //
@@ -78,7 +76,7 @@ extension PartList {
         //     %print-object;
         //     %justify;
         // >
-        public struct Name: Decodable, Equatable {
+        public struct Name: Codable, Equatable {
             let value: String
             let printStyle: PrintStyle?
             let printObject: Bool?
@@ -94,28 +92,23 @@ extension PartList {
         //     %print-object;
         //     %justify;
         // >
-        public struct Abbreviation: Decodable, Equatable {
+        public struct Abbreviation: Codable, Equatable {
             let value: String
             let printStyle: PrintStyle?
             let printObject: Bool?
             let justification: Justification?
+        }
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case identification
+            case name = "part-name"
+            case nameDisplay = "part-name-display"
         }
 
         let id: String
         let identification: Identification?
         let name: String?
         let nameDisplay: PartNameDisplay?
-    }
-}
-
-extension PartList.ScorePart: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case identification
-        case name = "part-name"
-        case nameDisplay = "part-name-display"
     }
 }

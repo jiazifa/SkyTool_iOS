@@ -34,7 +34,7 @@ import Foundation
 //
 // <!ELEMENT identification (creator*, rights*, encoding?,
 //    source?, relation*, miscellaneous?)>
-public struct Identification: Decodable, Equatable {
+public struct Identification: Codable, Equatable {
 
     // > The creator element is borrowed from Dublin Core. It is
     // > used for the creators of the score. The type attribute is
@@ -51,7 +51,7 @@ public struct Identification: Decodable, Equatable {
     // <!ATTLIST creator
     //    type CDATA #IMPLIED
     // >
-    public struct Creator: Decodable, Equatable {
+    public struct Creator: Codable, Equatable {
         let name: String
         let type: String?
     }
@@ -69,7 +69,7 @@ public struct Identification: Decodable, Equatable {
     // <!ATTLIST rights
     //    type CDATA #IMPLIED
     // >
-    public struct Rights: Decodable, Equatable {
+    public struct Rights: Codable, Equatable {
         let value: String
         let type: String?
     }
@@ -90,7 +90,7 @@ public struct Identification: Decodable, Equatable {
     //>
     //<!ELEMENT software (#PCDATA)>
     //<!ELEMENT encoding-description (#PCDATA)>
-    public struct Encoding: Decodable, Equatable {
+    public struct Encoding: Codable, Equatable {
 
         // > The supports element indicates if the encoding supports
         // > a particular MusicXML element. This is recommended for
@@ -110,7 +110,7 @@ public struct Identification: Decodable, Equatable {
         //    attribute CDATA #IMPLIED
         //    value CDATA #IMPLIED
         //>
-        public struct Supports: Decodable, Equatable {
+        public struct Supports: Codable, Equatable {
             let type: String
             let element: String
             let attribute: String?
@@ -133,7 +133,7 @@ public struct Identification: Decodable, Equatable {
     // <!ATTLIST relation
     //    type CDATA #IMPLIED
     // >
-    public struct Relation: Decodable, Equatable {
+    public struct Relation: Codable, Equatable {
         let resource: String
         let type: String?
     }
@@ -146,9 +146,9 @@ public struct Identification: Decodable, Equatable {
     // <!ATTLIST miscellaneous-field
     //    name CDATA #REQUIRED
     // >
-    public struct Miscellaneous: Decodable, Equatable {
+    public struct Miscellaneous: Codable, Equatable {
 
-        public struct Field: Decodable, Equatable {
+        public struct Field: Codable, Equatable {
             let name: String
             let value: String?
         }
