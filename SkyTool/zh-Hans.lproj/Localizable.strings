@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  SkyTool
+
+  Created by tree on 2019/3/22.
+  Copyright © 2019 treee. All rights reserved.
+*/
+
+"home" = "首页";
+
+"setting" = "设置";
+
+"settings.system.setting.title" = "系统设置";
+"settings.system.hostAddress.title" = "设置host";
+"settings.system.pushEnable.title" = "允许推送";
+"settings.system.version.title" = "版本";
+"settings.system.introduction.title" = "介绍";
+"settings.system.feedback.title" = "反馈";
+"settings.system.password.change.title" = "密码修改";
+"settings.system.logout.title" = "注销登录";
+
+"alert.no.account.logout.title" = "无账号可以登出";
+"alert.logout.title" = "登出";
+"alert.logout.message" = "确认登出吗？";
+"alert.cancel.action" = "取消";
+"alert.comfirm.action" = "确认";

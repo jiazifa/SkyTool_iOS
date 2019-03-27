@@ -54,8 +54,7 @@ extension SessionDelegate: SessionDelegateType {
             let task = self.task(for: dataTask) else {
             return
         }
-        remove(dataTask)
-        task.onResult.call((task.mutableData, dataTask.response, error))
+        task.onResult.call((task.mutableData, dataTask, error))
     }
 }
 
@@ -78,8 +77,9 @@ class Session: NSObject {
         Session._shared = self
     }
     
-    func send<T: Request>(_ r: T, handler: ((Result<T.Response, SkyNetworkError>) -> Void)? = nil) -> SessionTask? {
-        let url = URL(string: r.path)!
+    @discardableResult
+    func send<T: Request>(_ r: T) -> SessionTask? {
+        let url = URL(string: Settings.shared.touchHostAddress + r.path)!
         var request = URLRequest(url: url, cachePolicy: r.cachePolicy, timeoutInterval: r.timeout)
         request.httpMethod = r.method.rawValue
         do {
@@ -88,35 +88,34 @@ class Session: NSObject {
         
         let task = SessionTask(session: session, request: request)
         task.onResult.delegate(on: self) { (weakSelf, result) in
-            switch result {
-            case (_, _, let error?):
-                let  reson = SkyNetworkError.ResponseErrorReason.URLSessionError(error)
-                handler?(.failure(SkyNetworkError.responseFailed(reason: reson)))
-                break
-            case (let data?, _, .none):
-                do {
-                    if let res = try T.Response.parse(data: data) {
-                        handler?(.success(res))
-                    } else {
-                        let reson = SkyNetworkError.ResponseErrorReason.nonHTTPURLResponse
-                        handler?(.failure(SkyNetworkError.responseFailed(reason: reson)))
-                    }
-                } catch {
-                    let reson = SkyNetworkError.ResponseErrorReason.dataParsingFailed(T.Response.self, data, error)
-                    handler?(.failure(SkyNetworkError.responseFailed(reason: reson)))
-                }
-                break
-            default:
-                break
-            }
+            weakSelf.didComplete(request: r, task: result.1, data: result.0, error: result.2)
         }
+        
         delegate.add(task)
         task.resume()
         return task
     }
+    
+    func didComplete(request: Request, task: URLSessionTask, data: Data?, error: Error?) {
+        var transportResponse: TransportResponse
+        defer {
+            request.complete(transportResponse)
+            self.delegate.remove(task)
+        }
+        if let e = error {
+            transportResponse = TransportResponse.response(with: e)
+            return
+        }
+        guard let response = task.response as? HTTPURLResponse else {
+            let e = NSError.init(domain: "com.sky.url.session", code: 0, userInfo: nil)
+            transportResponse = TransportResponse.response(with: e as Error)
+            return
+        }
+        transportResponse = TransportResponse.response(with: response, data: data)
+    }
 }
 
-typealias SessionTaskResult = (Data?, URLResponse?, Error?)
+typealias SessionTaskResult = (Data?, URLSessionTask, Error?)
 
 public class SessionTask {
     let request: URLRequest

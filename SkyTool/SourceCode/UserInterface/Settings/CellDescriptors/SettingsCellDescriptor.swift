@@ -173,8 +173,8 @@ class SettingsGroupCellDescriptor: SettingsInternalGroupCellDescriptorType, Sett
 func SettingsPropertyLabelText(_ name: SettingsPropertyName) -> String {
     switch name {
     case .isPushEnabled:
-        return "消息推送设置"
+        return "settings.system.pushEnable.title".localized
     case .touchuHostAddress:
-        return "连接host设置"
+        return "settings.system.hostAddress.title".localized
     }
 }
