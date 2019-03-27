@@ -73,6 +73,19 @@ public class TransportResponse {
     
     var payload: ResponseData
     
+    private init(payload: ResponseData,
+                 httpStatus: Int,
+                 sessionError: Error?,
+                 headers: [AnyHashable: Any]) {
+        self.payload = payload
+        self.httpStatusCode = httpStatus
+        self.sessionError = sessionError
+        self.headers = headers
+    }
+}
+
+public extension TransportResponse {
+    
     static func response(with error: Error) -> TransportResponse {
         return TransportResponse.init(payload: .none,
                                       httpStatus: 0,
@@ -101,15 +114,5 @@ public class TransportResponse {
                                           sessionError: error,
                                           headers: headers)
         }
-    }
-    
-    private init(payload: ResponseData,
-                 httpStatus: Int,
-                 sessionError: Error?,
-                 headers: [AnyHashable: Any]) {
-        self.payload = payload
-        self.httpStatusCode = httpStatus
-        self.sessionError = sessionError
-        self.headers = headers
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import PureLayout
+import XMLCoder
 
 class HomeViewController: UIViewController {
     
@@ -65,17 +66,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let request = TransportRequest(path: "/api/test", params: ["a": "bs"])
-        let handler: ResponseHandler = { resp in
-            switch resp.payload {
-            case .jsonDict(let json):
-                print("\(json)")
-            case .none:
-                print("no data, maybe error")
-            }
+        
+        guard let path = Bundle.main.path(forResource: "Binchois.musicxml", ofType: nil),
+            let data = try? Data.init(contentsOf: URL(fileURLWithPath: path)) else {
+            return
         }
-        request.responseHandlers.append(handler)
-        Session.init().send(request)
+        
+        do {
+            let json = try XMLStackParser.parse(with: data)
+            let data = try JSONSerialization.data(withJSONObject: json, options: [])
+            let score = try JSONDecoder.init().decode(Score.self, from: data)
+            print("\(score)")
+        } catch {
+            print("\(error)")
+        }
     }
 }
 

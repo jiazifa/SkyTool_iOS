@@ -16,10 +16,24 @@ class SkyRequestTests: XCTestCase {
     }
 
     override func tearDown() {
+        
     }
     
     func testRequest() {
-                
+        let transportRequest = TransportRequest.init(path: "/api/test", params: ["key1": "value1"])
+        let resp: ResponseHandler = { resp in
+            switch resp.payload {
+            case .jsonDict(_):
+                XCTAssert(1 == 1)
+                break
+            case .none:
+                XCTAssert(1 == 2)
+                break
+            }
+        }
+        
+        transportRequest.responseHandlers.append(resp)
+        Session.init().send(transportRequest)
     }
 
 }
