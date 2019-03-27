@@ -30,6 +30,7 @@ public struct Score: Codable, Equatable {
     let identification: Identification?
     let defaults: Defaults?
     let partList: PartList
+    let part: [Part]?
     
     enum CodingKeys: String, CodingKey {
         case work
@@ -38,6 +39,7 @@ public struct Score: Codable, Equatable {
         case partList = "part-list"
         case identification
         case defaults
+        case part
     }
 }
 

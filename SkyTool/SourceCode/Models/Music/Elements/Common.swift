@@ -385,7 +385,7 @@ public enum Orientation: String, Codable {
 //     bezier-y2      %tenths;  #IMPLIED
 //     bezier-offset  CDATA     #IMPLIED
 //     bezier-offset2 CDATA     #IMPLIED">
-public struct Bezier {
+public struct Bezier: Codable, Equatable {
     let x: Int
     let y: Int
     let x2: Int
@@ -649,7 +649,7 @@ public struct PrintStyleAlignment: Codable, Equatable {
 //
 // <!ENTITY % line-shape
 //    "line-shape (straight | curved) #IMPLIED">
-public enum LineShape {
+public enum LineShape: String, Codable {
     case straight
     case curved
 }
@@ -657,7 +657,7 @@ public enum LineShape {
 // <!ENTITY % line-type
 //    "line-type (solid | dashed | dotted | wavy) #IMPLIED">
 //
-public enum LineType {
+public enum LineType: String, Codable {
     case solid
     case dashed
     case dotted
@@ -666,7 +666,7 @@ public enum LineType {
 
 // <!ENTITY % line-length
 //    "line-length (short | medium | long) #IMPLIED">
-public enum LineLength {
+public enum LineLength: String, Codable {
     case short
     case medium
     case long
@@ -681,7 +681,7 @@ public enum LineLength {
 // <!ENTITY % dashed-formatting
 //    "dash-length   %tenths;  #IMPLIED
 //     space-length  %tenths;  #IMPLIED">
-public struct DashedFormatting {
+public struct DashedFormatting: Codable, Equatable {
     let dashLength: Int // Tenths
     let spaceLength: Int // Tenths
 }

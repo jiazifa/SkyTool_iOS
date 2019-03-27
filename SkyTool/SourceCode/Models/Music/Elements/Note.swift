@@ -83,7 +83,7 @@
 //     pizzicato %yes-no; #IMPLIED
 //     %optional-unique-id;
 // >
-public struct Note: Decodable, Equatable {
+public struct Note: Codable, Equatable {
 
     // (
     //   (
@@ -129,9 +129,9 @@ public struct Note: Decodable, Equatable {
 // <!ELEMENT step (#PCDATA)>
 // <!ELEMENT alter (#PCDATA)>
 // <!ELEMENT octave (#PCDATA)>
-public struct Pitch: Decodable, Equatable {
+public struct Pitch: Codable, Equatable {
 
-    public enum Step: String, Decodable {
+    public enum Step: String, Codable {
         case a = "A"
         case b = "B"
         case c = "C"
@@ -171,14 +171,14 @@ public struct Pitch: Decodable, Equatable {
 // Note: This type "type" must be called something other than `Type`, for the reason that it is
 // totally ambiguous as to what type of type we are talking about, and that it conflicts with
 // the swift `Type` (Metatype) static value present on all types.
-public struct DurationType: Decodable, Equatable {
+public struct DurationType: Codable, Equatable {
 
     public enum CodingKeys: String, CodingKey {
         case kind = "type"
         case size
     }
 
-    public enum Kind: String, Decodable {
+    public enum Kind: String, Codable {
         case maxima
         case long
         case breve
@@ -195,7 +195,7 @@ public struct DurationType: Decodable, Equatable {
         case onethousandtwentyfourth = "1024th"
     }
 
-    public enum Size: String, Decodable {
+    public enum Size: String, Codable {
         case full = "full"
         case cue = "cue"
         case graceCue = "grace-cue"
@@ -236,7 +236,7 @@ public struct DurationType: Decodable, Equatable {
 //    %print-style;
 //    %optional-unique-id;
 // >
-public struct Glissando {
+public struct Glissando: Codable, Equatable {
 
     public enum Kind {
         case start
@@ -258,16 +258,16 @@ public struct Glissando {
 //    %bend-sound;
 //    %optional-unique-id;
 // >
-public struct Slide {
-    public enum Kind: String {
+public struct Slide: Codable, Equatable {
+    public enum Kind: String, Codable {
         case start
         case stop
     }
     let kind: Kind
-    let lineType: LineType
-    let dashedFormatting: DashedFormatting
-    let printStyle: PrintStyle
-    let bendSound: BendSound
+//    let lineType: LineType
+//    let dashedFormatting: DashedFormatting
+//    let printStyle: PrintStyle
+//    let bendSound: BendSound
     let id: String?
 }
 
@@ -291,7 +291,7 @@ public struct Slide {
 //    %smufl;
 //    %optional-unique-id;
 // >
-public struct OtherNotation {
+public struct OtherNotation: Codable, Equatable {
     let value: String
     let type: StartStopSingle
     let number: NumberLevel
@@ -316,7 +316,7 @@ public struct OtherNotation {
 // <!ATTLIST ornaments
 //    %optional-unique-id;
 // >
-public struct Ornaments {
+public struct Ornaments: Codable, Equatable {
     #warning("TODO: Ornaments")
 }
 // <!ELEMENT trill-mark EMPTY>
@@ -822,9 +822,9 @@ public struct Technical {
 //<!ELEMENT arrow-style (#PCDATA)>
 //<!ELEMENT arrowhead EMPTY>
 //<!ELEMENT circular-arrow (#PCDATA)>
-public struct Arrow {
+public struct Arrow: Codable, Equatable {
 
-    public enum Direction: String {
+    public enum Direction: String, Codable {
         case left
         case up
         case right
@@ -840,7 +840,7 @@ public struct Arrow {
         case other
     }
 
-    public enum Style: String {
+    public enum Style: String, Codable {
         case single
         case double
         case filled
@@ -855,7 +855,7 @@ public struct Arrow {
         case linear(Direction, Style?, arrowhead: Bool)
     }
 
-    let kind: Kind
+//    let kind: Kind
     let printStyle: PrintStyle
     let placement: Placement
     let smufl: SMuFL
@@ -995,7 +995,7 @@ public struct Arrow {
 //<!ATTLIST articulations
 //    %optional-unique-id;
 //>
-public struct Articulations {
+public struct Articulations: Codable, Equatable {
 
     //
     //<!ELEMENT accent EMPTY>
@@ -1070,9 +1070,9 @@ public struct Articulations {
     //    %print-style;
     //    %placement;
     //>
-    public struct Simple {
+    public struct Simple: Codable, Equatable {
 
-        public enum Kind: String {
+        public enum Kind: String, Codable {
             case accent = "accent"
             case strongAccent = "strong-accent"
             case staccato = "staccato"
@@ -1133,8 +1133,8 @@ public struct Articulations {
     //    %print-style;
     //    %placement;
     //>
-    public struct Slide {
-        public enum Kind: String {
+    public struct Slide: Codable, Equatable {
+        public enum Kind: String, Codable {
             case scoop
             case plop
             case doit
@@ -1158,9 +1158,9 @@ public struct Articulations {
     //    %print-style;
     //    %placement;
     //>
-    public struct BreathMark {
+    public struct BreathMark: Codable, Equatable {
 
-        enum Text: String {
+        enum Text: String, Codable {
             case comma
             case tick
             case upbow
@@ -1169,7 +1169,7 @@ public struct Articulations {
         }
 
         let text: Text
-        let printStyle: PrintStyle
+//        let printStyle: PrintStyle
         let placement: Placement
     }
 
@@ -1183,9 +1183,9 @@ public struct Articulations {
     //    %print-style;
     //    %placement;
     // >
-    public struct Caesura {
+    public struct Caesura: Codable, Equatable {
 
-        public enum Symbol {
+        public enum Symbol: String, Codable {
             case noraml
             case thick
             case short
@@ -1195,7 +1195,7 @@ public struct Articulations {
         }
 
         let symbol: Symbol
-        let printStyle: PrintStyle
+//        let printStyle: PrintStyle
         let placement: Placement
     }
 
@@ -1214,9 +1214,9 @@ public struct Articulations {
     //    %placement;
     //    %smufl;
     // >
-    public struct Other {
+    public struct Other: Codable, Equatable {
         let value: String
-        let printStyle: PrintStyle
+//        let printStyle: PrintStyle
         let placement: Placement
         let smufl: SMuFL
     }
@@ -1248,9 +1248,9 @@ public struct Articulations {
 //    %optional-unique-id;
 // >
 // TODO: Appearance
-public struct Arpeggiate {
+public struct Arpeggiate: Codable, Equatable {
 
-    public enum Direction: String {
+    public enum Direction: String, Codable {
         case up
         case down
     }
@@ -1279,9 +1279,9 @@ public struct Arpeggiate {
 //    %optional-unique-id;
 // >
 // TODO: Appearance
-public struct NonArpeggiate {
+public struct NonArpeggiate: Codable, Equatable {
 
-    public enum Kind {
+    public enum Kind: String, Codable {
         case top
         case bottom
     }
@@ -1334,7 +1334,7 @@ public struct NonArpeggiate {
 //     %optional-unique-id;
 // >
 // TODO: Appearance attributes
-public struct Lyric {
+public struct Lyric: Codable, Equatable {
 
     //     The extend element represents lyric word extension /
     //     melisma lines as well as figured bass extensions. The
@@ -1348,7 +1348,7 @@ public struct Lyric {
     //     %color;
     // >
     // TODO: Lift to struct with nested Kind when adding appearance properties
-    public enum Extend: String {
+    public enum Extend: String, Codable {
         case start
         case stop
         case `continue`
@@ -1357,7 +1357,7 @@ public struct Lyric {
     public enum Kind {
 
         // FIXME: Figure out how to describe this mess.
-        public struct Verbal {
+        public struct Verbal: Codable, Equatable {
             // (syllabic?, text)
             // (elision?, syllabic?, text)*
             // extend?
@@ -1405,7 +1405,7 @@ public struct Lyric {
 //     xml:lang NMTOKEN #IMPLIED
 //     %text-direction;
 // >
-public struct Text {
+public struct Text: Codable, Equatable {
     let value: String
     let font: Font
     let color: Color
@@ -1458,7 +1458,7 @@ public struct Text {
 //    parentheses %yes-no; #IMPLIED
 //    %optional-unique-id;
 // >
-public struct FiguredBass: Equatable {
+public struct FiguredBass: Codable, Equatable {
 
     // <!ELEMENT figure
     //    (prefix?, figure-number?, suffix?, extend?, %editorial;)>
@@ -1466,12 +1466,12 @@ public struct FiguredBass: Equatable {
     // <!ATTLIST prefix
     //    %print-style;
     // >
-    public struct Figure: Decodable, Equatable {
+    public struct Figure: Codable, Equatable {
 
         // > Values for prefix and suffix include plus and
         // > the accidental values sharp, flat, natural, double-sharp,
         // > flat-flat, and sharp-sharp.
-        public enum Prefix: String, Decodable, Equatable {
+        public enum Prefix: String, Codable, Equatable {
             case plus = "plus"
             case sharp = "sharp"
             case flat = "flat"
@@ -1486,7 +1486,7 @@ public struct FiguredBass: Equatable {
         // > the figure number. The suffix values slash, back-slash, and
         // > vertical are used for slashed numbers indicating chromatic
         // > alteration.
-        public enum Suffix: String, Decodable, Equatable {
+        public enum Suffix: String, Codable, Equatable {
             case slash = "slash"
             case backSlash = "back-slash"
             case vertical = "vertical"
@@ -1521,14 +1521,14 @@ public struct FiguredBass: Equatable {
 // > boundaries or mid-measure changes in the divisions value.
 //
 // <!ELEMENT backup (duration, %editorial;)>
-public struct Backup: Decodable, Equatable {
+public struct Backup: Codable, Equatable {
     let duration: Int
     let editorial: Editorial
 }
 
 // <!ELEMENT forward
 //    (duration, %editorial-voice;, staff?)>
-public struct Forward: Decodable, Equatable {
+public struct Forward: Codable, Equatable {
     let duration: Int
     let editorialVoice: EditorialVoice?
     let staff: Staff?
@@ -1609,7 +1609,7 @@ public struct FullNote {
 // <!ELEMENT unpitched ((display-step, display-octave)?)>
 // <!ELEMENT display-step (#PCDATA)>
 // <!ELEMENT display-octave (#PCDATA)>
-public struct Unpitched: Decodable, Equatable {
+public struct Unpitched: Codable, Equatable {
     let displayStep: Int
     let displayOctave: Int
 }
@@ -1624,7 +1624,7 @@ public struct Unpitched: Decodable, Equatable {
 // <!ATTLIST rest
 //    measure %yes-no; #IMPLIED
 // >
-public struct Rest: Decodable, Equatable {
+public struct Rest: Codable, Equatable {
     let displayStep: Int?
     let displayOctave: Int?
     let measure: Bool
@@ -1692,7 +1692,7 @@ public struct Rest: Decodable, Equatable {
 //    %smufl;
 // >
 #warning("TODO: Add support for Accidental level-display, print-style, and smufl")
-public struct Accidental: Decodable, Equatable {
+public struct Accidental: Codable, Equatable {
 
     // > Valid values include: sharp,
     // > natural, flat, double-sharp, sharp-sharp, flat-flat,
@@ -1720,7 +1720,7 @@ public struct Accidental: Decodable, Equatable {
     // > help specify the appearance of symbols that share the same
     // > MusicXML semantics.
 
-    public enum Kind: String, Decodable, Equatable {
+    public enum Kind: String, Codable, Equatable {
         case sharp
         case natural
         case flat
@@ -1814,8 +1814,8 @@ public struct TimeModification {
 //    %position;
 //    %color;
 // >
-public struct Stem {
-    public enum Kind {
+public struct Stem: Codable, Equatable {
+    public enum Kind: String, Codable {
         case down
         case up
         case none
@@ -1866,7 +1866,7 @@ public struct Stem {
 //    %color;
 //    %smufl;
 // >
-public struct Notehead {
+public struct Notehead: Codable, Equatable {
 
     // > The element
     // > value can be slash, triangle, diamond, square, cross, x,
@@ -1876,7 +1876,7 @@ public struct Notehead {
     // > For shape note music, the element values do, re, mi, fa,
     // > fa up, so, la, and ti are also used, corresponding to Aikin's
     // > 7-shape system.
-    public enum Kind: String {
+    public enum Kind: String, Codable {
         case slash
         case triangle
         case diamond
@@ -1955,8 +1955,8 @@ public struct NoteheadText {
 //    %color;
 //    %optional-unique-id;
 //>
-public struct Beam {
-    public enum Kind: String {
+public struct Beam: Codable, Equatable {
+    public enum Kind: String, Codable {
         case begin
         case `continue`
         case end
@@ -1964,7 +1964,7 @@ public struct Beam {
         case backwardHook = "backward hook"
     }
 
-    public enum Fan: String {
+    public enum Fan: String, Codable {
         case accelerando = "accel"
         case ritardando = "rit"
         case none
@@ -2056,7 +2056,7 @@ public struct Notations {
 //    %color;
 //    %optional-unique-id;
 //>
-public struct Tied {
+public struct Tied: Codable, Equatable {
 
     // MARK: - Attributes
 
@@ -2092,7 +2092,7 @@ public struct Tied {
 //    %color;
 //    %optional-unique-id;
 //>
-public struct Slur {
+public struct Slur: Codable, Equatable {
 
     // MARK: - Attributes
 
@@ -2148,15 +2148,15 @@ public struct Slur {
 //    %placement;
 //    %optional-unique-id;
 // >
-public struct Tuplet {
+public struct Tuplet: Codable, Equatable {
 
-    public enum ShowNumber: String {
+    public enum ShowNumber: String, Codable {
         case actual
         case both
         case none
     }
 
-    public enum ShowType {
+    public enum ShowType: String, Codable {
         case actual
         case both
         case none
@@ -2168,9 +2168,9 @@ public struct Tuplet {
     let normal: TupletNormal?
     let type: StartStop
     let level: NumberLevel?
-    let showNumber: ShowNumber = .none
-    let showType: ShowNumber = .none
-    let lineShape: LineShape
+//    let showNumber: ShowNumber = .none
+//    let showType: ShowNumber = .none
+//    let lineShape: LineShape
     let position: Position
     let placement: Placement
     let id: Int?
@@ -2178,7 +2178,7 @@ public struct Tuplet {
 
 // <!ELEMENT tuplet-actual (tuplet-number?,
 //    tuplet-type?, tuplet-dot*)>
-public struct TupletActual {
+public struct TupletActual: Codable, Equatable {
     let number: TupletNumber?
     let type: TupletType?
     let dot: [TupletDot]
@@ -2186,7 +2186,7 @@ public struct TupletActual {
 
 // <!ELEMENT tuplet-normal (tuplet-number?,
 //    tuplet-type?, tuplet-dot*)>
-public struct TupletNormal {
+public struct TupletNormal: Codable, Equatable {
     let number: TupletNumber?
     let type: TupletType?
     let dot: [TupletDot]
@@ -2197,7 +2197,7 @@ public struct TupletNormal {
 //    %font;
 //    %color;
 // >
-public struct TupletNumber {
+public struct TupletNumber: Codable, Equatable {
     let value: Int
     let font: Font
     let color: Color
@@ -2208,7 +2208,7 @@ public struct TupletNumber {
 //    %font;
 //    %color;
 // >
-public struct TupletType {
+public struct TupletType: Codable, Equatable {
     let font: Font
     let color: Color
 }
@@ -2218,11 +2218,7 @@ public struct TupletType {
 //    %font;
 //    %color;
 // >
-public struct TupletDot {
+public struct TupletDot: Codable, Equatable {
     let font: Font
     let color: Color
-}
-
-extension FiguredBass: Decodable {
-
 }

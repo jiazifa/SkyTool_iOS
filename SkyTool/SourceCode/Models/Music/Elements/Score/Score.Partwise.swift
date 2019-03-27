@@ -7,7 +7,11 @@
 
 extension Score {
     /// The `partwise` traversal of a MusicXML score.
-    public struct Partwise: Equatable {
+    public struct Partwise:Codable, Equatable {
+        enum CodingKeys: String, CodingKey {
+            case parts = "part"
+        }
+        
         let parts: [Part]
     }
 }
@@ -24,7 +28,12 @@ extension Score.Partwise {
     // <!ATTLIST part
     //    id IDREF #REQUIRED
     // >
-    public struct Part: Equatable {
+    public struct Part:Codable, Equatable {
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case measures = "measure"
+        }
         let id: String
         let measures: [Measure]
     }
@@ -71,59 +80,22 @@ extension Score.Partwise {
     //     width %tenths; #IMPLIED
     //     %optional-unique-id;
     // >
-    public struct Measure: Equatable {
+    public struct Measure: Codable, Equatable {
+        enum CodingKeys: String, CodingKey {
+            case number
+            case text
+            case implicit
+            case nonControlling = "non-controlling"
+            case width
+            case optionalUniqueID = "optional-unique-id"
+        }
+        
         let number: Int
         let text: String?
         let implicit: Bool?
         let nonControlling: Bool?
         let width: Int? // Tenths
         let optionalUniqueID: Int?
-        let musicData: MusicData?
-    }
-}
-
-extension Score.Partwise: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case parts = "part"
-    }
-}
-
-extension Score.Partwise.Part: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case measures = "measure"
-    }
-}
-
-extension Score.Partwise.Measure: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case number
-        case attributes
-        case text
-        case implicit
-        case nonControlling = "non-controlling"
-        case width
-        case optionalUniqueID = "optional-unique-id"
-    }
-
-    public init(from decoder: Decoder) throws {
-        let keyed = try decoder.container(keyedBy: CodingKeys.self)
-        var unkeyed = try decoder.unkeyedContainer()
-        self.number = try keyed.decode(Int.self, forKey: .number)
-        self.text = try keyed.decodeIfPresent(String.self, forKey: .text)
-        self.implicit = try keyed.decodeIfPresent(Bool.self, forKey: .implicit)
-        self.nonControlling = try keyed.decodeIfPresent(Bool.self, forKey: .nonControlling)
-        self.width = try keyed.decodeIfPresent(Int.self, forKey: .width)
-        self.optionalUniqueID = try keyed.decodeIfPresent(Int.self, forKey: .optionalUniqueID)
-        self.musicData = try unkeyed.decode(MusicData.self)
+        
     }
 }

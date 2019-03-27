@@ -24,9 +24,8 @@ extension Score.Timewise {
     // <!ATTLIST part
     //    id IDREF #REQUIRED
     // >
-    public struct Part: Equatable {
+    public struct Part:Codable, Equatable {
         let id: String
-        let musicData: MusicData?
     }
 
     // > The implicit attribute is set to "yes" for measures where
@@ -71,7 +70,7 @@ extension Score.Timewise {
     //     width %tenths; #IMPLIED
     //     %optional-unique-id;
     // >
-    public struct Measure: Equatable {
+    public struct Measure:Codable, Equatable {
         let number: Int
         let text: String?
         let implicit: Bool?
@@ -79,45 +78,5 @@ extension Score.Timewise {
         let width: Int? // Tenths
         let optionalUniqueID: Int?
         let parts: [Part]
-    }
-}
-
-extension Score.Timewise: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case measures = "measure"
-    }
-}
-
-extension Score.Timewise.Part: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case id
-    }
-
-    public init(from decoder: Decoder) throws {
-        let keyed = try decoder.container(keyedBy: CodingKeys.self)
-        var unkeyed = try decoder.unkeyedContainer()
-        self.id = try keyed.decode(String.self, forKey: .id)
-        self.musicData = try unkeyed.decode(MusicData.self)
-    }
-}
-
-extension Score.Timewise.Measure: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case parts = "part"
-        case number
-        case text
-        case implicit
-        case nonControlling = "non-controlling"
-        case width
-        case optionalUniqueID = "optional-unique-id"
     }
 }

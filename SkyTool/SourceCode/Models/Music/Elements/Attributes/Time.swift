@@ -29,7 +29,7 @@
 // <!ELEMENT beat-type (#PCDATA)>
 // <!ELEMENT senza-misura (#PCDATA)>
 // <!ELEMENT time-relation (#PCDATA)>
-public struct Time: Equatable {
+public struct Time: Codable, Equatable {
 
     // > The time-separator entity indicates how to display the
     // > arrangement between the beats and beat-type values in a
@@ -45,7 +45,7 @@ public struct Time: Equatable {
     // <!ENTITY % time-separator
     //    "separator (none | horizontal | diagonal |
     //        vertical | adjacent) #IMPLIED">
-    public enum Separator: String, Decodable {
+    public enum Separator: String, Codable {
         case none
         case horizontal
         case diagonal
@@ -68,7 +68,7 @@ public struct Time: Equatable {
     // <!ENTITY % time-symbol
     //    "symbol (common | cut | single-number |
     //             note | dotted-note | normal) #IMPLIED">
-    public enum Symbol: String, Decodable {
+    public enum Symbol: String, Codable {
         case common = "common"
         case cut = "cut"
         case singleNumber = "single-number"
@@ -82,7 +82,7 @@ public struct Time: Equatable {
     //
     // > Valid values are parentheses, bracket, equals, slash, space,
     // > and hyphen.
-    public enum Relation: String, Decodable {
+    public enum Relation: String, Codable {
         case parentheses
         case bracket
         case equals
@@ -114,9 +114,14 @@ public struct Time: Equatable {
                 let symbol: Symbol
                 let separator: Separator
             }
-            public struct Signature: Equatable {
+            public struct Signature: Codable, Equatable {
                 let beats: Int
                 let beatType: Int
+                
+                enum CodingKeys: String, CodingKey {
+                    case beats
+                    case beatType = "beat-type"
+                }
             }
             let signatures: [Signature] // TODO: Ensure NonEmpty
             let interchangeable: Interchangeable?
@@ -135,7 +140,7 @@ public struct Time: Equatable {
         case unmeasured(Unmeasured)
     }
 
-    let kind: Kind
+//    let kind: Kind
     let symbol: Symbol
     let separator: Separator
 
@@ -147,61 +152,9 @@ public struct Time: Equatable {
 
     // MARK: - Initializers
 
-    public init(kind: Kind, symbol: Symbol, separator: Separator, id: Int?) {
-        self.kind = kind
+    public init(symbol: Symbol, separator: Separator, id: Int?) {
         self.symbol = symbol
         self.separator = separator
         self.id = id
-    }
-}
-
-extension Time: Decodable {
-
-    // MARK: - Decodable
-
-    #warning("TODO: Handle Time attributes symbol, separator, id, etc.")
-    public init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        self.kind = try container.decode(Kind.self)
-        self.symbol = .common
-        self.separator = .horizontal
-        self.id = nil
-    }
-}
-
-extension Time.Kind: Decodable {
-
-    // MARK: - Decodable
-
-    public init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        do {
-            self = .measured(try container.decode(Measured.self))
-        } catch {
-            self = .unmeasured(try container.decode(Unmeasured.self))
-        }
-    }
-}
-
-extension Time.Kind.Measured: Decodable {
-
-    // MARK: - Decodable
-
-    public init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        self.signatures = try container.decode([Signature].self)
-        self.interchangeable = nil
-    }
-}
-
-extension Time.Kind.Unmeasured: Decodable { }
-
-extension Time.Kind.Measured.Signature: Decodable {
-
-    // MARK: - Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case beats
-        case beatType = "beat-type"
     }
 }

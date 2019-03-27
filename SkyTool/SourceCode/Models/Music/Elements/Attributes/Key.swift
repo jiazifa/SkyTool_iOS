@@ -30,24 +30,24 @@
 // > <!ATTLIST key-accidental
 // >     %smufl;
 // > >
-public struct Key: Decodable, Equatable {
+public struct Key: Equatable {
 
     // > <!ELEMENT key-octave (#PCDATA)>
     // > <!ATTLIST key-octave
     // >     number NMTOKEN #REQUIRED
     // >     cancel %yes-no; #IMPLIED
     // > >
-    public struct Octave: Decodable, Equatable {
+    public struct Octave: Codable, Equatable {
         let number: Int
         let cancel: Bool
     }
 
-    public enum Kind: Decodable, Equatable {
-
+    public enum Kind: Equatable {
+        
         // > Traditional key signatures are represented by the number
         // > of flats and sharps, plus an optional mode for major/
         // > minor/mode distinctions.
-        public struct Traditional: Decodable, Equatable {
+        public struct Traditional: Codable, Equatable {
 
             // > A cancel element indicates that the old
             // > key signature should be cancelled before the new one
@@ -67,7 +67,7 @@ public struct Key: Decodable, Equatable {
             // > <!ATTLIST cancel
             // >     location (left | right | before-barline) #IMPLIED
             // > >
-            public enum Cancel: String, Decodable {
+            public enum Cancel: String, Codable {
                 case left = "left"
                 case right = "right"
                 case beforeBarline = "before-barline"
@@ -75,7 +75,7 @@ public struct Key: Decodable, Equatable {
 
             // > Valid mode values include major, minor, dorian, phrygian,
             // > lydian, mixolydian, aeolian, ionian, locrian, and none.
-            public enum Mode: String, Decodable {
+            public enum Mode: String, Codable {
                 case major
                 case minor
                 case dorian
@@ -113,7 +113,7 @@ public struct Key: Decodable, Equatable {
         // > microtonal accidentals. The different element names
         // > indicate the different meaning of altering notes in a scale
         // > versus altering a sounding pitch.
-        public struct NonTraditional: Decodable, Equatable {
+        public struct NonTraditional: Codable, Equatable {
             let step: Int
             let alter: Double
             let accidental: String
@@ -122,14 +122,14 @@ public struct Key: Decodable, Equatable {
         case traditional(Traditional)
         case nonTraditional(NonTraditional)
 
-        public init(from decoder: Decoder) throws {
-            var container = try decoder.unkeyedContainer()
-            do {
-                self = .traditional(try container.decode(Traditional.self))
-            } catch {
-                self = .nonTraditional(try container.decode(NonTraditional.self))
-            }
-        }
+//        public init(from decoder: Decoder) throws {
+//            var container = try decoder.unkeyedContainer()
+//            do {
+//                self = .traditional(try container.decode(Traditional.self))
+//            } catch {
+//                self = .nonTraditional(try container.decode(NonTraditional.self))
+//            }
+//        }
     }
 
     let kind: Kind
@@ -155,14 +155,5 @@ public struct Key: Decodable, Equatable {
         self.number = number
         self.octaves = octaves
         self.id = id
-    }
-
-    #warning("TODO: Handle Key attributes number, octaves, id, etc.")
-    public init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        self.kind = try container.decode(Kind.self)
-        self.number = nil
-        self.octaves = nil
-        self.id = nil
     }
 }

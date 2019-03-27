@@ -30,10 +30,26 @@
 // <!ELEMENT attributes (%editorial;, divisions?, key*, time*,
 //    staves?, part-symbol?, instruments?, clef*, staff-details*,
 //    transpose*, directive*, measure-style*)>
-public struct Attributes: Equatable {
+public struct Attributes: Codable, Equatable {
+    
+    enum CodingKeys: String, CodingKey {
+        case editorial
+        case divisions
+//        case keys = "key"
+        case time
+        case staves
+        case partSymbol = "part-symbol"
+        case instruments
+        case clefs = "clef"
+        case staffDetails = "staff-details"
+        case transpose
+        case directive
+        case measureStyles = "measure-style"
+    }
+    
     let editorial: Editorial?
     let divisions: Divisions?
-    let keys: [Key]?
+//    let keys: [Key]?
     let time: [Time]?
     let staves: Staves?
     let partSymbol: PartSymbol?
@@ -112,7 +128,7 @@ public typealias Divisions = Int
 // <!ELEMENT sign (#PCDATA)>
 // <!ELEMENT line (#PCDATA)>
 // <!ELEMENT clef-octave-change (#PCDATA)>
-public struct Clef: Decodable, Equatable {
+public struct Clef: Codable, Equatable {
     public enum Sign: String, Codable {
         case g = "G"
         case f = "F"
@@ -144,7 +160,7 @@ public struct Clef: Decodable, Equatable {
 // <!ELEMENT chromatic (#PCDATA)>
 // <!ELEMENT octave-change (#PCDATA)>
 // <!ELEMENT double EMPTY>
-public struct Transpose: Decodable, Equatable {
+public struct Transpose: Codable, Equatable {
 
     // > The optional number attribute refers to staff numbers,
     // > from top to bottom on the system. If absent, the
@@ -191,7 +207,7 @@ public struct Transpose: Decodable, Equatable {
 // > numerical order, with staff 1 above staff 2.
 //
 // <!ELEMENT staves (#PCDATA)>
-public struct Staves: Decodable, Equatable {
+public struct Staves: Codable, Equatable {
     // FIXME: Do we store names / ids here?
     let count: Int
     public init(count: Int) {
@@ -218,8 +234,8 @@ public struct Staves: Decodable, Equatable {
 //    %position;
 //    %color;
 // >
-public struct PartSymbol: Decodable, Equatable {
-    public enum Kind: String, Decodable {
+public struct PartSymbol: Codable, Equatable {
+    public enum Kind: String, Codable {
         case none
         case brace
         case line
@@ -253,7 +269,7 @@ public struct PartSymbol: Decodable, Equatable {
 // > is assumed.
 //
 // <!ELEMENT instruments (#PCDATA)>
-public struct Instruments: Decodable, Equatable {
+public struct Instruments: Codable, Equatable {
     // FIXME: Do we store names / ids here?
     let count: Int
     public init(count: Int) {
@@ -271,7 +287,7 @@ public struct Instruments: Decodable, Equatable {
 //    line CDATA #REQUIRED
 // >
 //
-public struct StaffTuning: Decodable, Equatable {
+public struct StaffTuning: Codable, Equatable {
     let step: Int
     let alter: Double
     let octave: Int
@@ -314,8 +330,8 @@ public struct StaffTuning: Decodable, Equatable {
 // >
 // <!ELEMENT staff-type (#PCDATA)>
 // <!ELEMENT staff-lines (#PCDATA)>
-public struct StaffDetails: Decodable, Equatable {
-    public enum Kind: String, Decodable {
+public struct StaffDetails: Codable, Equatable {
+    public enum Kind: String, Codable {
         case ossia
         case cue
         case editorial
@@ -338,7 +354,7 @@ public struct StaffDetails: Decodable, Equatable {
 // > by the specified number of half-steps.
 //
 // <!ELEMENT capo (#PCDATA)>
-public struct Capo: Decodable, Equatable {
+public struct Capo: Codable, Equatable {
     let fret: Int
     public init(fret: Int) {
         self.fret = fret
@@ -357,7 +373,7 @@ public struct Capo: Decodable, Equatable {
 // > right margins.
 //
 // <!ELEMENT staff-size (#PCDATA)>
-public struct StaffSize: Decodable, Equatable {
+public struct StaffSize: Codable, Equatable {
     let value: Double
     public init(value: Double) {
         self.value = value
@@ -386,7 +402,7 @@ public struct StaffSize: Decodable, Equatable {
 //    %optional-unique-id;
 // >
 // TODO: (multiple-rest | measure-repeat | beat-repeat | slash)
-public struct MeasureStyle: Decodable, Equatable {
+public struct MeasureStyle: Codable, Equatable {
     let number: Int
     let font: String
     let color: String
@@ -406,7 +422,7 @@ public struct MeasureStyle: Decodable, Equatable {
 // > the beat is based on the current time signature.
 //
 // <!ELEMENT slash-type (#PCDATA)>
-public struct SlashType {
+public struct SlashType: Codable {
     // TODO: Don't entirely understand this one yet.
 }
 
@@ -417,7 +433,7 @@ public struct SlashType {
 // > the beat is based on the current time signature.
 //
 // <!ELEMENT slash-dot EMPTY>
-public struct SlashDot {
+public struct SlashDot: Codable {
     // TODO: Don't entirely understand this one yet.
 }
 
@@ -428,7 +444,7 @@ public struct SlashDot {
 // > notation that is always displayed.
 //
 // <!ELEMENT except-voice (#PCDATA)>
-public struct ExceptVoice {
+public struct ExceptVoice: Codable {
     // TODO: Don't entirely understand this one yet.
 }
 
@@ -442,7 +458,7 @@ public struct ExceptVoice {
 // <!ATTLIST multiple-rest
 //    use-symbols %yes-no; #IMPLIED
 // >
-public struct MultipleRest {
+public struct MultipleRest: Codable {
     let count: Int
     let useSymbols: Bool
     public init(count: Int, useSymbols: Bool) {
@@ -470,8 +486,8 @@ public struct MultipleRest {
 //    slashes NMTOKEN #IMPLIED
 // >
 // TODO: Factor out enum `StartOrStop`
-public struct MeasureRepeat {
-    public enum Kind: String {
+public struct MeasureRepeat: Codable, Equatable {
+    public enum Kind: String, Codable {
         case start
         case stop
     }
@@ -500,8 +516,8 @@ public struct MeasureRepeat {
 // >
 // TODO: except-voice
 // TODO: Factor out enum `StartOrStop`
-public struct BeatRepeat {
-    public enum Kind: String {
+public struct BeatRepeat: Codable, Equatable {
+    public enum Kind: String, Codable {
         case start
         case stop
     }
@@ -531,8 +547,8 @@ public struct BeatRepeat {
 // >
 // TODO: except-voice
 // TODO: Factor out enum `StartOrStop`
-public struct Slash {
-    public enum Kind: String {
+public struct Slash: Codable, Equatable {
+    public enum Kind: String, Codable {
         case start
         case stop
     }
@@ -563,31 +579,11 @@ public struct Slash {
 // >
 //
 // FIXME: The types (`String`) for `printStyle` and `language` are guesses at this point.
-public struct Directive: Decodable, Equatable {
+public struct Directive: Codable, Equatable {
     let printStyle: String
     let language: String
     public init(printStyle: String, language: String) {
         self.printStyle = printStyle
         self.language = language
-    }
-}
-
-extension Attributes: Decodable {
-
-    // MARK: Decodable
-
-    enum CodingKeys: String, CodingKey {
-        case editorial
-        case divisions
-        case keys = "key"
-        case time
-        case staves
-        case partSymbol = "part-symbol"
-        case instruments
-        case clefs = "clef"
-        case staffDetails = "staff-details"
-        case transpose
-        case directive
-        case measureStyles = "measure-style"
     }
 }

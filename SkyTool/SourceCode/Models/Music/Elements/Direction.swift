@@ -657,7 +657,7 @@ public struct Direction: Equatable {
 // <!ATTLIST offset
 //    sound %yes-no; #IMPLIED
 // >
-public struct Offset: Decodable, Equatable {
+public struct Offset: Codable, Equatable {
     let value: Int
     let sound: Bool
 }
@@ -691,29 +691,6 @@ public struct Offset: Decodable, Equatable {
 //
 // <!ENTITY % harmony-chord "((root | function), kind,
 //    inversion?, bass?, degree*)">
-public struct HarmonyChord: Decodable, Equatable {
-    public enum RootOrFunction: Decodable, Equatable {
-        enum CodingKeys: String, CodingKey {
-            case root
-            case function
-        }
-        case root(Root)
-        case function(Function)
-        public init(from decoder: Decoder) throws {
-            let keyed = try decoder.container(keyedBy: CodingKeys.self)
-            do {
-                self = .root(try keyed.decode(Root.self, forKey: .root))
-            } catch {
-                self = .function(try keyed.decode(Function.self, forKey: .function))
-            }
-        }
-    }
-    let rootOrFunction: RootOrFunction
-    let kind: Kind
-    let inversion: Inversion?
-    let bass: Bass?
-    let degree: [Degree] // TODO: Make `NonEmpty`
-}
 
 // <!ELEMENT harmony ((%harmony-chord;)+, frame?,
 //    offset?, %editorial;, staff?)>
@@ -725,13 +702,12 @@ public struct HarmonyChord: Decodable, Equatable {
 //    %placement;
 //    %optional-unique-id;
 //>
-public struct Harmony: Equatable {
-    public enum Kind: String, Decodable {
+public struct Harmony: Codable, Equatable {
+    public enum Kind: String, Codable {
         case explicit
         case implied
         case alternate
     }
-    let chord: [HarmonyChord] // TODO: Make NonEmpty
     let frame: Frame?
     let offset: Offset?
     let editorial: Editorial?
@@ -763,14 +739,14 @@ public struct Harmony: Equatable {
 // > of the root-step; it is right by default.
 //
 // <!ELEMENT root (root-step, root-alter?)>
-public struct Root: Decodable, Equatable {
+public struct Root: Codable, Equatable {
 
     // <!ELEMENT root-step (#PCDATA)>
     // <!ATTLIST root-step
     //    text CDATA #IMPLIED
     //    %print-style;
     // >
-    public struct Step: Decodable, Equatable {
+    public struct Step: Codable, Equatable {
         // TODO: Use more general step value (e.g., `LetterName`)
         let value: String
         let text: String
@@ -783,8 +759,8 @@ public struct Root: Decodable, Equatable {
     //    %print-style;
     //    location %left-right; #IMPLIED
     // >
-    public struct Alter: Decodable, Equatable {
-        public enum Location: String, Decodable {
+    public struct Alter: Codable, Equatable {
+        public enum Location: String, Codable {
             case left
             case right
         }
@@ -806,7 +782,7 @@ public struct Root: Decodable, Equatable {
 // <!ATTLIST function
 //    %print-style;
 // >
-public struct Function: Decodable, Equatable {
+public struct Function: Codable, Equatable {
     let value: String
     let printStyle: PrintStyle?
 }
@@ -849,7 +825,7 @@ public struct Function: Decodable, Equatable {
 //    %halign;
 //    %valign;
 //>
-public struct Kind: Decodable, Equatable {
+public struct Kind: Codable, Equatable {
 
     // > Kind indicates the type of chord. Degree elements
     // > can then add, subtract, or alter from these
@@ -904,7 +880,7 @@ public struct Kind: Decodable, Equatable {
     // > composed of add elements. The "none" kind is used to
     // > explicitly encode absence of chords or functional
     // > harmony.
-    public enum Value: String, Decodable {
+    public enum Value: String, Codable {
         case major
         case minor
         case augmented
@@ -957,7 +933,7 @@ public struct Kind: Decodable, Equatable {
 // <!ATTLIST inversion
 //    %print-style;
 // >
-public struct Inversion: Decodable, Equatable {
+public struct Inversion: Codable, Equatable {
     let value: Int
     let printStyle: PrintStyle
 }
@@ -971,14 +947,14 @@ public struct Inversion: Decodable, Equatable {
 // > the corresponding attributes for root-step and root-alter.
 //
 // <!ELEMENT bass (bass-step, bass-alter?)>
-public struct Bass: Decodable, Equatable {
+public struct Bass: Codable, Equatable {
 
     // <!ELEMENT bass-step (#PCDATA)>
     // <!ATTLIST bass-step
     //    text CDATA #IMPLIED
     //    %print-style;
     // >
-    public struct Step: Decodable, Equatable {
+    public struct Step: Codable, Equatable {
         let value: String
         let text: String?
         let printStyle: PrintStyle?
@@ -990,8 +966,8 @@ public struct Bass: Decodable, Equatable {
     //    %print-style;
     //    location (left | right) #IMPLIED
     // >
-    public struct Alter: Decodable, Equatable {
-        public enum Location: String, Decodable {
+    public struct Alter: Codable, Equatable {
+        public enum Location: String, Codable {
             case left
             case right
         }
@@ -1029,7 +1005,7 @@ public struct Bass: Decodable, Equatable {
 // <!ATTLIST degree
 //    %print-object;
 // >
-public struct Degree: Decodable, Equatable {
+public struct Degree: Codable, Equatable {
 
     // > The degree-value element
     // > is a number indicating the degree of the chord (1 for
@@ -1042,8 +1018,8 @@ public struct Degree: Decodable, Equatable {
     //    text CDATA #IMPLIED
     //    %print-style;
     // >
-    public struct Value: Decodable, Equatable {
-        public enum Symbol: String, Decodable {
+    public struct Value: Codable, Equatable {
+        public enum Symbol: String, Codable {
             case major
             case minor
             case augmented
@@ -1065,7 +1041,7 @@ public struct Degree: Decodable, Equatable {
     //    %print-style;
     //    plus-minus %yes-no; #IMPLIED
     // >
-    public struct Alter: Decodable, Equatable {
+    public struct Alter: Codable, Equatable {
         let value: Int
         let printStyle: PrintStyle?
         let plusMinus: Bool? // ?
@@ -1079,8 +1055,8 @@ public struct Degree: Decodable, Equatable {
     //    text CDATA #IMPLIED
     //    %print-style;
     // >
-    public struct `Type`: Decodable, Equatable {
-        public enum Kind: String, Decodable {
+    public struct `Type`: Codable, Equatable {
+        public enum Kind: String, Codable {
             case add
             case alter
             case subtract
@@ -1122,9 +1098,9 @@ public struct Degree: Decodable, Equatable {
 // >
 // <!ELEMENT frame-strings (#PCDATA)>
 // <!ELEMENT frame-frets (#PCDATA)>
-public struct Frame: Decodable, Equatable {
-    public struct Strings: Decodable, Equatable { }
-    public struct Frets: Decodable, Equatable { }
+public struct Frame: Codable, Equatable {
+    public struct Strings: Codable, Equatable { }
+    public struct Frets: Codable, Equatable { }
     #warning("Build out Frame & friends")
 }
 
@@ -1185,7 +1161,7 @@ public struct Frame: Decodable, Equatable {
 //    member-of CDATA #IMPLIED
 //    %optional-unique-id;
 // >
-public struct Grouping: Decodable, Equatable {
+public struct Grouping: Codable, Equatable {
 
     // TODO: Make NonEmpty
     let value: [Feature]
@@ -1202,7 +1178,7 @@ public struct Grouping: Decodable, Equatable {
 // <!ATTLIST feature
 //    type CDATA #IMPLIED
 // >
-public struct Feature: Decodable, Equatable {
+public struct Feature: Codable, Equatable {
     let value: String
     let type: String?
 }
@@ -1251,7 +1227,7 @@ public struct Feature: Decodable, Equatable {
 //    page-number CDATA #IMPLIED
 //    %optional-unique-id;
 // >
-public struct Print: Decodable, Equatable {
+public struct Print: Codable, Equatable {
     let pageLayout: PageLayout?
     let systemLayout: SystemLayout?
     let measureLayout: MeasureLayout?
@@ -1277,8 +1253,8 @@ public struct Print: Decodable, Equatable {
 // <!ATTLIST measure-numbering
 //    %print-style-align;
 // >
-public struct MeasureNumbering: Decodable, Equatable {
-    public enum Value: String, Decodable {
+public struct MeasureNumbering: Codable, Equatable {
+    public enum Value: String, Codable {
         case none
         case measure
         case system
@@ -1389,8 +1365,3 @@ public struct MeasureNumbering: Decodable, Equatable {
 //    sostenuto-pedal %yes-no-number; #IMPLIED
 //    %optional-unique-id;
 //>
-
-// MARK: Decodable
-
-extension Direction: Decodable { }
-extension Harmony: Decodable { }
