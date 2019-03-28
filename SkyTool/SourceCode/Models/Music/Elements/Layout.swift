@@ -148,9 +148,16 @@ public struct PageMargins: Codable, Equatable {
 
 public struct SystemLayout: Codable, Equatable {
     let systemMargins: SystemMargins?
-    let systemDistance: String // tenths
+    let systemDistance: String? // tenths
     let topSystemDistance: String?
     let systemDividers: SystemDividers?
+    
+    enum CodingKeys: String, CodingKey {
+        case systemMargins = "system-margins"
+        case systemDistance = "system-distance"
+        case topSystemDistance = "top-system-distance"
+        case systemDividers = "system-dividers"
+    }
 }
 
 // <!ELEMENT system-margins (left-margin, right-margin)>

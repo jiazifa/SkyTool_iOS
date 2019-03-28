@@ -14,11 +14,11 @@ public struct Part: Codable, Equatable {
 }
 
 public struct Measure: Codable, Equatable {
-//    let print: Print?
+    let print: Print?
 //    let attributes: String?
-//    let sound: Sound?
+    let sound: Sound?
 //    let direction: Direction?
-//    let note: Note?
+    let note: Note?
     let number: String?
     let width: String?
 }

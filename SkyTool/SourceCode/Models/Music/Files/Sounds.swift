@@ -68,22 +68,18 @@
 //    id ID #REQUIRED
 //    primary (yes | no) #IMPLIED
 // >
-public struct Sound: Decodable, Equatable {
+public struct Sound: Codable, Equatable {
 
     // <!ELEMENT any (#PCDATA)>
     // <!ATTLIST any
     //    primary (yes | no) #IMPLIED
     // >
-    public struct `Any`: Decodable, Equatable {
-        let value: String
-        let primary: Bool?
-    }
 
     // <!ELEMENT solo (#PCDATA)>
     // <!ATTLIST solo
     //    primary (yes | no) #IMPLIED
     // >
-    public struct Solo: Decodable, Equatable {
+    public struct Solo: Codable, Equatable {
         let value: String
         let primary: Bool?
     }
@@ -93,7 +89,7 @@ public struct Sound: Decodable, Equatable {
     //    number NMTOKEN #IMPLIED
     //    primary (yes | no) #IMPLIED
     // >
-    public struct Ensemble: Decodable, Equatable {
+    public struct Ensemble: Codable, Equatable {
         let value: String
 
         // > The number attribute for
@@ -104,43 +100,10 @@ public struct Sound: Decodable, Equatable {
         let primary: Bool?
     }
 
-    public struct SolosAndEnsembles: Decodable, Equatable {
-        let solos: [Solo]
-        let ensembles: [Ensemble]
-    }
-
-    public enum Kind: Decodable, Equatable {
-
-        // > The any element is used when a MusicXML ID refers to a single
-        // > application or library sound ID, regardless of whether a
-        // > solo or ensemble sound is used.
-        case any([`Any`])
-
-        // > The solo and ensemble elements
-        // > are used when an application has different IDs for solo and
-        // > ensemble sounds, as represented by the solo and ensemble
-        // > elements in a MusicXML score file.
-        case solosAndEnsembles(SolosAndEnsembles)
-
-        enum CodingKeys: String, CodingKey {
-            case any
-            case solo
-            case ensemble
-        }
-
-        public init(from decoder: Decoder) throws {
-            let keyed = try decoder.container(keyedBy: CodingKeys.self)
-            do {
-                self = .any(try keyed.decode([`Any`].self, forKey: .any))
-            } catch {
-                let solos = try keyed.decode([Solo].self, forKey: .solo)
-                let ensembles = try keyed.decode([Ensemble].self, forKey: .ensemble)
-                self = .solosAndEnsembles(SolosAndEnsembles(solos: solos, ensembles: ensembles))
-            }
-        }
-    }
-
-    let kind: Kind
-    let id: String
-    let primary: Bool?
+//    let id: String?
+//    let primary: Bool?
+//    
+//    let solos: [Solo]?
+//    let ensembles: [Ensemble]?
+    let tempo: String?
 }

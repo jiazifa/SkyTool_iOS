@@ -1235,11 +1235,28 @@ public struct Print: Codable, Equatable {
     let partNameDisplay: PartNameDisplay?
     let partAbbreviationDisplay: PartAbbreviationDisplay?
     let staffSpacing: Int? // tenths
-    let newSystem: Bool?
-    let newPage: Bool?
+    let newSystem: String?
+    let newPage: String?
     let blankPage: Bool?
     let pageNumber: Bool?
-    let optionalUniqueID: String
+    let optionalUniqueID: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case pageLayout = "page-layout"
+        case systemLayout = "system-layout"
+        case measureLayout = "measure-layout"
+        case measureNumbeing = "measure-numbeing"
+        
+        case partNameDisplay = "part-name-display"
+        case partAbbreviationDisplay = "part-abbreviation-display"
+        case staffSpacing = "staff-spacing"
+        case newSystem = "new-system"
+        
+        case newPage = "new-page"
+        case blankPage = "blank-page"
+        case pageNumber = "page-number"
+        case optionalUniqueID = "optional-unique-id"
+    }
 }
 
 // > The measure-numbering element describes how measure

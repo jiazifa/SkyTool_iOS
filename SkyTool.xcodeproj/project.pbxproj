@@ -141,6 +141,8 @@
 		23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */; };
 		23DEFD0322439B6800795E13 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFD0222439B6800795E13 /* LoginCredentials.swift */; };
 		23EAFE95224BB67100147950 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAFE94224BB67100147950 /* Part.swift */; };
+		23EAFE9F224C7D9700147950 /* music_notation.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23EAFE9E224C7D9700147950 /* music_notation.bundle */; };
+		23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */; };
 		23F40E4822452D8600E08B04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F40E4A22452D8600E08B04 /* Localizable.strings */; };
 		23F40E8122477DB000E08B04 /* SkyRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F40E8022477DB000E08B04 /* SkyRequestTests.swift */; };
 /* End PBXBuildFile section */
@@ -276,6 +278,8 @@
 		23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Protection.swift"; sourceTree = "<group>"; };
 		23DEFD0222439B6800795E13 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		23EAFE94224BB67100147950 /* Part.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
+		23EAFE9E224C7D9700147950 /* music_notation.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = music_notation.bundle; sourceTree = "<group>"; };
+		23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWebViewController.swift; sourceTree = "<group>"; };
 		23F40E4122452C9500E08B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		23F40E4622452D7900E08B04 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		23F40E4922452D8600E08B04 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 		2383626C2240B7E3007B892D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				23EAFE9E224C7D9700147950 /* music_notation.bundle */,
 				2319B516224B8202004546A6 /* Binchois.musicxml */,
 				2319B514224B8150004546A6 /* MIDI_sample.mid */,
 				2319B509224B69FF004546A6 /* pitches.xml */,
@@ -583,6 +588,7 @@
 		2383628C2240B7E3007B892D /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */,
 				2383628D2240B7E3007B892D /* WebViewController.swift */,
 			);
 			path = WebView;
@@ -835,6 +841,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2319B517224B8202004546A6 /* Binchois.musicxml in Resources */,
+				23EAFE9F224C7D9700147950 /* music_notation.bundle in Resources */,
 				2319B50A224B69FF004546A6 /* pitches.xml in Resources */,
 				2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */,
 				23C33B632248AE7000E82D00 /* Cartfile in Resources */,
@@ -933,6 +940,7 @@
 				238362B62240B7E3007B892D /* DebugOption.swift in Sources */,
 				238362A82240B7E3007B892D /* ButtonWithLargerHitArea.swift in Sources */,
 				2319B504224B68FE004546A6 /* Timewise.swift in Sources */,
+				23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */,
 				2319B503224B68FE004546A6 /* Partwise.swift in Sources */,
 				23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */,
 				238362372240A030007B892D /* AppDelegate.swift in Sources */,

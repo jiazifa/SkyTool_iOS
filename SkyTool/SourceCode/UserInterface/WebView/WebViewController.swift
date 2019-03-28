@@ -12,7 +12,9 @@ import PureLayout
 
 class WebViewController: UIViewController {
     
-    @objc let webView: WKWebView = {
+    public var isHideProcess: Bool = false
+    
+    @objc internal let webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration.init()
         // preferences
         let p = WKPreferences.init()
@@ -24,15 +26,15 @@ class WebViewController: UIViewController {
         return o
     }()
     
-    let contentController: WKUserContentController = {
+    private let contentController: WKUserContentController = {
         let o = WKUserContentController.init()
         return o
     }()
     
     // 初始化url
-    private var url: URL
+    public private(set) var url: URL
     
-    lazy var backButton: UIButton = {
+    private lazy var backButton: UIButton = {
         let button = UIButton.init(type: .custom)
         button.bounds = CGRect.init(x: 0, y: 0, width: 25, height: 30)
         button.setImage(UIImage.init(named: "black_back"), for: .normal)
@@ -41,10 +43,11 @@ class WebViewController: UIViewController {
         return button
     }()
     
-    lazy var progressView: UIProgressView = {
+    private lazy var progressView: UIProgressView = {
         let o = UIProgressView.init()
         o.trackTintColor = UIColor.white
         o.progressTintColor = UIColor.blue
+        o.isHidden = self.isHideProcess
         o.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
         return o
     }()
@@ -68,12 +71,13 @@ class WebViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: self.backButton)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+//        self.navigationController?.navigationBar.barTintColor = UIColor.white
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: self.backButton)
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setupProgressView() {
@@ -85,7 +89,7 @@ class WebViewController: UIViewController {
             guard let info = change,
                 let newValue = info[.newKey],
                 let progress = newValue as? Double else { return }
-            self.progressView.isHidden = false
+            self.progressView.isHidden = self.isHideProcess
             self.progressView.progress = Float(progress)
             if self.progressView.progress >= Float(1.0) {
                 self.hideProgressView()

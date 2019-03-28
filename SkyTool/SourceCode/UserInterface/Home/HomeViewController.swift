@@ -66,20 +66,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        guard let path = Bundle.main.path(forResource: "Binchois.musicxml", ofType: nil),
-            let data = try? Data.init(contentsOf: URL(fileURLWithPath: path)) else {
-            return
-        }
-        
-        do {
-            let json = try XMLStackParser.parse(with: data)
-            let data = try JSONSerialization.data(withJSONObject: json, options: [])
-            let score = try JSONDecoder.init().decode(Score.self, from: data)
-            print("\(score)")
-        } catch {
-            print("\(error)")
-        }
+        self.controller.onItemClicked(indexPath.item)
+//        self.controller.toOpenSheet()
     }
 }
 
