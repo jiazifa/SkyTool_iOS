@@ -14,6 +14,8 @@ class WebViewController: UIViewController {
     
     public var isHideProcess: Bool = false
     
+    public private(set) var isWebViewLoaded: Bool = false
+    
     @objc internal let webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration.init()
         // preferences
@@ -157,6 +159,7 @@ extension WebViewController: WKNavigationDelegate {
     
     // MARK: 下载后载入视图
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.isWebViewLoaded = true
         if self.title == nil {
             self.title = webView.title
         }

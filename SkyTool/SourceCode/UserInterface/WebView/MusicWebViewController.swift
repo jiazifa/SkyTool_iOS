@@ -10,12 +10,20 @@ import UIKit
 import WebKit
 
 class MusicWebViewController: WebViewController {
-    var commandQueue: [String] = []
-    
+    var commandQueue: [String: Any] = [:]
 }
 
 extension MusicWebViewController {
     func callJavascript(_ method: String, args: [String], done: ((String?) -> ())?) {
+        let methodCommand = generateCommand(method, args: args)
+        self.webView.evaluateJavaScript(methodCommand) { (x, e) in
+            if let returnValue = x as? String {
+                done?(returnValue)
+            }
+        }
+    }
+    
+    func generateCommand(_ method: String, args: [String]) -> String {
         var methodCommand = method
         methodCommand += "("
         for arg in args {
@@ -27,22 +35,34 @@ extension MusicWebViewController {
         _ = methodCommand.removeLast()
         methodCommand += ")"
         Log.print("\(methodCommand)")
-        self.webView.evaluateJavaScript(methodCommand) { (x, e) in
-            if let returnValue = x as? String {
-                done?(returnValue)
+        return methodCommand
+    }
+    
+    func flushCommandsAndRunIfCan(_ command: (String, Any)?) {
+        if let (cmd, args) = command {
+            self.commandQueue.updateValue(args, forKey: cmd)
+        }
+        guard self.isWebViewLoaded else { return }
+        while !self.commandQueue.isEmpty {
+            if let first = self.commandQueue.popFirst() {
+                if let value = first.value as? [String] {
+                    self.callJavascript(first.key, args: value, done: nil)
+                } else if let value = first.value as? String {
+                    self.callJavascript(first.key, args: [value], done: nil)
+                } else { fatalError() }
             }
         }
     }
     
     public func render(_ notationCommand: String) {
         let command = notationCommand.replacingOccurrences(of: "\\\\", with: "\\")
-        self.callJavascript("renderVexpaString", args: [command], done: nil)
+        self.flushCommandsAndRunIfCan(("renderVexpaString", command))
     }
 }
 
 extension MusicWebViewController {
     override func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         super.webView(webView, didFinish: navigation)
-        self.render("8. 16 ' 8 16 16 ' \\\\ 16 16 8 ' 16 8.")
+        self.flushCommandsAndRunIfCan(nil)
     }
 }
