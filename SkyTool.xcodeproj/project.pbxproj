@@ -8,29 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2319B4C8224B6661004546A6 /* XMLCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C33B642248AEEF00E82D00 /* XMLCoder.framework */; };
-		2319B4EF224B68FE004546A6 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4D2224B68FE004546A6 /* Identity.swift */; };
-		2319B4F0224B68FE004546A6 /* Barline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4D3224B68FE004546A6 /* Barline.swift */; };
-		2319B4F1224B68FE004546A6 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4D4224B68FE004546A6 /* Link.swift */; };
-		2319B4F2224B68FE004546A6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4D5224B68FE004546A6 /* Common.swift */; };
-		2319B4F3224B68FE004546A6 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4D7224B68FE004546A6 /* Attributes.swift */; };
-		2319B4F4224B68FE004546A6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4D8224B68FE004546A6 /* Time.swift */; };
-		2319B4F5224B68FE004546A6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4D9224B68FE004546A6 /* Key.swift */; };
-		2319B4F6224B68FE004546A6 /* PartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4DB224B68FE004546A6 /* PartList.swift */; };
-		2319B4F7224B68FE004546A6 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4DC224B68FE004546A6 /* Score.swift */; };
-		2319B4F8224B68FE004546A6 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4DD224B68FE004546A6 /* Credit.swift */; };
-		2319B4FB224B68FE004546A6 /* Score.Partwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E0224B68FE004546A6 /* Score.Partwise.swift */; };
-		2319B4FD224B68FE004546A6 /* ScoreInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E2224B68FE004546A6 /* ScoreInstrument.swift */; };
-		2319B4FE224B68FE004546A6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E3224B68FE004546A6 /* Group.swift */; };
-		2319B4FF224B68FE004546A6 /* Score.Timewise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E4224B68FE004546A6 /* Score.Timewise.swift */; };
-		2319B500224B68FE004546A6 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E5224B68FE004546A6 /* Note.swift */; };
-		2319B501224B68FE004546A6 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E6224B68FE004546A6 /* Layout.swift */; };
-		2319B502224B68FE004546A6 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E7224B68FE004546A6 /* Direction.swift */; };
-		2319B503224B68FE004546A6 /* Partwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4E9224B68FE004546A6 /* Partwise.swift */; };
-		2319B504224B68FE004546A6 /* Timewise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4EA224B68FE004546A6 /* Timewise.swift */; };
-		2319B505224B68FE004546A6 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4EB224B68FE004546A6 /* Sounds.swift */; };
-		2319B506224B68FE004546A6 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4EC224B68FE004546A6 /* Container.swift */; };
-		2319B507224B68FE004546A6 /* StandardMIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4ED224B68FE004546A6 /* StandardMIDI.swift */; };
-		2319B508224B68FE004546A6 /* Opus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B4EE224B68FE004546A6 /* Opus.swift */; };
 		2319B50A224B69FF004546A6 /* pitches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2319B509224B69FF004546A6 /* pitches.xml */; };
 		2319B50C224B776A004546A6 /* XMLStackParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B50B224B776A004546A6 /* XMLStackParser.swift */; };
 		2319B50F224B780B004546A6 /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B50E224B780B004546A6 /* XMLElement.swift */; };
@@ -69,6 +46,8 @@
 		234FE34B2244BB4600A89071 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
 		234FE34C2244BB4600A89071 /* SkyNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4C2240FA1C00795E13 /* SkyNetworkError.swift */; };
 		234FE34D2244BB4600A89071 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4E2240FAB000795E13 /* Delegate.swift */; };
+		23603C53224DADAE00B8AC88 /* Clef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23603C52224DADAE00B8AC88 /* Clef.swift */; };
+		23603C55224DB48F00B8AC88 /* vexflow in Resources */ = {isa = PBXBuildFile; fileRef = 23603C54224DB48F00B8AC88 /* vexflow */; };
 		238362372240A030007B892D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362362240A030007B892D /* AppDelegate.swift */; };
 		238362392240A030007B892D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362382240A030007B892D /* ViewController.swift */; };
 		2383623C2240A030007B892D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2383623A2240A030007B892D /* Main.storyboard */; };
@@ -140,8 +119,6 @@
 		23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCFD22438CFC00795E13 /* FileManager+Move.swift */; };
 		23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */; };
 		23DEFD0322439B6800795E13 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFD0222439B6800795E13 /* LoginCredentials.swift */; };
-		23EAFE95224BB67100147950 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAFE94224BB67100147950 /* Part.swift */; };
-		23EAFE9F224C7D9700147950 /* music_notation.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23EAFE9E224C7D9700147950 /* music_notation.bundle */; };
 		23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */; };
 		23F40E4822452D8600E08B04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F40E4A22452D8600E08B04 /* Localizable.strings */; };
 		23F40E8122477DB000E08B04 /* SkyRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F40E8022477DB000E08B04 /* SkyRequestTests.swift */; };
@@ -165,29 +142,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2319B4D2224B68FE004546A6 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
-		2319B4D3224B68FE004546A6 /* Barline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barline.swift; sourceTree = "<group>"; };
-		2319B4D4224B68FE004546A6 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
-		2319B4D5224B68FE004546A6 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		2319B4D7224B68FE004546A6 /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
-		2319B4D8224B68FE004546A6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		2319B4D9224B68FE004546A6 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-		2319B4DB224B68FE004546A6 /* PartList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartList.swift; sourceTree = "<group>"; };
-		2319B4DC224B68FE004546A6 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		2319B4DD224B68FE004546A6 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
-		2319B4E0224B68FE004546A6 /* Score.Partwise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.Partwise.swift; sourceTree = "<group>"; };
-		2319B4E2224B68FE004546A6 /* ScoreInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreInstrument.swift; sourceTree = "<group>"; };
-		2319B4E3224B68FE004546A6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		2319B4E4224B68FE004546A6 /* Score.Timewise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.Timewise.swift; sourceTree = "<group>"; };
-		2319B4E5224B68FE004546A6 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		2319B4E6224B68FE004546A6 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
-		2319B4E7224B68FE004546A6 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
-		2319B4E9224B68FE004546A6 /* Partwise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partwise.swift; sourceTree = "<group>"; };
-		2319B4EA224B68FE004546A6 /* Timewise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timewise.swift; sourceTree = "<group>"; };
-		2319B4EB224B68FE004546A6 /* Sounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
-		2319B4EC224B68FE004546A6 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		2319B4ED224B68FE004546A6 /* StandardMIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMIDI.swift; sourceTree = "<group>"; };
-		2319B4EE224B68FE004546A6 /* Opus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opus.swift; sourceTree = "<group>"; };
 		2319B509224B69FF004546A6 /* pitches.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pitches.xml; sourceTree = "<group>"; };
 		2319B50B224B776A004546A6 /* XMLStackParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLStackParser.swift; sourceTree = "<group>"; };
 		2319B50E224B780B004546A6 /* XMLElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLElement.swift; sourceTree = "<group>"; };
@@ -197,6 +151,8 @@
 		234FE32422447B7F00A89071 /* TailEditingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailEditingTextField.swift; sourceTree = "<group>"; };
 		234FE3292244B47A00A89071 /* SkyColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyColorTest.swift; sourceTree = "<group>"; };
 		234FE32D2244B7F600A89071 /* blue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blue.json; sourceTree = "<group>"; };
+		23603C52224DADAE00B8AC88 /* Clef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clef.swift; sourceTree = "<group>"; };
+		23603C54224DB48F00B8AC88 /* vexflow */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vexflow; sourceTree = "<group>"; };
 		238362332240A030007B892D /* SkyTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238362362240A030007B892D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238362382240A030007B892D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -277,8 +233,6 @@
 		23DEFCFD22438CFC00795E13 /* FileManager+Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Move.swift"; sourceTree = "<group>"; };
 		23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Protection.swift"; sourceTree = "<group>"; };
 		23DEFD0222439B6800795E13 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
-		23EAFE94224BB67100147950 /* Part.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
-		23EAFE9E224C7D9700147950 /* music_notation.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = music_notation.bundle; sourceTree = "<group>"; };
 		23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWebViewController.swift; sourceTree = "<group>"; };
 		23F40E4122452C9500E08B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		23F40E4622452D7900E08B04 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -320,64 +274,9 @@
 		2319B4CB224B679C004546A6 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				2319B4D1224B68FE004546A6 /* Elements */,
-				2319B4E8224B68FE004546A6 /* Files */,
+				23603C52224DADAE00B8AC88 /* Clef.swift */,
 			);
 			path = Music;
-			sourceTree = "<group>";
-		};
-		2319B4D1224B68FE004546A6 /* Elements */ = {
-			isa = PBXGroup;
-			children = (
-				2319B4D6224B68FE004546A6 /* Attributes */,
-				2319B4DA224B68FE004546A6 /* Score */,
-				2319B4D2224B68FE004546A6 /* Identity.swift */,
-				2319B4D3224B68FE004546A6 /* Barline.swift */,
-				2319B4D4224B68FE004546A6 /* Link.swift */,
-				2319B4D5224B68FE004546A6 /* Common.swift */,
-				2319B4E5224B68FE004546A6 /* Note.swift */,
-				2319B4E6224B68FE004546A6 /* Layout.swift */,
-				2319B4E7224B68FE004546A6 /* Direction.swift */,
-			);
-			path = Elements;
-			sourceTree = "<group>";
-		};
-		2319B4D6224B68FE004546A6 /* Attributes */ = {
-			isa = PBXGroup;
-			children = (
-				2319B4D7224B68FE004546A6 /* Attributes.swift */,
-				2319B4D8224B68FE004546A6 /* Time.swift */,
-				2319B4D9224B68FE004546A6 /* Key.swift */,
-			);
-			path = Attributes;
-			sourceTree = "<group>";
-		};
-		2319B4DA224B68FE004546A6 /* Score */ = {
-			isa = PBXGroup;
-			children = (
-				2319B4DC224B68FE004546A6 /* Score.swift */,
-				2319B4E0224B68FE004546A6 /* Score.Partwise.swift */,
-				2319B4E4224B68FE004546A6 /* Score.Timewise.swift */,
-				2319B4E2224B68FE004546A6 /* ScoreInstrument.swift */,
-				2319B4E3224B68FE004546A6 /* Group.swift */,
-				2319B4DB224B68FE004546A6 /* PartList.swift */,
-				2319B4DD224B68FE004546A6 /* Credit.swift */,
-				23EAFE94224BB67100147950 /* Part.swift */,
-			);
-			path = Score;
-			sourceTree = "<group>";
-		};
-		2319B4E8224B68FE004546A6 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				2319B4E9224B68FE004546A6 /* Partwise.swift */,
-				2319B4EA224B68FE004546A6 /* Timewise.swift */,
-				2319B4EB224B68FE004546A6 /* Sounds.swift */,
-				2319B4EC224B68FE004546A6 /* Container.swift */,
-				2319B4ED224B68FE004546A6 /* StandardMIDI.swift */,
-				2319B4EE224B68FE004546A6 /* Opus.swift */,
-			);
-			path = Files;
 			sourceTree = "<group>";
 		};
 		2319B50D224B776E004546A6 /* XMLParser */ = {
@@ -475,7 +374,7 @@
 		2383626C2240B7E3007B892D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				23EAFE9E224C7D9700147950 /* music_notation.bundle */,
+				23603C54224DB48F00B8AC88 /* vexflow */,
 				2319B516224B8202004546A6 /* Binchois.musicxml */,
 				2319B514224B8150004546A6 /* MIDI_sample.mid */,
 				2319B509224B69FF004546A6 /* pitches.xml */,
@@ -841,8 +740,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2319B517224B8202004546A6 /* Binchois.musicxml in Resources */,
-				23EAFE9F224C7D9700147950 /* music_notation.bundle in Resources */,
 				2319B50A224B69FF004546A6 /* pitches.xml in Resources */,
+				23603C55224DB48F00B8AC88 /* vexflow in Resources */,
 				2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */,
 				23C33B632248AE7000E82D00 /* Cartfile in Resources */,
 				23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */,
@@ -907,52 +806,35 @@
 				238362B42240B7E3007B892D /* AppRootViewController.swift in Sources */,
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
-				2319B500224B68FE004546A6 /* Note.swift in Sources */,
-				2319B4F8224B68FE004546A6 /* Credit.swift in Sources */,
 				234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */,
-				2319B4EF224B68FE004546A6 /* Identity.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
-				2319B4FF224B68FE004546A6 /* Score.Timewise.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
 				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
 				2319B50C224B776A004546A6 /* XMLStackParser.swift in Sources */,
 				238362B72240B7E3007B892D /* Helpers.swift in Sources */,
-				2319B501224B68FE004546A6 /* Layout.swift in Sources */,
 				23DEFCE4224367A700795E13 /* RegistViewController.swift in Sources */,
 				2383629E2240B7E3007B892D /* ColorScheme.swift in Sources */,
-				2319B4F6224B68FE004546A6 /* PartList.swift in Sources */,
 				23DEFD0322439B6800795E13 /* LoginCredentials.swift in Sources */,
 				238362A12240B7E3007B892D /* Reusable.swift in Sources */,
 				23DEFCE5224367A700795E13 /* ChangePasswordViewController.swift in Sources */,
-				2319B4F1224B68FE004546A6 /* Link.swift in Sources */,
-				2319B4F2224B68FE004546A6 /* Common.swift in Sources */,
 				234FE32322446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift in Sources */,
 				238362AC2240B7E3007B892D /* SettingsCellDescriptorFactory.swift in Sources */,
-				2319B506224B68FE004546A6 /* Container.swift in Sources */,
 				238362AE2240B7E3007B892D /* SettingsCellDescriptorFactory+DebugOption.swift in Sources */,
 				2383629C2240B7E3007B892D /* SettingsPropertyFactory.swift in Sources */,
 				2383623F2240A030007B892D /* SkyTool.xcdatamodeld in Sources */,
 				238362392240A030007B892D /* ViewController.swift in Sources */,
-				2319B4FD224B68FE004546A6 /* ScoreInstrument.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
-				2319B505224B68FE004546A6 /* Sounds.swift in Sources */,
-				2319B4F4224B68FE004546A6 /* Time.swift in Sources */,
 				238362B62240B7E3007B892D /* DebugOption.swift in Sources */,
 				238362A82240B7E3007B892D /* ButtonWithLargerHitArea.swift in Sources */,
-				2319B504224B68FE004546A6 /* Timewise.swift in Sources */,
 				23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */,
-				2319B503224B68FE004546A6 /* Partwise.swift in Sources */,
 				23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */,
 				238362372240A030007B892D /* AppDelegate.swift in Sources */,
 				23DEFCD322433E2000795E13 /* UIColor+Sky.swift in Sources */,
 				23DEFB4D2240FA1C00795E13 /* SkyNetworkError.swift in Sources */,
-				2319B4FB224B68FE004546A6 /* Score.Partwise.swift in Sources */,
 				23DEFCFA2243898E00795E13 /* AccountManager.swift in Sources */,
 				23DEFCD62243425600795E13 /* HomeViewController.swift in Sources */,
-				2319B502224B68FE004546A6 /* Direction.swift in Sources */,
-				2319B4F7224B68FE004546A6 /* Score.swift in Sources */,
+				23603C53224DADAE00B8AC88 /* Clef.swift in Sources */,
 				23DEFCE3224367A700795E13 /* AuthenticationCoordinator.swift in Sources */,
-				2319B4F3224B68FE004546A6 /* Attributes.swift in Sources */,
 				238362A22240B7E3007B892D /* UIFont+FontSpec.swift in Sources */,
 				2383629A2240B7E3007B892D /* SettingsProperty.swift in Sources */,
 				2319B50F224B780B004546A6 /* XMLElement.swift in Sources */,
@@ -962,8 +844,6 @@
 				23DEFCD8224342A900795E13 /* HomeController.swift in Sources */,
 				2383629B2240B7E3007B892D /* Settings.swift in Sources */,
 				238362B82240B7E3007B892D /* Config.swift in Sources */,
-				23EAFE95224BB67100147950 /* Part.swift in Sources */,
-				2319B4F5224B68FE004546A6 /* Key.swift in Sources */,
 				238362AD2240B7E3007B892D /* SettingsStaticTextCellDescriptor.swift in Sources */,
 				2383629F2240B7E3007B892D /* String+localized.swift in Sources */,
 				2383629D2240B7E3007B892D /* UIFont+DynmicType.swift in Sources */,
@@ -975,8 +855,6 @@
 				23DEFCE7224367A700795E13 /* LoginViewController.swift in Sources */,
 				23DEFB492240E42300795E13 /* Session.swift in Sources */,
 				23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */,
-				2319B4FE224B68FE004546A6 /* Group.swift in Sources */,
-				2319B507224B68FE004546A6 /* StandardMIDI.swift in Sources */,
 				238362B92240B7E3007B892D /* SettingsPropertyName.swift in Sources */,
 				238362A02240B7E3007B892D /* UIColor+utils.swift in Sources */,
 				238362B22240B7E3007B892D /* AppState.swift in Sources */,
@@ -984,8 +862,6 @@
 				238362B02240B7E3007B892D /* SettingsViewController.swift in Sources */,
 				23DEFCEC22436BE300795E13 /* Account.swift in Sources */,
 				23DEFB4F2240FAB000795E13 /* Delegate.swift in Sources */,
-				2319B508224B68FE004546A6 /* Opus.swift in Sources */,
-				2319B4F0224B68FE004546A6 /* Barline.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
 				23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */,

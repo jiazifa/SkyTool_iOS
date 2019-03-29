@@ -8,6 +8,25 @@
 
 import UIKit
 
-class Clef: NSObject {
 
+public enum Clef: String {
+    // G high
+    case frenchViolin = "french-violin" // 上高音谱号/古法国式高音谱号
+    case treble = "treble" // 高音谱号 ✨
+    
+    // C middle C
+    case soprano = "soprano" // 女高音谱号
+    case mezzoSoprano = "mezzo-soprano" //  女次高音谱号
+    case alto = "alto" //     中音谱号 ✨
+    case tenor = "tenor" // 次中音谱号 ✨
+    case baritoneC = "baritone-c" // 上低音谱号 (中音谱号式)
+    
+    // F low
+    case baritoneF = "baritone-f" // 上低音谱号 (低音谱号式)
+    case bass = "bass" // 低音谱号 ✨
+    case subbass = "subbass" // 倍低音谱号
+    
+    // tab
+    case tab = "tab"
+    
 }
