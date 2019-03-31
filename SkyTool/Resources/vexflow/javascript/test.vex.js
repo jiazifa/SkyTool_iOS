@@ -107,7 +107,6 @@ function drawScore(canvas, bars, beams, staveNotes) {
 	}	
 }
 
-
 //
 // Vexpa
 //
