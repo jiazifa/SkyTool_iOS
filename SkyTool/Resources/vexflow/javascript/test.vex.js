@@ -65,6 +65,7 @@ function canvasContext(canvas, width, height) {
 //
 function drawScore(canvas, bars, beams, staveNotes) {
 	var ctx = canvasContext(canvas);
+console.log(bars);
 
 	// Bars (staves)
 	for (var i = 0; i < bars.length; i++) {

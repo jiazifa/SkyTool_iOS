@@ -44,91 +44,86 @@ var VexFactory = function() {
   obj.bindNoteToVoice = function(notes, voice) {
     voice.addTickables(notes);
   };
+  obj.applyAccidentals = function(note) {
+    for (var i = 0; i < note.keyProps.length; i++) {
+      var accidental = note.keyProps[i].accidental;
+      if (accidental) {
+        note.addAccidental(i, new Vex.Flow.Accidental(accidental));
+      }
+    }
+  };
 
   return obj;
 };
 
-var VexTranslator = function(dom) {
-  var VF = Vex.Flow;
-  var renderer = new VF.Renderer(dom, VF.Renderer.Backends.SVG);
+var Translator = function (dom) {
+    var VF = Vex.Flow;
+  var renderer = new VF.Renderer(dom, VF.Renderer.Backends.CANVAS);
   var factory = new VexFactory();
   var obj = {
     vf: VF,
     renderer: renderer,
     dom: dom,
     notes: [],
-    staves: [],
     factory: factory
   };
 
-  obj.setClef = function(clef, signature) {
-    var context = this.renderer.getContext();
-    if (this.staves.length === 0) { return; }
-    var stave = this.staves[this.staves.length - 1];
-
-    if (clef) {
-      stave.addClef(clef);
-    }
-    if (signature) {
-      stave.addTimeSignature(signature);
-    }
-    stave.setContext(context).draw();
-    this.stave = stave;
-  };
-
-  obj.createNote = function(clef, keys, duration) {
-    var note = this.factory.createNote(clef, keys, duration);
-    var params = {
-      note: note,
-      width: CONSTANT.elementWidth[duration]
-    };
-    return params;
-  };
-
-  obj.createVoice = function(notes) {
-    var voice = new Vex.Flow.Voice({
-      num_beats: 4,
-      beat_value: 4,
-      resolution: Vex.Flow.RESOLUTION,
+  obj.appendNote = function(notes) {
+    /* 添加一个小节的音符 */
+    var note = notes.map((n) => {
+      var params = {};
+      var duration = n.duration;
+      var element = new VF.StaveNote(n);
+      // 添加升降符
+      this.factory.applyAccidentals(element);
+      // note structure
+      params['note'] = element;
+      params['noteWidth'] = CONSTANT.elementWidth[duration];
+      return params;
     });
-    var newNotes = [];
-    var voiceWidth = 0;
-    if (this.staves.length === 0) {
-      voiceWidth += 60;
-    }
-    
-    notes.forEach(function(params) {
-      newNotes.push(params.note);
-      voiceWidth += params.width;
-    });
-    voice.addTickables(newNotes);
-    voice.barWidth = voiceWidth;
-    this.notes.push(notes);
-    this.createStave(voice, voiceWidth);
-    return voice;
+    this.notes.push(note);
   };
 
-  obj.createStave = function(voice, width) {
-    var stave = this.factory.createStave(0, 0, width);
-    this.factory.bindVoiceToStave(voice, stave);
-    this.staves.push(stave);
+  obj.setContextSize = function(width, height) {
     var context = this.renderer.getContext();
-    stave.setContext(context).draw();
+    context.width = width;
+    context.height = height;
   };
 
   obj.render = function() {
     var context = this.renderer.getContext();
+    var clientWidth = 0;
     for (let index = 0; index < this.notes.length; index++) {
-      const notes = this.notes[index];
-      const stave = this.staves[index];
-      var drawNotes = notes.map(function(p) {
-        return p.note;
-      });
-      var drawWidth = 60;
-      notes.forEach(function(p) {
-        drawWidth += p.width;
-      });
-      VF.Formatter.FormatAndDraw(context, stave, drawNotes);
+      const note = this.notes[index];
+      var staveWidth = 0;
+      for (let idx = 0; idx < note.length; idx++) {
+        const notationNote = note[idx];
+        staveWidth += notationNote.noteWidth;
+      }
+    }
+    this.setContextSize(staveWidth + 50, 100);
+    
+    for (let index = 0; index < this.notes.length; index++) {
+      const note = this.notes[index];
+      var staveWidth = 0;
+      for (let idx = 0; idx < note.length; idx++) {
+        const notationNote = note[idx];
+        staveWidth += notationNote.noteWidth;
+      }
+      console.log(staveWidth);
+      
+      var stave = new this.factory.createStave(clientWidth, 0, staveWidth); // 创建普表
+      clientWidth += staveWidth;
+      if (index === 0) {// 如果是第一小节，添加谱号与节拍
+        stave.addClef('treble');
+      }
+      stave.setMeasure(index); // 设置上标
+      // stave.addKeySignature('A');
+      if (index === this.notes.length - 1) {
+        stave.setEndBarType(VF.Barline.type.END);
+      }
+      stave.setContext(context).draw();
+      VF.Formatter.FormatAndDraw(context, stave, note.map((e)=>e.note));
     }
   };
 
