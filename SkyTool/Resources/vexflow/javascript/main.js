@@ -61,12 +61,6 @@ var VexTranslator = function(dom) {
     factory: factory
   };
 
-  obj.createStave = function() {
-    var context = this.renderer.getContext();
-    var stave = this.factory.createStave(0, 40, 300);
-    stave.setContext(context).draw();
-    return stave;
-  };
   obj.setClef = function(clef, signature) {
     var context = this.renderer.getContext();
     if (this.staves.length === 0) { return; }
@@ -94,7 +88,8 @@ var VexTranslator = function(dom) {
   obj.createVoice = function(notes) {
     var voice = new Vex.Flow.Voice({
       num_beats: 4,
-      beat_value: 4
+      beat_value: 4,
+      resolution: Vex.Flow.RESOLUTION,
     });
     var newNotes = [];
     var voiceWidth = 0;
@@ -107,6 +102,7 @@ var VexTranslator = function(dom) {
       voiceWidth += params.width;
     });
     voice.addTickables(newNotes);
+    voice.barWidth = voiceWidth;
     this.notes.push(notes);
     this.createStave(voice, voiceWidth);
     return voice;

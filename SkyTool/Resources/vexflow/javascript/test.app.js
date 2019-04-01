@@ -11,6 +11,5 @@ window.onload = function() {
   translator.setClef("treble", "4/4");
   
   translator.render();
-  console.log(translator.dom.clientWidth);
   
 };
