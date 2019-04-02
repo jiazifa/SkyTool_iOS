@@ -26,7 +26,17 @@ class HomeController {
         let url = URL(fileURLWithPath: htmlPath)
         let webViewController = MusicWebViewController.init(url)
         webViewController.title = "网页"
-        webViewController.render("Q=treble T=4/4 K=F C4/4 Cx4/8 Eb4/8 ' F4/8 AB4/8 ' Ab4/4 | Eb4/8 D4/8^ ' D4/8 C4/8 ' Ab3/8 Eb3+G3+C4/4.‘ Q=bass T=4/4 K=F Eb3+G3/2 C3/2 | F#2/2^ F#2/8 C2/4. | T=4/4 K=F C4/4 Cx4/8 Eb4/8 ' F4/8 AB4/8 ' Ab4/4 | Eb4/8 D4/8^ ' D4/8 C4/8 ' Ab3/8 Eb3+G3+C4/4.‘ Q=bass T=4/4 K=F Eb3+G3/2 C3/2 | F#2/2^ F#2/8 C2/4. | T=4/4 K=F C4/4 Cx4/8 Eb4/8 ' F4/8 AB4/8 ' Ab4/4 | Eb4/8 D4/8^ ' D4/8 C4/8 ' Ab3/8 Eb3+G3+C4/4.‘ Q=bass T=4/4 K=F Eb3+G3/2 C3/2 | F#2/2^ F#2/8 C2/4. | T=4/4 K=F C4/4 Cx4/8 Eb4/8 ' F4/8 AB4/8 ' Ab4/4 | Eb4/8 D4/8^ ' D4/8 C4/8 ' Ab3/8 Eb3+G3+C4/4.‘ Q=bass T=4/4 K=F Eb3+G3/2 C3/2 | F#2/2^ F#2/8 C2/4.")
+        var notes = [[[String: Any]]]()
+        for _ in 0..<10 {
+            notes.append([
+                ["keys": ["d/4"],
+                 "duration": "q",
+                 "clef": "treble"],
+                ["keys": ["d/4"],
+                 "duration": "q"]
+                ])
+        }
+        webViewController.render(notes)
         webViewController.isHideProcess = true
         viewController.navigationController?.pushViewController(webViewController, animated: true)
     }
