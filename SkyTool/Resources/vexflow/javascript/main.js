@@ -85,7 +85,9 @@ var Translator = function (dom) {
   };
 
   obj.setContextSize = function(width, height) {
-    var context = this.renderer.getContext();
+    var context = this.dom;
+    console.log(context);
+    
     context.width = width;
     context.height = height;
   };
@@ -93,6 +95,7 @@ var Translator = function (dom) {
   obj.render = function() {
     var context = this.renderer.getContext();
     var clientWidth = 0;
+    var allWidths = [];
     for (let index = 0; index < this.notes.length; index++) {
       const note = this.notes[index];
       var staveWidth = 0;
@@ -100,20 +103,20 @@ var Translator = function (dom) {
         const notationNote = note[idx];
         staveWidth += notationNote.noteWidth;
       }
-    }
-    this.setContextSize(staveWidth + 50, 100);
-    
-    for (let index = 0; index < this.notes.length; index++) {
-      const note = this.notes[index];
-      var staveWidth = 0;
-      for (let idx = 0; idx < note.length; idx++) {
-        const notationNote = note[idx];
-        staveWidth += notationNote.noteWidth;
-      }
-      console.log(staveWidth);
-      
-      var stave = new this.factory.createStave(clientWidth, 0, staveWidth); // 创建普表
+      allWidths.push(staveWidth);
       clientWidth += staveWidth;
+    }
+    
+    this.setContextSize(clientWidth + 50, 100);
+
+    var offX = 0;
+    var offY = 0;
+    for (let index = 0; index < this.notes.length; index++) {
+      const note = this.notes[index];
+      var width = allWidths[index];
+      
+      var stave = new this.factory.createStave(offX, offY, width); // 创建普表
+      offX += width;
       if (index === 0) {// 如果是第一小节，添加谱号与节拍
         stave.addClef('treble');
       }
