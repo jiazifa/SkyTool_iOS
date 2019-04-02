@@ -65,8 +65,15 @@ var Translator = function (dom) {
     renderer: renderer,
     dom: dom,
     notes: [],
-    factory: factory
+    factory: factory,
+    clef: 'treble',
+    timeSignature: '4/4'
   };
+
+  obj.setClef = function(clef, timeSignature) {
+    this.clef = clef;
+    this.timeSignature = timeSignature;
+  }
 
   obj.appendNote = function(notes) {
     /* 添加一个小节的音符 */
@@ -107,7 +114,7 @@ var Translator = function (dom) {
       clientWidth += staveWidth;
     }
     
-    this.setContextSize(clientWidth + 50, 100);
+    this.setContextSize(clientWidth + 50, 250);
 
     var offX = 0;
     var offY = 0;
@@ -118,7 +125,8 @@ var Translator = function (dom) {
       var stave = new this.factory.createStave(offX, offY, width); // 创建普表
       offX += width;
       if (index === 0) {// 如果是第一小节，添加谱号与节拍
-        stave.addClef('treble');
+        stave.addClef(this.clef);
+        stave.addTimeSignature(this.timeSignature);
       }
       stave.setMeasure(index); // 设置上标
       // stave.addKeySignature('A');
