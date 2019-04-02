@@ -26,13 +26,16 @@ class HomeController {
         let url = URL(fileURLWithPath: htmlPath)
         let webViewController = MusicWebViewController.init(url)
         webViewController.title = "网页"
-        let notes = [[
-            ["keys": ["d/4"],
-             "duration": "q",
-             "clef": "treble"],
-            ["keys": ["d/4"],
-             "duration": "q"]
-        ]]
+        var notes = [[[String: Any]]]()
+        for _ in 0..<10 {
+            notes.append([
+                ["keys": ["d/4"],
+                 "duration": "q",
+                 "clef": "treble"],
+                ["keys": ["d/4"],
+                 "duration": "q"]
+                ])
+        }
         webViewController.render(notes)
         webViewController.isHideProcess = true
         viewController.navigationController?.pushViewController(webViewController, animated: true)

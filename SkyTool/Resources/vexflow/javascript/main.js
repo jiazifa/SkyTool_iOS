@@ -1,3 +1,13 @@
+var Util = {
+  getClientWidth: function() {
+    return document.body.clientWidth;
+  },
+
+  getClientHeight: function() {
+    return document.body.clientHeight;
+  }
+};
+
 var CONSTANT = {
   elementWidth: {
     w: 100,
@@ -56,8 +66,8 @@ var VexFactory = function() {
   return obj;
 };
 
-var Translator = function (dom) {
-    var VF = Vex.Flow;
+var Translator = function(dom) {
+  var VF = Vex.Flow;
   var renderer = new VF.Renderer(dom, VF.Renderer.Backends.CANVAS);
   var factory = new VexFactory();
   var obj = {
@@ -66,26 +76,26 @@ var Translator = function (dom) {
     dom: dom,
     notes: [],
     factory: factory,
-    clef: 'treble',
-    timeSignature: '4/4'
+    clef: "treble",
+    timeSignature: "4/4"
   };
 
   obj.setClef = function(clef, timeSignature) {
     this.clef = clef;
     this.timeSignature = timeSignature;
-  }
+  };
 
   obj.appendNote = function(notes) {
     /* 添加一个小节的音符 */
-    var note = notes.map((n) => {
+    var note = notes.map(n => {
       var params = {};
       var duration = n.duration;
       var element = new VF.StaveNote(n);
       // 添加升降符
       this.factory.applyAccidentals(element);
       // note structure
-      params['note'] = element;
-      params['noteWidth'] = CONSTANT.elementWidth[duration];
+      params["note"] = element;
+      params["noteWidth"] = CONSTANT.elementWidth[duration];
       return params;
     });
     this.notes.push(note);
@@ -94,7 +104,7 @@ var Translator = function (dom) {
   obj.setContextSize = function(width, height) {
     var context = this.dom;
     console.log(context);
-    
+
     context.width = width;
     context.height = height;
   };
@@ -102,10 +112,19 @@ var Translator = function (dom) {
   obj.render = function() {
     var context = this.renderer.getContext();
     var clientWidth = 0;
+    var lineHeight = 250;
+    var originX = 10;
+    var offX = originX;
+    var offY = 0;
     var allWidths = [];
+
     for (let index = 0; index < this.notes.length; index++) {
       const note = this.notes[index];
       var staveWidth = 0;
+      if (offX + width > Util.getClientWidth()) {
+        offX = originX;
+        offY += lineHeight;
+      }
       for (let idx = 0; idx < note.length; idx++) {
         const notationNote = note[idx];
         staveWidth += notationNote.noteWidth;
@@ -113,18 +132,24 @@ var Translator = function (dom) {
       allWidths.push(staveWidth);
       clientWidth += staveWidth;
     }
-    
-    this.setContextSize(clientWidth + 50, 250);
 
-    var offX = 0;
-    var offY = 0;
+    this.setContextSize(Util.getClientWidth() + 50, lineHeight+=lineHeight);
+
+    lineHeight = 250;
+    offX = originX;
+    offY = 0;
+    
     for (let index = 0; index < this.notes.length; index++) {
       const note = this.notes[index];
       var width = allWidths[index];
-      
+      if (offX + width > Util.getClientWidth()) {
+        offX = originX;
+        offY += lineHeight;
+      }
       var stave = new this.factory.createStave(offX, offY, width); // 创建普表
       offX += width;
-      if (index === 0) {// 如果是第一小节，添加谱号与节拍
+      if (index === 0) {
+        // 如果是第一小节，添加谱号与节拍
         stave.addClef(this.clef);
         stave.addTimeSignature(this.timeSignature);
       }
@@ -134,9 +159,21 @@ var Translator = function (dom) {
         stave.setEndBarType(VF.Barline.type.END);
       }
       stave.setContext(context).draw();
-      VF.Formatter.FormatAndDraw(context, stave, note.map((e)=>e.note));
+      VF.Formatter.FormatAndDraw(context, stave, note.map(e => e.note));
     }
   };
 
   return obj;
 };
+
+function renderVex(commandString) {
+  // console.log(commandString);
+  var notesArray = JSON.parse(commandString);
+  var dom = document.getElementById("boo");
+  var translator = new Translator(dom);
+
+  notesArray.forEach(notes => {
+    translator.appendNote(notes);
+  });
+  translator.render();
+}
