@@ -10,53 +10,56 @@ import UIKit
 import WebKit
 
 class MusicWebViewController: WebViewController {
-    var commandQueue: [String: Any] = [:]
+    var commandQueue: [String: Any?] = [:]
 }
 
 extension MusicWebViewController {
-    func callJavascript(_ method: String, args: [String], done: ((String?) -> ())?) {
-        let methodCommand = generateCommand(method, args: args)
-        self.webView.evaluateJavaScript(methodCommand) { (x, e) in
+    func callJavascript(_ command: String, done: ((String?) -> ())?) {
+        self.webView.evaluateJavaScript(command) { (x, e) in
             if let returnValue = x as? String {
                 done?(returnValue)
             }
         }
     }
     
-    func generateCommand(_ method: String, args: [String]) -> String {
+    func generateCommand(_ method: String, args: Any?=nil) throws -> String {
         var methodCommand = method
         methodCommand += "("
-        for arg in args {
-            methodCommand += "\""
-            methodCommand += arg.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            methodCommand += "\""
-            methodCommand += ","
+        if let args = args {
+            do {
+                let commandData = try JSONSerialization.data(withJSONObject: args, options: [])
+                if let cmdString = String.init(data: commandData, encoding: .utf8) {
+                    let newCommand = cmdString.replacingOccurrences(of: "\"", with: "\\\"")
+                    methodCommand += "\""
+                    methodCommand += newCommand
+                    methodCommand += "\""
+                }
+            }catch {
+                throw error
+            }
         }
-        _ = methodCommand.removeLast()
+//        _ = methodCommand.removeLast()
         methodCommand += ")"
         Log.print("\(methodCommand)")
         return methodCommand
     }
     
-    func flushCommandsAndRunIfCan(_ command: (String, Any)?) {
+    func flushCommandsAndRunIfCan(_ command: (String, Any?)?) {
         if let (cmd, args) = command {
             self.commandQueue.updateValue(args, forKey: cmd)
         }
         guard self.isWebViewLoaded else { return }
         while !self.commandQueue.isEmpty {
             if let first = self.commandQueue.popFirst() {
-                if let value = first.value as? [String] {
-                    self.callJavascript(first.key, args: value, done: nil)
-                } else if let value = first.value as? String {
-                    self.callJavascript(first.key, args: [value], done: nil)
+                if let commandString = try? generateCommand(first.key, args: first.value) {
+                    self.callJavascript(commandString, done: nil)
                 } else { fatalError() }
             }
         }
     }
     
-    public func render(_ notationCommand: String) {
-        let command = notationCommand.replacingOccurrences(of: "\\\\", with: "\\")
-        self.flushCommandsAndRunIfCan(("renderVexpaString", command))
+    public func render(_ notationCommand: Any) {
+        self.flushCommandsAndRunIfCan(("renderVex", notationCommand))
     }
 }
 
