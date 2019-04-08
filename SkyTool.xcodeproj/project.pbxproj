@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23006212225B87C000288DAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23006211225B87C000288DAA /* NavigationViewController.swift */; };
 		2319B4C8224B6661004546A6 /* XMLCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C33B642248AEEF00E82D00 /* XMLCoder.framework */; };
 		2319B50A224B69FF004546A6 /* pitches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2319B509224B69FF004546A6 /* pitches.xml */; };
-		2319B50C224B776A004546A6 /* XMLStackParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B50B224B776A004546A6 /* XMLStackParser.swift */; };
-		2319B50F224B780B004546A6 /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319B50E224B780B004546A6 /* XMLElement.swift */; };
 		2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 2319B514224B8150004546A6 /* MIDI_sample.mid */; };
 		2319B517224B8202004546A6 /* Binchois.musicxml in Resources */ = {isa = PBXBuildFile; fileRef = 2319B516224B8202004546A6 /* Binchois.musicxml */; };
 		234FE32322446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234FE32222446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift */; };
@@ -142,9 +141,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23006211225B87C000288DAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		2319B509224B69FF004546A6 /* pitches.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pitches.xml; sourceTree = "<group>"; };
-		2319B50B224B776A004546A6 /* XMLStackParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLStackParser.swift; sourceTree = "<group>"; };
-		2319B50E224B780B004546A6 /* XMLElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLElement.swift; sourceTree = "<group>"; };
 		2319B514224B8150004546A6 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		2319B516224B8202004546A6 /* Binchois.musicxml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Binchois.musicxml; sourceTree = "<group>"; };
 		234FE32222446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPropertyTextCellDescriptor.swift; sourceTree = "<group>"; };
@@ -279,15 +277,6 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
-		2319B50D224B776E004546A6 /* XMLParser */ = {
-			isa = PBXGroup;
-			children = (
-				2319B50B224B776A004546A6 /* XMLStackParser.swift */,
-				2319B50E224B780B004546A6 /* XMLElement.swift */,
-			);
-			path = XMLParser;
-			sourceTree = "<group>";
-		};
 		234FE34E2244BFD000A89071 /* ColorTheme */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,7 +385,6 @@
 		2383626E2240B7E3007B892D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				2319B50D224B776E004546A6 /* XMLParser */,
 				234FE34E2244BFD000A89071 /* ColorTheme */,
 				23DEFCF5224383A700795E13 /* KeyChainManager */,
 				23DEFCF2224375EB00795E13 /* SessionManager */,
@@ -404,6 +392,7 @@
 				2383626F2240B7E3007B892D /* Settings */,
 				238362732240B7E3007B892D /* Utils */,
 				2383627F2240B7E3007B892D /* Views */,
+				23C0C9F4225B868700349507 /* ViewControllers */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -546,6 +535,14 @@
 				2383623D2240A030007B892D /* SkyTool.xcdatamodeld */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		23C0C9F4225B868700349507 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				23006211225B87C000288DAA /* NavigationViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		23C33B4E224882C400E82D00 /* Resources */ = {
@@ -810,11 +807,11 @@
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
 				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
-				2319B50C224B776A004546A6 /* XMLStackParser.swift in Sources */,
 				238362B72240B7E3007B892D /* Helpers.swift in Sources */,
 				23DEFCE4224367A700795E13 /* RegistViewController.swift in Sources */,
 				2383629E2240B7E3007B892D /* ColorScheme.swift in Sources */,
 				23DEFD0322439B6800795E13 /* LoginCredentials.swift in Sources */,
+				23006212225B87C000288DAA /* NavigationViewController.swift in Sources */,
 				238362A12240B7E3007B892D /* Reusable.swift in Sources */,
 				23DEFCE5224367A700795E13 /* ChangePasswordViewController.swift in Sources */,
 				234FE32322446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift in Sources */,
@@ -837,7 +834,6 @@
 				23DEFCE3224367A700795E13 /* AuthenticationCoordinator.swift in Sources */,
 				238362A22240B7E3007B892D /* UIFont+FontSpec.swift in Sources */,
 				2383629A2240B7E3007B892D /* SettingsProperty.swift in Sources */,
-				2319B50F224B780B004546A6 /* XMLElement.swift in Sources */,
 				238362A72240B7E3007B892D /* Dispatch+delay.swift in Sources */,
 				238362A42240B7E3007B892D /* UIApplication+statusBar.swift in Sources */,
 				23DEFCDB22435A5800795E13 /* ToolCollectionViewCell.swift in Sources */,

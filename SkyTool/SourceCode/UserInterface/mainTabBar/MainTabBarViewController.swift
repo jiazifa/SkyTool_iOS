@@ -37,7 +37,7 @@ class MainTabBarViewController: UITabBarController {
     
     private func addHomeViewController() {
         let viewController = HomeViewController()
-        let navigationController = UINavigationController.init(rootViewController: viewController)
+        let navigationController = NavigationViewController(rootViewController: viewController)
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.shadowImage = UIImage.init()
         let title = "home".localized
@@ -55,7 +55,7 @@ class MainTabBarViewController: UITabBarController {
         let factory = SettingsCellDescriptorFactory(settingsPropertyFactory: settinsProperty)
         let rootGroup = factory.rootGroup()
         let viewController = SettingsTableViewController(group: rootGroup)
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = NavigationViewController(rootViewController: viewController)
         navigationController.navigationBar.shadowImage = UIImage.init()
         let title = "setting".localized
         viewController.title = title

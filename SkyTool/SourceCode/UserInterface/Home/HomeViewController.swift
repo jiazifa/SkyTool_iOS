@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupViews() {
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.collectionView.register(UINib.init(nibName: "ToolCollectionViewCell", bundle: nil),
                                      forCellWithReuseIdentifier: "ToolCollectionViewCell")
         self.view.addSubview(self.collectionView)
@@ -50,7 +50,6 @@ class HomeViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         let supported = UIInterfaceOrientationMask.allButUpsideDown
-        Log.print("支持的翻转属性：\(supported.rawValue) ")
         return supported
     }
     
@@ -84,9 +83,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var colum: CGFloat = 2
-        if UIDevice.current.isPad {
-            colum = 3
-        }
+        if UIDevice.current.isPad { colum = 3 }
         let width = collectionView.bounds.width / colum - 10
         let size = CGSize.init(width: width, height: width * CGFloat(0.55))
         return size
