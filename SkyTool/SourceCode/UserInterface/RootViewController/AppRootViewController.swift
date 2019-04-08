@@ -183,16 +183,30 @@ extension AppRootViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return supportedOrientations
+        guard let topViewController = UIApplication.topViewController(from: self.visibilityViewController),
+            topViewController is AppRootViewController == false else {
+                return self.supportedOrientations
+        }
+        let supported = topViewController.supportedInterfaceOrientations
+        return supported
     }
     
     override var prefersStatusBarHidden: Bool {
-        return visibilityViewController?.prefersStatusBarHidden ?? false
+        guard let topViewController = UIApplication.topViewController(from: self.visibilityViewController),
+            topViewController is AppRootViewController == false else {
+                return false
+        }
+        return topViewController.prefersStatusBarHidden
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return visibilityViewController?.preferredStatusBarStyle ?? .default
+        guard let topViewController = UIApplication.topViewController(from: self.visibilityViewController),
+            topViewController is AppRootViewController == false else {
+                return UIStatusBarStyle.default
+        }
+        return topViewController.preferredStatusBarStyle
     }
+    
 }
 
 extension AppRootViewController: AppStateControllerDelegate {

@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupViews() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.collectionView.register(UINib.init(nibName: "ToolCollectionViewCell", bundle: nil),
                                      forCellWithReuseIdentifier: "ToolCollectionViewCell")
         self.view.addSubview(self.collectionView)
@@ -46,6 +46,16 @@ class HomeViewController: UIViewController {
     
     func createConstraints() {
         self.collectionView.autoPinEdgesToSuperviewSafeArea()
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        let supported = UIInterfaceOrientationMask.allButUpsideDown
+        Log.print("支持的翻转属性：\(supported.rawValue) ")
+        return supported
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
     }
 }
 
