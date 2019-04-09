@@ -32,7 +32,8 @@ class MainTabBarViewController: UITabBarController {
 
     private func setupChildViewControllers() {
         self.addHomeViewController()
-        self.addSettingsViewController()
+//        self.addSettingsViewController()
+        self.addSelfProfileViewController()
     }
     
     private func addHomeViewController() {
@@ -62,6 +63,21 @@ class MainTabBarViewController: UITabBarController {
         let item = UITabBarItem.init(title: title,
                                      image: UIImage.init(named: "setting"),
                                      selectedImage: UIImage.init(named: "setting"))
+        viewController.tabBarItem = item
+        addChild(navigationController)
+    }
+    
+    private func addSelfProfileViewController() {
+        let controller = SelfProfileController()
+        let viewController = SelfProfileViewController(controller: controller)
+        let navigationController = NavigationViewController(rootViewController: viewController)
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.shadowImage = UIImage.init()
+        let title = "tabbar.title.selfprofile".localized
+        viewController.title = title
+        let item = UITabBarItem.init(title: title,
+                                     image: UIImage.init(named: "self"),
+                                     selectedImage: UIImage.init(named: "self"))
         viewController.tabBarItem = item
         addChild(navigationController)
     }
