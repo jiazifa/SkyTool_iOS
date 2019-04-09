@@ -269,6 +269,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2313D5C1225C675C00BF5A20 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		2319B4CB224B679C004546A6 /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +392,7 @@
 		2383626E2240B7E3007B892D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2313D5C1225C675C00BF5A20 /* Requests */,
 				234FE34E2244BFD000A89071 /* ColorTheme */,
 				23DEFCF5224383A700795E13 /* KeyChainManager */,
 				23DEFCF2224375EB00795E13 /* SessionManager */,

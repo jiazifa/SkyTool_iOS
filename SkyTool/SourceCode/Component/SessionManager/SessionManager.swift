@@ -66,7 +66,9 @@ extension SessionManager {
     func login(_ account: Account) {
         guard let email = account.loginCredentials?.emailAddress,
             let password = account.loginCredentials?.passwordMd5 else { return }
-        let loginRequest = TransportRequest(path: "/api/user/login", params: ["email": email, "password": password])
+        let params = ["email": email, "password": password]
+        let loginRequest = TransportRequest(path: "/api/user/login",
+                                            params: params)
         let responseHandle: ResponseHandler = { (resp) in
             switch resp.payload {
             case .jsonDict(let x):
