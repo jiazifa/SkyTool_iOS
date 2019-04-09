@@ -229,6 +229,13 @@ protocol SettingsCellType: class {
     }
 }
 
+@objcMembers class SettingsButtonCell: SettingsTableCell {
+    override func setup() {
+        super.setup()
+        cellNameLabel.textColor = UIColor.black
+    }
+}
+
 @objcMembers class SettingsToggleCell: SettingsTableCell {
     var switchView: UISwitch!
     

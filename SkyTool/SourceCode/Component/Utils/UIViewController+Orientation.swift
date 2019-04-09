@@ -28,3 +28,20 @@ extension UIViewController {
         }
     }
 }
+
+/// topViewController
+public extension UIApplication {
+    class func topViewController(from base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController)
+        -> UIViewController? {
+            
+            if let nav = base as? UINavigationController {
+                return topViewController(from: nav.visibleViewController)
+            }else if let tab = base as? UITabBarController, let selected = tab.selectedViewController{
+                    return topViewController(from: selected)
+            }else if let presented = base?.presentedViewController {
+                return topViewController(from: presented)
+            }
+            return base
+            
+    }
+}

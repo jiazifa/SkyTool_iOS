@@ -68,6 +68,8 @@ class Session: NSObject {
     let session: URLSession
     let delegate: SessionDelegateType
     
+    private let defaultHost: String = "http://127.0.0.1:8091"
+    
     override init() {
         self.delegate = SessionDelegate()
         self.session = URLSession(configuration: URLSessionConfiguration.default,
@@ -79,7 +81,7 @@ class Session: NSObject {
     
     @discardableResult
     func send<T: Request>(_ r: T) -> SessionTask? {
-        let url = URL(string: Settings.shared.touchHostAddress + r.path)!
+        let url = URL(string: Settings.shared.touchHostAddress  ?? defaultHost + r.path)!
         var request = URLRequest(url: url, cachePolicy: r.cachePolicy, timeoutInterval: r.timeout)
         request.httpMethod = r.method.rawValue
         do {

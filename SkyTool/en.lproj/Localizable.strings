@@ -8,7 +8,11 @@
 
 "home" = "home";
 
+"app.title" = "Tool";
+
 "setting" = "setting";
+
+"tabbar.title.selfprofile" = "Self";
 
 "settings.system.setting.title" = "System Setting";
 "settings.system.hostAddress.title" = "Set Host";

@@ -59,7 +59,7 @@ class SettingsPropertyFactory {
                                          setAction: setAction)
         case .touchuHostAddress:
             let getAction: GetAction = { (property: SettingsBlockProperty) -> SettingsPropertyValue in
-                return SettingsPropertyValue.string(value: Settings.shared.touchHostAddress)
+                return SettingsPropertyValue.string(value: Settings.shared.touchHostAddress ?? "")
             }
             let setAction: SetAction = { (_, value) in
                 switch value {

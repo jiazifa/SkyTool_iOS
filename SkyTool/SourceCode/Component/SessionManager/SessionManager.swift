@@ -64,11 +64,30 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
 extension SessionManager {
     
     func login(_ account: Account) {
-        self.accountManager.addAndSelect(account)
-        self.delegate?.sessionManagerWillMigrateAccount(account: account)
+        guard let email = account.loginCredentials?.emailAddress,
+            let password = account.loginCredentials?.passwordMd5 else { return }
+        let params = ["email": email, "password": password]
+        let loginRequest = TransportRequest(path: "/api/user/login",
+                                            params: params)
+        let responseHandle: ResponseHandler = { (resp) in
+            switch resp.payload {
+            case .jsonDict(let x):
+                guard let token = x["token"] as? String else { return }
+                KeyChainManager.init(server: "\(account.userIdentifier.uuidString)").update(data: token)
+                self.accountManager.addAndSelect(account)
+                self.delegate?.sessionManagerWillMigrateAccount(account: account)
+                break
+            default:
+                break
+            }
+        }
+        loginRequest.responseHandlers = [responseHandle]
+        Settings.shared.touchHostAddress = nil
+        Session.shared.send(loginRequest)
     }
     
     func delete(account: Account) {
+        KeyChainManager.init(server: "\(account.userIdentifier.uuidString)").delete()
         self.accountManager.remove(account)
         self.delegate?.sessionManagerWillLogout(error: nil)
     }

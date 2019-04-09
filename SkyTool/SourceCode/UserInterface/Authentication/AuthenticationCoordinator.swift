@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYKit
 
 class AuthenticationCoordinator: NSObject {
     
@@ -28,8 +29,8 @@ class AuthenticationCoordinator: NSObject {
     }
     
     func startLogin(name: String, password: String) {
-        
-        let credentials = LoginCredentials(email: name, phone: nil, hasPassword: true)
+        let newPassword = password.md5()
+        let credentials = LoginCredentials(email: name, phone: nil, passwordMd5: newPassword!)
         account.loginCredentials = credentials
         SessionManager.shared.login(account)
     }

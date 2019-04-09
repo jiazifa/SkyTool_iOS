@@ -47,6 +47,15 @@ class HomeViewController: UIViewController {
     func createConstraints() {
         self.collectionView.autoPinEdgesToSuperviewSafeArea()
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        let supported = UIInterfaceOrientationMask.allButUpsideDown
+        return supported
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -74,9 +83,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var colum: CGFloat = 2
-        if UIDevice.current.isPad {
-            colum = 3
-        }
+        if UIDevice.current.isPad { colum = 3 }
         let width = collectionView.bounds.width / colum - 10
         let size = CGSize.init(width: width, height: width * CGFloat(0.55))
         return size

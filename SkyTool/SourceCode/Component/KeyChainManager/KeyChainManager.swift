@@ -41,15 +41,16 @@ public class KeyChainManager: NSObject {
         return false
     }
     
+    @discardableResult
     func update(data: Any) -> Bool {
         // 获取更新的条件
         let params = self.queryDictionary()
         // 创建数据存储字典
-        var updata = [String: Any]()
+        var updateInfo = [String: Any]()
         // 设置数据
-        updata[kSecValueData as String] = NSKeyedArchiver.archivedData(withRootObject: data)
+        updateInfo[kSecValueData as String] = NSKeyedArchiver.archivedData(withRootObject: data)
         // 更新数据
-        let updataStatus = SecItemUpdate(params as CFDictionary, update as! CFDictionary)
+        let updataStatus = SecItemUpdate(params as CFDictionary, updateInfo as CFDictionary)
         if updataStatus == noErr {
             return true
         }
