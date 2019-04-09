@@ -35,16 +35,6 @@ class Settings {
         }
     }
     
-    public var introduceUrl: URL? {
-        get {
-            return self.defaults.url(forKey: UserDefaultIntroduceUrlString)
-        }
-        set {
-            self.defaults.set(newValue, forKey: UserDefaultIntroduceUrlString)
-            self.synchronize()
-        }
-    }
-    
     // MARK: private variable
     private let defaults: UserDefaults = UserDefaults.standard
     

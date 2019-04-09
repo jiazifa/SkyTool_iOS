@@ -37,18 +37,10 @@ class SettingsCellDescriptorFactory {
         return element
     }
     
-    func introduceElement() -> SettingsExternalScreenCellDescriptor {
-        let element = SettingsExternalScreenCellDescriptor(title: "SkyTool") { () -> (UIViewController?) in
-//            if let path = Bundle.main.path(forResource: "index", ofType: "html", inDirectory: "html") {
-//                let url = URL.init(fileURLWithPath: path)
-//                return WebViewController(url)
-//            }
-            if let url = Settings.shared.introduceUrl {
-                let viewController = WebViewController(url)
-                viewController.title = "settings.system.introduction.title".localized
-                return viewController
-            }
-            return nil
+    func introduceElement() -> SettingsButtonCellDescriptor {
+        let element = SettingsButtonCellDescriptor(title: "app.title".localized) { (_) in
+            let url = UIApplication.introductionURL
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
         return element
     }

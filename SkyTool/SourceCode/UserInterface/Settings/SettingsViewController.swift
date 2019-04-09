@@ -152,7 +152,8 @@ class SettingsTableViewController: SettingsViewController {
                                                       SettingsGroupCell.self,
                                                       SettingsToggleCell.self,
                                                       SettingsValueCell.self,
-                                                      SettingsTextCell.self]
+                                                      SettingsTextCell.self,
+                                                      SettingsButtonCell.self]
         
         for aClass in allCellTypes {
             tableView.register(aClass, forCellReuseIdentifier: aClass.reuseIdentifier)

@@ -8,6 +8,8 @@
 
 "home" = "home";
 
+"app.title" = "Tool";
+
 "setting" = "setting";
 
 "settings.system.setting.title" = "System Setting";
