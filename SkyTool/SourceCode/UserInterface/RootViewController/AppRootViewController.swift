@@ -68,6 +68,7 @@ class AppRootViewController: UIViewController {
         let appVersion = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String
         self.sessionManager = SessionManager.init(appVersion: appVersion!, delegate: appStateController)
         self.sessionManager?.start(launchOptions: launchOptions)
+        _ = Session.init()
     }
 }
 

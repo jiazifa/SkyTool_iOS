@@ -12,19 +12,19 @@ public final class LoginCredentials: NSObject, Codable {
     public let emailAddress: String?
     public let phoneNumber: String?
     
-    public let hasPassword: Bool
+    public let passwordMd5: String?
     
-    public init(email: String?, phone: String?, hasPassword: Bool) {
+    public init(email: String?, phone: String?, passwordMd5: String?) {
         self.emailAddress = email
         self.phoneNumber = phone
-        self.hasPassword = hasPassword
+        self.passwordMd5 = passwordMd5
     }
     
     public override func isEqual(_ object: Any?) -> Bool {
         guard let otherCredentials = object as? LoginCredentials else { return false }
         let email = self.emailAddress == otherCredentials.emailAddress
         let phone = self.phoneNumber == otherCredentials.phoneNumber
-        let has = self.hasPassword == otherCredentials.hasPassword
+        let has = self.passwordMd5 == otherCredentials.passwordMd5
         return email && phone && has
     }
     
@@ -32,7 +32,7 @@ public final class LoginCredentials: NSObject, Codable {
         var hasher = Hasher()
         hasher.combine(self.emailAddress)
         hasher.combine(self.phoneNumber)
-        hasher.combine(self.hasPassword)
+        hasher.combine(self.passwordMd5)
         return hasher.finalize()
     }
 }

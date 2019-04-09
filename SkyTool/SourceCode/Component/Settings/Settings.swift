@@ -25,9 +25,9 @@ class Settings {
         }
     }
     
-    public var touchHostAddress: String {
+    public var touchHostAddress: String? {
         get {
-            return self.defaults.string(forKey: UserDefaultTouchHostAddress) ?? "127.0.0.1"
+            return self.defaults.string(forKey: UserDefaultTouchHostAddress)
         }
         set {
             self.defaults.set(newValue, forKey: UserDefaultTouchHostAddress)

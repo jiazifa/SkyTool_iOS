@@ -63,7 +63,9 @@ public class TransportRequest: Request {
 
 public enum ResponseData {
     case none
-    case jsonDict(AnyObject)
+    case jsonDict([String: Any])
+    case jsonArray([Any])
+    case json(Any)
 }
 
 public class TransportResponse {
@@ -104,10 +106,22 @@ public extension TransportResponse {
         }
         do {
             let json = try JSONSerialization.jsonObject(with: respData, options: [.allowFragments])
-            return TransportResponse.init(payload: .jsonDict(json as AnyObject),
-                                          httpStatus: statusCode,
-                                          sessionError: nil,
-                                          headers: headers)
+            if let jsonArray = json as? [Any] {
+                return TransportResponse.init(payload: .jsonArray(jsonArray),
+                                              httpStatus: statusCode,
+                                              sessionError: nil,
+                                              headers: headers)
+            } else if let jsonDict = json as? [String: Any] {
+                return TransportResponse.init(payload: .jsonDict(jsonDict),
+                                              httpStatus: statusCode,
+                                              sessionError: nil,
+                                              headers: headers)
+            } else {
+                return TransportResponse.init(payload: .json(json),
+                                              httpStatus: statusCode,
+                                              sessionError: nil,
+                                              headers: headers)
+            }
         } catch {
             return TransportResponse.init(payload: .none,
                                           httpStatus: statusCode,

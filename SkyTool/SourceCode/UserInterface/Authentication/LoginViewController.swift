@@ -16,6 +16,9 @@ class LoginViewController: UIViewController {
         let image = UIImage.init(named: "AppIcon60x60")
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.shadowColor = UIColor.lightGray.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 0.2)
+        imageView.layer.shadowOpacity = 0.2
         return imageView
     }()
     
