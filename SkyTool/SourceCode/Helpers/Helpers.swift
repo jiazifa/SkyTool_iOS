@@ -51,13 +51,3 @@ func guardSharedProperty<T>(_ input: T?) -> T {
     }
     return shared
 }
-
-extension UIView {
-    static func loadFromNib<T: UIView>() -> T {
-        Log.print(T.self)
-        guard let view = Bundle.main.loadNibNamed("\(T.self)", owner: nil, options: nil)?.first as? T else {
-            fatalError()
-        }
-        return view
-    }
-}

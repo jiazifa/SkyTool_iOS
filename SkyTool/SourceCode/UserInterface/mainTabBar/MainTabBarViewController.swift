@@ -68,8 +68,12 @@ class MainTabBarViewController: UITabBarController {
     }
     
     private func addSelfProfileViewController() {
-        let controller = SelfProfileController()
-        let viewController = SelfProfileViewController(controller: controller)
+        let account = SessionManager.shared.accountManager.selectedAccount!
+        let controller = SelfProfileController(account: account)
+        let settinsProperty = SettingsPropertyFactory(userDefaults: UserDefaults.standard)
+        let factory = SettingsCellDescriptorFactory(settingsPropertyFactory: settinsProperty)
+        let rootGroup = factory.rootGroup()
+        let viewController = SelfProfileViewController(controller: controller, group: rootGroup)
         let navigationController = NavigationViewController(rootViewController: viewController)
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.shadowImage = UIImage.init()

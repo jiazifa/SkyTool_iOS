@@ -14,6 +14,7 @@
 		2313D5CB225C847700BF5A20 /* SelfProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5CA225C847700BF5A20 /* SelfProfileController.swift */; };
 		2313D5CD225C860000BF5A20 /* SelfProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5CC225C860000BF5A20 /* SelfProfileHeaderView.swift */; };
 		2313D5CF225C860E00BF5A20 /* SelfProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2313D5CE225C860E00BF5A20 /* SelfProfileHeaderView.xib */; };
+		2313D5D1225D7C1500BF5A20 /* UIViewController+addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5D0225D7C1400BF5A20 /* UIViewController+addViewController.swift */; };
 		2319B4C8224B6661004546A6 /* XMLCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C33B642248AEEF00E82D00 /* XMLCoder.framework */; };
 		2319B50A224B69FF004546A6 /* pitches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2319B509224B69FF004546A6 /* pitches.xml */; };
 		2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 2319B514224B8150004546A6 /* MIDI_sample.mid */; };
@@ -154,6 +155,7 @@
 		2313D5CA225C847700BF5A20 /* SelfProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileController.swift; sourceTree = "<group>"; };
 		2313D5CC225C860000BF5A20 /* SelfProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileHeaderView.swift; sourceTree = "<group>"; };
 		2313D5CE225C860E00BF5A20 /* SelfProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelfProfileHeaderView.xib; sourceTree = "<group>"; };
+		2313D5D0225D7C1400BF5A20 /* UIViewController+addViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+addViewController.swift"; sourceTree = "<group>"; };
 		2319B509224B69FF004546A6 /* pitches.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pitches.xml; sourceTree = "<group>"; };
 		2319B514224B8150004546A6 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		2319B516224B8202004546A6 /* Binchois.musicxml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Binchois.musicxml; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				238362972240B7E3007B892D /* Helpers.swift */,
 				238362982240B7E3007B892D /* Config.swift */,
 				238362992240B7E3007B892D /* SettingsPropertyName.swift */,
+				2313D5D0225D7C1400BF5A20 /* UIViewController+addViewController.swift */,
 				23DEFB4A2240F90B00795E13 /* Result.swift */,
 				23DEFB4C2240FA1C00795E13 /* SkyNetworkError.swift */,
 				23DEFB4E2240FAB000795E13 /* Delegate.swift */,
@@ -849,6 +852,7 @@
 				2383623F2240A030007B892D /* SkyTool.xcdatamodeld in Sources */,
 				238362392240A030007B892D /* ViewController.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
+				2313D5D1225D7C1500BF5A20 /* UIViewController+addViewController.swift in Sources */,
 				2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */,
 				238362B62240B7E3007B892D /* DebugOption.swift in Sources */,
 				2313D5CD225C860000BF5A20 /* SelfProfileHeaderView.swift in Sources */,
