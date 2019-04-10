@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct LoginRequest: Request {
+public class LoginRequest: Request {
     public var path: String = "/api/user/login"
 
     public var method: HttpMethod = .POST
@@ -28,8 +28,9 @@ public struct LoginRequest: Request {
     public func complete(_ response: TransportResponse) {
         switch response.payload {
         case .jsonDict(let x):
-            guard let token = x["token"] as? String else { return }
-            KeyChainManager.init(server: "\(self.account.userIdentifier.uuidString)").update(data: token)
+            guard let token = x["token"] as? String,
+                let tokenData = token.data(using: .utf8) else { return }
+            self.account.tokenData = tokenData
             self.loginBlock(self.account)
         default:
             break
@@ -46,5 +47,38 @@ public struct LoginRequest: Request {
         }
         
         self.loginBlock = done
+    }
+}
+
+public class UserInfoRequest: Request {
+    public var path: String = "/api/user/info"
+    
+    public var method: HttpMethod = .POST
+    
+    public var parmeter: [String : Any] = [:]
+    
+    public var timeout: TimeInterval = 10
+    
+    public var encoding: ParameterEncoding = JSONEncoding.default
+    
+    public var responseHandlers: [ResponseHandler] = []
+    
+    public var account: Account
+    
+    init(account: Account) {
+        self.account = account
+    }
+    
+    public func complete(_ response: TransportResponse) {
+        switch response.payload {
+        case .jsonDict(let x):
+            guard let data = try? JSONSerialization.data(withJSONObject: x, options: []),
+                let info = try? JSONDecoder().decode(UserInfo.self, from: data) else {
+                return
+            }
+            self.account.userInfo = info
+        default:
+            break
+        }
     }
 }

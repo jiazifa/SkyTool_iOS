@@ -60,25 +60,21 @@ extension SessionDelegate: SessionDelegateType {
 
 class Session: NSObject {
     
-    private static var _shared: Session?
-    public static var shared: Session {
-        return guardSharedProperty(_shared)
-    }
-    
-    public var authenticateAccount: Account?
+    public static var shared: Session = Session()
     
     let session: URLSession
     let delegate: SessionDelegateType
     
+    var authenticateAccount: Account?
+    
     private let defaultHost: String = "http://127.0.0.1:8091"
     
-    override init() {
+    private override init() {
         self.delegate = SessionDelegate()
         self.session = URLSession(configuration: URLSessionConfiguration.default,
                              delegate: delegate,
                              delegateQueue: nil)
         super.init()
-        Session._shared = self
     }
     
     @discardableResult
@@ -94,9 +90,11 @@ class Session: NSObject {
         do {
             var newParams = r.parmeter
             if let account = self.authenticateAccount,
-                let token = KeyChainManager.init(server: account.userIdentifier.uuidString).query() {
+                let tokenData = account.tokenData,
+                let token = String(data: tokenData, encoding: .utf8) {
                 newParams.updateValue(token, forKey: "token")
             }
+            Log.print(newParams)
             request = try r.encoding.encode(request, with: newParams)
         } catch { return nil }
         

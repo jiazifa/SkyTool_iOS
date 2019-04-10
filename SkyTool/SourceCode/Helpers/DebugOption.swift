@@ -19,11 +19,11 @@ public func DLog<T>(_ message: T,
 
 public struct Log {
     static func assertionFailure(_ message: @autoclosure () -> String, file: StaticString = #file, line: UInt = #line) {
-        Swift.assertionFailure("[LOG] \(message())", file: file, line: line)
+        Swift.assertionFailure("[FAILURE] \(message())", file: file, line: line)
     }
     
     static func fatalError(_ message: @autoclosure () -> String, file: StaticString = #file, line: UInt = #line) -> Never {
-        Swift.fatalError("[LOG] \(message())", file: file, line: line)
+        Swift.fatalError("[ERROR] \(message())", file: file, line: line)
     }
     
     static func print(_ items: Any...) {

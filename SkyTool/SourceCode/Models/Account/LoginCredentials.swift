@@ -36,3 +36,16 @@ public final class LoginCredentials: NSObject, Codable {
         return hasher.finalize()
     }
 }
+
+public struct UserInfo: Codable {
+    public var email: String
+    public var backgroundImageURL: URL
+    public var nickname: String
+    
+    enum CodingKeys: String, CodingKey {
+        case email = "email"
+        case backgroundImageURL = "background_image"
+        case nickname = "nickname"
+    }
+    
+}

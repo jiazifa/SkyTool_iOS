@@ -70,7 +70,6 @@ class AppRootViewController: UIViewController {
     
     public func launch(with launchOptions: LaunchOptions) {
         self.sessionManager.start(launchOptions: launchOptions)
-        _ = Session.init()
     }
 }
 

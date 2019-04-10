@@ -39,6 +39,10 @@ class SelfProfileViewController: UIViewController {
         self.createConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateUserInfo()
+    }
     func createSubViews() {
         self.view.addSubview(self.scrollView)
         self.scrollView.addSubview(self.container)
@@ -48,13 +52,12 @@ class SelfProfileViewController: UIViewController {
         self.add(self.settingsViewController, to: self.container)
         self.settingsViewController.tableView.showsVerticalScrollIndicator = false
         self.settingsViewController.tableView.isScrollEnabled = false
-        if let data = self.controller.account.imageData {
-            self.headView.imageView.image = UIImage.init(data: data)
-        }
-        if self.controller.account.name.isEmpty,
-            let name = self.controller.account.loginCredentials?.emailAddress {
-            self.headView.titleLabel.text = name
-        }
+        self.updateUserInfo()
+    }
+    
+    func updateUserInfo() {
+        self.headView.titleLabel.text = self.controller.account.name
+        self.headView.imageView.setImageWith(self.controller.account.imageURL, options: [])
     }
     
     func createConstraints() {
@@ -66,7 +69,7 @@ class SelfProfileViewController: UIViewController {
         self.scrollView.autoPinEdgesToSuperviewEdges()
         
         self.container.autoMatch(.width, to: .width, of: self.scrollView)
-        self.container.autoMatch(.height, to: .height, of: self.scrollView)
+        self.container.autoMatch(.height, to: .height, of: self.scrollView, withOffset: 10)
         
         self.headView.autoPinEdge(toSuperviewEdge: .top)
         self.headView.autoPinEdge(toSuperviewEdge: .left)

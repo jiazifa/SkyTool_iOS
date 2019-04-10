@@ -60,6 +60,9 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     }
     
     private func selectInitialAccount(_ account: Account, launchOptions: LaunchOptions) {
+        Session.shared.authenticateAccount = account
+        let request = UserInfoRequest(account: account)
+        Session.shared.send(request)
         delegate?.sessionManagerWillMigrateAccount(account: account)
     }
 }
@@ -75,7 +78,7 @@ extension SessionManager {
     }
     
     func delete(account: Account) {
-        KeyChainManager.init(server: "\(account.userIdentifier.uuidString)").delete()
+        Session.shared.authenticateAccount = nil
         self.accountManager.remove(account)
         self.delegate?.sessionManagerWillLogout(error: nil)
     }
@@ -84,6 +87,9 @@ extension SessionManager {
 extension SessionManager {
     @objc private func onAccountUpdate(_ notification: Notification) {
         guard let account = self.accountManager.selectedAccount else { return }
+        Session.shared.authenticateAccount = account
+        let request = UserInfoRequest(account: account)
+        Session.shared.send(request)
         self.delegate?.sessionManagerWillMigrateAccount(account: account)
     }
 }

@@ -10,25 +10,34 @@ import UIKit
 
 public final class Account: NSObject, Codable {
     
-    public var name: String
+    public var name: String {
+        if let nickName = self.userInfo?.nickname {
+            return nickName
+        }
+        if let email = self.loginCredentials?.emailAddress {
+            return email
+        }
+        return ""
+    }
     
-    public var imageData: Data?
+    public var imageURL: URL? {
+        return self.userInfo?.backgroundImageURL
+    }
+    
+    public var tokenData: Data?
     
     public var loginCredentials: LoginCredentials?
+    
+    public var userInfo: UserInfo?
     
     public private(set) var user_id: Int?
     
     public let userIdentifier: UUID
     
-    init(name: String,
-         userIdentifier: UUID,
+    init(userIdentifier: UUID,
          loginCredentials: LoginCredentials?=nil) {
-        self.name = name
         self.userIdentifier = userIdentifier
         self.loginCredentials = loginCredentials
-        if self.name.isEmpty, let emailAddress = loginCredentials?.emailAddress {
-            self.name = emailAddress
-        }
         super.init()
     }
     
@@ -44,6 +53,7 @@ public final class Account: NSObject, Codable {
     public override var hash: Int {
         return userIdentifier.hashValue
     }
+    
 }
 
 extension Account {
