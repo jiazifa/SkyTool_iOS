@@ -65,6 +65,8 @@ class Session: NSObject {
         return guardSharedProperty(_shared)
     }
     
+    public var authenticateAccount: Account?
+    
     let session: URLSession
     let delegate: SessionDelegateType
     
@@ -81,11 +83,21 @@ class Session: NSObject {
     
     @discardableResult
     func send<T: Request>(_ r: T) -> SessionTask? {
-        let url = URL(string: Settings.shared.touchHostAddress  ?? defaultHost + r.path)!
+        var url: URL
+        if r.path.contains("http") {
+            url = URL(string: r.path)!
+        } else {
+            url = URL(string: defaultHost + r.path)!
+        }
         var request = URLRequest(url: url, cachePolicy: r.cachePolicy, timeoutInterval: r.timeout)
         request.httpMethod = r.method.rawValue
         do {
-            request = try r.encoding.encode(request, with: r.parmeter)
+            var newParams = r.parmeter
+            if let account = self.authenticateAccount,
+                let token = KeyChainManager.init(server: account.userIdentifier.uuidString).query() {
+                newParams.updateValue(token, forKey: "token")
+            }
+            request = try r.encoding.encode(request, with: newParams)
         } catch { return nil }
         
         let task = SessionTask(session: session, request: request)

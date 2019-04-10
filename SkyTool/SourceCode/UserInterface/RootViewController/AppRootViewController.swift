@@ -104,7 +104,7 @@ extension AppRootViewController {
         
         switch appState {
         case .headless:
-            viewController = MainTabBarViewController()
+            viewController = LaunchImageViewController()
             
         case .unauthenticated:
             let coordinator = AuthenticationCoordinator(account: nil)

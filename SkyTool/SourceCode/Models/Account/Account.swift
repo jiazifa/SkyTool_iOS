@@ -26,6 +26,9 @@ public final class Account: NSObject, Codable {
         self.name = name
         self.userIdentifier = userIdentifier
         self.loginCredentials = loginCredentials
+        if self.name.isEmpty, let emailAddress = loginCredentials?.emailAddress {
+            self.name = emailAddress
+        }
         super.init()
     }
     
