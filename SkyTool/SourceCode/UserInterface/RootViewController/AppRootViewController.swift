@@ -20,7 +20,7 @@ class AppRootViewController: UIViewController {
     weak var presentedPopover: UIPopoverPresentationController?
     weak var popoverPointToView: UIView?
     
-    public fileprivate(set) var sessionManager: SessionManager?
+    public fileprivate(set) var sessionManager: SessionManager
     
     func updateOverlayWindowFrame() {
     }
@@ -42,6 +42,12 @@ class AppRootViewController: UIViewController {
         mainWindow = UIWindow.init(frame: frame)
         mainWindow.accessibilityIdentifier = "ClientMainWindow"
         //        overlayWindow = NotificationWindow(frame: frame)
+        
+        let bundle = Bundle.main
+        
+        let appVersion = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String
+        self.sessionManager = SessionManager.init(appVersion: appVersion!, delegate: appStateController)
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         appStateController.delegate = self
         
@@ -63,12 +69,7 @@ class AppRootViewController: UIViewController {
     }
     
     public func launch(with launchOptions: LaunchOptions) {
-        let bundle = Bundle.main
-        
-        let appVersion = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String
-        self.sessionManager = SessionManager.init(appVersion: appVersion!, delegate: appStateController)
-        self.sessionManager?.start(launchOptions: launchOptions)
-        _ = Session.init()
+        self.sessionManager.start(launchOptions: launchOptions)
     }
 }
 
@@ -102,7 +103,7 @@ extension AppRootViewController {
         
         switch appState {
         case .headless:
-            viewController = MainTabBarViewController()
+            viewController = LaunchImageViewController()
             
         case .unauthenticated:
             let coordinator = AuthenticationCoordinator(account: nil)

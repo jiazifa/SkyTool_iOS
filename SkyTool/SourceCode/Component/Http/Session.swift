@@ -60,32 +60,42 @@ extension SessionDelegate: SessionDelegateType {
 
 class Session: NSObject {
     
-    private static var _shared: Session?
-    public static var shared: Session {
-        return guardSharedProperty(_shared)
-    }
+    public static var shared: Session = Session()
     
     let session: URLSession
     let delegate: SessionDelegateType
     
+    var authenticateAccount: Account?
+    
     private let defaultHost: String = "http://127.0.0.1:8091"
     
-    override init() {
+    private override init() {
         self.delegate = SessionDelegate()
         self.session = URLSession(configuration: URLSessionConfiguration.default,
                              delegate: delegate,
                              delegateQueue: nil)
         super.init()
-        Session._shared = self
     }
     
     @discardableResult
     func send<T: Request>(_ r: T) -> SessionTask? {
-        let url = URL(string: Settings.shared.touchHostAddress  ?? defaultHost + r.path)!
+        var url: URL
+        if r.path.contains("http") {
+            url = URL(string: r.path)!
+        } else {
+            url = URL(string: defaultHost + r.path)!
+        }
         var request = URLRequest(url: url, cachePolicy: r.cachePolicy, timeoutInterval: r.timeout)
         request.httpMethod = r.method.rawValue
         do {
-            request = try r.encoding.encode(request, with: r.parmeter)
+            var newParams = r.parmeter
+            if let account = self.authenticateAccount,
+                let tokenData = account.tokenData,
+                let token = String(data: tokenData, encoding: .utf8) {
+                newParams.updateValue(token, forKey: "token")
+            }
+            Log.print(newParams)
+            request = try r.encoding.encode(request, with: newParams)
         } catch { return nil }
         
         let task = SessionTask(session: session, request: request)

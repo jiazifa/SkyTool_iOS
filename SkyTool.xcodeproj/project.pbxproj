@@ -14,6 +14,8 @@
 		2313D5CB225C847700BF5A20 /* SelfProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5CA225C847700BF5A20 /* SelfProfileController.swift */; };
 		2313D5CD225C860000BF5A20 /* SelfProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5CC225C860000BF5A20 /* SelfProfileHeaderView.swift */; };
 		2313D5CF225C860E00BF5A20 /* SelfProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2313D5CE225C860E00BF5A20 /* SelfProfileHeaderView.xib */; };
+		2313D5D1225D7C1500BF5A20 /* UIViewController+addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5D0225D7C1400BF5A20 /* UIViewController+addViewController.swift */; };
+		2313D5D3225D8E8800BF5A20 /* Request_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5D2225D8E8800BF5A20 /* Request_User.swift */; };
 		2319B4C8224B6661004546A6 /* XMLCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C33B642248AEEF00E82D00 /* XMLCoder.framework */; };
 		2319B50A224B69FF004546A6 /* pitches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2319B509224B69FF004546A6 /* pitches.xml */; };
 		2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 2319B514224B8150004546A6 /* MIDI_sample.mid */; };
@@ -98,6 +100,10 @@
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
 		23C33B632248AE7000E82D00 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B622248AE7000E82D00 /* Cartfile */; };
+		23C6DFF0225D9973008140C3 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFEF225D9973008140C3 /* LaunchImageViewController.swift */; };
+		23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */; };
+		23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */; };
+		23C6DFF6225DBDB8008140C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C6DFF5225DBDB8008140C3 /* Images.xcassets */; };
 		23DEFB472240E30400795E13 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB462240E30400795E13 /* Request.swift */; };
 		23DEFB492240E42300795E13 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB482240E42300795E13 /* Session.swift */; };
 		23DEFB4B2240F90B00795E13 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
@@ -154,6 +160,8 @@
 		2313D5CA225C847700BF5A20 /* SelfProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileController.swift; sourceTree = "<group>"; };
 		2313D5CC225C860000BF5A20 /* SelfProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileHeaderView.swift; sourceTree = "<group>"; };
 		2313D5CE225C860E00BF5A20 /* SelfProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelfProfileHeaderView.xib; sourceTree = "<group>"; };
+		2313D5D0225D7C1400BF5A20 /* UIViewController+addViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+addViewController.swift"; sourceTree = "<group>"; };
+		2313D5D2225D8E8800BF5A20 /* Request_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_User.swift; sourceTree = "<group>"; };
 		2319B509224B69FF004546A6 /* pitches.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pitches.xml; sourceTree = "<group>"; };
 		2319B514224B8150004546A6 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		2319B516224B8202004546A6 /* Binchois.musicxml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Binchois.musicxml; sourceTree = "<group>"; };
@@ -216,6 +224,10 @@
 		23C33B622248AE7000E82D00 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		23C33B642248AEEF00E82D00 /* XMLCoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMLCoder.framework; path = Carthage/Build/iOS/XMLCoder.framework; sourceTree = "<group>"; };
 		23C33BAE2248D18D00E82D00 /* XMLParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMLParsing.framework; path = Carthage/Build/iOS/XMLParsing.framework; sourceTree = "<group>"; };
+		23C6DFEF225D9973008140C3 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchImageViewController.swift; sourceTree = "<group>"; };
+		23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		23C6DFF5225DBDB8008140C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23DEFB462240E30400795E13 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		23DEFB482240E42300795E13 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		23DEFB4A2240F90B00795E13 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -284,6 +296,7 @@
 		2313D5C1225C675C00BF5A20 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				2313D5D2225D8E8800BF5A20 /* Request_User.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -334,6 +347,7 @@
 				2383626C2240B7E3007B892D /* Resources */,
 				2383626D2240B7E3007B892D /* SourceCode */,
 				238362BD2240B9CC007B892D /* Support Files */,
+				23C6DFF5225DBDB8008140C3 /* Images.xcassets */,
 			);
 			path = SkyTool;
 			sourceTree = "<group>";
@@ -458,6 +472,7 @@
 		238362812240B7E3007B892D /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				23C6DFEE225D9909008140C3 /* LaunchImage */,
 				23DEFCDD224367A700795E13 /* Authentication */,
 				23DEFCD42243424200795E13 /* Home */,
 				238362822240B7E3007B892D /* Settings */,
@@ -540,6 +555,7 @@
 				238362972240B7E3007B892D /* Helpers.swift */,
 				238362982240B7E3007B892D /* Config.swift */,
 				238362992240B7E3007B892D /* SettingsPropertyName.swift */,
+				2313D5D0225D7C1400BF5A20 /* UIViewController+addViewController.swift */,
 				23DEFB4A2240F90B00795E13 /* Result.swift */,
 				23DEFB4C2240FA1C00795E13 /* SkyNetworkError.swift */,
 				23DEFB4E2240FAB000795E13 /* Delegate.swift */,
@@ -580,6 +596,16 @@
 				23C33B4C22487A6100E82D00 /* xmlDemo.xml */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		23C6DFEE225D9909008140C3 /* LaunchImage */ = {
+			isa = PBXGroup;
+			children = (
+				23C6DFEF225D9973008140C3 /* LaunchImageViewController.swift */,
+				23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */,
+				23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */,
+			);
+			path = LaunchImage;
 			sourceTree = "<group>";
 		};
 		23DEFB452240E2A600795E13 /* Http */ = {
@@ -765,7 +791,9 @@
 				2313D5CF225C860E00BF5A20 /* SelfProfileHeaderView.xib in Resources */,
 				2319B517224B8202004546A6 /* Binchois.musicxml in Resources */,
 				2319B50A224B69FF004546A6 /* pitches.xml in Resources */,
+				23C6DFF6225DBDB8008140C3 /* Images.xcassets in Resources */,
 				23603C55224DB48F00B8AC88 /* vexflow in Resources */,
+				23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */,
 				2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */,
 				23C33B632248AE7000E82D00 /* Cartfile in Resources */,
 				23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */,
@@ -849,6 +877,7 @@
 				2383623F2240A030007B892D /* SkyTool.xcdatamodeld in Sources */,
 				238362392240A030007B892D /* ViewController.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
+				2313D5D1225D7C1500BF5A20 /* UIViewController+addViewController.swift in Sources */,
 				2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */,
 				238362B62240B7E3007B892D /* DebugOption.swift in Sources */,
 				2313D5CD225C860000BF5A20 /* SelfProfileHeaderView.swift in Sources */,
@@ -856,6 +885,7 @@
 				23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */,
 				23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */,
 				238362372240A030007B892D /* AppDelegate.swift in Sources */,
+				23C6DFF0225D9973008140C3 /* LaunchImageViewController.swift in Sources */,
 				23DEFCD322433E2000795E13 /* UIColor+Sky.swift in Sources */,
 				23DEFB4D2240FA1C00795E13 /* SkyNetworkError.swift in Sources */,
 				23DEFCFA2243898E00795E13 /* AccountManager.swift in Sources */,
@@ -880,9 +910,11 @@
 				238362A92240B7E3007B892D /* SettingsCell.swift in Sources */,
 				23DEFCE7224367A700795E13 /* LoginViewController.swift in Sources */,
 				23DEFB492240E42300795E13 /* Session.swift in Sources */,
+				23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */,
 				23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */,
 				238362B92240B7E3007B892D /* SettingsPropertyName.swift in Sources */,
 				238362A02240B7E3007B892D /* UIColor+utils.swift in Sources */,
+				2313D5D3225D8E8800BF5A20 /* Request_User.swift in Sources */,
 				238362B22240B7E3007B892D /* AppState.swift in Sources */,
 				238362A32240B7E3007B892D /* FontScheme.swift in Sources */,
 				238362B02240B7E3007B892D /* SettingsViewController.swift in Sources */,

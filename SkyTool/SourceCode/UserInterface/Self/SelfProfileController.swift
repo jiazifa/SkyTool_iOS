@@ -10,5 +10,12 @@ import Foundation
 import UIKit
 
 class SelfProfileController {
+    var account: Account
+    
+    public let onHeadImage = Delegate<UIImage, Void>()
+    
+    init(account: Account) {
+        self.account = account
+    }
     
 }

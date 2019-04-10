@@ -16,7 +16,7 @@ class AuthenticationCoordinator: NSObject {
     fileprivate(set) var account: Account
     
     init(account: Account?) {
-        self.account = account ?? Account.init(name: "", userIdentifier: UUID.init())
+        self.account = account ?? Account.init(userIdentifier: UUID.init())
         super.init()
     }
     

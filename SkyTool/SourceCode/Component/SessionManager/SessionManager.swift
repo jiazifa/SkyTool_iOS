@@ -42,6 +42,10 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
         print("\(sharedContainerURL)")
         self.accountManager = AccountManager(sharedDirectory: sharedContainerURL)
         super.init()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onAccountUpdate(_:)),
+                                               name: AccountManagerDidUpdateAccountsNotificationName,
+                                               object: nil)
         SessionManager._shared = self
     }
     
@@ -56,6 +60,9 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     }
     
     private func selectInitialAccount(_ account: Account, launchOptions: LaunchOptions) {
+        Session.shared.authenticateAccount = account
+        let request = UserInfoRequest(account: account)
+        Session.shared.send(request)
         delegate?.sessionManagerWillMigrateAccount(account: account)
     }
 }
@@ -64,30 +71,14 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
 extension SessionManager {
     
     func login(_ account: Account) {
-        guard let email = account.loginCredentials?.emailAddress,
-            let password = account.loginCredentials?.passwordMd5 else { return }
-        let params = ["email": email, "password": password]
-        let loginRequest = TransportRequest(path: "/api/user/login",
-                                            params: params)
-        let responseHandle: ResponseHandler = { (resp) in
-            switch resp.payload {
-            case .jsonDict(let x):
-                guard let token = x["token"] as? String else { return }
-                KeyChainManager.init(server: "\(account.userIdentifier.uuidString)").update(data: token)
-                self.accountManager.addAndSelect(account)
-                self.delegate?.sessionManagerWillMigrateAccount(account: account)
-                break
-            default:
-                break
-            }
+        let login = LoginRequest(account: account) { (account) in
+            self.accountManager.addAndSelect(account)
         }
-        loginRequest.responseHandlers = [responseHandle]
-        Settings.shared.touchHostAddress = nil
-        Session.shared.send(loginRequest)
+        Session.shared.send(login)
     }
     
     func delete(account: Account) {
-        KeyChainManager.init(server: "\(account.userIdentifier.uuidString)").delete()
+        Session.shared.authenticateAccount = nil
         self.accountManager.remove(account)
         self.delegate?.sessionManagerWillLogout(error: nil)
     }
@@ -95,6 +86,10 @@ extension SessionManager {
 
 extension SessionManager {
     @objc private func onAccountUpdate(_ notification: Notification) {
-        
+        guard let account = self.accountManager.selectedAccount else { return }
+        Session.shared.authenticateAccount = account
+        let request = UserInfoRequest(account: account)
+        Session.shared.send(request)
+        self.delegate?.sessionManagerWillMigrateAccount(account: account)
     }
 }

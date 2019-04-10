@@ -146,6 +146,8 @@ class LoginViewController: UIViewController {
         self.view.addSubview(self.infoLabel)
         self.userNameLine.isHidden = true
         self.passwordLine.isHidden = true
+        
+        self.userNameTextField.text = self.coordinator.account.loginCredentials?.emailAddress
     }
     
     private func createConstrains() {
