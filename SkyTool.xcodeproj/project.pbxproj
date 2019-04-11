@@ -104,6 +104,15 @@
 		23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */; };
 		23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */; };
 		23C6DFF6225DBDB8008140C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C6DFF5225DBDB8008140C3 /* Images.xcassets */; };
+		23C6DFF8225EEC1D008140C3 /* TokenObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFF7225EEC1D008140C3 /* TokenObserver.swift */; };
+		23C6E007225F0C31008140C3 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFFD225F0C31008140C3 /* Trie.swift */; };
+		23C6E008225F0C31008140C3 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFFE225F0C31008140C3 /* RouterManager.swift */; };
+		23C6E009225F0C31008140C3 /* URLRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E000225F0C31008140C3 /* URLRouterManager.swift */; };
+		23C6E00A225F0C31008140C3 /* URLControllerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E002225F0C31008140C3 /* URLControllerDisplay.swift */; };
+		23C6E00B225F0C31008140C3 /* ControllerRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */; };
+		23C6E00C225F0C31008140C3 /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E004225F0C31008140C3 /* Intent.swift */; };
+		23C6E00E225F0EB1008140C3 /* CacheRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E00D225F0EB1008140C3 /* CacheRoute.swift */; };
+		23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */; };
 		23DEFB472240E30400795E13 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB462240E30400795E13 /* Request.swift */; };
 		23DEFB492240E42300795E13 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB482240E42300795E13 /* Session.swift */; };
 		23DEFB4B2240F90B00795E13 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
@@ -228,6 +237,15 @@
 		23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		23C6DFF5225DBDB8008140C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23C6DFF7225EEC1D008140C3 /* TokenObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenObserver.swift; sourceTree = "<group>"; };
+		23C6DFFD225F0C31008140C3 /* Trie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
+		23C6DFFE225F0C31008140C3 /* RouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+		23C6E000225F0C31008140C3 /* URLRouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRouterManager.swift; sourceTree = "<group>"; };
+		23C6E002225F0C31008140C3 /* URLControllerDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLControllerDisplay.swift; sourceTree = "<group>"; };
+		23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerRouterManager.swift; sourceTree = "<group>"; };
+		23C6E004225F0C31008140C3 /* Intent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intent.swift; sourceTree = "<group>"; };
+		23C6E00D225F0EB1008140C3 /* CacheRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRoute.swift; sourceTree = "<group>"; };
+		23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionManager+ViewController.swift"; sourceTree = "<group>"; };
 		23DEFB462240E30400795E13 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		23DEFB482240E42300795E13 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		23DEFB4A2240F90B00795E13 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -418,6 +436,7 @@
 		2383626E2240B7E3007B892D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				23C6DFF9225F0C31008140C3 /* RouterMananger */,
 				2313D5C1225C675C00BF5A20 /* Requests */,
 				234FE34E2244BFD000A89071 /* ColorTheme */,
 				23DEFCF5224383A700795E13 /* KeyChainManager */,
@@ -608,6 +627,51 @@
 			path = LaunchImage;
 			sourceTree = "<group>";
 		};
+		23C6DFF9225F0C31008140C3 /* RouterMananger */ = {
+			isa = PBXGroup;
+			children = (
+				23C6DFFC225F0C31008140C3 /* Core */,
+				23C6DFFF225F0C31008140C3 /* URLRouter */,
+				23C6E001225F0C31008140C3 /* Intent */,
+			);
+			path = RouterMananger;
+			sourceTree = "<group>";
+		};
+		23C6DFFC225F0C31008140C3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				23C6DFFD225F0C31008140C3 /* Trie.swift */,
+				23C6DFFE225F0C31008140C3 /* RouterManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		23C6DFFF225F0C31008140C3 /* URLRouter */ = {
+			isa = PBXGroup;
+			children = (
+				23C6E000225F0C31008140C3 /* URLRouterManager.swift */,
+			);
+			path = URLRouter;
+			sourceTree = "<group>";
+		};
+		23C6E001225F0C31008140C3 /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				23C6E002225F0C31008140C3 /* URLControllerDisplay.swift */,
+				23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */,
+				23C6E004225F0C31008140C3 /* Intent.swift */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
+		23C6E00F225F0EE9008140C3 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				23C6E00D225F0EB1008140C3 /* CacheRoute.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
 		23DEFB452240E2A600795E13 /* Http */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +710,7 @@
 			children = (
 				23DEFD012243959E00795E13 /* Account */,
 				2319B4CB224B679C004546A6 /* Music */,
+				23C6E00F225F0EE9008140C3 /* Route */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -654,6 +719,8 @@
 			isa = PBXGroup;
 			children = (
 				23DEFCF3224375FF00795E13 /* SessionManager.swift */,
+				23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */,
+				23C6DFF7225EEC1D008140C3 /* TokenObserver.swift */,
 			);
 			path = SessionManager;
 			sourceTree = "<group>";
@@ -878,12 +945,14 @@
 				238362392240A030007B892D /* ViewController.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
 				2313D5D1225D7C1500BF5A20 /* UIViewController+addViewController.swift in Sources */,
+				23C6E00B225F0C31008140C3 /* ControllerRouterManager.swift in Sources */,
 				2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */,
 				238362B62240B7E3007B892D /* DebugOption.swift in Sources */,
 				2313D5CD225C860000BF5A20 /* SelfProfileHeaderView.swift in Sources */,
 				238362A82240B7E3007B892D /* ButtonWithLargerHitArea.swift in Sources */,
 				23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */,
 				23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */,
+				23C6E007225F0C31008140C3 /* Trie.swift in Sources */,
 				238362372240A030007B892D /* AppDelegate.swift in Sources */,
 				23C6DFF0225D9973008140C3 /* LaunchImageViewController.swift in Sources */,
 				23DEFCD322433E2000795E13 /* UIColor+Sky.swift in Sources */,
@@ -892,8 +961,10 @@
 				23DEFCD62243425600795E13 /* HomeViewController.swift in Sources */,
 				23603C53224DADAE00B8AC88 /* Clef.swift in Sources */,
 				23DEFCE3224367A700795E13 /* AuthenticationCoordinator.swift in Sources */,
+				23C6E00C225F0C31008140C3 /* Intent.swift in Sources */,
 				238362A22240B7E3007B892D /* UIFont+FontSpec.swift in Sources */,
 				2383629A2240B7E3007B892D /* SettingsProperty.swift in Sources */,
+				23C6E008225F0C31008140C3 /* RouterManager.swift in Sources */,
 				238362A72240B7E3007B892D /* Dispatch+delay.swift in Sources */,
 				238362A42240B7E3007B892D /* UIApplication+statusBar.swift in Sources */,
 				23DEFCDB22435A5800795E13 /* ToolCollectionViewCell.swift in Sources */,
@@ -913,6 +984,7 @@
 				23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */,
 				23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */,
 				238362B92240B7E3007B892D /* SettingsPropertyName.swift in Sources */,
+				23C6E00A225F0C31008140C3 /* URLControllerDisplay.swift in Sources */,
 				238362A02240B7E3007B892D /* UIColor+utils.swift in Sources */,
 				2313D5D3225D8E8800BF5A20 /* Request_User.swift in Sources */,
 				238362B22240B7E3007B892D /* AppState.swift in Sources */,
@@ -925,6 +997,10 @@
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
 				23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */,
 				2313D5CB225C847700BF5A20 /* SelfProfileController.swift in Sources */,
+				23C6E009225F0C31008140C3 /* URLRouterManager.swift in Sources */,
+				23C6DFF8225EEC1D008140C3 /* TokenObserver.swift in Sources */,
+				23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */,
+				23C6E00E225F0EB1008140C3 /* CacheRoute.swift in Sources */,
 				238362B52240B7E3007B892D /* MainTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

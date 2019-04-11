@@ -124,6 +124,15 @@ class Session: NSObject {
             return
         }
         transportResponse = TransportResponse.response(with: response, data: data)
+        switch transportResponse.payload {
+        case .jsonDict(let x):
+            if let code = x["code"] as? Int,
+                code == 40204 {
+                Log.print("掉线了")
+            }
+        default:
+            break
+        }
     }
 }
 
