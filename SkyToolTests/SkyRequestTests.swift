@@ -29,11 +29,13 @@ class SkyRequestTests: XCTestCase {
             case .none:
                 XCTAssert(1 == 2)
                 break
+            default:
+                break
             }
         }
         
         transportRequest.responseHandlers.append(resp)
-        Session.init().send(transportRequest)
+        Session.shared.send(transportRequest)
     }
 
 }

@@ -135,7 +135,7 @@ var Translator = function(dom) {
 
     this.setContextSize(Util.getClientWidth() + 50, lineHeight+=lineHeight);
 
-    lineHeight = 250;
+    lineHeight = 200;
     offX = originX;
     offY = 0;
     

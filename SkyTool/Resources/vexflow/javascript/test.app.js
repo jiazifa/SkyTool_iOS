@@ -2,7 +2,7 @@
 window.onload = function() {
   var dom = document.getElementById("boo");
   var translator = new Translator(dom);
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < 1; index++) {
     translator.appendNote([
         { keys: ['d/4'], duration: 'q', addDot: true,'clef': 'treble' },
         { keys: ['c/4'], duration: 'q' },
@@ -12,6 +12,6 @@ window.onload = function() {
       
   }
   
-  translator.render();
+  // translator.render();
 
 };
