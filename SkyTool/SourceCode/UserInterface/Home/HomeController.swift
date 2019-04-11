@@ -29,12 +29,13 @@ class HomeController {
         let c = Note.init(letter: .C, octave: 4)
         let e = Note.init(letter: .E, octave: 4)
         let g = Note.init(letter: .G, octave: 4)
-        let groups: [StaveNote] = [
+        let group: [StaveNote] = [ // 小节
             StaveNote.init(notes: [c, e, g], isDot: false, duration: .quater),
             StaveNote.init(notes: [c, e, g], isDot: false, duration: .quater),
             StaveNote.init(notes: [e, g], isDot: false, duration: .quater),
             StaveNote.init(notes: [e, g], isDot: false, duration: .quater),
             ]
+        let groups = [group, group]
         webViewController.render(groups)
         webViewController.isHideProcess = true
         viewController.navigationController?.pushViewController(webViewController, animated: true)

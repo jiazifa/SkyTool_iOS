@@ -12,6 +12,6 @@ window.onload = function() {
       
   }
   
-  translator.render();
+  // translator.render();
 
 };

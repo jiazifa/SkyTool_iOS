@@ -58,20 +58,27 @@ extension MusicWebViewController {
         }
     }
     
-    public func render(_ notes: [StaveNote]) {
-        var staveNotes = [[String: Any]]()
-        for n in notes {
-            var params = [String: Any]()
-            var nn: [String] = []
-            for subn in n.notes {
-                nn.append(subn.description)
-            } // keys
-            params.updateValue(nn, forKey: "keys")
-            params.updateValue(n.isDot, forKey: "addDot")
-            params.updateValue(n.duration.vexflowDescription, forKey: "duration")
-            staveNotes.append(params)
-        } // note
-        self.flushCommandsAndRunIfCan(("renderVex", [staveNotes]))
+    public func render(_ groups: [[StaveNote]]) {
+        
+        var newGroups = [[[String: Any]]]()
+        
+        for staves in groups {
+            var newStaves = [[String: Any]]()
+            for notes in staves {
+                
+                var params = [String: Any]()
+                var nn: [String] = []
+                for subn in notes.notes {
+                    nn.append(subn.description)
+                } // keys
+                params.updateValue(nn, forKey: "keys")
+                params.updateValue(notes.isDot, forKey: "addDot")
+                params.updateValue(notes.duration.vexflowDescription, forKey: "duration")
+                newStaves.append(params)
+            } // note
+            newGroups.append(newStaves)
+        }
+        self.flushCommandsAndRunIfCan(("renderVex", newGroups))
     }
 }
 
