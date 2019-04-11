@@ -1,5 +1,6 @@
-github "MaxDesiatov/XMLCoder" "0.3.1"
 github "PureLayout/PureLayout" "v3.1.4"
 github "hackiftekhar/IQKeyboardManager" "v6.2.0"
 github "ibireme/YYKit" "1.0.9"
 github "jdg/MBProgressHUD" "1.1.0"
+github "vadymmarkov/Beethoven" "4.0.2"
+github "vadymmarkov/Pitchy" "3.0.0"

@@ -27,15 +27,15 @@ class HomeController {
         let webViewController = MusicWebViewController.init(url)
         webViewController.title = "网页"
         var notes = [[[String: Any]]]()
-        for _ in 0..<10 {
-            notes.append([
-                ["keys": ["d/4"],
-                 "duration": "q",
-                 "clef": "treble"],
-                ["keys": ["d/4"],
-                 "duration": "q"]
-                ])
-        }
+        let n = Note.init(letter: .C, octave: 4)
+        notes.append([
+            ["keys": ["\(n)"],
+             "duration": "q",
+             "clef": "treble"],
+            ["keys": ["d/4"],
+             "duration": "q"]
+            ])
+        
         webViewController.render(notes)
         webViewController.isHideProcess = true
         viewController.navigationController?.pushViewController(webViewController, animated: true)

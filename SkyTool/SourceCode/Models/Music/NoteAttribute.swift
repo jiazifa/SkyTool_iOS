@@ -27,5 +27,14 @@ public enum Clef: String {
     
     // tab
     case tab = "tab"
-    
+}
+
+public enum Duration: String {
+    case whole
+    case half
+    case quater
+    case eighth
+    case sixteenth
+    case thirtyTwo
+    case sixtyFour
 }
