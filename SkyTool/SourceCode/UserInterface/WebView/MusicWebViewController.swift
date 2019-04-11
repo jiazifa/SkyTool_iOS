@@ -49,7 +49,7 @@ extension MusicWebViewController {
             self.commandQueue.updateValue(args, forKey: cmd)
         }
         guard self.isWebViewLoaded else { return }
-        while !self.commandQueue.isEmpty {
+        while self.commandQueue.isEmpty == false {
             if let first = self.commandQueue.popFirst() {
                 if let commandString = try? generateCommand(first.key, args: first.value) {
                     self.callJavascript(commandString, done: nil)
@@ -58,8 +58,20 @@ extension MusicWebViewController {
         }
     }
     
-    public func render(_ notationCommand: Any) {
-        self.flushCommandsAndRunIfCan(("renderVex", notationCommand))
+    public func render(_ notes: [StaveNote]) {
+        var staveNotes = [[String: Any]]()
+        for n in notes {
+            var params = [String: Any]()
+            var nn: [String] = []
+            for subn in n.notes {
+                nn.append(subn.description)
+            } // keys
+            params.updateValue(nn, forKey: "keys")
+            params.updateValue(n.isDot, forKey: "addDot")
+            params.updateValue(n.duration.vexflowDescription, forKey: "duration")
+            staveNotes.append(params)
+        } // note
+        self.flushCommandsAndRunIfCan(("renderVex", [staveNotes]))
     }
 }
 

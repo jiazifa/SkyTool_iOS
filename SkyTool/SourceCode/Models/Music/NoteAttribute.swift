@@ -37,4 +37,16 @@ public enum Duration: String {
     case sixteenth
     case thirtyTwo
     case sixtyFour
+    
+    public var vexflowDescription: String {
+        switch self {
+        case .whole: return "w"
+        case .half: return "h"
+        case .quater: return "q"
+        case .eighth: return "8"
+        case .sixteenth: return "16"
+        case .thirtyTwo: return "32"
+        case .sixtyFour: return "64"
+        }
+    }
 }
