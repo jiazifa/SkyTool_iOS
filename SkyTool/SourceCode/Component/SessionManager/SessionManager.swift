@@ -28,12 +28,14 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     
     private(set) var accountManager: AccountManager
     
+    private(set) var isTest: Bool = false
+    
     private static var _shared: SessionManager?
     public static var shared: SessionManager {
         return guardSharedProperty(_shared)
     }
     
-    init(appVersion: String, delegate: SessionManagerDelegate?) {
+    init(appVersion: String, delegate: SessionManagerDelegate?, isTest: Bool = false) {
         self.appVersion = appVersion
         self.delegate = delegate
         guard let sharedContainerURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
@@ -41,6 +43,7 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
         }
         print("\(sharedContainerURL)")
         self.accountManager = AccountManager(sharedDirectory: sharedContainerURL)
+        self.isTest = isTest
         super.init()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(onAccountUpdate(_:)),
@@ -71,6 +74,10 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
 extension SessionManager {
     
     func login(_ account: Account) {
+        if self.isTest {
+            self.accountManager.addAndSelect(account)
+            return
+        }
         let login = LoginRequest(account: account) { (account) in
             self.accountManager.addAndSelect(account)
         }

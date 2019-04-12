@@ -99,6 +99,10 @@
 		238BAC5A225F39D600EEA88D /* SkyNoteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BAC59225F39D600EEA88D /* SkyNoteTest.swift */; };
 		238BAC5B225F3A1200EEA88D /* NoteAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23603C52224DADAE00B8AC88 /* NoteAttribute.swift */; };
 		238BAC5C225F3A1200EEA88D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BAC57225F370500EEA88D /* Note.swift */; };
+		23A296912260221B007C328F /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296902260221B007C328F /* Recorder.swift */; };
+		23A29694226034BA007C328F /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A29693226034BA007C328F /* SignalTracker.swift */; };
+		23A296982260356F007C328F /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296972260356F007C328F /* InputSignalTracker.swift */; };
+		23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */; };
 		23C33B4322486FA300E82D00 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4222486FA300E82D00 /* MIDI_sample.mid */; };
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
@@ -233,6 +237,10 @@
 		238BAC55225F356C00EEA88D /* Pitchy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pitchy.framework; path = Carthage/Build/iOS/Pitchy.framework; sourceTree = "<group>"; };
 		238BAC57225F370500EEA88D /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		238BAC59225F39D600EEA88D /* SkyNoteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyNoteTest.swift; sourceTree = "<group>"; };
+		23A296902260221B007C328F /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		23A29693226034BA007C328F /* SignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTracker.swift; sourceTree = "<group>"; };
+		23A296972260356F007C328F /* InputSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSignalTracker.swift; sourceTree = "<group>"; };
+		23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorSignalTracker.swift; sourceTree = "<group>"; };
 		23C33B4222486FA300E82D00 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		23C33B47224871B500E82D00 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
 		23C33B49224873E900E82D00 /* Easy_Ver.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Easy_Ver.mxl; sourceTree = "<group>"; };
@@ -456,6 +464,7 @@
 				238362732240B7E3007B892D /* Utils */,
 				2383627F2240B7E3007B892D /* Views */,
 				23C0C9F4225B868700349507 /* ViewControllers */,
+				23A2969222602220007C328F /* Recorder */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -606,6 +615,17 @@
 				2383623D2240A030007B892D /* SkyTool.xcdatamodeld */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		23A2969222602220007C328F /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				23A296902260221B007C328F /* Recorder.swift */,
+				23A29693226034BA007C328F /* SignalTracker.swift */,
+				23A296972260356F007C328F /* InputSignalTracker.swift */,
+				23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */,
+			);
+			path = Recorder;
 			sourceTree = "<group>";
 		};
 		23C0C9F4225B868700349507 /* ViewControllers */ = {
@@ -825,6 +845,9 @@
 					238362322240A030007B892D = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -937,6 +960,7 @@
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
 				234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */,
+				23A296982260356F007C328F /* InputSignalTracker.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
 				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
@@ -982,6 +1006,7 @@
 				23DEFCDB22435A5800795E13 /* ToolCollectionViewCell.swift in Sources */,
 				23DEFCD8224342A900795E13 /* HomeController.swift in Sources */,
 				2383629B2240B7E3007B892D /* Settings.swift in Sources */,
+				23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */,
 				238362B82240B7E3007B892D /* Config.swift in Sources */,
 				238362AD2240B7E3007B892D /* SettingsStaticTextCellDescriptor.swift in Sources */,
 				2383629F2240B7E3007B892D /* String+localized.swift in Sources */,
@@ -1007,8 +1032,10 @@
 				2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */,
 				23DEFB4F2240FAB000795E13 /* Delegate.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
+				23A296912260221B007C328F /* Recorder.swift in Sources */,
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
 				23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */,
+				23A29694226034BA007C328F /* SignalTracker.swift in Sources */,
 				2313D5CB225C847700BF5A20 /* SelfProfileController.swift in Sources */,
 				23C6E009225F0C31008140C3 /* URLRouterManager.swift in Sources */,
 				23C6DFF8225EEC1D008140C3 /* TokenObserver.swift in Sources */,

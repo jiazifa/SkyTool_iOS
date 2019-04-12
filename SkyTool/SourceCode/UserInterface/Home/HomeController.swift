@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeController {
     
     let viewController: UIViewController
+    
+    let recorder = Recorder()
     
     init(sourceController: UIViewController) {
         self.viewController = sourceController
@@ -18,7 +21,7 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
-        
+        self.checkPermissionAndRecord()
     }
     
     @objc func onItemClicked(_ index: Int) {
@@ -45,6 +48,33 @@ class HomeController {
         if let url = URL(string: "https://opensheetmusicdisplay.github.io/demo/") {
             let webViewController = WebViewController.init(url)
             self.viewController.navigationController?.pushViewController(webViewController, animated: true)
+        }
+    }
+    
+    public func checkPermissionAndRecord() {
+        let session = AVAudioSession.sharedInstance()
+        do {
+            if #available(iOS 10.0, *) {
+                try session.setCategory(.playAndRecord, mode: .default, options: [])
+            }
+            try session.setActive(true)
+            session.requestRecordPermission({ [weak self] (allowed) in
+                DispatchQueue.main.async {
+                    if allowed == false {
+                        if ((Double.init(UIDevice.current.systemVersion) ?? 0.0) > 10.0) {
+                            if let url = URL.init(string: UIApplication.openSettingsURLString) {
+                                if UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                            }
+                        }
+                    }else {
+                        try? self?.recorder.start()
+                    }
+                }
+            })
+        } catch _ {
+            return
         }
     }
 }

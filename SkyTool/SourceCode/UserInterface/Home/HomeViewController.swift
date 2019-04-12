@@ -56,6 +56,14 @@ class HomeViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return true
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
