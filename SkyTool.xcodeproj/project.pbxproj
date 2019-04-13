@@ -60,6 +60,8 @@
 		237860872261ACC4008BD562 /* CommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860852261ACC4008BD562 /* CommandManager.swift */; };
 		237860892261B610008BD562 /* RssListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860882261B610008BD562 /* RssListViewController.swift */; };
 		2378608C2261B68D008BD562 /* RssController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608B2261B68D008BD562 /* RssController.swift */; };
+		2378608E2261BBEC008BD562 /* Request_Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608D2261BBEC008BD562 /* Request_Rss.swift */; };
+		237860902261BD5C008BD562 /* Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608F2261BD5C008BD562 /* Rss.swift */; };
 		238362372240A030007B892D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362362240A030007B892D /* AppDelegate.swift */; };
 		238362392240A030007B892D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362382240A030007B892D /* ViewController.swift */; };
 		2383623C2240A030007B892D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2383623A2240A030007B892D /* Main.storyboard */; };
@@ -198,6 +200,8 @@
 		237860852261ACC4008BD562 /* CommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandManager.swift; sourceTree = "<group>"; };
 		237860882261B610008BD562 /* RssListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssListViewController.swift; sourceTree = "<group>"; };
 		2378608B2261B68D008BD562 /* RssController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssController.swift; sourceTree = "<group>"; };
+		2378608D2261BBEC008BD562 /* Request_Rss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_Rss.swift; sourceTree = "<group>"; };
+		2378608F2261BD5C008BD562 /* Rss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rss.swift; sourceTree = "<group>"; };
 		238362332240A030007B892D /* SkyTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238362362240A030007B892D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238362382240A030007B892D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				2313D5D2225D8E8800BF5A20 /* Request_User.swift */,
+				2378608D2261BBEC008BD562 /* Request_Rss.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -770,6 +775,7 @@
 				23DEFD012243959E00795E13 /* Account */,
 				2319B4CB224B679C004546A6 /* Music */,
 				2378607E2261A4EA008BD562 /* MissionTask */,
+				2378608F2261BD5C008BD562 /* Rss.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -983,6 +989,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2378608E2261BBEC008BD562 /* Request_Rss.swift in Sources */,
 				23DEFCF7224383BA00795E13 /* KeyChainManager.swift in Sources */,
 				237860872261ACC4008BD562 /* CommandManager.swift in Sources */,
 				238362B42240B7E3007B892D /* AppRootViewController.swift in Sources */,
@@ -1061,6 +1068,7 @@
 				23DEFCEC22436BE300795E13 /* Account.swift in Sources */,
 				2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */,
 				237860822261A4F2008BD562 /* MissionType.swift in Sources */,
+				237860902261BD5C008BD562 /* Rss.swift in Sources */,
 				23DEFB4F2240FAB000795E13 /* Delegate.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
 				23A296912260221B007C328F /* Recorder.swift in Sources */,

@@ -22,9 +22,10 @@ class WebControllerTask: MissionTaskType {
     
     var url: URL
     
-    init(_ name: String, url: URL, isExternal: Bool) {
+    init(_ name: String, url: URL, viewController: UIViewController?=nil, isExternal: Bool) {
         self.name = name
         self.url = url
+        self.viewController = viewController
         self.type = isExternal ? .externalWeb : .internalWeb
     }
     
