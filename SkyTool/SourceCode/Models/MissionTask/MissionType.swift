@@ -16,14 +16,10 @@ public enum MissionType {
     case externalWeb
 }
 
-public protocol MissionTaskType: class {
+public protocol MissionTaskType: CommandType {
     var type: MissionType { get }
     
     var name: String { get set }
     
-    var identifier: UUID { get }
-    
     var viewController: UIViewController? { get set }
-    
-    func execute()
 }

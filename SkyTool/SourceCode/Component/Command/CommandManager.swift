@@ -8,32 +8,26 @@
 
 import Foundation
 
-class CommandManager: NSObject {
+public class CommandManager {
     
-    private var commandQueue: [Command] = []
+    private(set) var commandQueue: [CommandType] = []
     
-    static let sharedInstance = CommandManager()
+    static let shared = CommandManager()
     
-    private override init() {
-        super.init()
-    }
-    
-    func executeCommand(_ cmd: Command, observer: CommandDelegate?) -> Void {
-        cmd.delegate = observer
+    public func execute(_ cmd: CommandType) -> Void {
         self.commandQueue.append(cmd)
         cmd.execute()
     }
     
-    func executeCommand(_ cmd: Command, completeBlock: @escaping CommandCallBackBlock) -> Void {
-        cmd.callBackBlock = completeBlock
-        self.commandQueue.append(cmd)
-        cmd.execute()
+    public func cancel(_ cmd: CommandType) -> Void {
+        Log.print("cancel \(cmd)")
+        cmd.delegate?.commandDidFailed(cmd)
+        self.commandQueue.removeAll(where: {$0 == cmd})
     }
     
-    func cancelCommand(_ cmd: Command) -> Void {
-        cmd.cancel()
-        //移除cmd
-        guard let index:Int = self.commandQueue.index(of:cmd) else { return }
-        self.commandQueue.remove(at: index)
+    public func done(_ cmd: CommandType) {
+        Log.print("done \(cmd)")
+        cmd.delegate?.commandDidFinish(cmd)
+        self.commandQueue.removeAll(where: {$0 == cmd})
     }
 }

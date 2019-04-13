@@ -8,57 +8,21 @@
 
 import Foundation
 
-typealias CommandCallBackBlock = (_ cmd: CommandType) -> Void
-
-protocol CommandType {
-    var userInfo:[String: Any] {get set}
+public protocol CommandType: class {
+    
+    var identifier: UUID { get }
     
     var delegate: CommandDelegate? {get set}
     
-    var callBackBlock: CommandCallBackBlock? {get set}
-    
-    func execute() -> Void
-    
-    func cancel() -> Void
-    
-    func done() -> Void
+    func execute()
 }
 
-protocol CommandDelegate {
+func == (left: CommandType, right: CommandType) -> Bool {
+    return left.identifier == right.identifier
+}
+
+public protocol CommandDelegate {
     func commandDidFinish(_ cmd: CommandType) -> Void
     
     func commandDidFailed(_ cmd: CommandType) -> Void
-}
-
-
-class Command: NSObject, CommandType {
-    
-    var userInfo: [String : Any] = [:]
-
-    var delegate: CommandDelegate?
-
-    var callBackBlock: CommandCallBackBlock?
-
-    class func command() -> Command {
-        return Command.init()
-    }
-    override init() {}
-    
-    func execute() {}
-    
-    func cancel() {
-        self.delegate = nil
-        self.callBackBlock = nil
-    }
-    func done() {
-        DispatchQueue.main.async {
-            self.delegate?.commandDidFinish(self)
-            self.callBackBlock?(self)
-            self.callBackBlock = nil
-            CommandManager.sharedInstance.cancelCommand(self)
-        }
-    }
-    deinit {
-        self.cancel()
-    }
 }

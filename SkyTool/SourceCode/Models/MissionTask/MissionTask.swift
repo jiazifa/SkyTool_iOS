@@ -9,22 +9,10 @@
 import Foundation
 import UIKit
 
-class MissionBaseTask: MissionTaskType {
-    var viewController: UIViewController?
-    
-    var type: MissionType = .none
-    var name: String
-    var identifier: UUID = UUID()
-    
-    init(_ name: String) {
-        self.name = name
-    }
-    
-    func execute() { }
-}
-
 class WebControllerTask: MissionTaskType {
     var type: MissionType
+    
+    var delegate: CommandDelegate?
     
     var name: String
     
@@ -41,6 +29,7 @@ class WebControllerTask: MissionTaskType {
     }
     
     func execute() {
+        defer { CommandManager.shared.done(self) }
         switch self.type {
         case .internalWeb:
             guard let sourceViewController = self.viewController else { return }
@@ -52,4 +41,5 @@ class WebControllerTask: MissionTaskType {
             fatalError()
         }
     }
+    
 }
