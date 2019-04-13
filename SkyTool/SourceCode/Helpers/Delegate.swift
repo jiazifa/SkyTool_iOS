@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Delegate<Input, Output> {
+public class Delegate<Input, Output> {
     init() {}
     
     private var block: ((Input) -> Output?)?

@@ -54,6 +54,14 @@
 		234FE34D2244BB4600A89071 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4E2240FAB000795E13 /* Delegate.swift */; };
 		23603C53224DADAE00B8AC88 /* NoteAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23603C52224DADAE00B8AC88 /* NoteAttribute.swift */; };
 		23603C55224DB48F00B8AC88 /* vexflow in Resources */ = {isa = PBXBuildFile; fileRef = 23603C54224DB48F00B8AC88 /* vexflow */; };
+		237860812261A4F2008BD562 /* MissionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378607F2261A4F2008BD562 /* MissionTask.swift */; };
+		237860822261A4F2008BD562 /* MissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860802261A4F2008BD562 /* MissionType.swift */; };
+		237860862261ACC4008BD562 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860842261ACC4008BD562 /* Command.swift */; };
+		237860872261ACC4008BD562 /* CommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860852261ACC4008BD562 /* CommandManager.swift */; };
+		237860892261B610008BD562 /* RssListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860882261B610008BD562 /* RssListViewController.swift */; };
+		2378608C2261B68D008BD562 /* RssController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608B2261B68D008BD562 /* RssController.swift */; };
+		2378608E2261BBEC008BD562 /* Request_Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608D2261BBEC008BD562 /* Request_Rss.swift */; };
+		237860902261BD5C008BD562 /* Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608F2261BD5C008BD562 /* Rss.swift */; };
 		238362372240A030007B892D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362362240A030007B892D /* AppDelegate.swift */; };
 		238362392240A030007B892D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362382240A030007B892D /* ViewController.swift */; };
 		2383623C2240A030007B892D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2383623A2240A030007B892D /* Main.storyboard */; };
@@ -99,6 +107,10 @@
 		238BAC5A225F39D600EEA88D /* SkyNoteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BAC59225F39D600EEA88D /* SkyNoteTest.swift */; };
 		238BAC5B225F3A1200EEA88D /* NoteAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23603C52224DADAE00B8AC88 /* NoteAttribute.swift */; };
 		238BAC5C225F3A1200EEA88D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BAC57225F370500EEA88D /* Note.swift */; };
+		23A296912260221B007C328F /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296902260221B007C328F /* Recorder.swift */; };
+		23A29694226034BA007C328F /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A29693226034BA007C328F /* SignalTracker.swift */; };
+		23A296982260356F007C328F /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296972260356F007C328F /* InputSignalTracker.swift */; };
+		23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */; };
 		23C33B4322486FA300E82D00 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4222486FA300E82D00 /* MIDI_sample.mid */; };
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
@@ -115,8 +127,6 @@
 		23C6E00B225F0C31008140C3 /* ControllerRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */; };
 		23C6E00C225F0C31008140C3 /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E004225F0C31008140C3 /* Intent.swift */; };
 		23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */; };
-		23C6E019225F1626008140C3 /* MissionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E018225F1626008140C3 /* MissionTask.swift */; };
-		23C6E01F225F166F008140C3 /* MissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E01E225F166F008140C3 /* MissionType.swift */; };
 		23DEFB472240E30400795E13 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB462240E30400795E13 /* Request.swift */; };
 		23DEFB492240E42300795E13 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB482240E42300795E13 /* Session.swift */; };
 		23DEFB4B2240F90B00795E13 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
@@ -184,6 +194,14 @@
 		234FE32D2244B7F600A89071 /* blue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blue.json; sourceTree = "<group>"; };
 		23603C52224DADAE00B8AC88 /* NoteAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAttribute.swift; sourceTree = "<group>"; };
 		23603C54224DB48F00B8AC88 /* vexflow */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vexflow; sourceTree = "<group>"; };
+		2378607F2261A4F2008BD562 /* MissionTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionTask.swift; sourceTree = "<group>"; };
+		237860802261A4F2008BD562 /* MissionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionType.swift; sourceTree = "<group>"; };
+		237860842261ACC4008BD562 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		237860852261ACC4008BD562 /* CommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandManager.swift; sourceTree = "<group>"; };
+		237860882261B610008BD562 /* RssListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssListViewController.swift; sourceTree = "<group>"; };
+		2378608B2261B68D008BD562 /* RssController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssController.swift; sourceTree = "<group>"; };
+		2378608D2261BBEC008BD562 /* Request_Rss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_Rss.swift; sourceTree = "<group>"; };
+		2378608F2261BD5C008BD562 /* Rss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rss.swift; sourceTree = "<group>"; };
 		238362332240A030007B892D /* SkyTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238362362240A030007B892D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238362382240A030007B892D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +251,10 @@
 		238BAC55225F356C00EEA88D /* Pitchy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pitchy.framework; path = Carthage/Build/iOS/Pitchy.framework; sourceTree = "<group>"; };
 		238BAC57225F370500EEA88D /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		238BAC59225F39D600EEA88D /* SkyNoteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyNoteTest.swift; sourceTree = "<group>"; };
+		23A296902260221B007C328F /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		23A29693226034BA007C328F /* SignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTracker.swift; sourceTree = "<group>"; };
+		23A296972260356F007C328F /* InputSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSignalTracker.swift; sourceTree = "<group>"; };
+		23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorSignalTracker.swift; sourceTree = "<group>"; };
 		23C33B4222486FA300E82D00 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		23C33B47224871B500E82D00 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
 		23C33B49224873E900E82D00 /* Easy_Ver.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Easy_Ver.mxl; sourceTree = "<group>"; };
@@ -252,8 +274,6 @@
 		23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerRouterManager.swift; sourceTree = "<group>"; };
 		23C6E004225F0C31008140C3 /* Intent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intent.swift; sourceTree = "<group>"; };
 		23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionManager+ViewController.swift"; sourceTree = "<group>"; };
-		23C6E018225F1626008140C3 /* MissionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTask.swift; sourceTree = "<group>"; };
-		23C6E01E225F166F008140C3 /* MissionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionType.swift; sourceTree = "<group>"; };
 		23DEFB462240E30400795E13 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		23DEFB482240E42300795E13 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		23DEFB4A2240F90B00795E13 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -322,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				2313D5D2225D8E8800BF5A20 /* Request_User.swift */,
+				2378608D2261BBEC008BD562 /* Request_Rss.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -341,6 +362,33 @@
 				238362752240B7E3007B892D /* ColorScheme.swift */,
 			);
 			path = ColorTheme;
+			sourceTree = "<group>";
+		};
+		2378607E2261A4EA008BD562 /* MissionTask */ = {
+			isa = PBXGroup;
+			children = (
+				2378607F2261A4F2008BD562 /* MissionTask.swift */,
+				237860802261A4F2008BD562 /* MissionType.swift */,
+			);
+			path = MissionTask;
+			sourceTree = "<group>";
+		};
+		237860832261ACC4008BD562 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				237860842261ACC4008BD562 /* Command.swift */,
+				237860852261ACC4008BD562 /* CommandManager.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		2378608A2261B618008BD562 /* Rss */ = {
+			isa = PBXGroup;
+			children = (
+				237860882261B610008BD562 /* RssListViewController.swift */,
+				2378608B2261B68D008BD562 /* RssController.swift */,
+			);
+			path = Rss;
 			sourceTree = "<group>";
 		};
 		2383622A2240A030007B892D = {
@@ -446,6 +494,7 @@
 		2383626E2240B7E3007B892D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				237860832261ACC4008BD562 /* Command */,
 				23C6DFF9225F0C31008140C3 /* RouterMananger */,
 				2313D5C1225C675C00BF5A20 /* Requests */,
 				234FE34E2244BFD000A89071 /* ColorTheme */,
@@ -456,6 +505,7 @@
 				238362732240B7E3007B892D /* Utils */,
 				2383627F2240B7E3007B892D /* Views */,
 				23C0C9F4225B868700349507 /* ViewControllers */,
+				23A2969222602220007C328F /* Recorder */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -509,6 +559,7 @@
 				2383628E2240B7E3007B892D /* Self */,
 				2383628F2240B7E3007B892D /* RootViewController */,
 				238362932240B7E3007B892D /* mainTabBar */,
+				2378608A2261B618008BD562 /* Rss */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -608,6 +659,17 @@
 			name = "Support Files";
 			sourceTree = "<group>";
 		};
+		23A2969222602220007C328F /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				23A296902260221B007C328F /* Recorder.swift */,
+				23A29693226034BA007C328F /* SignalTracker.swift */,
+				23A296972260356F007C328F /* InputSignalTracker.swift */,
+				23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
 		23C0C9F4225B868700349507 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,15 +736,6 @@
 			path = Intent;
 			sourceTree = "<group>";
 		};
-		23C6E01B225F1634008140C3 /* MissionTask */ = {
-			isa = PBXGroup;
-			children = (
-				23C6E018225F1626008140C3 /* MissionTask.swift */,
-				23C6E01E225F166F008140C3 /* MissionType.swift */,
-			);
-			path = MissionTask;
-			sourceTree = "<group>";
-		};
 		23DEFB452240E2A600795E13 /* Http */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,7 +774,8 @@
 			children = (
 				23DEFD012243959E00795E13 /* Account */,
 				2319B4CB224B679C004546A6 /* Music */,
-				23C6E01B225F1634008140C3 /* MissionTask */,
+				2378607E2261A4EA008BD562 /* MissionTask */,
+				2378608F2261BD5C008BD562 /* Rss.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -825,6 +879,9 @@
 					238362322240A030007B892D = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -932,11 +989,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2378608E2261BBEC008BD562 /* Request_Rss.swift in Sources */,
 				23DEFCF7224383BA00795E13 /* KeyChainManager.swift in Sources */,
+				237860872261ACC4008BD562 /* CommandManager.swift in Sources */,
 				238362B42240B7E3007B892D /* AppRootViewController.swift in Sources */,
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
 				234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */,
+				23A296982260356F007C328F /* InputSignalTracker.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
 				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
@@ -955,6 +1015,7 @@
 				2383623F2240A030007B892D /* SkyTool.xcdatamodeld in Sources */,
 				238362392240A030007B892D /* ViewController.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
+				237860892261B610008BD562 /* RssListViewController.swift in Sources */,
 				2313D5D1225D7C1500BF5A20 /* UIViewController+addViewController.swift in Sources */,
 				23C6E00B225F0C31008140C3 /* ControllerRouterManager.swift in Sources */,
 				2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */,
@@ -962,6 +1023,7 @@
 				2313D5CD225C860000BF5A20 /* SelfProfileHeaderView.swift in Sources */,
 				238362A82240B7E3007B892D /* ButtonWithLargerHitArea.swift in Sources */,
 				23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */,
+				237860862261ACC4008BD562 /* Command.swift in Sources */,
 				23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */,
 				23C6E007225F0C31008140C3 /* Trie.swift in Sources */,
 				238362372240A030007B892D /* AppDelegate.swift in Sources */,
@@ -974,7 +1036,6 @@
 				23DEFCE3224367A700795E13 /* AuthenticationCoordinator.swift in Sources */,
 				23C6E00C225F0C31008140C3 /* Intent.swift in Sources */,
 				238362A22240B7E3007B892D /* UIFont+FontSpec.swift in Sources */,
-				23C6E019225F1626008140C3 /* MissionTask.swift in Sources */,
 				2383629A2240B7E3007B892D /* SettingsProperty.swift in Sources */,
 				23C6E008225F0C31008140C3 /* RouterManager.swift in Sources */,
 				238362A72240B7E3007B892D /* Dispatch+delay.swift in Sources */,
@@ -982,6 +1043,7 @@
 				23DEFCDB22435A5800795E13 /* ToolCollectionViewCell.swift in Sources */,
 				23DEFCD8224342A900795E13 /* HomeController.swift in Sources */,
 				2383629B2240B7E3007B892D /* Settings.swift in Sources */,
+				23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */,
 				238362B82240B7E3007B892D /* Config.swift in Sources */,
 				238362AD2240B7E3007B892D /* SettingsStaticTextCellDescriptor.swift in Sources */,
 				2383629F2240B7E3007B892D /* String+localized.swift in Sources */,
@@ -1005,16 +1067,21 @@
 				238362B02240B7E3007B892D /* SettingsViewController.swift in Sources */,
 				23DEFCEC22436BE300795E13 /* Account.swift in Sources */,
 				2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */,
+				237860822261A4F2008BD562 /* MissionType.swift in Sources */,
+				237860902261BD5C008BD562 /* Rss.swift in Sources */,
 				23DEFB4F2240FAB000795E13 /* Delegate.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
+				23A296912260221B007C328F /* Recorder.swift in Sources */,
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
 				23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */,
+				237860812261A4F2008BD562 /* MissionTask.swift in Sources */,
+				23A29694226034BA007C328F /* SignalTracker.swift in Sources */,
 				2313D5CB225C847700BF5A20 /* SelfProfileController.swift in Sources */,
 				23C6E009225F0C31008140C3 /* URLRouterManager.swift in Sources */,
 				23C6DFF8225EEC1D008140C3 /* TokenObserver.swift in Sources */,
 				23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */,
+				2378608C2261B68D008BD562 /* RssController.swift in Sources */,
 				238362B52240B7E3007B892D /* MainTabBarViewController.swift in Sources */,
-				23C6E01F225F166F008140C3 /* MissionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,9 @@ class LaunchImageViewController: UIViewController {
         self.nibView.autoPinEdgesToSuperviewEdges(with: .zero)
     }
     
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { return false }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return self.supportedOrientations }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return self.supportedOrientations
+    }
 }

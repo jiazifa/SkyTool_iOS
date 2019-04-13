@@ -56,11 +56,19 @@ class HomeViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return true
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.controller.tasks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,15 +76,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                                                             for: indexPath) as? ToolCollectionViewCell else {
             fatalError()
         }
-        cell.titleLabel.text = "我是\(indexPath)"
-        
+        let task = self.controller.tasks[indexPath.item]
+        cell.titleLabel.text = "\(task.name)"
         cell.contentView.backgroundColor = UIColor.randomColor()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.controller.onItemClicked(indexPath.item)
-//        self.controller.toOpenSheet()
+        let task = self.controller.tasks[indexPath.item]
+        task.viewController = self
+        task.execute()
     }
 }
 

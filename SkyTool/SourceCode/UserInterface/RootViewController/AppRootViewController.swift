@@ -46,7 +46,7 @@ class AppRootViewController: UIViewController {
         let bundle = Bundle.main
         
         let appVersion = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String
-        self.sessionManager = SessionManager.init(appVersion: appVersion!, delegate: appStateController)
+        self.sessionManager = SessionManager.init(appVersion: appVersion!, delegate: appStateController, isTest: true)
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         appStateController.delegate = self
