@@ -34,5 +34,8 @@ extension HomeController {
             let task = WebControllerTask.init("openSheet", url: url, isExternal: true)
             self.tasks.append(task)
         }
+        let rsstask = ViewControllerTask.init("Rss", targetController: RssListViewController())
+        self.tasks.append(rsstask)
     }
+    
 }

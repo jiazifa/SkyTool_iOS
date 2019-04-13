@@ -14,6 +14,7 @@ public enum MissionType {
     case record
     case internalWeb
     case externalWeb
+    case viewController(_ target: UIViewController)
 }
 
 public protocol MissionTaskType: CommandType {

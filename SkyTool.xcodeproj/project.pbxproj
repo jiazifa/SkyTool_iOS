@@ -58,6 +58,8 @@
 		237860822261A4F2008BD562 /* MissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860802261A4F2008BD562 /* MissionType.swift */; };
 		237860862261ACC4008BD562 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860842261ACC4008BD562 /* Command.swift */; };
 		237860872261ACC4008BD562 /* CommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860852261ACC4008BD562 /* CommandManager.swift */; };
+		237860892261B610008BD562 /* RssListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860882261B610008BD562 /* RssListViewController.swift */; };
+		2378608C2261B68D008BD562 /* RssController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608B2261B68D008BD562 /* RssController.swift */; };
 		238362372240A030007B892D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362362240A030007B892D /* AppDelegate.swift */; };
 		238362392240A030007B892D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362382240A030007B892D /* ViewController.swift */; };
 		2383623C2240A030007B892D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2383623A2240A030007B892D /* Main.storyboard */; };
@@ -194,6 +196,8 @@
 		237860802261A4F2008BD562 /* MissionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionType.swift; sourceTree = "<group>"; };
 		237860842261ACC4008BD562 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		237860852261ACC4008BD562 /* CommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandManager.swift; sourceTree = "<group>"; };
+		237860882261B610008BD562 /* RssListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssListViewController.swift; sourceTree = "<group>"; };
+		2378608B2261B68D008BD562 /* RssController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssController.swift; sourceTree = "<group>"; };
 		238362332240A030007B892D /* SkyTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238362362240A030007B892D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238362382240A030007B892D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +377,15 @@
 			path = Command;
 			sourceTree = "<group>";
 		};
+		2378608A2261B618008BD562 /* Rss */ = {
+			isa = PBXGroup;
+			children = (
+				237860882261B610008BD562 /* RssListViewController.swift */,
+				2378608B2261B68D008BD562 /* RssController.swift */,
+			);
+			path = Rss;
+			sourceTree = "<group>";
+		};
 		2383622A2240A030007B892D = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +554,7 @@
 				2383628E2240B7E3007B892D /* Self */,
 				2383628F2240B7E3007B892D /* RootViewController */,
 				238362932240B7E3007B892D /* mainTabBar */,
+				2378608A2261B618008BD562 /* Rss */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -994,6 +1008,7 @@
 				2383623F2240A030007B892D /* SkyTool.xcdatamodeld in Sources */,
 				238362392240A030007B892D /* ViewController.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
+				237860892261B610008BD562 /* RssListViewController.swift in Sources */,
 				2313D5D1225D7C1500BF5A20 /* UIViewController+addViewController.swift in Sources */,
 				23C6E00B225F0C31008140C3 /* ControllerRouterManager.swift in Sources */,
 				2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */,
@@ -1057,6 +1072,7 @@
 				23C6E009225F0C31008140C3 /* URLRouterManager.swift in Sources */,
 				23C6DFF8225EEC1D008140C3 /* TokenObserver.swift in Sources */,
 				23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */,
+				2378608C2261B68D008BD562 /* RssController.swift in Sources */,
 				238362B52240B7E3007B892D /* MainTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

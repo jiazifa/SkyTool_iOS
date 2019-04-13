@@ -41,5 +41,33 @@ class WebControllerTask: MissionTaskType {
             fatalError()
         }
     }
+}
+
+class ViewControllerTask: MissionTaskType {
+    var type: MissionType
     
+    var delegate: CommandDelegate?
+    
+    var name: String
+    
+    var identifier: UUID = UUID()
+    
+    var viewController: UIViewController?
+    
+    init(_ name: String, targetController: UIViewController) {
+        self.name = name
+        self.type = .viewController(targetController)
+    }
+    
+    func execute() {
+        defer { CommandManager.shared.done(self) }
+        switch self.type {
+        case .viewController(let target):
+            guard let current = self.viewController else { return }
+            target.title = self.name
+            current.navigationController?.pushViewController(target, animated: true)
+        default:
+            fatalError()
+        }
+    }
 }
