@@ -12,63 +12,41 @@ import UIKit
 class WebControllerTask: MissionTaskType {
     var type: MissionType
     
-    var delegate: CommandDelegate?
-    
     var name: String
     
     var identifier: UUID = UUID()
     
-    var viewController: UIViewController?
-    
-    var url: URL
-    
-    init(_ name: String, url: URL, viewController: UIViewController?=nil, isExternal: Bool) {
+    init(_ name: String, url: URL) {
         self.name = name
-        self.url = url
-        self.viewController = viewController
-        self.type = isExternal ? .externalWeb : .internalWeb
+        self.type = .web(url)
     }
     
     func execute() {
-        defer { CommandManager.shared.done(self) }
         switch self.type {
-        case .internalWeb:
-            guard let sourceViewController = self.viewController else { return }
-            let webViewController = WebViewController(self.url)
-            sourceViewController.navigationController?.pushViewController(webViewController, animated: true)
-        case .externalWeb:
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        case .web(let url):
+            guard let topViewController = UIApplication.shared.topmostController(),
+                let navigation = topViewController.navigationController else {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                return
+            }
+            let webViewController = WebViewController(url)
+            navigation.pushViewController(webViewController, animated: true)
         default:
             fatalError()
         }
     }
 }
 
-class ViewControllerTask: MissionTaskType {
-    var type: MissionType
+struct MissionBaseTask: MissionTaskType {
+    var identifier: UUID
     
-    var delegate: CommandDelegate?
+    var type: MissionType
     
     var name: String
     
-    var identifier: UUID = UUID()
-    
-    var viewController: UIViewController?
-    
-    init(_ name: String, targetController: UIViewController) {
+    init(identifier: UUID = UUID(), name: String, type: MissionType) {
+        self.identifier = identifier
         self.name = name
-        self.type = .viewController(targetController)
-    }
-    
-    func execute() {
-        defer { CommandManager.shared.done(self) }
-        switch self.type {
-        case .viewController(let target):
-            guard let current = self.viewController else { return }
-            target.title = self.name
-            current.navigationController?.pushViewController(target, animated: true)
-        default:
-            fatalError()
-        }
+        self.type = type
     }
 }

@@ -84,8 +84,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let task = self.controller.tasks[indexPath.item]
-        task.viewController = self
-        task.execute()
+        let command = MissionCommand(mission: task)
+        command.viewController = self
+        CommandManager.shared.execute(command)
     }
 }
 

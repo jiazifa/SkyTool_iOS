@@ -31,11 +31,9 @@ class HomeController {
 extension HomeController {
     func preapreTasks() {
         if let url = URL(string: "https://opensheetmusicdisplay.github.io/demo/") {
-            let task = WebControllerTask.init("openSheet", url: url, isExternal: true)
+            let task = WebControllerTask.init("openSheet", url: url)
             self.tasks.append(task)
         }
-        let rsstask = ViewControllerTask.init("Rss", targetController: RssListViewController())
-        self.tasks.append(rsstask)
+        self.tasks.append(MissionBaseTask(name: "Rss", type: .rss))
     }
-    
 }
