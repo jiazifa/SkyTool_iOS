@@ -32,6 +32,7 @@ public class RssListRequest: Request {
     init(limit: Int, pages: Int) {
         self.limit = limit
         self.pages = pages
+        self.generatParams()
     }
     
     private func generatParams() {
@@ -62,7 +63,8 @@ public class RssListRequest: Request {
             }
             self.rsses.append(contentsOf: rssList)
             self.fetchComplete.call(self.rsses)
-            
+        case .none:
+            break
         default:
             Log.fatalError("error handler")
         }
