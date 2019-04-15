@@ -9,35 +9,7 @@
 import Foundation
 import UIKit
 
-class WebControllerTask: MissionTaskType {
-    var type: MissionType
-    
-    var name: String
-    
-    var identifier: UUID = UUID()
-    
-    init(_ name: String, url: URL) {
-        self.name = name
-        self.type = .web(url)
-    }
-    
-    func execute() {
-        switch self.type {
-        case .web(let url):
-            guard let topViewController = UIApplication.shared.topmostController(),
-                let navigation = topViewController.navigationController else {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                return
-            }
-            let webViewController = WebViewController(url)
-            navigation.pushViewController(webViewController, animated: true)
-        default:
-            fatalError()
-        }
-    }
-}
-
-struct MissionBaseTask: MissionTaskType {
+class MissionBaseTask: MissionTaskType {
     var identifier: UUID
     
     var type: MissionType
@@ -48,5 +20,34 @@ struct MissionBaseTask: MissionTaskType {
         self.identifier = identifier
         self.name = name
         self.type = type
+    }
+}
+
+
+class WebControllerTask: MissionBaseTask {
+    var viewController: UIViewController?
+    
+    init(_ name: String, url: URL) {
+        super.init(name: name, type: .none)
+        self.type = .web(url)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+    
+    func execute() {
+        switch self.type {
+        case .web(let url):
+            guard let topViewController = self.viewController,
+                let navigation = topViewController.navigationController else {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                return
+            }
+            let webViewController = WebViewController(url)
+            navigation.pushViewController(webViewController, animated: true)
+        default:
+            fatalError()
+        }
     }
 }

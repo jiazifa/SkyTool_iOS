@@ -65,5 +65,7 @@ extension RssListViewController: UITableViewDelegate, UITableViewDataSource {
         let rss = self.controller.rsses[indexPath.row]
         let task = WebControllerTask.init(rss.title,
                                           url: rss.link)
+        task.viewController = self
+        task.execute()
     }
 }

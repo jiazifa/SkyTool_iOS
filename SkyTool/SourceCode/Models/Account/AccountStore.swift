@@ -8,7 +8,7 @@
 
 import UIKit
 
-public  final class AccountStore: NSObject {
+public final class AccountStore: NSObject {
     
     private static let directoryName = "Accounts"
     

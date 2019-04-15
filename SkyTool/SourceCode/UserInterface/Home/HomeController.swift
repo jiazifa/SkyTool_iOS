@@ -15,7 +15,7 @@ class HomeController {
     
     let recorder = Recorder()
     
-    var tasks: [MissionTaskType] = []
+    var tasks: [MissionBaseTask] = []
     
     init(sourceController: UIViewController) {
         self.viewController = sourceController
@@ -30,10 +30,6 @@ class HomeController {
 
 extension HomeController {
     func preapreTasks() {
-        if let url = URL(string: "https://opensheetmusicdisplay.github.io/demo/") {
-            let task = WebControllerTask.init("openSheet", url: url)
-            self.tasks.append(task)
-        }
-        self.tasks.append(MissionBaseTask(name: "Rss", type: .rss))
+        self.tasks = TaskStore.shared.load()
     }
 }

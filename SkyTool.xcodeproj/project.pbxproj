@@ -116,6 +116,7 @@
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
 		23C33B632248AE7000E82D00 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B622248AE7000E82D00 /* Cartfile */; };
+		23C677782263554C005BDA39 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C677772263554C005BDA39 /* TaskStore.swift */; };
 		23C6DFF0225D9973008140C3 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFEF225D9973008140C3 /* LaunchImageViewController.swift */; };
 		23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */; };
 		23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */; };
@@ -264,6 +265,7 @@
 		23C33B622248AE7000E82D00 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		23C33B642248AEEF00E82D00 /* XMLCoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMLCoder.framework; path = Carthage/Build/iOS/XMLCoder.framework; sourceTree = "<group>"; };
 		23C33BAE2248D18D00E82D00 /* XMLParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMLParsing.framework; path = Carthage/Build/iOS/XMLParsing.framework; sourceTree = "<group>"; };
+		23C677772263554C005BDA39 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 		23C6DFEF225D9973008140C3 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchImageViewController.swift; sourceTree = "<group>"; };
 		23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				2378607F2261A4F2008BD562 /* MissionTask.swift */,
 				237860802261A4F2008BD562 /* MissionType.swift */,
 				237860952263326C008BD562 /* MissionCommand.swift */,
+				23C677772263554C005BDA39 /* TaskStore.swift */,
 			);
 			path = MissionTask;
 			sourceTree = "<group>";
@@ -1002,6 +1005,7 @@
 				23A296982260356F007C328F /* InputSignalTracker.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
+				23C677782263554C005BDA39 /* TaskStore.swift in Sources */,
 				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
 				238362B72240B7E3007B892D /* Helpers.swift in Sources */,
 				23DEFCE4224367A700795E13 /* RegistViewController.swift in Sources */,

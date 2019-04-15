@@ -26,24 +26,18 @@ public enum MissionType: Codable {
     }
     
     public init(from decoder: Decoder) throws {
-        do {
-            
-            let values = try decoder.container(keyedBy: MissionType.CodingKeys.self)
-            let type = try values.decode(MissionStaticType.self, forKey: .type)
-            switch type {
-            case .none:
-                self = .none
-            case .web:
-                let url = try values.decode(URL.self, forKey: .url)
-                self = .web(url)
-            case .rss:
-                self = .rss
-//            default:
-//                break
-            }
-            
-        } catch {
-            throw error
+        let values = try decoder.container(keyedBy: MissionType.CodingKeys.self)
+        let type = try values.decode(MissionStaticType.self, forKey: .type)
+        switch type {
+        case .none:
+            self = .none
+        case .web:
+            let url = try values.decode(URL.self, forKey: .url)
+            self = .web(url)
+        case .rss:
+            self = .rss
+//        default:
+//            break
         }
     }
     
@@ -70,4 +64,20 @@ public protocol MissionTaskType: Codable {
     
     var name: String { get set }
     
+}
+
+extension MissionTaskType {
+    func write(to url: URL) throws {
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(self)
+        try data.write(to: url)
+    }
+    
+    static func load(from url: URL) -> MissionTaskType? {
+        let data = try? Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        return data.flatMap({
+            try? decoder.decode(self, from: $0)
+        })
+    }
 }
