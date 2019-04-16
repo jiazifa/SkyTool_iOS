@@ -18,7 +18,7 @@ class PhotoPickerNavigationController: UINavigationController {
         self.coordinator = coordinator
         let rootViewController = PhotoAlbumListViewController(coordinator)
         super.init(rootViewController: rootViewController)
-        
+        self.navigationItem.largeTitleDisplayMode = .never
         let currentType = PHAssetCollectionSubtype.smartAlbumUserLibrary
         let result = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: currentType, options: nil)
         guard result.count > 0,

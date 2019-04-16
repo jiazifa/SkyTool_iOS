@@ -129,7 +129,7 @@ extension PhotoCollectionViewController: UICollectionViewDelegate, UICollectionV
             self.selectedIndex.remove(indexPath)
             cell.imageView.layer.borderWidth = 0
         } else {
-            if self.coordinator.options.maxiumSelecteCount >= self.selectedIndex.count {
+            if self.selectedIndex.count >= self.coordinator.options.maxiumSelecteCount {
                 return
             }
             self.selectedIndex.insert(indexPath)
