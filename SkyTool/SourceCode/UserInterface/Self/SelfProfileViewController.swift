@@ -15,6 +15,10 @@ class SelfProfileViewController: UIViewController {
         return SelfProfileHeaderView.loadNib()
     }()
     
+    private var imageController: PickerImageController {
+        return PickerImageController.init(hostViewController: self)
+    }
+    
     let settingsViewController: SettingsTableViewController
     
     let scrollView = UIScrollView()
@@ -53,6 +57,16 @@ class SelfProfileViewController: UIViewController {
         self.settingsViewController.tableView.showsVerticalScrollIndicator = false
         self.settingsViewController.tableView.isScrollEnabled = false
         self.updateUserInfo()
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(modifyIcon(_:)))
+        self.headView.imageView.isUserInteractionEnabled = true
+        self.headView.imageView.addGestureRecognizer(tap)
+    }
+    
+    @objc func modifyIcon(_ tap: UITapGestureRecognizer) {
+        self.imageController.beginPick { (images) in
+            guard let images = images else { return }
+            Log.print("\(images.count)")
+        }
     }
     
     func updateUserInfo() {

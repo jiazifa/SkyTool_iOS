@@ -52,6 +52,15 @@
 		234FE34B2244BB4600A89071 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
 		234FE34C2244BB4600A89071 /* SkyNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4C2240FA1C00795E13 /* SkyNetworkError.swift */; };
 		234FE34D2244BB4600A89071 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4E2240FAB000795E13 /* Delegate.swift */; };
+		235D41F422656D7F00DFDFF7 /* PhotoPickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D41F322656D7F00DFDFF7 /* PhotoPickerCoordinator.swift */; };
+		235D41F622656DCD00DFDFF7 /* PhotoPickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D41F522656DCD00DFDFF7 /* PhotoPickerNavigationController.swift */; };
+		235D41F822656F0300DFDFF7 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D41F722656F0300DFDFF7 /* PhotoCollectionViewController.swift */; };
+		235D41FC226575D400DFDFF7 /* PhotoAlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D41FB226575D400DFDFF7 /* PhotoAlbumListViewController.swift */; };
+		235D41FF2265771600DFDFF7 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D41FD2265771600DFDFF7 /* PhotoCollectionViewCell.swift */; };
+		235D42002265771600DFDFF7 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 235D41FE2265771600DFDFF7 /* PhotoCollectionViewCell.xib */; };
+		235D42022265892500DFDFF7 /* PhotoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D42012265892500DFDFF7 /* PhotoListCell.swift */; };
+		235D42042265A99E00DFDFF7 /* PickerImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D42032265A99E00DFDFF7 /* PickerImageController.swift */; };
+		235D42062265BAF700DFDFF7 /* PhotoPickerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D42052265BAF700DFDFF7 /* PhotoPickerOptions.swift */; };
 		23603C53224DADAE00B8AC88 /* NoteAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23603C52224DADAE00B8AC88 /* NoteAttribute.swift */; };
 		23603C55224DB48F00B8AC88 /* vexflow in Resources */ = {isa = PBXBuildFile; fileRef = 23603C54224DB48F00B8AC88 /* vexflow */; };
 		237860812261A4F2008BD562 /* MissionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378607F2261A4F2008BD562 /* MissionTask.swift */; };
@@ -116,6 +125,7 @@
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
 		23C33B632248AE7000E82D00 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B622248AE7000E82D00 /* Cartfile */; };
+		23C677782263554C005BDA39 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C677772263554C005BDA39 /* TaskStore.swift */; };
 		23C6DFF0225D9973008140C3 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFEF225D9973008140C3 /* LaunchImageViewController.swift */; };
 		23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */; };
 		23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */; };
@@ -193,6 +203,15 @@
 		234FE32422447B7F00A89071 /* TailEditingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailEditingTextField.swift; sourceTree = "<group>"; };
 		234FE3292244B47A00A89071 /* SkyColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyColorTest.swift; sourceTree = "<group>"; };
 		234FE32D2244B7F600A89071 /* blue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blue.json; sourceTree = "<group>"; };
+		235D41F322656D7F00DFDFF7 /* PhotoPickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerCoordinator.swift; sourceTree = "<group>"; };
+		235D41F522656DCD00DFDFF7 /* PhotoPickerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerNavigationController.swift; sourceTree = "<group>"; };
+		235D41F722656F0300DFDFF7 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		235D41FB226575D400DFDFF7 /* PhotoAlbumListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumListViewController.swift; sourceTree = "<group>"; };
+		235D41FD2265771600DFDFF7 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		235D41FE2265771600DFDFF7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		235D42012265892500DFDFF7 /* PhotoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCell.swift; sourceTree = "<group>"; };
+		235D42032265A99E00DFDFF7 /* PickerImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageController.swift; sourceTree = "<group>"; };
+		235D42052265BAF700DFDFF7 /* PhotoPickerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerOptions.swift; sourceTree = "<group>"; };
 		23603C52224DADAE00B8AC88 /* NoteAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAttribute.swift; sourceTree = "<group>"; };
 		23603C54224DB48F00B8AC88 /* vexflow */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vexflow; sourceTree = "<group>"; };
 		2378607F2261A4F2008BD562 /* MissionTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionTask.swift; sourceTree = "<group>"; };
@@ -264,6 +283,7 @@
 		23C33B622248AE7000E82D00 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		23C33B642248AEEF00E82D00 /* XMLCoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMLCoder.framework; path = Carthage/Build/iOS/XMLCoder.framework; sourceTree = "<group>"; };
 		23C33BAE2248D18D00E82D00 /* XMLParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMLParsing.framework; path = Carthage/Build/iOS/XMLParsing.framework; sourceTree = "<group>"; };
+		23C677772263554C005BDA39 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 		23C6DFEF225D9973008140C3 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchImageViewController.swift; sourceTree = "<group>"; };
 		23C6DFF1225D99DB008140C3 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		23C6DFF3225D99E2008140C3 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -366,12 +386,29 @@
 			path = ColorTheme;
 			sourceTree = "<group>";
 		};
+		235D41F222656D4000DFDFF7 /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				235D41F322656D7F00DFDFF7 /* PhotoPickerCoordinator.swift */,
+				235D41F522656DCD00DFDFF7 /* PhotoPickerNavigationController.swift */,
+				235D41F722656F0300DFDFF7 /* PhotoCollectionViewController.swift */,
+				235D41FB226575D400DFDFF7 /* PhotoAlbumListViewController.swift */,
+				235D42032265A99E00DFDFF7 /* PickerImageController.swift */,
+				235D42052265BAF700DFDFF7 /* PhotoPickerOptions.swift */,
+				235D42012265892500DFDFF7 /* PhotoListCell.swift */,
+				235D41FD2265771600DFDFF7 /* PhotoCollectionViewCell.swift */,
+				235D41FE2265771600DFDFF7 /* PhotoCollectionViewCell.xib */,
+			);
+			path = PhotoPicker;
+			sourceTree = "<group>";
+		};
 		2378607E2261A4EA008BD562 /* MissionTask */ = {
 			isa = PBXGroup;
 			children = (
 				2378607F2261A4F2008BD562 /* MissionTask.swift */,
 				237860802261A4F2008BD562 /* MissionType.swift */,
 				237860952263326C008BD562 /* MissionCommand.swift */,
+				23C677772263554C005BDA39 /* TaskStore.swift */,
 			);
 			path = MissionTask;
 			sourceTree = "<group>";
@@ -676,6 +713,7 @@
 		23C0C9F4225B868700349507 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				235D41F222656D4000DFDFF7 /* PhotoPicker */,
 				23006211225B87C000288DAA /* NavigationViewController.swift */,
 			);
 			path = ViewControllers;
@@ -937,6 +975,7 @@
 				23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */,
 				23F40E4822452D8600E08B04 /* Localizable.strings in Resources */,
 				238362442240A032007B892D /* LaunchScreen.storyboard in Resources */,
+				235D42002265771600DFDFF7 /* PhotoCollectionViewCell.xib in Resources */,
 				238362412240A032007B892D /* Assets.xcassets in Resources */,
 				2383623C2240A030007B892D /* Main.storyboard in Resources */,
 			);
@@ -996,12 +1035,14 @@
 				23DEFCF7224383BA00795E13 /* KeyChainManager.swift in Sources */,
 				237860872261ACC4008BD562 /* CommandManager.swift in Sources */,
 				238362B42240B7E3007B892D /* AppRootViewController.swift in Sources */,
+				235D42022265892500DFDFF7 /* PhotoListCell.swift in Sources */,
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
 				234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */,
 				23A296982260356F007C328F /* InputSignalTracker.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
+				23C677782263554C005BDA39 /* TaskStore.swift in Sources */,
 				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
 				238362B72240B7E3007B892D /* Helpers.swift in Sources */,
 				23DEFCE4224367A700795E13 /* RegistViewController.swift in Sources */,
@@ -1055,7 +1096,9 @@
 				237860962263326C008BD562 /* MissionCommand.swift in Sources */,
 				23DEFB472240E30400795E13 /* Request.swift in Sources */,
 				238362B32240B7E3007B892D /* AppStateController.swift in Sources */,
+				235D41FF2265771600DFDFF7 /* PhotoCollectionViewCell.swift in Sources */,
 				23DEFCF4224375FF00795E13 /* SessionManager.swift in Sources */,
+				235D41F422656D7F00DFDFF7 /* PhotoPickerCoordinator.swift in Sources */,
 				238362A92240B7E3007B892D /* SettingsCell.swift in Sources */,
 				23DEFCE7224367A700795E13 /* LoginViewController.swift in Sources */,
 				23DEFB492240E42300795E13 /* Session.swift in Sources */,
@@ -1067,13 +1110,18 @@
 				238362A02240B7E3007B892D /* UIColor+utils.swift in Sources */,
 				2313D5D3225D8E8800BF5A20 /* Request_User.swift in Sources */,
 				238362B22240B7E3007B892D /* AppState.swift in Sources */,
+				235D42062265BAF700DFDFF7 /* PhotoPickerOptions.swift in Sources */,
 				238362A32240B7E3007B892D /* FontScheme.swift in Sources */,
+				235D42042265A99E00DFDFF7 /* PickerImageController.swift in Sources */,
 				238362B02240B7E3007B892D /* SettingsViewController.swift in Sources */,
 				23DEFCEC22436BE300795E13 /* Account.swift in Sources */,
 				2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */,
 				237860822261A4F2008BD562 /* MissionType.swift in Sources */,
 				237860902261BD5C008BD562 /* Rss.swift in Sources */,
+				235D41F622656DCD00DFDFF7 /* PhotoPickerNavigationController.swift in Sources */,
+				235D41F822656F0300DFDFF7 /* PhotoCollectionViewController.swift in Sources */,
 				23DEFB4F2240FAB000795E13 /* Delegate.swift in Sources */,
+				235D41FC226575D400DFDFF7 /* PhotoAlbumListViewController.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
 				23A296912260221B007C328F /* Recorder.swift in Sources */,
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
