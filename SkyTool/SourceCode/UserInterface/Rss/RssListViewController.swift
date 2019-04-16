@@ -33,8 +33,8 @@ class RssListViewController: UIViewController {
     
     func createSubViews() {
         let rightItem = UIBarButtonItem.init(barButtonSystemItem: .add,
-                                             target: self.controller,
-                                             action: #selector(RssController.onAddClicked(_:)))
+                                             target: self,
+                                             action: #selector(addNewRssLinnk))
         self.navigationItem.rightBarButtonItem = rightItem
         self.view.addSubview(self.tableView)
         self.tableView.delegate = self
@@ -43,6 +43,18 @@ class RssListViewController: UIViewController {
     
     func createConstraints() {
         self.tableView.autoPinEdgesToSuperviewEdges()
+    }
+    
+    @objc(addNewRssLink)
+    func addNewRssLinnk() {
+        let alert = UIAlertController(title: "alert.rss.add.title".localized, message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in }
+        alert.addAction(UIAlertAction(title: "alert.comfirm.action".localized, style: .default, handler: { (_) -> Void in
+            if let textField = alert.textFields?.first {
+                self.controller.addRssLink(textField.text)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -67,5 +79,11 @@ extension RssListViewController: UITableViewDelegate, UITableViewDataSource {
                                           url: rss.link)
         task.viewController = self
         task.execute()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.controller.rsses.count  - 4 {
+            self.controller.next()
+        }
     }
 }

@@ -29,3 +29,5 @@
 "alert.logout.message" = "Confirm to logout";
 "alert.cancel.action" = "Cancel";
 "alert.comfirm.action" = "Confirm";
+
+"alert.rss.add.title" = "Add Rss";

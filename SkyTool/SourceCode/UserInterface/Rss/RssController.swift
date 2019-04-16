@@ -24,9 +24,18 @@ class RssController {
         }
     }
     
-    @objc(onAddClicked:)
-    func onAddClicked(_ sender: UIButton) {
-        
+    func addRssLink(_ link: String?) {
+        guard let link = link else { return }
+        let request = TransportRequest(path: "/api/rss/add",
+                                       params: ["source": link])
+        let handler: ResponseHandler = { response in
+            Log.print("\(response.payload)")
+            if response.httpStatusCode == 200 {
+                Log.print("已添加")
+            }
+        }
+        request.responseHandlers.append(handler)
+        Session.shared.send(request)
     }
     
     func load() {
@@ -34,6 +43,7 @@ class RssController {
     }
     
     func next() {
+        guard self.request.canBackward else { return }
         self.request.backward()
         Session.shared.send(request)
     }

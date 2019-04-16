@@ -18,4 +18,7 @@ class SelfProfileController {
         self.account = account
     }
     
+    func modifyImage() {
+        
+    }
 }

@@ -29,6 +29,8 @@ public class RssListRequest: Request {
     
     private(set) var pages: Int
     
+    private(set) var canBackward: Bool = true
+    
     init(limit: Int, pages: Int) {
         self.limit = limit
         self.pages = pages
@@ -60,6 +62,12 @@ public class RssListRequest: Request {
             guard let data = try? JSONSerialization.data(withJSONObject: list, options: []),
                 let rssList = try? JSONDecoder().decode([Rss].self, from: data) else {
                     return
+            }
+            if let total = x["total"] as? Int,
+                total == self.limit {
+                self.canBackward = true
+            } else {
+                self.canBackward = false
             }
             self.rsses.append(contentsOf: rssList)
             self.fetchComplete.call(self.rsses)

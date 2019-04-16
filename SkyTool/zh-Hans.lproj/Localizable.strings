@@ -28,3 +28,5 @@
 "alert.logout.message" = "确认登出吗？";
 "alert.cancel.action" = "取消";
 "alert.comfirm.action" = "确认";
+
+"alert.rss.add.title" = "添加订阅源";
