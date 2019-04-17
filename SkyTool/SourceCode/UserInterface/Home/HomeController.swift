@@ -15,6 +15,8 @@ class HomeController {
     
     let recorder = Recorder()
     
+    let onReload = Delegate<Void, Void>()
+    
     var tasks: [MissionBaseTask] = []
     
     init(sourceController: UIViewController) {
@@ -24,7 +26,10 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
-
+        let mission = MissionBaseTask(name: "Rss", type: .rss)
+        TaskStore.shared.add(mission)
+        self.preapreTasks()
+        self.onReload.call()
     }
 }
 

@@ -67,7 +67,11 @@ class Session: NSObject {
     
     var authenticateAccount: Account?
     
+    #if arch(i386) || arch(x86_64)
     private let defaultHost: String = "http://127.0.0.1:8091"
+    #else
+    private let defaultHost: String = "http://192.168.0.117:5000"
+    #endif
     
     private override init() {
         self.delegate = SessionDelegate()
