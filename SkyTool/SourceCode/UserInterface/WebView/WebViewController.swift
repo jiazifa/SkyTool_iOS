@@ -12,11 +12,15 @@ import PureLayout
 
 class WebViewController: UIViewController {
     
+    lazy var bridge: WebBridge = {
+        return WebBridge(self.webView)
+    }()
+    
     public var isHideProcess: Bool = false
     
     public private(set) var isWebViewLoaded: Bool = false
     
-    @objc internal let webView: WKWebView = {
+    @objc lazy internal var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration.init()
         // preferences
         let p = WKPreferences.init()
@@ -74,12 +78,6 @@ class WebViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
-//        self.navigationController?.navigationBar.barTintColor = UIColor.white
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//        self.navigationController?.navigationBar.isTranslucent = false
-//        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: self.backButton)
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setupProgressView() {
@@ -125,6 +123,7 @@ class WebViewController: UIViewController {
     required init(_ url: URL) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
+        self.bridge.injectScript(to: webView)
     }
     
     deinit {
@@ -140,11 +139,13 @@ extension WebViewController: WKNavigationDelegate {
     // MARK: 加载前判断是否需要加载
     // 是否允许跳转
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        guard navigationAction.request.url != nil else {
+        guard let url = navigationAction.request.url else {
             decisionHandler(.cancel)
             return
         }
-        
+        if self.bridge.evaluate(url: url) {
+            decisionHandler(.cancel)
+        }
         decisionHandler(.allow)
     }
     

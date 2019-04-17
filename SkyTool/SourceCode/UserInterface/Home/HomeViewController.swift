@@ -42,6 +42,9 @@ class HomeViewController: UIViewController {
                                              target: self.controller,
                                              action: #selector(HomeController.onAddClicked(_:)))
         self.navigationItem.rightBarButtonItem = rightItem
+        self.controller.onReload.delegate(on: self) { (weakSelf, _) in
+            weakSelf.collectionView.reloadData()
+        }
     }
     
     func createConstraints() {

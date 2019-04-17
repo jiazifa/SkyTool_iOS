@@ -167,6 +167,8 @@
 		23EAFEA1224C9C9600147950 /* MusicWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */; };
 		23F40E4822452D8600E08B04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F40E4A22452D8600E08B04 /* Localizable.strings */; };
 		23F40E8122477DB000E08B04 /* SkyRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F40E8022477DB000E08B04 /* SkyRequestTests.swift */; };
+		23FA4EFF2266F34E005F9EB0 /* WebBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA4EFE2266F34D005F9EB0 /* WebBridge.swift */; };
+		23FA4F032266FE94005F9EB0 /* _inject_bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 23FA4F022266FE94005F9EB0 /* _inject_bridge.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +331,8 @@
 		23F40E4922452D8600E08B04 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		23F40E4B22452D9100E08B04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23F40E8022477DB000E08B04 /* SkyRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyRequestTests.swift; sourceTree = "<group>"; };
+		23FA4EFE2266F34D005F9EB0 /* WebBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBridge.swift; sourceTree = "<group>"; };
+		23FA4F022266FE94005F9EB0 /* _inject_bridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = _inject_bridge.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,8 +637,10 @@
 		2383628C2240B7E3007B892D /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				23FA4EFE2266F34D005F9EB0 /* WebBridge.swift */,
 				23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */,
 				2383628D2240B7E3007B892D /* WebViewController.swift */,
+				23FA4F022266FE94005F9EB0 /* _inject_bridge.js */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -977,6 +983,7 @@
 				238362442240A032007B892D /* LaunchScreen.storyboard in Resources */,
 				235D42002265771600DFDFF7 /* PhotoCollectionViewCell.xib in Resources */,
 				238362412240A032007B892D /* Assets.xcassets in Resources */,
+				23FA4F032266FE94005F9EB0 /* _inject_bridge.js in Resources */,
 				2383623C2240A030007B892D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1084,6 +1091,7 @@
 				23C6E008225F0C31008140C3 /* RouterManager.swift in Sources */,
 				238362A72240B7E3007B892D /* Dispatch+delay.swift in Sources */,
 				238362A42240B7E3007B892D /* UIApplication+statusBar.swift in Sources */,
+				23FA4EFF2266F34E005F9EB0 /* WebBridge.swift in Sources */,
 				23DEFCDB22435A5800795E13 /* ToolCollectionViewCell.swift in Sources */,
 				23DEFCD8224342A900795E13 /* HomeController.swift in Sources */,
 				2383629B2240B7E3007B892D /* Settings.swift in Sources */,
