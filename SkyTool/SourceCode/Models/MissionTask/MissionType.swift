@@ -18,7 +18,7 @@ public enum MissionType: Codable {
         case type = "type"
         case url = "url"
     }
-   
+    
     private enum MissionStaticType: String, Codable {
         case none
         case web
@@ -36,8 +36,6 @@ public enum MissionType: Codable {
             self = .web(url)
         case .rss:
             self = .rss
-//        default:
-//            break
         }
     }
     

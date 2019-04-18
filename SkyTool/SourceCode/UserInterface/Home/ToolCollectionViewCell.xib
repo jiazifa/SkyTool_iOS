@@ -25,7 +25,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY2-JH-7BT">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY2-JH-7BT">
                         <rect key="frame" x="448" y="229" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="oY2-JH-7BT" secondAttribute="height" multiplier="1:1" id="aTo-J9-PxY"/>
@@ -50,6 +50,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="482" height="263"/>
             <connections>
+                <outlet property="optionButton" destination="oY2-JH-7BT" id="5S0-5T-te0"/>
                 <outlet property="titleLabel" destination="FUz-s0-HZO" id="oIa-Lk-yyd"/>
             </connections>
             <point key="canvasLocation" x="385.60000000000002" y="142.57871064467767"/>

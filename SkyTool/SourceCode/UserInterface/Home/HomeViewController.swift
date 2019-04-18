@@ -26,30 +26,17 @@ class HomeViewController: UIViewController {
         HomeController(sourceController: self)
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor.background
-        self.setupViews()
-        self.createConstraints()
-    }
+    lazy var editItem = {
+        return UIBarButtonItem.init(barButtonSystemItem: .edit,
+                                    target: self.controller,
+                                    action: #selector(HomeController.onToggleCollectionViewEdit))
+    }()
     
-    func setupViews() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.collectionView.register(UINib.init(nibName: "ToolCollectionViewCell", bundle: nil),
-                                     forCellWithReuseIdentifier: "ToolCollectionViewCell")
-        self.view.addSubview(self.collectionView)
-        let rightItem = UIBarButtonItem.init(barButtonSystemItem: .add,
-                                             target: self.controller,
-                                             action: #selector(HomeController.onAddClicked(_:)))
-        self.navigationItem.rightBarButtonItem = rightItem
-        self.controller.onReload.delegate(on: self) { (weakSelf, _) in
-            weakSelf.collectionView.reloadData()
-        }
-    }
-    
-    func createConstraints() {
-        self.collectionView.autoPinEdgesToSuperviewSafeArea()
-    }
+    lazy var doneItem = {
+        return UIBarButtonItem.init(barButtonSystemItem: .done,
+                                    target: self.controller,
+                                    action: #selector(HomeController.onToggleCollectionViewEdit))
+    }()
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         let supported = UIInterfaceOrientationMask.allButUpsideDown
@@ -67,6 +54,44 @@ class HomeViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.background
+        self.setupViews()
+        self.createConstraints()
+    }
+    
+    func setupViews() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.collectionView.register(UINib.init(nibName: "ToolCollectionViewCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "ToolCollectionViewCell")
+        self.view.addSubview(self.collectionView)
+        let rightItem = UIBarButtonItem.init(barButtonSystemItem: .add,
+                                             target: self.controller,
+                                             action: #selector(HomeController.onAddClicked(_:)))
+        self.navigationItem.rightBarButtonItem = rightItem
+        
+        
+        self.navigationItem.leftBarButtonItem = self.editItem
+        
+        self.controller.onReload.delegate(on: self) { (weakSelf, _) in
+            weakSelf.collectionView.reloadData()
+        }
+        self.controller.onEdit.delegate(on: self) { (weakSelf, isEdit) in
+            weakSelf.navigationItem.leftBarButtonItem = isEdit ? weakSelf.doneItem : weakSelf.editItem
+            weakSelf.collectionView.visibleCells.forEach({ (cell) in
+                guard let cell = cell as? ToolCollectionViewCell else { return }
+                cell.isEditing = isEdit
+            })
+        }
+    }
+    
+    func createConstraints() {
+        self.collectionView.autoPinEdgesToSuperviewSafeArea()
+    }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -82,10 +107,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let task = self.controller.tasks[indexPath.item]
         cell.titleLabel.text = "\(task.name)"
         cell.contentView.backgroundColor = UIColor.randomColor()
+        cell.onOptionEvent.delegate(on: self) { (weakSelf, _) in
+            
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard self.controller.isEditing == false else { return }
         let task = self.controller.tasks[indexPath.item]
         let command = MissionCommand(mission: task)
         command.viewController = self
