@@ -30,7 +30,11 @@ class WebBridge {
         Log.print(webView.configuration.userContentController.userScripts)
     }
     
+    func canEvaluate(with url: URL) -> Bool {
+        return false
+    }
     
+    @discardableResult
     func evaluate(url: URL) -> Bool {
         if (url.absoluteString.contains("test")) {
             if let handleId = url.handleId {

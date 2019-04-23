@@ -8,7 +8,6 @@
 
 import UIKit
 import PureLayout
-import XMLCoder
 
 class HomeViewController: UIViewController {
     
@@ -55,12 +54,16 @@ class HomeViewController: UIViewController {
         return .default
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.background
         self.setupViews()
         self.createConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.controller.preapreTasks()
     }
     
     func setupViews() {

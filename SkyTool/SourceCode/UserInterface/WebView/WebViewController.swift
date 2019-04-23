@@ -40,15 +40,6 @@ class WebViewController: UIViewController {
     // 初始化url
     public private(set) var url: URL
     
-    private lazy var backButton: UIButton = {
-        let button = UIButton.init(type: .custom)
-        button.bounds = CGRect.init(x: 0, y: 0, width: 25, height: 30)
-        button.setImage(UIImage.init(named: "black_back"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.addTarget(self, action: #selector(goBack), for: .touchUpInside)
-        return button
-    }()
-    
     private lazy var progressView: UIProgressView = {
         let o = UIProgressView.init()
         o.trackTintColor = UIColor.white
@@ -58,21 +49,48 @@ class WebViewController: UIViewController {
         return o
     }()
     
+    private lazy var menuView: WebViewMenuView = {
+        let view = WebViewMenuView()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupSubViews()
+        self.createConstraints()
+        self.webView.uiDelegate = self
+        self.webView.navigationDelegate = self
+        self.loadURLIfNeeded(url)
+        self.setupProgressView()
+    }
+    
+    func setupSubViews() {
+        self.webView.backgroundColor = UIColor.white
         self.view.addSubview(self.webView)
         self.view.addSubview(self.progressView)
-        self.webView.autoPinEdgesToSuperviewEdges()
+        self.view.addSubview(self.menuView)
+        self.menuView.backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        self.menuView.refreshButton.addTarget(self, action: #selector(reload), for: .touchUpInside)
+        self.menuView.previewButton.addTarget(self, action: #selector(forward), for: .touchUpInside)
+    }
+    
+    func createConstraints() {
+        self.webView.autoPinEdge(toSuperviewEdge: .top)
+        self.webView.autoPinEdge(toSuperviewEdge: .left)
+        self.webView.autoPinEdge(toSuperviewEdge: .right)
+        self.webView.autoPinEdge(.bottom, to: .top, of: self.menuView)
         
         self.progressView.autoPinEdge(toSuperviewEdge: .top)
         self.progressView.autoPinEdge(toSuperviewEdge: .left)
         self.progressView.autoPinEdge(toSuperviewEdge: .right)
         self.progressView.autoSetDimension(.height, toSize: 2.0)
         
-        self.webView.uiDelegate = self
-        self.webView.navigationDelegate = self
-        self.loadURLIfNeeded(url)
-        self.setupProgressView()
+        self.menuView.autoPinEdge(toSuperviewEdge: .left)
+        self.menuView.autoPinEdge(toSuperviewEdge: .right)
+        self.menuView.autoPinEdge(toSuperviewEdge: .bottom)
+        
+        self.menuView.autoSetDimension(.height, toSize: 50 + 40 * (UIDevice.current.isNotchScreen ? 1 : 0))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +161,8 @@ extension WebViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
-        if self.bridge.evaluate(url: url) {
+        if self.bridge.canEvaluate(with: url) {
+            self.bridge.evaluate(url: url)
             decisionHandler(.cancel)
         }
         decisionHandler(.allow)
@@ -234,5 +253,15 @@ extension WebViewController {
         } else {
             self.close()
         }
+    }
+    
+    @objc func forward() {
+        if self.webView.canGoForward {
+            self.webView.goForward()
+        }
+    }
+    
+    @objc func reload() {
+        self.webView.reload()
     }
 }

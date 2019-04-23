@@ -30,10 +30,13 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
-        
+        self.viewController.navigationController?.pushViewController(AddMissionViewController(), animated: true)
     }
     
     @objc func onToggleCollectionViewEdit() {
+        guard self.tasks.isEmpty == false else {
+            return
+        }
         self.isEditing = !self.isEditing
         self.onEdit.call(self.isEditing)
     }
@@ -42,5 +45,6 @@ class HomeController {
 extension HomeController {
     func preapreTasks() {
         self.tasks = TaskStore.shared.load()
+        self.onReload.call()
     }
 }

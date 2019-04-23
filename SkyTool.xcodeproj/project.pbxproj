@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		23006212225B87C000288DAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23006211225B87C000288DAA /* NavigationViewController.swift */; };
+		230D2B41226EEB41005D026C /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B40226EEB41005D026C /* AddMissionViewController.swift */; };
+		230D2B43226F0697005D026C /* WebViewMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B42226F0697005D026C /* WebViewMenuView.swift */; };
+		230D2B45226F1810005D026C /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B44226F1810005D026C /* UIDevice+Ext.swift */; };
 		2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C4225C7E3800BF5A20 /* UIApplication+URLs.swift */; };
 		2313D5C7225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C6225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift */; };
 		2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C8225C846A00BF5A20 /* SelfProfileViewController.swift */; };
@@ -72,6 +75,7 @@
 		2378608E2261BBEC008BD562 /* Request_Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608D2261BBEC008BD562 /* Request_Rss.swift */; };
 		237860902261BD5C008BD562 /* Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608F2261BD5C008BD562 /* Rss.swift */; };
 		237860962263326C008BD562 /* MissionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237860952263326C008BD562 /* MissionCommand.swift */; };
+		2380A7BD226B359000B39CBF /* UIViewController+Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2380A7BC226B359000B39CBF /* UIViewController+Indicator.swift */; };
 		238362372240A030007B892D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362362240A030007B892D /* AppDelegate.swift */; };
 		238362392240A030007B892D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238362382240A030007B892D /* ViewController.swift */; };
 		2383623C2240A030007B892D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2383623A2240A030007B892D /* Main.storyboard */; };
@@ -155,7 +159,6 @@
 		23DEFCE7224367A700795E13 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCE2224367A700795E13 /* LoginViewController.swift */; };
 		23DEFCE9224369F800795E13 /* YYKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DEFCE8224369F800795E13 /* YYKit.framework */; };
 		23DEFCEC22436BE300795E13 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCEB22436BE300795E13 /* Account.swift */; };
-		23DEFCEF22436D9600795E13 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DEFCEE22436D9500795E13 /* IQKeyboardManagerSwift.framework */; };
 		23DEFCF1224373CD00795E13 /* AuthenNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCF0224373CD00795E13 /* AuthenNavigationViewController.swift */; };
 		23DEFCF4224375FF00795E13 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCF3224375FF00795E13 /* SessionManager.swift */; };
 		23DEFCF7224383BA00795E13 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCF6224383BA00795E13 /* KeyChainManager.swift */; };
@@ -190,6 +193,9 @@
 
 /* Begin PBXFileReference section */
 		23006211225B87C000288DAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		230D2B40226EEB41005D026C /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
+		230D2B42226F0697005D026C /* WebViewMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMenuView.swift; sourceTree = "<group>"; };
+		230D2B44226F1810005D026C /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		2313D5C4225C7E3800BF5A20 /* UIApplication+URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+URLs.swift"; sourceTree = "<group>"; };
 		2313D5C6225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonCellDescriptor.swift; sourceTree = "<group>"; };
 		2313D5C8225C846A00BF5A20 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 		2378608D2261BBEC008BD562 /* Request_Rss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_Rss.swift; sourceTree = "<group>"; };
 		2378608F2261BD5C008BD562 /* Rss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rss.swift; sourceTree = "<group>"; };
 		237860952263326C008BD562 /* MissionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCommand.swift; sourceTree = "<group>"; };
+		2380A7BC226B359000B39CBF /* UIViewController+Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Indicator.swift"; sourceTree = "<group>"; };
 		238362332240A030007B892D /* SkyTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238362362240A030007B892D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238362382240A030007B892D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -340,7 +347,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23DEFCEF22436D9600795E13 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				23DEFCE9224369F800795E13 /* YYKit.framework in Frameworks */,
 				238362BC2240B8AA007B892D /* MBProgressHUD.framework in Frameworks */,
 				238362BB2240B7FC007B892D /* PureLayout.framework in Frameworks */,
@@ -364,6 +370,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		230D2B3F226EEB2A005D026C /* Misson */ = {
+			isa = PBXGroup;
+			children = (
+				230D2B40226EEB41005D026C /* AddMissionViewController.swift */,
+			);
+			path = Misson;
+			sourceTree = "<group>";
+		};
 		2313D5C1225C675C00BF5A20 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +594,7 @@
 				23DEFCFD22438CFC00795E13 /* FileManager+Move.swift */,
 				23DEFCFE22438CFD00795E13 /* FileManager+Protection.swift */,
 				2313D5C4225C7E3800BF5A20 /* UIApplication+URLs.swift */,
+				230D2B44226F1810005D026C /* UIDevice+Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -595,6 +610,7 @@
 		238362812240B7E3007B892D /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				230D2B3F226EEB2A005D026C /* Misson */,
 				23C6DFEE225D9909008140C3 /* LaunchImage */,
 				23DEFCDD224367A700795E13 /* Authentication */,
 				23DEFCD42243424200795E13 /* Home */,
@@ -641,6 +657,7 @@
 				23EAFEA0224C9C9600147950 /* MusicWebViewController.swift */,
 				2383628D2240B7E3007B892D /* WebViewController.swift */,
 				23FA4F022266FE94005F9EB0 /* _inject_bridge.js */,
+				230D2B42226F0697005D026C /* WebViewMenuView.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -686,6 +703,7 @@
 				23DEFB4C2240FA1C00795E13 /* SkyNetworkError.swift */,
 				23DEFB4E2240FAB000795E13 /* Delegate.swift */,
 				23DEFCD222433E2000795E13 /* UIColor+Sky.swift */,
+				2380A7BC226B359000B39CBF /* UIViewController+Indicator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1020,8 +1038,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/YYKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/XMLCoder.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -1045,6 +1061,7 @@
 				235D42022265892500DFDFF7 /* PhotoListCell.swift in Sources */,
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
+				230D2B43226F0697005D026C /* WebViewMenuView.swift in Sources */,
 				234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */,
 				23A296982260356F007C328F /* InputSignalTracker.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
@@ -1124,6 +1141,7 @@
 				238362B02240B7E3007B892D /* SettingsViewController.swift in Sources */,
 				23DEFCEC22436BE300795E13 /* Account.swift in Sources */,
 				2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */,
+				2380A7BD226B359000B39CBF /* UIViewController+Indicator.swift in Sources */,
 				237860822261A4F2008BD562 /* MissionType.swift in Sources */,
 				237860902261BD5C008BD562 /* Rss.swift in Sources */,
 				235D41F622656DCD00DFDFF7 /* PhotoPickerNavigationController.swift in Sources */,
@@ -1131,6 +1149,7 @@
 				23DEFB4F2240FAB000795E13 /* Delegate.swift in Sources */,
 				235D41FC226575D400DFDFF7 /* PhotoAlbumListViewController.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
+				230D2B45226F1810005D026C /* UIDevice+Ext.swift in Sources */,
 				23A296912260221B007C328F /* Recorder.swift in Sources */,
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
 				23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */,
@@ -1142,6 +1161,7 @@
 				23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */,
 				2378608C2261B68D008BD562 /* RssController.swift in Sources */,
 				238362B52240B7E3007B892D /* MainTabBarViewController.swift in Sources */,
+				230D2B41226EEB41005D026C /* AddMissionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

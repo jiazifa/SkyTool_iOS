@@ -53,6 +53,29 @@ public enum MissionType: Codable {
 //            fatalError()
         }
     }
+    
+    static var all_types: [MissionType] = [.rss]
+}
+
+extension MissionType: Equatable {
+    public static func == (lhs: MissionType, rhs: MissionType) -> Bool {
+        switch (lhs, rhs) {
+        case (.none, .none): return true
+        case (.rss, .rss): return true
+        case (.web(let lhsWeb), .web(let rhsWeb)): return lhsWeb == rhsWeb
+        default: return false
+        }
+    }
+}
+
+extension MissionType: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .rss: return "Rss 订阅"
+        case .web: return "收藏网页"
+        case .none: return ""
+        }
+    }
 }
 
 public protocol MissionTaskType: Codable {
