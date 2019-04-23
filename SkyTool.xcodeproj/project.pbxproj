@@ -11,6 +11,10 @@
 		230D2B41226EEB41005D026C /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B40226EEB41005D026C /* AddMissionViewController.swift */; };
 		230D2B43226F0697005D026C /* WebViewMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B42226F0697005D026C /* WebViewMenuView.swift */; };
 		230D2B45226F1810005D026C /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B44226F1810005D026C /* UIDevice+Ext.swift */; };
+		230D2B49226F205D005D026C /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B47226F205D005D026C /* RecordViewController.swift */; };
+		230D2B4A226F205D005D026C /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230D2B48226F205D005D026C /* RecordViewController.xib */; };
+		230D2B54226F2F50005D026C /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230D2B53226F2F50005D026C /* lame.framework */; };
+		230D2B56226F2FB2005D026C /* AudioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B55226F2FB2005D026C /* AudioRecord.swift */; };
 		2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C4225C7E3800BF5A20 /* UIApplication+URLs.swift */; };
 		2313D5C7225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C6225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift */; };
 		2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C8225C846A00BF5A20 /* SelfProfileViewController.swift */; };
@@ -121,10 +125,6 @@
 		238BAC5A225F39D600EEA88D /* SkyNoteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BAC59225F39D600EEA88D /* SkyNoteTest.swift */; };
 		238BAC5B225F3A1200EEA88D /* NoteAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23603C52224DADAE00B8AC88 /* NoteAttribute.swift */; };
 		238BAC5C225F3A1200EEA88D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BAC57225F370500EEA88D /* Note.swift */; };
-		23A296912260221B007C328F /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296902260221B007C328F /* Recorder.swift */; };
-		23A29694226034BA007C328F /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A29693226034BA007C328F /* SignalTracker.swift */; };
-		23A296982260356F007C328F /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296972260356F007C328F /* InputSignalTracker.swift */; };
-		23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */; };
 		23C33B4322486FA300E82D00 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4222486FA300E82D00 /* MIDI_sample.mid */; };
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
@@ -196,6 +196,11 @@
 		230D2B40226EEB41005D026C /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
 		230D2B42226F0697005D026C /* WebViewMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMenuView.swift; sourceTree = "<group>"; };
 		230D2B44226F1810005D026C /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
+		230D2B47226F205D005D026C /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		230D2B48226F205D005D026C /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
+		230D2B4F226F2EA9005D026C /* SkyTool-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyTool-Bridging-Header.h"; sourceTree = "<group>"; };
+		230D2B53226F2F50005D026C /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
+		230D2B55226F2FB2005D026C /* AudioRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecord.swift; sourceTree = "<group>"; };
 		2313D5C4225C7E3800BF5A20 /* UIApplication+URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+URLs.swift"; sourceTree = "<group>"; };
 		2313D5C6225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonCellDescriptor.swift; sourceTree = "<group>"; };
 		2313D5C8225C846A00BF5A20 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
@@ -281,10 +286,6 @@
 		238BAC55225F356C00EEA88D /* Pitchy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pitchy.framework; path = Carthage/Build/iOS/Pitchy.framework; sourceTree = "<group>"; };
 		238BAC57225F370500EEA88D /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		238BAC59225F39D600EEA88D /* SkyNoteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyNoteTest.swift; sourceTree = "<group>"; };
-		23A296902260221B007C328F /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
-		23A29693226034BA007C328F /* SignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTracker.swift; sourceTree = "<group>"; };
-		23A296972260356F007C328F /* InputSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSignalTracker.swift; sourceTree = "<group>"; };
-		23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorSignalTracker.swift; sourceTree = "<group>"; };
 		23C33B4222486FA300E82D00 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		23C33B47224871B500E82D00 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
 		23C33B49224873E900E82D00 /* Easy_Ver.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Easy_Ver.mxl; sourceTree = "<group>"; };
@@ -348,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23DEFCE9224369F800795E13 /* YYKit.framework in Frameworks */,
+				230D2B54226F2F50005D026C /* lame.framework in Frameworks */,
 				238362BC2240B8AA007B892D /* MBProgressHUD.framework in Frameworks */,
 				238362BB2240B7FC007B892D /* PureLayout.framework in Frameworks */,
 			);
@@ -376,6 +378,15 @@
 				230D2B40226EEB41005D026C /* AddMissionViewController.swift */,
 			);
 			path = Misson;
+			sourceTree = "<group>";
+		};
+		230D2B46226F203F005D026C /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				230D2B47226F205D005D026C /* RecordViewController.swift */,
+				230D2B48226F205D005D026C /* RecordViewController.xib */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		2313D5C1225C675C00BF5A20 /* Requests */ = {
@@ -523,6 +534,7 @@
 		2383626B2240B7E3007B892D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				230D2B53226F2F50005D026C /* lame.framework */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -610,6 +622,7 @@
 		238362812240B7E3007B892D /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				230D2B46226F203F005D026C /* Record */,
 				230D2B3F226EEB2A005D026C /* Misson */,
 				23C6DFEE225D9909008140C3 /* LaunchImage */,
 				23DEFCDD224367A700795E13 /* Authentication */,
@@ -711,6 +724,7 @@
 		238362BD2240B9CC007B892D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				230D2B4F226F2EA9005D026C /* SkyTool-Bridging-Header.h */,
 				238362362240A030007B892D /* AppDelegate.swift */,
 				238362382240A030007B892D /* ViewController.swift */,
 				2383623A2240A030007B892D /* Main.storyboard */,
@@ -726,10 +740,7 @@
 		23A2969222602220007C328F /* Recorder */ = {
 			isa = PBXGroup;
 			children = (
-				23A296902260221B007C328F /* Recorder.swift */,
-				23A29693226034BA007C328F /* SignalTracker.swift */,
-				23A296972260356F007C328F /* InputSignalTracker.swift */,
-				23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */,
+				230D2B55226F2FB2005D026C /* AudioRecord.swift */,
 			);
 			path = Recorder;
 			sourceTree = "<group>";
@@ -943,6 +954,7 @@
 				TargetAttributes = {
 					238362322240A030007B892D = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -995,6 +1007,7 @@
 				23603C55224DB48F00B8AC88 /* vexflow in Resources */,
 				23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */,
 				2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */,
+				230D2B4A226F205D005D026C /* RecordViewController.xib in Resources */,
 				23C33B632248AE7000E82D00 /* Cartfile in Resources */,
 				23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */,
 				23F40E4822452D8600E08B04 /* Localizable.strings in Resources */,
@@ -1060,10 +1073,10 @@
 				238362B42240B7E3007B892D /* AppRootViewController.swift in Sources */,
 				235D42022265892500DFDFF7 /* PhotoListCell.swift in Sources */,
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
+				230D2B49226F205D005D026C /* RecordViewController.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
 				230D2B43226F0697005D026C /* WebViewMenuView.swift in Sources */,
 				234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */,
-				23A296982260356F007C328F /* InputSignalTracker.swift in Sources */,
 				238362B12240B7E3007B892D /* WebViewController.swift in Sources */,
 				238362A62240B7E3007B892D /* String+utils.swift in Sources */,
 				23C677782263554C005BDA39 /* TaskStore.swift in Sources */,
@@ -1081,6 +1094,7 @@
 				2313D5C7225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift in Sources */,
 				2383629C2240B7E3007B892D /* SettingsPropertyFactory.swift in Sources */,
 				2383623F2240A030007B892D /* SkyTool.xcdatamodeld in Sources */,
+				230D2B56226F2FB2005D026C /* AudioRecord.swift in Sources */,
 				238362392240A030007B892D /* ViewController.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
 				237860892261B610008BD562 /* RssListViewController.swift in Sources */,
@@ -1112,7 +1126,6 @@
 				23DEFCDB22435A5800795E13 /* ToolCollectionViewCell.swift in Sources */,
 				23DEFCD8224342A900795E13 /* HomeController.swift in Sources */,
 				2383629B2240B7E3007B892D /* Settings.swift in Sources */,
-				23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */,
 				238362B82240B7E3007B892D /* Config.swift in Sources */,
 				238362AD2240B7E3007B892D /* SettingsStaticTextCellDescriptor.swift in Sources */,
 				2383629F2240B7E3007B892D /* String+localized.swift in Sources */,
@@ -1150,11 +1163,9 @@
 				235D41FC226575D400DFDFF7 /* PhotoAlbumListViewController.swift in Sources */,
 				238362AF2240B7E3007B892D /* SettingsPropertyToggleCellDescriptor.swift in Sources */,
 				230D2B45226F1810005D026C /* UIDevice+Ext.swift in Sources */,
-				23A296912260221B007C328F /* Recorder.swift in Sources */,
 				238362AB2240B7E3007B892D /* SettingsCellDescriptor.swift in Sources */,
 				23DEFCFF22438CFD00795E13 /* FileManager+Move.swift in Sources */,
 				237860812261A4F2008BD562 /* MissionTask.swift in Sources */,
-				23A29694226034BA007C328F /* SignalTracker.swift in Sources */,
 				2313D5CB225C847700BF5A20 /* SelfProfileController.swift in Sources */,
 				23C6E009225F0C31008140C3 /* URLRouterManager.swift in Sources */,
 				23C6DFF8225EEC1D008140C3 /* TokenObserver.swift in Sources */,
@@ -1389,6 +1400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
@@ -1406,6 +1418,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.treee.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SkyTool/SkyTool-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1415,6 +1429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
@@ -1432,6 +1447,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.treee.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SkyTool/SkyTool-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

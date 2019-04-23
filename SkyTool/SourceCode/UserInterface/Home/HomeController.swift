@@ -13,8 +13,6 @@ class HomeController {
     
     let viewController: UIViewController
     
-    let recorder = Recorder()
-    
     let onReload = Delegate<Void, Void>()
     
     let onEdit = Delegate<Bool, Void>()
@@ -30,7 +28,9 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
-        self.viewController.navigationController?.pushViewController(AddMissionViewController(), animated: true)
+        self.viewController.navigationController?.pushViewController(RecordViewController(), animated: true)
+       return
+//        self.viewController.navigationController?.pushViewController(AddMissionViewController(), animated: true)
     }
     
     @objc func onToggleCollectionViewEdit() {
