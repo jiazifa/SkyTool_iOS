@@ -17,6 +17,10 @@ class HomeController {
     
     let onReload = Delegate<Void, Void>()
     
+    let onEdit = Delegate<Bool, Void>()
+    
+    private(set) var isEditing = false
+    
     var tasks: [MissionBaseTask] = []
     
     init(sourceController: UIViewController) {
@@ -26,15 +30,21 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
-        let mission = MissionBaseTask(name: "Rss", type: .rss)
-        TaskStore.shared.add(mission)
-        self.preapreTasks()
-        self.onReload.call()
+        self.viewController.navigationController?.pushViewController(AddMissionViewController(), animated: true)
+    }
+    
+    @objc func onToggleCollectionViewEdit() {
+        guard self.tasks.isEmpty == false else {
+            return
+        }
+        self.isEditing = !self.isEditing
+        self.onEdit.call(self.isEditing)
     }
 }
 
 extension HomeController {
     func preapreTasks() {
         self.tasks = TaskStore.shared.load()
+        self.onReload.call()
     }
 }

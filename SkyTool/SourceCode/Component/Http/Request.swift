@@ -106,6 +106,7 @@ public extension TransportResponse {
         }
         do {
             let json = try JSONSerialization.jsonObject(with: respData, options: [.allowFragments])
+            Log.print("\(json)")
             if let jsonArray = json as? [Any] {
                 return TransportResponse.init(payload: .jsonArray(jsonArray),
                                               httpStatus: statusCode,

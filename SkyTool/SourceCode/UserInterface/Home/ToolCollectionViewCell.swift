@@ -11,6 +11,13 @@ import UIKit
 class ToolCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var optionButton: UIButton!
+    
+    var onOptionEvent = Delegate<Void, Void>()
+    
+    var isEditing: Bool = false {
+        didSet { updateEditState(isEditing) }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +27,10 @@ class ToolCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func moreButtonClicked(_ sender: UIButton) {
+        self.onOptionEvent.call()
+    }
+    
+    func updateEditState(_ isEdit: Bool) {
+        self.optionButton.isHidden = !isEdit
     }
 }

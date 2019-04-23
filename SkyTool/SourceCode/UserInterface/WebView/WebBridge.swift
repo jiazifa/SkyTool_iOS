@@ -25,13 +25,16 @@ class WebBridge {
     func injectScript(to webView: WKWebView) {
         guard let path = Bundle.main.path(forResource: "_inject_bridge", ofType: "js"),
             let command = try? String.init(contentsOfFile: path) else { return }
-        Log.print(command)
         let userScript = WKUserScript.init(source: command, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: true)
         webView.configuration.userContentController.addUserScript(userScript)
         Log.print(webView.configuration.userContentController.userScripts)
     }
     
+    func canEvaluate(with url: URL) -> Bool {
+        return false
+    }
     
+    @discardableResult
     func evaluate(url: URL) -> Bool {
         if (url.absoluteString.contains("test")) {
             if let handleId = url.handleId {
