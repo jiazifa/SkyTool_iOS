@@ -125,6 +125,7 @@
 		23A29694226034BA007C328F /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A29693226034BA007C328F /* SignalTracker.swift */; };
 		23A296982260356F007C328F /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296972260356F007C328F /* InputSignalTracker.swift */; };
 		23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */; };
+		23C04CE4226FFA2100C022B9 /* MissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C04CE3226FFA2100C022B9 /* MissionCoordinator.swift */; };
 		23C33B4322486FA300E82D00 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4222486FA300E82D00 /* MIDI_sample.mid */; };
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
@@ -285,6 +286,7 @@
 		23A29693226034BA007C328F /* SignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTracker.swift; sourceTree = "<group>"; };
 		23A296972260356F007C328F /* InputSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSignalTracker.swift; sourceTree = "<group>"; };
 		23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorSignalTracker.swift; sourceTree = "<group>"; };
+		23C04CE3226FFA2100C022B9 /* MissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCoordinator.swift; sourceTree = "<group>"; };
 		23C33B4222486FA300E82D00 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		23C33B47224871B500E82D00 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
 		23C33B49224873E900E82D00 /* Easy_Ver.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Easy_Ver.mxl; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				230D2B40226EEB41005D026C /* AddMissionViewController.swift */,
+				23C04CE3226FFA2100C022B9 /* MissionCoordinator.swift */,
 			);
 			path = Misson;
 			sourceTree = "<group>";
@@ -1120,6 +1123,7 @@
 				23DEFB512241CB3A00795E13 /* ParameterEncoding.swift in Sources */,
 				237860962263326C008BD562 /* MissionCommand.swift in Sources */,
 				23DEFB472240E30400795E13 /* Request.swift in Sources */,
+				23C04CE4226FFA2100C022B9 /* MissionCoordinator.swift in Sources */,
 				238362B32240B7E3007B892D /* AppStateController.swift in Sources */,
 				235D41FF2265771600DFDFF7 /* PhotoCollectionViewCell.swift in Sources */,
 				23DEFCF4224375FF00795E13 /* SessionManager.swift in Sources */,

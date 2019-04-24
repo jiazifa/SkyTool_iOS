@@ -9,15 +9,15 @@
 import UIKit
 
 public extension UIApplication {
-    public static let statusBarStyleChangeNotification: Notification.Name = {
+    static let statusBarStyleChangeNotification: Notification.Name = {
         return Notification.Name("statusBarStyleChangeNotification")
     }()
 
-    @objc public func updateStatusBarForCurrentControllerAnimated(_ animated: Bool) {
+    @objc func updateStatusBarForCurrentControllerAnimated(_ animated: Bool) {
         updateStatusBarForCurrentControllerAnimated(animated, onlyFullScreen: true)
     }
 
-    @objc public func updateStatusBarForCurrentControllerAnimated(_ animated: Bool, onlyFullScreen: Bool) {
+    @objc func updateStatusBarForCurrentControllerAnimated(_ animated: Bool, onlyFullScreen: Bool) {
         let statusBarHidden: Bool
         let statusBarStyle: UIStatusBarStyle
 
@@ -58,7 +58,7 @@ public extension UIApplication {
     /// return the visible window on the top most which fulfills these conditions:
     /// 1. the windows has rootViewController
     /// 3. the window's rootViewController is AppRootViewController
-    public var topMostVisibleWindow: UIWindow? {
+    var topMostVisibleWindow: UIWindow? {
         let orderedWindows = self.windows.sorted { win1, win2 in
             win1.windowLevel < win2.windowLevel
         }
@@ -77,7 +77,7 @@ public extension UIApplication {
         return visibleWindow.last
     }
 
-    public func topmostController(onlyFullScreen: Bool = true) -> UIViewController? {
+    func topmostController(onlyFullScreen: Bool = true) -> UIViewController? {
 
         guard let window = topMostVisibleWindow,
             var topController = window.rootViewController else {

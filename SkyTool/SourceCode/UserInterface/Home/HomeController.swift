@@ -30,7 +30,9 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
-        self.viewController.navigationController?.pushViewController(AddMissionViewController(), animated: true)
+        let coordinator = MissionCoordinator()
+        let targetViewController = AddMissionViewController.init(coordinator: coordinator)
+        self.viewController.navigationController?.pushViewController(targetViewController, animated: true)
     }
     
     @objc func onToggleCollectionViewEdit() {

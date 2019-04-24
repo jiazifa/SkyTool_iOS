@@ -20,7 +20,9 @@ class RssListViewController: UIViewController {
         self.view.backgroundColor = UIColor.background
         self.createSubViews()
         self.createConstraints()
+        self.startIndicator()
         self.controller.onReload.delegate(on: self) { (weakSelf, Void) in
+            weakSelf.stopIndicator()
             DispatchQueue.main.async { weakSelf.tableView.reloadData() }
         }
         self.controller.load()
