@@ -33,7 +33,6 @@ class NavigationViewController: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: delegate&dataSource
-    
     // MARK: -
     // MARK: public
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

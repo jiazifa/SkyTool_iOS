@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,16 +27,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ysM-If-i3E" secondAttribute="bottom" id="7lc-yO-IRa"/>
-                <constraint firstItem="jZr-YL-hng" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="GY2-p7-bdI"/>
-                <constraint firstItem="ysM-If-i3E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="HK4-Bf-dwt"/>
-                <constraint firstItem="ysM-If-i3E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XvF-UR-f9p"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jZr-YL-hng" secondAttribute="bottom" constant="30" id="bs2-kW-vG5"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="jZr-YL-hng" secondAttribute="trailing" constant="20" id="csc-Ok-gnY"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ysM-If-i3E" secondAttribute="trailing" id="umo-ni-8GX"/>
+                <constraint firstAttribute="bottom" secondItem="ysM-If-i3E" secondAttribute="bottom" id="7lc-yO-IRa"/>
+                <constraint firstItem="jZr-YL-hng" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="GY2-p7-bdI"/>
+                <constraint firstItem="ysM-If-i3E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HK4-Bf-dwt"/>
+                <constraint firstItem="ysM-If-i3E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XvF-UR-f9p"/>
+                <constraint firstAttribute="bottom" secondItem="jZr-YL-hng" secondAttribute="bottom" constant="30" id="bs2-kW-vG5"/>
+                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="jZr-YL-hng" secondAttribute="trailing" constant="20" id="csc-Ok-gnY"/>
+                <constraint firstAttribute="trailing" secondItem="ysM-If-i3E" secondAttribute="trailing" id="umo-ni-8GX"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="imageView" destination="ysM-If-i3E" id="Kxx-eL-LbN"/>
                 <outlet property="titleLabel" destination="jZr-YL-hng" id="W3P-6p-pmt"/>
