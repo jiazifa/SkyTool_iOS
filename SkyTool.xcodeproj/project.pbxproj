@@ -125,6 +125,7 @@
 		23A29694226034BA007C328F /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A29693226034BA007C328F /* SignalTracker.swift */; };
 		23A296982260356F007C328F /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A296972260356F007C328F /* InputSignalTracker.swift */; };
 		23A2969A22603C5F007C328F /* SimulatorSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */; };
+		23C04CE4226FFA2100C022B9 /* MissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C04CE3226FFA2100C022B9 /* MissionCoordinator.swift */; };
 		23C33B4322486FA300E82D00 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4222486FA300E82D00 /* MIDI_sample.mid */; };
 		23C33B4A224873EA00E82D00 /* Easy_Ver.mxl in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B49224873E900E82D00 /* Easy_Ver.mxl */; };
 		23C33B4D22487A6100E82D00 /* xmlDemo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 23C33B4C22487A6100E82D00 /* xmlDemo.xml */; };
@@ -142,6 +143,8 @@
 		23C6E00B225F0C31008140C3 /* ControllerRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */; };
 		23C6E00C225F0C31008140C3 /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E004225F0C31008140C3 /* Intent.swift */; };
 		23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */; };
+		23CFF2922276C5F600739033 /* Respbain.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 23CFF2912276C5F600739033 /* Respbain.xcconfig */; };
+		23CFF2942276C65400739033 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 23CFF2932276C65400739033 /* Debug.xcconfig */; };
 		23DEFB472240E30400795E13 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB462240E30400795E13 /* Request.swift */; };
 		23DEFB492240E42300795E13 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB482240E42300795E13 /* Session.swift */; };
 		23DEFB4B2240F90B00795E13 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
@@ -285,6 +288,7 @@
 		23A29693226034BA007C328F /* SignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTracker.swift; sourceTree = "<group>"; };
 		23A296972260356F007C328F /* InputSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSignalTracker.swift; sourceTree = "<group>"; };
 		23A2969922603C5F007C328F /* SimulatorSignalTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorSignalTracker.swift; sourceTree = "<group>"; };
+		23C04CE3226FFA2100C022B9 /* MissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCoordinator.swift; sourceTree = "<group>"; };
 		23C33B4222486FA300E82D00 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		23C33B47224871B500E82D00 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
 		23C33B49224873E900E82D00 /* Easy_Ver.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Easy_Ver.mxl; sourceTree = "<group>"; };
@@ -305,6 +309,9 @@
 		23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerRouterManager.swift; sourceTree = "<group>"; };
 		23C6E004225F0C31008140C3 /* Intent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intent.swift; sourceTree = "<group>"; };
 		23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionManager+ViewController.swift"; sourceTree = "<group>"; };
+		23CFF2912276C5F600739033 /* Respbain.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Respbain.xcconfig; sourceTree = "<group>"; };
+		23CFF2932276C65400739033 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		23CFF2952276C66100739033 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		23DEFB462240E30400795E13 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		23DEFB482240E42300795E13 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		23DEFB4A2240F90B00795E13 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -374,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				230D2B40226EEB41005D026C /* AddMissionViewController.swift */,
+				23C04CE3226FFA2100C022B9 /* MissionCoordinator.swift */,
 			);
 			path = Misson;
 			sourceTree = "<group>";
@@ -719,6 +727,9 @@
 				23F40E4222452C9500E08B04 /* Info.plist */,
 				23F40E4A22452D8600E08B04 /* Localizable.strings */,
 				2383623D2240A030007B892D /* SkyTool.xcdatamodeld */,
+				23CFF2912276C5F600739033 /* Respbain.xcconfig */,
+				23CFF2932276C65400739033 /* Debug.xcconfig */,
+				23CFF2952276C66100739033 /* Release.xcconfig */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -992,10 +1003,12 @@
 				2319B517224B8202004546A6 /* Binchois.musicxml in Resources */,
 				2319B50A224B69FF004546A6 /* pitches.xml in Resources */,
 				23C6DFF6225DBDB8008140C3 /* Images.xcassets in Resources */,
+				23CFF2922276C5F600739033 /* Respbain.xcconfig in Resources */,
 				23603C55224DB48F00B8AC88 /* vexflow in Resources */,
 				23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */,
 				2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */,
 				23C33B632248AE7000E82D00 /* Cartfile in Resources */,
+				23CFF2942276C65400739033 /* Debug.xcconfig in Resources */,
 				23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */,
 				23F40E4822452D8600E08B04 /* Localizable.strings in Resources */,
 				238362442240A032007B892D /* LaunchScreen.storyboard in Resources */,
@@ -1120,6 +1133,7 @@
 				23DEFB512241CB3A00795E13 /* ParameterEncoding.swift in Sources */,
 				237860962263326C008BD562 /* MissionCommand.swift in Sources */,
 				23DEFB472240E30400795E13 /* Request.swift in Sources */,
+				23C04CE4226FFA2100C022B9 /* MissionCoordinator.swift in Sources */,
 				238362B32240B7E3007B892D /* AppStateController.swift in Sources */,
 				235D41FF2265771600DFDFF7 /* PhotoCollectionViewCell.swift in Sources */,
 				23DEFCF4224375FF00795E13 /* SessionManager.swift in Sources */,
@@ -1269,6 +1283,7 @@
 /* Begin XCBuildConfiguration section */
 		2383625C2240A032007B892D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23CFF2932276C65400739033 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1331,6 +1346,7 @@
 		};
 		2383625D2240A032007B892D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23CFF2952276C66100739033 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1527,6 +1543,140 @@
 			};
 			name = Release;
 		};
+		23CFF28D2276C50200739033 /* Respbain */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23CFF2912276C5F600739033 /* Respbain.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Respbain;
+		};
+		23CFF28E2276C50200739033 /* Respbain */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R8377LYS55;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/SkyTool/Libraries",
+				);
+				INFOPLIST_FILE = SkyTool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.treee.-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Respbain;
+		};
+		23CFF28F2276C50200739033 /* Respbain */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R8377LYS55;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SkyToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.treee.-.SkyToolTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyTool.app/SkyTool";
+			};
+			name = Respbain;
+		};
+		23CFF2902276C50200739033 /* Respbain */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R8377LYS55;
+				INFOPLIST_FILE = SkyToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.treee.-.SkyToolUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SkyTool;
+			};
+			name = Respbain;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1534,6 +1684,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2383625C2240A032007B892D /* Debug */,
+				23CFF28D2276C50200739033 /* Respbain */,
 				2383625D2240A032007B892D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1543,6 +1694,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2383625F2240A032007B892D /* Debug */,
+				23CFF28E2276C50200739033 /* Respbain */,
 				238362602240A032007B892D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1552,6 +1704,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				238362622240A032007B892D /* Debug */,
+				23CFF28F2276C50200739033 /* Respbain */,
 				238362632240A032007B892D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1561,6 +1714,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				238362652240A032007B892D /* Debug */,
+				23CFF2902276C50200739033 /* Respbain */,
 				238362662240A032007B892D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
