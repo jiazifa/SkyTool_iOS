@@ -31,17 +31,36 @@ class AudioRecord {
     
     public static let shared = AudioRecord()
     public weak var delegate: AudioRecordPortocol?
+    
     private static let bufSize: Int = 4096
-    private var engine: AVAudioEngine?
+    private let bus: Int = 0
+    
+    private var engine: AVAudioEngine
+    private var inputNode: AVAudioNode
+    private var mixNode: AVAudioMixerNode
+    private var reverd: AVAudioUnitReverb = AVAudioUnitReverb.init() // 添加效果
+    
     private var lame: lame_t?
+    
     private var mp3Buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufSize)
-    private var data = Data()
     
     private var averagePowerForChannel0: Float = 0.0
     private var averagePowerForChannel1: Float = 0.0
     
     private var minLevel: Float = 0.0
     private var maxLevel: Float = 0.0
+    
+    init() {
+        engine = AVAudioEngine()
+        inputNode = engine.inputNode
+        mixNode = AVAudioMixerNode.init()
+        self.bindNodes(from: inputNode, to: reverd)
+        self.bindNodes(from: reverd, to: mixNode)
+        reverd.wetDryMix = 100
+        reverd.loadFactoryPreset(.largeRoom)
+        engine.attach(reverd)
+        engine.attach(mixNode)
+    }
     
     deinit {
         mp3Buffer.deallocate()
@@ -60,20 +79,13 @@ class AudioRecord {
             return
         }
         
-        guard let input = engine?.inputNode else {
-            print("input获取")
-            return
-        }
+        let input = mixNode
         
         let format = input.inputFormat(forBus: 0)
         input.installTap(onBus: 0, bufferSize:AVAudioFrameCount(AudioRecord.bufSize) , format: format) { [weak self] (buffer, when) in
             
-            guard let this = self else {
-                return
-            }
-            
-            if let buf = buffer.floatChannelData?[0]
-            {
+            guard let this = self else { return }
+            if let buf = buffer.floatChannelData?[0] {
                 let frameLength = Int32(buffer.frameLength) / 2
                 let bytes = lame_encode_buffer_interleaved_ieee_float(this.lame, buf, frameLength, this.mp3Buffer, Int32(AudioRecord.bufSize))
                 
@@ -99,24 +111,29 @@ class AudioRecord {
                     handle.seekToEndOfFile()
                     handle.write(data)
                 }
-                this.data.append(data)
             }
         }
         
-        engine?.prepare()
+        engine.prepare()
         do {
-            try engine?.start()
+            try engine.start()
         } catch {
             print("engine启动")
         }
     }
     
+    private func bindNodes(from inputNode: AVAudioNode, to node: AVAudioNode) {
+        let format = inputNode.inputFormat(forBus: self.bus)
+        engine.connect(inputNode, to: node, format: format)
+    }
+    
+    private func unbindNodes(from node: AVAudioNode) {
+        engine.disconnectNodeInput(node)
+    }
+    
     private func initLame() {
-        
-        engine = AVAudioEngine()
-        guard let engine = engine else { return }
         let input = engine.inputNode
-        let format = input.inputFormat(forBus: 0)
+        let format = input.inputFormat(forBus: self.bus)
         let sampleRate = Int32(format.sampleRate) / 2
         
         lame = lame_init()
@@ -129,23 +146,6 @@ class AudioRecord {
     public func stop() {
         print("min: \(self.minLevel)")
         print("max: \(self.maxLevel)")
-        engine?.inputNode.removeTap(onBus: 0)
-        engine = nil
-//        do {
-//            var url = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-//            let name = String(CACurrentMediaTime()).appending(".mp3")
-//            url.appendPathComponent(name)
-//            if !data.isEmpty {
-//                try data.write(to: url)
-//            }
-//            else {
-//                print("空文件")
-//            }
-//        } catch {
-//            print("文件操作")
-//        }
-//        data.removeAll()
+        engine.inputNode.removeTap(onBus: self.bus)
     }
-    
 }
-
