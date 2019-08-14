@@ -8,6 +8,53 @@
 
 import UIKit
 
+enum SessionError: Error {
+    case none
+    case auth(AuthError)
+    case common(SessionCommonError)
+}
+
+protocol ErrorCodeProtocol: Error {
+    static func errorObject(code: Int) -> Error?
+}
+
+extension ErrorCodeProtocol {
+    static func errorObject(code: Int) -> Error? {
+        let all: [Int: ErrorCodeProtocol] = [
+            // AuthError
+            40200: AuthError.accountExsist,
+            40203: AuthError.noAccount,
+            40204: AuthError.tokenExpired,
+            43000: AuthError.needPermission,
+            
+            // SessionCommonError
+            9999: SessionCommonError.unknown,
+            40000: SessionCommonError.argsError,
+            44000: SessionCommonError.resourceNotFound,
+        ]
+        return all.first(where: {$0.key == code})?.value
+    }
+}
+
+enum SessionErrorCode: ErrorCodeProtocol {
+    case some(Int)
+}
+
+enum AuthError: Error, ErrorCodeProtocol {
+    
+    case accountExsist //  40200
+    case noAccount //  40203
+    case tokenExpired //  40204
+    case needPermission //  43000
+}
+
+enum SessionCommonError: Error, ErrorCodeProtocol {
+    
+    case unknown //  9999
+    case argsError //  40000
+    case resourceNotFound //  44000
+}
+
 public enum HttpMethod: String {
     case GET
     case POST
@@ -106,16 +153,20 @@ public extension TransportResponse {
         }
         do {
             let json = try JSONSerialization.jsonObject(with: respData, options: [.allowFragments])
-            Log.print("\(json)")
             if let jsonArray = json as? [Any] {
                 return TransportResponse.init(payload: .jsonArray(jsonArray),
                                               httpStatus: statusCode,
                                               sessionError: nil,
                                               headers: headers)
             } else if let jsonDict = json as? [String: Any] {
+                // filter error codes
+                var err: Error?
+                if let code = jsonDict["code"] as? Int {
+                     err = SessionErrorCode.errorObject(code: code)
+                }
                 return TransportResponse.init(payload: .jsonDict(jsonDict),
                                               httpStatus: statusCode,
-                                              sessionError: nil,
+                                              sessionError: err,
                                               headers: headers)
             } else {
                 return TransportResponse.init(payload: .json(json),

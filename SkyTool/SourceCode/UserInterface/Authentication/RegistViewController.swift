@@ -130,7 +130,6 @@ class RegistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "手机注册"
         self.setupSubViews()
         self.createConstrains()
         self.createReacts()
@@ -154,7 +153,6 @@ class RegistViewController: UIViewController {
     }
     
     private func createConstrains() {
-        
         self.phoneNumerTextField.autoAlignAxis(toSuperviewAxis: .vertical)
         self.phoneNumerTextField.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
         self.phoneNumerTextField.autoPinEdge(toSuperviewEdge: .left, withInset: 10)
@@ -225,6 +223,8 @@ class RegistViewController: UIViewController {
 
 extension RegistViewController {
     func onRegistCliccked() {
-        
+        guard let name = phoneNumerTextField.text else { return }
+        guard let password = newPsdTextField.text else { return }
+        coordinator.startRegistration(name: name, password: password)
     }
 }

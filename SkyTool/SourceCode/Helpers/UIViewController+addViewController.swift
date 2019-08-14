@@ -58,3 +58,18 @@ extension UIView {
         return contextView
     }
 }
+protocol StoryboardProtocol {}
+extension StoryboardProtocol where Self: UIViewController {
+    
+    /// 从 Storyboard 中加载视图控制器
+    ///
+    /// - Parameter name: storyboard 名字
+    /// - Returns: 实例的控制器,如果不存在请不要调用此方法
+    static func loadFromStoryboard(name: String) -> Self {
+        let storyboard = UIStoryboard(name: name, bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "\(self)") as? Self else {
+            fatalError()
+        }
+        return viewController
+    }
+}

@@ -21,7 +21,6 @@ class AuthenticationCoordinator: NSObject {
     }
     
     func startRegistration(name: String, password: String) {
-
     }
     
     func startChagePassword(newPsd: String) {

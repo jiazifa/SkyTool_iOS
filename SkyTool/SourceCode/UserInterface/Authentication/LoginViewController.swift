@@ -104,7 +104,26 @@ class LoginViewController: UIViewController {
             })
             return append
             }())
-        attr.alignment = .center
+        attr.alignment = .left
+        label.attributedText = attr
+        return label
+    }()
+    
+    private lazy var registerLabel: YYLabel = {
+        let label = YYLabel.init()
+        let attr = NSMutableAttributedString.init()
+        attr.append({
+            let append = NSMutableAttributedString.init(string: "前往注册")
+            append.font = UIFont.smallLightFont
+            append.setTextHighlight(append.rangeOfAll(),
+                                    color: UIColor.textBlack,
+                                    backgroundColor: nil,
+                                    tapAction: { [unowned self] (_, _, _, _) in
+                                        self.pushToRegist()
+            })
+            return append
+            }())
+        attr.alignment = .right
         label.attributedText = attr
         return label
     }()
@@ -144,6 +163,7 @@ class LoginViewController: UIViewController {
         self.view.addSubview(self.passwordLine)
         self.view.addSubview(self.commitButton)
         self.view.addSubview(self.infoLabel)
+        view.addSubview(registerLabel)
         self.userNameLine.isHidden = true
         self.passwordLine.isHidden = true
         
@@ -195,10 +215,14 @@ class LoginViewController: UIViewController {
                                     withMultiplier: 1,
                                     relation: .equal)
         
-        self.infoLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        self.infoLabel.autoPinEdge(.left, to: .left, of: commitButton)
         self.infoLabel.autoPinEdge(.top, to: .bottom, of: self.commitButton, withOffset: 30.0)
-        self.infoLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 30)
-        self.infoLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 30)
+        self.infoLabel.autoMatch(.width, to: .width, of: commitButton, withMultiplier: 0.5)
+        
+        self.registerLabel.autoAlignAxis(.horizontal, toSameAxisOf: infoLabel)
+        self.registerLabel.autoPinEdge(.right, to: .right, of: commitButton)
+        registerLabel.autoMatch(.width, to: .width, of: infoLabel)
+        
     }
     
     private func createReacts() {
@@ -208,7 +232,9 @@ class LoginViewController: UIViewController {
     }
     
     private func pushToRegist() {
-        
+        let controller = RegistViewController.init(coordinator: coordinator)
+        controller.title = "注册"
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

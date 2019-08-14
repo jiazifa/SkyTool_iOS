@@ -51,3 +51,6 @@ func guardSharedProperty<T>(_ input: T?) -> T {
     }
     return shared
 }
+
+public let decoder = JSONDecoder()
+public let encoder = JSONEncoder()

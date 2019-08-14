@@ -60,7 +60,7 @@ public class RssListRequest: Request {
         case .jsonDict(let x):
             guard let list = x["list"] as? [Any] else { return }
             guard let data = try? JSONSerialization.data(withJSONObject: list, options: []),
-                let rssList = try? JSONDecoder().decode([Rss].self, from: data) else {
+                let rssList = try? decoder.decode([Rss].self, from: data) else {
                     return
             }
             if let total = x["total"] as? Int,

@@ -60,20 +60,22 @@ extension SessionDelegate: SessionDelegateType {
 
 class Session: NSObject {
     
-    public static var shared: Session = Session()
+    static let SessionCompleteWithErrorNotification: Notification.Name = .init("SessionCompleteWithErrorNotification")
     
     let session: URLSession
     let delegate: SessionDelegateType
     
     var authenticateAccount: Account?
     
-    private let defaultHost: String = "http://127.0.0.1:8091"
+    private lazy var defaultHost: String = {
+        return Config.shared.host
+    }()
     
-    private override init() {
+    init(configuration: URLSessionConfiguration, queue: OperationQueue?) {
         self.delegate = SessionDelegate()
-        self.session = URLSession(configuration: URLSessionConfiguration.default,
+        self.session = URLSession(configuration: configuration,
                              delegate: delegate,
-                             delegateQueue: nil)
+                             delegateQueue: queue)
         super.init()
     }
     
@@ -124,14 +126,8 @@ class Session: NSObject {
             return
         }
         transportResponse = TransportResponse.response(with: response, data: data)
-        switch transportResponse.payload {
-        case .jsonDict(let x):
-            if let code = x["code"] as? Int,
-                code == 40204 {
-                Log.print("掉线了")
-            }
-        default:
-            break
+        if let error = transportResponse.sessionError {
+            NotificationCenter.default.post(name: Session.SessionCompleteWithErrorNotification, object: error)
         }
     }
 }

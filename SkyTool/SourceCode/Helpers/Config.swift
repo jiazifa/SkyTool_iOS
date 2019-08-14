@@ -19,5 +19,8 @@ class Config: NSObject {
     init(_ domain: String) {
         self.domain = domain
         super.init()
+        Config._shared = self
     }
+    
+    var host: String = "http://127.0.0.1:8091"
 }

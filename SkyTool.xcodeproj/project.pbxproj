@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		23006212225B87C000288DAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23006211225B87C000288DAA /* NavigationViewController.swift */; };
-		230D2B41226EEB41005D026C /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B40226EEB41005D026C /* AddMissionViewController.swift */; };
 		230D2B43226F0697005D026C /* WebViewMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B42226F0697005D026C /* WebViewMenuView.swift */; };
 		230D2B45226F1810005D026C /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B44226F1810005D026C /* UIDevice+Ext.swift */; };
 		230D2B49226F205D005D026C /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B47226F205D005D026C /* RecordViewController.swift */; };
@@ -26,6 +25,9 @@
 		2319B50A224B69FF004546A6 /* pitches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2319B509224B69FF004546A6 /* pitches.xml */; };
 		2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */ = {isa = PBXBuildFile; fileRef = 2319B514224B8150004546A6 /* MIDI_sample.mid */; };
 		2319B517224B8202004546A6 /* Binchois.musicxml in Resources */ = {isa = PBXBuildFile; fileRef = 2319B516224B8202004546A6 /* Binchois.musicxml */; };
+		23250D8F22F6CD9D00FE944F /* ViewControllerViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23250D8E22F6CD9D00FE944F /* ViewControllerViewModelProtocol.swift */; };
+		23250D9122F6CE7300FE944F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23250D9022F6CE7300FE944F /* RegisterViewModel.swift */; };
+		23250D9322F6E1BC00FE944F /* RxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23250D9222F6E1BC00FE944F /* RxBaseViewController.swift */; };
 		234FE32322446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234FE32222446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift */; };
 		234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234FE32422447B7F00A89071 /* TailEditingTextField.swift */; };
 		234FE3282244B46400A89071 /* UIColor+Sky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFCD222433E2000795E13 /* UIColor+Sky.swift */; };
@@ -142,8 +144,15 @@
 		23C6E00B225F0C31008140C3 /* ControllerRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */; };
 		23C6E00C225F0C31008140C3 /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E004225F0C31008140C3 /* Intent.swift */; };
 		23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */; };
+		23C8FBC322F6B8D5007175C3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C8FBC122F6B8D5007175C3 /* RxCocoa.framework */; };
+		23C8FBC422F6B8D5007175C3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C8FBC222F6B8D5007175C3 /* RxSwift.framework */; };
+		23C8FBC622F6BA7F007175C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C8FBC522F6BA7F007175C3 /* Images.xcassets */; };
+		23C8FBCB22F6BB30007175C3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C8FBC822F6BB2F007175C3 /* RxBlocking.framework */; };
+		23C8FBCC22F6BB30007175C3 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C8FBC922F6BB30007175C3 /* RxRelay.framework */; };
 		23CFF2922276C5F600739033 /* Respbain.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 23CFF2912276C5F600739033 /* Respbain.xcconfig */; };
 		23CFF2942276C65400739033 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 23CFF2932276C65400739033 /* Debug.xcconfig */; };
+		23D3E7522302C47F00EFE79C /* RssListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3E7502302C47F00EFE79C /* RssListCell.swift */; };
+		23D3E7532302C47F00EFE79C /* RssListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D3E7512302C47F00EFE79C /* RssListCell.xib */; };
 		23DEFB472240E30400795E13 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB462240E30400795E13 /* Request.swift */; };
 		23DEFB492240E42300795E13 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB482240E42300795E13 /* Session.swift */; };
 		23DEFB4B2240F90B00795E13 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
@@ -195,7 +204,6 @@
 
 /* Begin PBXFileReference section */
 		23006211225B87C000288DAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		230D2B40226EEB41005D026C /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
 		230D2B42226F0697005D026C /* WebViewMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMenuView.swift; sourceTree = "<group>"; };
 		230D2B44226F1810005D026C /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		230D2B47226F205D005D026C /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +222,9 @@
 		2319B509224B69FF004546A6 /* pitches.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pitches.xml; sourceTree = "<group>"; };
 		2319B514224B8150004546A6 /* MIDI_sample.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = MIDI_sample.mid; sourceTree = "<group>"; };
 		2319B516224B8202004546A6 /* Binchois.musicxml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Binchois.musicxml; sourceTree = "<group>"; };
+		23250D8E22F6CD9D00FE944F /* ViewControllerViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModelProtocol.swift; sourceTree = "<group>"; };
+		23250D9022F6CE7300FE944F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		23250D9222F6E1BC00FE944F /* RxBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBaseViewController.swift; sourceTree = "<group>"; };
 		234FE32222446FE100A89071 /* SettingsPropertyTextCellDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPropertyTextCellDescriptor.swift; sourceTree = "<group>"; };
 		234FE32422447B7F00A89071 /* TailEditingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailEditingTextField.swift; sourceTree = "<group>"; };
 		234FE3292244B47A00A89071 /* SkyColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyColorTest.swift; sourceTree = "<group>"; };
@@ -308,9 +319,17 @@
 		23C6E003225F0C31008140C3 /* ControllerRouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerRouterManager.swift; sourceTree = "<group>"; };
 		23C6E004225F0C31008140C3 /* Intent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intent.swift; sourceTree = "<group>"; };
 		23C6E016225F1158008140C3 /* SessionManager+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionManager+ViewController.swift"; sourceTree = "<group>"; };
+		23C8FBC122F6B8D5007175C3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		23C8FBC222F6B8D5007175C3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		23C8FBC522F6BA7F007175C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23C8FBC722F6BB2F007175C3 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		23C8FBC822F6BB2F007175C3 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		23C8FBC922F6BB30007175C3 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		23CFF2912276C5F600739033 /* Respbain.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Respbain.xcconfig; sourceTree = "<group>"; };
 		23CFF2932276C65400739033 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		23CFF2952276C66100739033 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		23D3E7502302C47F00EFE79C /* RssListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssListCell.swift; sourceTree = "<group>"; };
+		23D3E7512302C47F00EFE79C /* RssListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssListCell.xib; sourceTree = "<group>"; };
 		23DEFB462240E30400795E13 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		23DEFB482240E42300795E13 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		23DEFB4A2240F90B00795E13 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -353,6 +372,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23C8FBCB22F6BB30007175C3 /* RxBlocking.framework in Frameworks */,
+				23C8FBCC22F6BB30007175C3 /* RxRelay.framework in Frameworks */,
+				23C8FBC322F6B8D5007175C3 /* RxCocoa.framework in Frameworks */,
+				23C8FBC422F6B8D5007175C3 /* RxSwift.framework in Frameworks */,
 				23DEFCE9224369F800795E13 /* YYKit.framework in Frameworks */,
 				230D2B54226F2F50005D026C /* lame.framework in Frameworks */,
 				238362BC2240B8AA007B892D /* MBProgressHUD.framework in Frameworks */,
@@ -377,15 +400,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		230D2B3F226EEB2A005D026C /* Misson */ = {
-			isa = PBXGroup;
-			children = (
-				230D2B40226EEB41005D026C /* AddMissionViewController.swift */,
-				23C04CE3226FFA2100C022B9 /* MissionCoordinator.swift */,
-			);
-			path = Misson;
-			sourceTree = "<group>";
-		};
 		230D2B46226F203F005D026C /* Record */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +425,15 @@
 				238BAC57225F370500EEA88D /* Note.swift */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		23250D8D22F6CD7D00FE944F /* ViewModelProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				23250D8E22F6CD9D00FE944F /* ViewControllerViewModelProtocol.swift */,
+				23250D9222F6E1BC00FE944F /* RxBaseViewController.swift */,
+			);
+			path = ViewModelProtocol;
 			sourceTree = "<group>";
 		};
 		234FE34E2244BFD000A89071 /* ColorTheme */ = {
@@ -462,6 +485,8 @@
 			children = (
 				237860882261B610008BD562 /* RssListViewController.swift */,
 				2378608B2261B68D008BD562 /* RssController.swift */,
+				23D3E7502302C47F00EFE79C /* RssListCell.swift */,
+				23D3E7512302C47F00EFE79C /* RssListCell.xib */,
 			);
 			path = Rss;
 			sourceTree = "<group>";
@@ -525,6 +550,11 @@
 		238362672240A8A0007B892D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23C8FBC822F6BB2F007175C3 /* RxBlocking.framework */,
+				23C8FBC922F6BB30007175C3 /* RxRelay.framework */,
+				23C8FBC722F6BB2F007175C3 /* RxTest.framework */,
+				23C8FBC122F6B8D5007175C3 /* RxCocoa.framework */,
+				23C8FBC222F6B8D5007175C3 /* RxSwift.framework */,
 				238BAC55225F356C00EEA88D /* Pitchy.framework */,
 				23C33BAE2248D18D00E82D00 /* XMLParsing.framework */,
 				23C33B642248AEEF00E82D00 /* XMLCoder.framework */,
@@ -628,8 +658,8 @@
 		238362812240B7E3007B892D /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				23250D8D22F6CD7D00FE944F /* ViewModelProtocol */,
 				230D2B46226F203F005D026C /* Record */,
-				230D2B3F226EEB2A005D026C /* Misson */,
 				23C6DFEE225D9909008140C3 /* LaunchImage */,
 				23DEFCDD224367A700795E13 /* Authentication */,
 				23DEFCD42243424200795E13 /* Home */,
@@ -733,6 +763,7 @@
 				230D2B4F226F2EA9005D026C /* SkyTool-Bridging-Header.h */,
 				238362362240A030007B892D /* AppDelegate.swift */,
 				238362382240A030007B892D /* ViewController.swift */,
+				23C8FBC522F6BA7F007175C3 /* Images.xcassets */,
 				2383623A2240A030007B892D /* Main.storyboard */,
 				238362402240A032007B892D /* Assets.xcassets */,
 				238362422240A032007B892D /* LaunchScreen.storyboard */,
@@ -850,6 +881,7 @@
 				23DEFCE0224367A700795E13 /* ChangePasswordViewController.swift */,
 				23DEFCE2224367A700795E13 /* LoginViewController.swift */,
 				23DEFCF0224373CD00795E13 /* AuthenNavigationViewController.swift */,
+				23250D9022F6CE7300FE944F /* RegisterViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -1021,9 +1053,11 @@
 				23C33B632248AE7000E82D00 /* Cartfile in Resources */,
 				23CFF2942276C65400739033 /* Debug.xcconfig in Resources */,
 				23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */,
+				23D3E7532302C47F00EFE79C /* RssListCell.xib in Resources */,
 				23F40E4822452D8600E08B04 /* Localizable.strings in Resources */,
 				238362442240A032007B892D /* LaunchScreen.storyboard in Resources */,
 				235D42002265771600DFDFF7 /* PhotoCollectionViewCell.xib in Resources */,
+				23C8FBC622F6BA7F007175C3 /* Images.xcassets in Resources */,
 				238362412240A032007B892D /* Assets.xcassets in Resources */,
 				23FA4F032266FE94005F9EB0 /* _inject_bridge.js in Resources */,
 				2383623C2240A030007B892D /* Main.storyboard in Resources */,
@@ -1062,6 +1096,10 @@
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/YYKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -1094,6 +1132,7 @@
 				23DEFCFC22438C1800795E13 /* AccountStore.swift in Sources */,
 				238362B72240B7E3007B892D /* Helpers.swift in Sources */,
 				23DEFCE4224367A700795E13 /* RegistViewController.swift in Sources */,
+				23D3E7522302C47F00EFE79C /* RssListCell.swift in Sources */,
 				2383629E2240B7E3007B892D /* ColorScheme.swift in Sources */,
 				23DEFD0322439B6800795E13 /* LoginCredentials.swift in Sources */,
 				23006212225B87C000288DAA /* NavigationViewController.swift in Sources */,
@@ -1123,6 +1162,7 @@
 				23C6DFF0225D9973008140C3 /* LaunchImageViewController.swift in Sources */,
 				23DEFCD322433E2000795E13 /* UIColor+Sky.swift in Sources */,
 				23DEFB4D2240FA1C00795E13 /* SkyNetworkError.swift in Sources */,
+				23250D8F22F6CD9D00FE944F /* ViewControllerViewModelProtocol.swift in Sources */,
 				23DEFCFA2243898E00795E13 /* AccountManager.swift in Sources */,
 				23DEFCD62243425600795E13 /* HomeViewController.swift in Sources */,
 				23603C53224DADAE00B8AC88 /* NoteAttribute.swift in Sources */,
@@ -1144,7 +1184,6 @@
 				23DEFB512241CB3A00795E13 /* ParameterEncoding.swift in Sources */,
 				237860962263326C008BD562 /* MissionCommand.swift in Sources */,
 				23DEFB472240E30400795E13 /* Request.swift in Sources */,
-				23C04CE4226FFA2100C022B9 /* MissionCoordinator.swift in Sources */,
 				238362B32240B7E3007B892D /* AppStateController.swift in Sources */,
 				235D41FF2265771600DFDFF7 /* PhotoCollectionViewCell.swift in Sources */,
 				23DEFCF4224375FF00795E13 /* SessionManager.swift in Sources */,
@@ -1155,11 +1194,13 @@
 				23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */,
 				23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */,
 				238BAC58225F370500EEA88D /* Note.swift in Sources */,
+				23250D9322F6E1BC00FE944F /* RxBaseViewController.swift in Sources */,
 				238362B92240B7E3007B892D /* SettingsPropertyName.swift in Sources */,
 				23C6E00A225F0C31008140C3 /* URLControllerDisplay.swift in Sources */,
 				238362A02240B7E3007B892D /* UIColor+utils.swift in Sources */,
 				2313D5D3225D8E8800BF5A20 /* Request_User.swift in Sources */,
 				238362B22240B7E3007B892D /* AppState.swift in Sources */,
+				23250D9122F6CE7300FE944F /* RegisterViewModel.swift in Sources */,
 				235D42062265BAF700DFDFF7 /* PhotoPickerOptions.swift in Sources */,
 				238362A32240B7E3007B892D /* FontScheme.swift in Sources */,
 				235D42042265A99E00DFDFF7 /* PickerImageController.swift in Sources */,
@@ -1184,7 +1225,6 @@
 				23C6E017225F1158008140C3 /* SessionManager+ViewController.swift in Sources */,
 				2378608C2261B68D008BD562 /* RssController.swift in Sources */,
 				238362B52240B7E3007B892D /* MainTabBarViewController.swift in Sources */,
-				230D2B41226EEB41005D026C /* AddMissionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1414,6 +1454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1434,7 +1475,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SkyTool/SkyTool-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1443,6 +1484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1462,7 +1504,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.treee.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SkyTool/SkyTool-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1624,6 +1666,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = SkyTool/SkyTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
@@ -1641,7 +1684,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.treee.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Respbain;
