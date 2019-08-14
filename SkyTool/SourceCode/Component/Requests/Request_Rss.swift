@@ -8,18 +8,7 @@
 
 import Foundation
 
-public class RssListRequest: Request {
-    public var path: String = "/api/rss/content/list"
-    
-    public var method: HttpMethod = .POST
-    
-    public var parmeter: [String : Any] = [:]
-    
-    public var timeout: TimeInterval = 20
-    
-    public var encoding: ParameterEncoding = JSONEncoding.default
-    
-    public var responseHandlers: [ResponseHandler] = []
+public class RssListRequest: TransportRequest {
     
     public let fetchComplete = Delegate<[Rss], Void>()
     
@@ -34,6 +23,7 @@ public class RssListRequest: Request {
     init(limit: Int, pages: Int) {
         self.limit = limit
         self.pages = pages
+        super.init(path: "/api/rss/content/list", params: [:])
         self.generatParams()
     }
     
@@ -55,7 +45,7 @@ public class RssListRequest: Request {
         self.generatParams()
     }
     
-    public func complete(_ response: TransportResponse) {
+    public override func complete(_ response: TransportResponse) {
         switch response.payload {
         case .jsonDict(let x):
             guard let list = x["list"] as? [Any] else { return }

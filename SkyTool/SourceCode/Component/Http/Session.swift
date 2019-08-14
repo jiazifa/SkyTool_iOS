@@ -96,7 +96,6 @@ class Session: NSObject {
                 let token = String(data: tokenData, encoding: .utf8) {
                 newParams.updateValue(token, forKey: "token")
             }
-            Log.print(newParams)
             request = try r.encoding.encode(request, with: newParams)
         } catch { return nil }
         
@@ -125,6 +124,7 @@ class Session: NSObject {
             transportResponse = TransportResponse.response(with: e as Error)
             return
         }
+        // 请求出错后，发出通知，由 SessionManager 捕获
         transportResponse = TransportResponse.response(with: response, data: data)
         if let error = transportResponse.sessionError {
             NotificationCenter.default.post(name: Session.SessionCompleteWithErrorNotification, object: error)

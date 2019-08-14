@@ -10,10 +10,7 @@
 		23006212225B87C000288DAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23006211225B87C000288DAA /* NavigationViewController.swift */; };
 		230D2B43226F0697005D026C /* WebViewMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B42226F0697005D026C /* WebViewMenuView.swift */; };
 		230D2B45226F1810005D026C /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B44226F1810005D026C /* UIDevice+Ext.swift */; };
-		230D2B49226F205D005D026C /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B47226F205D005D026C /* RecordViewController.swift */; };
-		230D2B4A226F205D005D026C /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230D2B48226F205D005D026C /* RecordViewController.xib */; };
 		230D2B54226F2F50005D026C /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230D2B53226F2F50005D026C /* lame.framework */; };
-		230D2B56226F2FB2005D026C /* AudioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D2B55226F2FB2005D026C /* AudioRecord.swift */; };
 		2313D5C5225C7E3800BF5A20 /* UIApplication+URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C4225C7E3800BF5A20 /* UIApplication+URLs.swift */; };
 		2313D5C7225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C6225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift */; };
 		2313D5C9225C846A00BF5A20 /* SelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5C8225C846A00BF5A20 /* SelfProfileViewController.swift */; };
@@ -153,6 +150,11 @@
 		23CFF2942276C65400739033 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 23CFF2932276C65400739033 /* Debug.xcconfig */; };
 		23D3E7522302C47F00EFE79C /* RssListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3E7502302C47F00EFE79C /* RssListCell.swift */; };
 		23D3E7532302C47F00EFE79C /* RssListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D3E7512302C47F00EFE79C /* RssListCell.xib */; };
+		23D3E7542303E7A600EFE79C /* Request_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313D5D2225D8E8800BF5A20 /* Request_User.swift */; };
+		23D3E7552303E7A600EFE79C /* Request_Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608D2261BBEC008BD562 /* Request_Rss.swift */; };
+		23D3E7562303E7D200EFE79C /* Rss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378608F2261BD5C008BD562 /* Rss.swift */; };
+		23D3E7CF2303F09F00EFE79C /* SkyAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3E7CE2303F09F00EFE79C /* SkyAccountTest.swift */; };
+		23D3E7D12304183F00EFE79C /* NotifyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3E7D02304183F00EFE79C /* NotifyMessage.swift */; };
 		23DEFB472240E30400795E13 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB462240E30400795E13 /* Request.swift */; };
 		23DEFB492240E42300795E13 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB482240E42300795E13 /* Session.swift */; };
 		23DEFB4B2240F90B00795E13 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DEFB4A2240F90B00795E13 /* Result.swift */; };
@@ -206,11 +208,8 @@
 		23006211225B87C000288DAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		230D2B42226F0697005D026C /* WebViewMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMenuView.swift; sourceTree = "<group>"; };
 		230D2B44226F1810005D026C /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
-		230D2B47226F205D005D026C /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		230D2B48226F205D005D026C /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
 		230D2B4F226F2EA9005D026C /* SkyTool-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyTool-Bridging-Header.h"; sourceTree = "<group>"; };
 		230D2B53226F2F50005D026C /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
-		230D2B55226F2FB2005D026C /* AudioRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecord.swift; sourceTree = "<group>"; };
 		2313D5C4225C7E3800BF5A20 /* UIApplication+URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+URLs.swift"; sourceTree = "<group>"; };
 		2313D5C6225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonCellDescriptor.swift; sourceTree = "<group>"; };
 		2313D5C8225C846A00BF5A20 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
@@ -330,6 +329,9 @@
 		23CFF2952276C66100739033 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		23D3E7502302C47F00EFE79C /* RssListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssListCell.swift; sourceTree = "<group>"; };
 		23D3E7512302C47F00EFE79C /* RssListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssListCell.xib; sourceTree = "<group>"; };
+		23D3E7CC2303EFAE00EFE79C /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = Carthage/Build/iOS/IQKeyboardManager.framework; sourceTree = "<group>"; };
+		23D3E7CE2303F09F00EFE79C /* SkyAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyAccountTest.swift; sourceTree = "<group>"; };
+		23D3E7D02304183F00EFE79C /* NotifyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyMessage.swift; sourceTree = "<group>"; };
 		23DEFB462240E30400795E13 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		23DEFB482240E42300795E13 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		23DEFB4A2240F90B00795E13 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -400,15 +402,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		230D2B46226F203F005D026C /* Record */ = {
-			isa = PBXGroup;
-			children = (
-				230D2B47226F205D005D026C /* RecordViewController.swift */,
-				230D2B48226F205D005D026C /* RecordViewController.xib */,
-			);
-			path = Record;
-			sourceTree = "<group>";
-		};
 		2313D5C1225C675C00BF5A20 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +526,7 @@
 				234FE3292244B47A00A89071 /* SkyColorTest.swift */,
 				238BAC59225F39D600EEA88D /* SkyNoteTest.swift */,
 				23F40E8022477DB000E08B04 /* SkyRequestTests.swift */,
+				23D3E7CE2303F09F00EFE79C /* SkyAccountTest.swift */,
 				238362502240A032007B892D /* Info.plist */,
 			);
 			path = SkyToolTests;
@@ -550,6 +544,7 @@
 		238362672240A8A0007B892D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23D3E7CC2303EFAE00EFE79C /* IQKeyboardManager.framework */,
 				23C8FBC822F6BB2F007175C3 /* RxBlocking.framework */,
 				23C8FBC922F6BB30007175C3 /* RxRelay.framework */,
 				23C8FBC722F6BB2F007175C3 /* RxTest.framework */,
@@ -611,7 +606,6 @@
 				238362732240B7E3007B892D /* Utils */,
 				2383627F2240B7E3007B892D /* Views */,
 				23C0C9F4225B868700349507 /* ViewControllers */,
-				23A2969222602220007C328F /* Recorder */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -659,7 +653,6 @@
 			isa = PBXGroup;
 			children = (
 				23250D8D22F6CD7D00FE944F /* ViewModelProtocol */,
-				230D2B46226F203F005D026C /* Record */,
 				23C6DFEE225D9909008140C3 /* LaunchImage */,
 				23DEFCDD224367A700795E13 /* Authentication */,
 				23DEFCD42243424200795E13 /* Home */,
@@ -777,14 +770,6 @@
 			name = "Support Files";
 			sourceTree = "<group>";
 		};
-		23A2969222602220007C328F /* Recorder */ = {
-			isa = PBXGroup;
-			children = (
-				230D2B55226F2FB2005D026C /* AudioRecord.swift */,
-			);
-			path = Recorder;
-			sourceTree = "<group>";
-		};
 		23C0C9F4225B868700349507 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +878,7 @@
 				2319B4CB224B679C004546A6 /* Music */,
 				2378607E2261A4EA008BD562 /* MissionTask */,
 				2378608F2261BD5C008BD562 /* Rss.swift */,
+				23D3E7D02304183F00EFE79C /* NotifyMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1049,7 +1035,6 @@
 				23603C55224DB48F00B8AC88 /* vexflow in Resources */,
 				23C6DFF4225D99E2008140C3 /* LaunchScreen.xib in Resources */,
 				2319B515224B8150004546A6 /* MIDI_sample.mid in Resources */,
-				230D2B4A226F205D005D026C /* RecordViewController.xib in Resources */,
 				23C33B632248AE7000E82D00 /* Cartfile in Resources */,
 				23CFF2942276C65400739033 /* Debug.xcconfig in Resources */,
 				23DEFCDC22435A5800795E13 /* ToolCollectionViewCell.xib in Resources */,
@@ -1122,7 +1107,6 @@
 				238362B42240B7E3007B892D /* AppRootViewController.swift in Sources */,
 				235D42022265892500DFDFF7 /* PhotoListCell.swift in Sources */,
 				238362AA2240B7E3007B892D /* SettingsExternalScreenCellDescriptor.swift in Sources */,
-				230D2B49226F205D005D026C /* RecordViewController.swift in Sources */,
 				23DEFB4B2240F90B00795E13 /* Result.swift in Sources */,
 				230D2B43226F0697005D026C /* WebViewMenuView.swift in Sources */,
 				234FE32522447B7F00A89071 /* TailEditingTextField.swift in Sources */,
@@ -1144,7 +1128,6 @@
 				2313D5C7225C804E00BF5A20 /* SettingsButtonCellDescriptor.swift in Sources */,
 				2383629C2240B7E3007B892D /* SettingsPropertyFactory.swift in Sources */,
 				2383623F2240A030007B892D /* SkyTool.xcdatamodeld in Sources */,
-				230D2B56226F2FB2005D026C /* AudioRecord.swift in Sources */,
 				238362392240A030007B892D /* ViewController.swift in Sources */,
 				238362A52240B7E3007B892D /* UIViewController+Orientation.swift in Sources */,
 				237860892261B610008BD562 /* RssListViewController.swift in Sources */,
@@ -1194,6 +1177,7 @@
 				23C6DFF2225D99DB008140C3 /* LaunchScreen.swift in Sources */,
 				23DEFD0022438CFD00795E13 /* FileManager+Protection.swift in Sources */,
 				238BAC58225F370500EEA88D /* Note.swift in Sources */,
+				23D3E7D12304183F00EFE79C /* NotifyMessage.swift in Sources */,
 				23250D9322F6E1BC00FE944F /* RxBaseViewController.swift in Sources */,
 				238362B92240B7E3007B892D /* SettingsPropertyName.swift in Sources */,
 				23C6E00A225F0C31008140C3 /* URLControllerDisplay.swift in Sources */,
@@ -1232,6 +1216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D3E7562303E7D200EFE79C /* Rss.swift in Sources */,
+				23D3E7542303E7A600EFE79C /* Request_User.swift in Sources */,
+				23D3E7552303E7A600EFE79C /* Request_Rss.swift in Sources */,
 				238BAC5B225F3A1200EEA88D /* NoteAttribute.swift in Sources */,
 				238BAC5C225F3A1200EEA88D /* Note.swift in Sources */,
 				234FE3492244BB4600A89071 /* Config.swift in Sources */,
@@ -1264,6 +1251,7 @@
 				234FE3482244BB3000A89071 /* ButtonWithLargerHitArea.swift in Sources */,
 				234FE32C2244B5A900A89071 /* DebugOption.swift in Sources */,
 				234FE32B2244B58600A89071 /* Helpers.swift in Sources */,
+				23D3E7CF2303F09F00EFE79C /* SkyAccountTest.swift in Sources */,
 				234FE32A2244B47A00A89071 /* SkyColorTest.swift in Sources */,
 				234FE3282244B46400A89071 /* UIColor+Sky.swift in Sources */,
 			);
@@ -1565,6 +1553,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SkyToolUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1585,6 +1577,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SkyToolUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1720,6 +1716,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8377LYS55;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SkyToolUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

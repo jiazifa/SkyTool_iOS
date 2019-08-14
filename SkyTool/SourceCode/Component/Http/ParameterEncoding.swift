@@ -8,10 +8,12 @@
 
 import UIKit
 
+/// protocol of parameter encoding
 public protocol ParameterEncoding {
     func encode(_ urlRequest: URLRequest, with parameters: [String: Any]?) throws -> URLRequest
 }
 
+/// URL Encoding, encoding by appending url
 public struct URLEncoding: ParameterEncoding {
     public  enum Destination {
         case methodDependent, queryString, httpBody
@@ -130,6 +132,7 @@ extension CharacterSet {
     }()
 }
 
+/// Encoding to json, appending to httpBody
 public struct JSONEncoding: ParameterEncoding {
     
     public static var `default`: JSONEncoding { return JSONEncoding() }

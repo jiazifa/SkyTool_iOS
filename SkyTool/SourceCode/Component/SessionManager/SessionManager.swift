@@ -19,6 +19,7 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     func sessionManagerWillLogout(error: Error?)
 }
 
+/// 任务管理是用来统筹主要的任务流模块的工具， 例如通知界面切换应用状态， 发送请求，管理用户，全局通知等
 @objcMembers public class SessionManager: NSObject {
     public static let maxNumberAccount: Int = 1
     
@@ -117,9 +118,7 @@ extension SessionManager {
         self.accountManager.remove(account)
         self.delegate?.sessionManagerWillLogout(error: nil)
     }
-}
-
-extension SessionManager {
+    
     @objc private func onAccountUpdate(_ notification: Notification) {
         guard let account = self.accountManager.selectedAccount else { return }
         urlSession.authenticateAccount = account
@@ -127,7 +126,10 @@ extension SessionManager {
         send(request)
         self.delegate?.sessionManagerWillMigrateAccount(account: account)
     }
-    
+}
+
+/// request
+extension SessionManager {
     @discardableResult
     func send<T: Request>(_ request: T) -> SessionTask? {
         return urlSession.send(request)

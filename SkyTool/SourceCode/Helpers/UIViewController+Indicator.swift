@@ -39,3 +39,45 @@ extension UIViewController {
         }
     }
 }
+
+final class _NotifyLabel: UILabel {}
+extension UIViewController {
+    private func getToasLabel() -> UILabel {
+        let label = _NotifyLabel.init()
+        label.font = .normalFont
+        label.numberOfLines = 3
+        label.textAlignment = .center
+        label.backgroundColor = UIColor.black
+        label.textColor = .white
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        return label
+    }
+    
+    func toast(content: String) {
+        guard let view = UIApplication.shared.keyWindow else { return }
+        let label = getToasLabel()
+        view.addSubview(label)
+        label.text = content
+        label.autoAlignAxis(toSuperviewAxis: .vertical)
+        label.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 100)
+        let size = (content as NSString).size(for: .normalFont, size: CGSize.init(width: view.width - 30, height: 100), mode: .byCharWrapping)
+        label.autoSetDimensions(to: CGSize.init(width: size.width + 30, height: size.height + 20))
+        let second = min(ceil(1.7 + Double(content.count) * 0.1), 4)
+        delay(second, closure: {
+            label.removeFromSuperview()
+        })
+    }
+}
+
+
+extension UIViewController {
+    func notify(message: NotifyMessage) {
+        switch message.type {
+        case .toast:
+            toast(content: message.content)
+        case .dropDown: fatalError()
+        @unknown default: break
+        }
+    }
+}

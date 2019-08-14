@@ -9,8 +9,15 @@
 import Foundation
 import UIKit
 
-extension SessionManager {
-    public func wantPushTo(targetViewController: UIViewController) {
-        
+// Toast
+public extension SessionManager {
+    
+    func notify(message: NotifyMessage) {
+        guard let rootViewController = UIApplication.shared.delegate as? AppDelegate,
+            let visibilityViewController = rootViewController.rootViewController.visibilityViewController else {
+            return
+        }
+        visibilityViewController.notify(message: message)
     }
 }
+

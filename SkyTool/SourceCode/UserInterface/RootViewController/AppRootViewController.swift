@@ -55,9 +55,7 @@ class AppRootViewController: UIViewController {
         mainWindow.makeKeyAndVisible()
         //        overlayWindow.makeKeyAndVisible()
         mainWindow.makeKey()
-        
         transition(to: .headless)
-        //        enqueueTransition(to: appStateController.appState)
     }
     
     required init?(coder aDecoder: NSCoder) {
