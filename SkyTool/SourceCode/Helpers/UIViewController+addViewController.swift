@@ -65,11 +65,24 @@ extension StoryboardProtocol where Self: UIViewController {
     ///
     /// - Parameter name: storyboard 名字
     /// - Returns: 实例的控制器,如果不存在请不要调用此方法
-    static func loadFromStoryboard(name: String) -> Self {
-        let storyboard = UIStoryboard(name: name, bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "\(self)") as? Self else {
+    static func loadFromStoryboard<T: UIViewController>(name: String) -> T {
+        guard let viewController = Self.loadFromStoryboard(name: name, identifier: "\(self)") as? T else {
             fatalError()
         }
+        return viewController
+    }
+    
+    static func loadFromStoryboard(name: String, identifier: String) -> UIViewController {
+        let storyboard = UIStoryboard(name: name, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        return viewController
+    }
+    
+    static func loadFromStoryboard<T: ViewControllerViewModelType>(name: String, viewModel: ViewModelProtocol) -> T {
+        guard let viewController = Self.loadFromStoryboard(name: name) as? T else {
+            fatalError()
+        }
+        viewController.viewModel = viewModel
         return viewController
     }
 }

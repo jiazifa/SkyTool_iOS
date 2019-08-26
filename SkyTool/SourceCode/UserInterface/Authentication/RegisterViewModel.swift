@@ -10,7 +10,8 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RegisterViewModel: ViewControllerViewModelProtocol {
+class RegisterViewModel: ViewModelProtocol {
+    var viewController: UIViewController?
     
     var bag = DisposeBag()
     
@@ -18,9 +19,12 @@ class RegisterViewModel: ViewControllerViewModelProtocol {
     
     var backgroundColor = BehaviorRelay<UIColor>.init(value: .white)
     
-    var showHud = BehaviorRelay<HUDType>.init(value: .none)
+    var showHud: BehaviorRelay<NotifyMessage> = BehaviorRelay.init(value: .init(level: .hidden, type: .toast, content: ""))
     
     var isNavigationBarHidden = BehaviorRelay<Bool>.init(value: false)
+    
+    var leftNavigationItems: BehaviorRelay<[UIBarButtonItem]> = .init(value: [])
+    var rightNavigationItems: BehaviorRelay<[UIBarButtonItem]> = .init(value: [])
     
     var viewDidLoad = PublishSubject<UIViewController>.init()
 
@@ -34,14 +38,6 @@ class RegisterViewModel: ViewControllerViewModelProtocol {
     
     init(title: String) {
         self.title = BehaviorRelay<String>.init(value: title)
-        createReact()
     }
     
-    func createReact() {
-        showHud.accept(.indicator(nil))
-        delay(10, closure: {
-            self.showHud.accept(.none)
-        })
-        
-    }
 }

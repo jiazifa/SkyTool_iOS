@@ -10,17 +10,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-protocol DisposeProtocol {
+public protocol DisposeProtocol {
     var bag: DisposeBag { get }
 }
 
-enum HUDType {
-    case toast(String)
-    case indicator(String?)
-    case none
-}
-
-protocol ViewControllerViewModelProtocol: DisposeProtocol {
+public protocol ViewModelProtocol: DisposeProtocol {
+    
+    var viewController: UIViewController? { get set }
     
     /// 标题
     var title: BehaviorRelay<String> { get }
@@ -29,10 +25,13 @@ protocol ViewControllerViewModelProtocol: DisposeProtocol {
     var backgroundColor: BehaviorRelay<UIColor> { get }
     
     /// HUD 选项
-    var showHud: BehaviorRelay<HUDType> { get }
+    var showHud: BehaviorRelay<NotifyMessage> { get }
     
     /// 是否显示导航
     var isNavigationBarHidden: BehaviorRelay<Bool> { get }
+    
+    var leftNavigationItems: BehaviorRelay<[UIBarButtonItem]> { get set }
+    var rightNavigationItems: BehaviorRelay<[UIBarButtonItem]> { get set }
     
     /// 声明周期
     var viewDidLoad: PublishSubject<UIViewController> { get }
@@ -40,16 +39,34 @@ protocol ViewControllerViewModelProtocol: DisposeProtocol {
     var viewDidAppear: PublishSubject<Bool> { get }
     var viewWillDisappear: PublishSubject<Bool> { get }
     var viewDidDisappear: PublishSubject<Bool> { get }
+    
 }
 
-protocol ViewControllerViewModelType {
-    var viewModel: ViewControllerViewModelProtocol { get }
+protocol ViewControllerViewModelType where Self: UIViewController {
+    var viewModel: ViewModelProtocol? { get set }
     
-    init(viewModel: ViewControllerViewModelProtocol)
-    
-    func configureViewModel()
+    func configure(viewModel: ViewModelProtocol)
 }
 
-protocol ListViewModelProtocol {
+extension ViewControllerViewModelType {
+    
+    func configure(viewModel: ViewModelProtocol) {
+        self.viewModel = viewModel
+        viewModel.backgroundColor
+            .bind(to: view.rx.backgroundColor)
+            .disposed(by: viewModel.bag)
+        
+        viewModel.title
+            .bind(to: rx.title)
+            .disposed(by: viewModel.bag)
+        
+        viewModel.showHud.subscribe({ (event) in
+            guard let message = event.element else { return }
+            SessionManager.shared.notify(message: message)
+        }).disposed(by: viewModel.bag)
+        
+    }
     
 }
+
+protocol ListViewModelProtocol: UITableViewDelegate, UITableViewDataSource {}

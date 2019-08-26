@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // Toast
-public extension SessionManager {
+extension SessionManager {
     
     func notify(message: NotifyMessage) {
         guard let rootViewController = UIApplication.shared.delegate as? AppDelegate,
@@ -20,4 +20,3 @@ public extension SessionManager {
         visibilityViewController.notify(message: message)
     }
 }
-

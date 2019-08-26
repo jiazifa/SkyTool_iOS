@@ -75,6 +75,7 @@ extension UIViewController {
     func notify(message: NotifyMessage) {
         switch message.type {
         case .toast:
+            guard message.content.isEmpty == false else { return }
             toast(content: message.content)
         case .dropDown: fatalError()
         @unknown default: break

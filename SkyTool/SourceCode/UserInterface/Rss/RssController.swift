@@ -40,6 +40,20 @@ class RssController {
         SessionManager.shared.send(request)
     }
     
+    func read(_ rss: Rss) {
+        let request = RssReadedRequest.init(rss: rss)
+        request.responseHandlers = [
+            { (response) in
+                switch response.payload {
+                case .boolValue(let value):
+                    Log.print("\(value)")
+                default: break
+                }
+            }
+        ]
+        SessionManager.shared.send(request)
+    }
+    
     func load() {
         request.reload()
         SessionManager.shared.send(request)

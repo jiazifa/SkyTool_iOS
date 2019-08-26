@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 public enum NotifyLevel {
+    case hidden
     case info
     case warning
     case error
@@ -18,6 +19,7 @@ public enum NotifyLevel {
 extension NotifyLevel {
     var backgroundColor: UIColor {
         switch self {
+        case .hidden: return .clear
         case .info: return .white
         case .warning: return .yellow
         case .error: return .red
@@ -55,6 +57,10 @@ public struct NotifyMessage {
         self.level = level
         self.type = type
         self.content = content
+    }
+    
+    static func none() -> NotifyMessage {
+        return NotifyMessage.init(level: .hidden, type: .toast, content: "")
     }
     
     static func infoToast(content: String) -> NotifyMessage {

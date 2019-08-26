@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class HomeController {
+class HomeController: ViewControllerCooridinatorType {
     
     let viewController: UIViewController
     
@@ -28,6 +28,9 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
+        let vm = AddMissionViewModel.init()
+        let addViewController = AddMissionViewController.init(viewModel: vm)
+        pushViewController(from: viewController, to: addViewController)
     }
     
     @objc func onToggleCollectionViewEdit() {

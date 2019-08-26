@@ -31,8 +31,8 @@ class MainTabBarViewController: UITabBarController {
     }
 
     private func setupChildViewControllers() {
-//        self.addHomeViewController()
-        self.addRssViewController()
+        self.addHomeViewController()
+//        self.addRssViewController()
 //        self.addSettingsViewController()
         self.addSelfProfileViewController()
     }

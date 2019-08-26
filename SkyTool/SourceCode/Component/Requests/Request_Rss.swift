@@ -46,15 +46,18 @@ public class RssListRequest: TransportRequest {
     }
     
     public override func complete(_ response: TransportResponse) {
+        if response.sessionError != nil {
+            self.fetchComplete.call(self.rsses)
+            return
+        }
         switch response.payload {
-        case .jsonDict(let x):
-            guard let list = x["list"] as? [Any] else { return }
+        case .jsonArray(let list):
             guard let data = try? JSONSerialization.data(withJSONObject: list, options: []),
                 let rssList = try? decoder.decode([Rss].self, from: data) else {
                     return
             }
-            if let total = x["total"] as? Int,
-                total == self.limit {
+            let total = list.count
+            if total == self.limit {
                 self.canBackward = true
             } else {
                 self.canBackward = false
@@ -65,6 +68,22 @@ public class RssListRequest: TransportRequest {
             break
         default:
             Log.fatalError("error handler")
+        }
+    }
+}
+
+public class RssReadedRequest: TransportRequest {
+    
+    init(rss: Rss) {
+        let params = [ "url": rss.link.absoluteString ]
+        super.init(path: "/api/rss/record", params: params)
+    }
+    
+    public override func complete(_ response: TransportResponse) {
+        switch response.payload {
+        case .boolValue(let value):
+            Log.print("\(self.path) -> \(value)")
+        default: break
         }
     }
 }

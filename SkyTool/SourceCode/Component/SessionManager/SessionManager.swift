@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
 
@@ -89,12 +90,17 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     @objc func onURLSessionError(_ notification: Notification) {
         guard let originalError = notification.object as? Error else { return }
         if let error = originalError as? AuthError {
+            let message: NotifyMessage = NotifyMessage.infoToast(content: error.description)
+            notify(message: message)
             switch error {
             case .tokenExpired:
                 guard let current = accountManager.selectedAccount else { return }
                 delete(account: current)
             default: break
             }
+        } else if let error = originalError as? SessionCommonError {
+            let message: NotifyMessage = NotifyMessage.infoToast(content: error.description)
+            notify(message: message)
         }
     }
 }

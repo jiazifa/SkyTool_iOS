@@ -8,13 +8,14 @@
 
 import UIKit
 
-class RxBaseViewController: UIViewController {
+class RxBaseViewController: UIViewController, ViewControllerViewModelType {
 
-    var viewModel: ViewControllerViewModelProtocol
+    var viewModel: ViewModelProtocol?
     
-    init(viewModel: ViewControllerViewModelProtocol) {
+    init(viewModel: ViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        configure(viewModel: viewModel)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,53 +24,28 @@ class RxBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewDidLoad.onNext(self)
-        createReact()
+        viewModel?.viewDidLoad.onNext(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.viewWillAppear.onNext(animated)
-        let hidden = viewModel.isNavigationBarHidden.value
+        viewModel?.viewWillAppear.onNext(animated)
+        guard let hidden = viewModel?.isNavigationBarHidden.value else { return }
         navigationController?.setNavigationBarHidden(hidden, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.viewDidAppear.onNext(animated)
+        viewModel?.viewDidAppear.onNext(animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        viewModel.viewWillDisappear.onNext(animated)
+        viewModel?.viewWillDisappear.onNext(animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        viewModel.viewDidDisappear.onNext(animated)
-    }
-    
-    func createReact() {
-        viewModel.title
-            .bind(to: rx.title)
-            .disposed(by: viewModel.bag)
-        
-        viewModel.backgroundColor
-            .bind(to: view.rx.backgroundColor)
-            .disposed(by: viewModel.bag)
-        
-        viewModel.showHud.subscribe { [weak self] (event) in
-            guard let this = self else { return }
-            let action = event.element ?? .none
-            switch action {
-            case .none:
-                this.stopIndicator()
-            case .indicator(_):
-                this.startIndicator()
-            case .toast(_): break
-            }
-        }.disposed(by: viewModel.bag)
-        
-        
+        viewModel?.viewDidDisappear.onNext(animated)
     }
 }
