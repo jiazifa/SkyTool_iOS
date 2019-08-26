@@ -63,6 +63,7 @@ class WebViewController: UIViewController {
         self.webView.navigationDelegate = self
         self.loadURLIfNeeded(url)
         self.setupProgressView()
+        self.startIndicator()
     }
     
     func setupSubViews() {
@@ -179,6 +180,7 @@ extension WebViewController: WKNavigationDelegate {
     
     // MARK: 下载后载入视图
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.stopIndicator()
         self.isWebViewLoaded = true
         if self.title == nil {
             self.title = webView.title
@@ -187,6 +189,7 @@ extension WebViewController: WKNavigationDelegate {
     
     // 失败
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        self.stopIndicator()
         self.progressView.isHidden = true
     }
 }

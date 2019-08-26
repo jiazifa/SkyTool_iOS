@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="KGk-i7-Jjw" customClass="RssListCell" customModule="SkyTool" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="140.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2Uh-wc-198">
+                        <rect key="frame" x="20" y="10" width="370" height="120.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ds9-n9-GgC">
+                                <rect key="frame" x="0.0" y="0.0" width="265" height="120.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T26-WW-Urd">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tna-Go-vDG">
+                                        <rect key="frame" x="0.0" y="100" width="69.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="T26-WW-Urd" firstAttribute="top" secondItem="ds9-n9-GgC" secondAttribute="top" id="4h1-Qa-HuO"/>
+                                    <constraint firstAttribute="bottom" secondItem="tna-Go-vDG" secondAttribute="bottom" id="gVY-yJ-7LT"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="self" translatesAutoresizingMaskIntoConstraints="NO" id="v7Q-dc-7if">
+                                <rect key="frame" x="270" y="0.0" width="100" height="120.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="F04-s2-uxv"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ds9-n9-GgC" firstAttribute="top" secondItem="2Uh-wc-198" secondAttribute="top" id="1Pn-qG-9GW"/>
+                            <constraint firstAttribute="bottom" secondItem="ds9-n9-GgC" secondAttribute="bottom" id="ucB-Vc-60a"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2Uh-wc-198" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9A0-nr-aUu"/>
+                    <constraint firstAttribute="bottom" secondItem="2Uh-wc-198" secondAttribute="bottom" constant="10" id="gP2-MK-gni"/>
+                    <constraint firstItem="2Uh-wc-198" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uRu-nu-tqb"/>
+                    <constraint firstAttribute="trailing" secondItem="2Uh-wc-198" secondAttribute="trailing" constant="10" id="yEa-SA-RbV"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="SuP-Ja-N8a"/>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="coverImageView" destination="v7Q-dc-7if" id="vue-HZ-FC0"/>
+                <outlet property="rssTitleLabel" destination="T26-WW-Urd" id="04S-Xn-dPa"/>
+                <outlet property="updatelabel" destination="tna-Go-vDG" id="Hhu-5F-zkc"/>
+            </connections>
+            <point key="canvasLocation" x="195.6521739130435" y="83.370535714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="self" width="24" height="24"/>
+    </resources>
+</document>

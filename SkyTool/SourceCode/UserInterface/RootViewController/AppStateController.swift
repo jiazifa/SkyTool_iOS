@@ -66,6 +66,7 @@ class AppStateController {
 }
 
 extension AppStateController: SessionManagerDelegate {
+    
     func sessionManagerDidFailToLogin(account: Account?, error: Error) {
         
     }

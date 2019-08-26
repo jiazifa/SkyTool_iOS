@@ -15,9 +15,10 @@ class AuthenNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarHidden(true, animated: false)
-        self.setupBackButton()
-        self.createConstraints()
+        navigationBar.isTranslucent = false
+        setNavigationBarHidden(true, animated: false)
+        setupBackButton()
+        createConstraints()
     }
     
     override var prefersStatusBarHidden: Bool {

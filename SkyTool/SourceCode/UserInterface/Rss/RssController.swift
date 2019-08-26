@@ -14,6 +14,8 @@ class RssController {
     
     var onReload = Delegate<Void, Void>() // need show load
     
+    var hasMore: Bool = true
+    
     var rsses: [Rss] = [] {
         didSet { self.onReload.call() }
     }
@@ -35,16 +37,31 @@ class RssController {
             }
         }
         request.responseHandlers.append(handler)
-        Session.shared.send(request)
+        SessionManager.shared.send(request)
+    }
+    
+    func read(_ rss: Rss) {
+        let request = RssReadedRequest.init(rss: rss)
+        request.responseHandlers = [
+            { (response) in
+                switch response.payload {
+                case .boolValue(let value):
+                    Log.print("\(value)")
+                default: break
+                }
+            }
+        ]
+        SessionManager.shared.send(request)
     }
     
     func load() {
-        Session.shared.send(request)
+        request.reload()
+        SessionManager.shared.send(request)
     }
     
     func next() {
         guard self.request.canBackward else { return }
         self.request.backward()
-        Session.shared.send(request)
+        SessionManager.shared.send(request)
     }
 }

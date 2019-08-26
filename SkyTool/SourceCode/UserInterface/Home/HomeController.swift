@@ -9,11 +9,9 @@
 import UIKit
 import AVFoundation
 
-class HomeController {
+class HomeController: ViewControllerCooridinatorType {
     
     let viewController: UIViewController
-    
-    let recorder = Recorder()
     
     let onReload = Delegate<Void, Void>()
     
@@ -30,9 +28,9 @@ class HomeController {
     
     @objc(addButtonClicked:)
     func onAddClicked(_ sender: UIControl) {
-        let coordinator = MissionCoordinator()
-        let targetViewController = AddMissionViewController.init(coordinator: coordinator)
-        self.viewController.navigationController?.pushViewController(targetViewController, animated: true)
+        let vm = AddMissionViewModel.init()
+        let addViewController = AddMissionViewController.init(viewModel: vm)
+        pushViewController(from: viewController, to: addViewController)
     }
     
     @objc func onToggleCollectionViewEdit() {

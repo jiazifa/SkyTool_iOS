@@ -32,6 +32,7 @@ class MainTabBarViewController: UITabBarController {
 
     private func setupChildViewControllers() {
         self.addHomeViewController()
+//        self.addRssViewController()
 //        self.addSettingsViewController()
         self.addSelfProfileViewController()
     }
@@ -63,6 +64,20 @@ class MainTabBarViewController: UITabBarController {
         let item = UITabBarItem.init(title: title,
                                      image: UIImage.init(named: "setting"),
                                      selectedImage: UIImage.init(named: "setting"))
+        viewController.tabBarItem = item
+        addChild(navigationController)
+    }
+    
+    private func addRssViewController() {
+        let viewController = RssListViewController()
+        let navigationController = NavigationViewController(rootViewController: viewController)
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.shadowImage = UIImage.init()
+        let title = "home".localized
+        viewController.title = title
+        let item = UITabBarItem.init(title: title,
+                                     image: UIImage.init(named: "function"),
+                                     selectedImage: UIImage.init(named: "function"))
         viewController.tabBarItem = item
         addChild(navigationController)
     }

@@ -8,24 +8,12 @@
 
 import Foundation
 
-public class LoginRequest: Request {
-    public var path: String = "/api/user/login"
-
-    public var method: HttpMethod = .POST
-    
-    public var parmeter: [String : Any]
-    
-    public var timeout: TimeInterval = 10
-    
-    public var encoding: ParameterEncoding = JSONEncoding.default
-    
-    public var responseHandlers: [ResponseHandler] = []
-    
+final public class LoginRequest: TransportRequest {
     let loginBlock: (_ account: Account) -> ()
     
     let account: Account
     
-    public func complete(_ response: TransportResponse) {
+    public override func complete(_ response: TransportResponse) {
         switch response.payload {
         case .jsonDict(let x):
             guard let token = x["token"] as? String,
@@ -39,37 +27,25 @@ public class LoginRequest: Request {
     
     init(account: Account, done: @escaping (_ account: Account) -> ()) {
         self.account = account
+        var p: [String: String] = [:]
         if let email = account.loginCredentials?.emailAddress,
         let password = account.loginCredentials?.passwordMd5 {
-            self.parmeter = ["email": email, "password": password]
-        } else {
-            self.parmeter = [:]
+            p = ["email": email, "password": password]
         }
-        
         self.loginBlock = done
+        super.init(path: "/api/user/login", params: p)
     }
 }
 
-public class UserInfoRequest: Request {
-    public var path: String = "/api/user/info"
-    
-    public var method: HttpMethod = .POST
-    
-    public var parmeter: [String : Any] = [:]
-    
-    public var timeout: TimeInterval = 10
-    
-    public var encoding: ParameterEncoding = JSONEncoding.default
-    
-    public var responseHandlers: [ResponseHandler] = []
-    
+final public class UserInfoRequest: TransportRequest {
     public var account: Account
     
     init(account: Account) {
         self.account = account
+        super.init(path: "/api/user/info", params: [:])
     }
     
-    public func complete(_ response: TransportResponse) {
+    public override func complete(_ response: TransportResponse) {
         switch response.payload {
         case .jsonDict(let x):
             guard let data = try? JSONSerialization.data(withJSONObject: x, options: []),

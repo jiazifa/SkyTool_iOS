@@ -41,12 +41,15 @@ class SelfProfileViewController: UIViewController {
         super.viewDidLoad()
         self.createSubViews()
         self.createConstraints()
+        self.scrollView.contentInsetAdjustmentBehavior = .never
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.updateUserInfo()
     }
+    
     func createSubViews() {
         self.view.addSubview(self.scrollView)
         self.scrollView.addSubview(self.container)

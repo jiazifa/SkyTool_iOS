@@ -26,10 +26,14 @@ public struct Log {
         Swift.fatalError("[ERROR] \(message())", file: file, line: line)
     }
     
-    static func print(_ items: Any...) {
+    static func print(_ items: Any..., file: StaticString = #file, line: UInt = #line) {
         let s = items.reduce("") { result, next in
             return result + String(describing: next)
         }
-        Swift.print("[LOG] \(s)")
+        var fileName: String = ""
+        if let f = file.description.split(separator: "/").last {
+            fileName = f.description
+        }
+        Swift.print("[LOG] \(fileName)|\(line) \(s)")
     }
 }

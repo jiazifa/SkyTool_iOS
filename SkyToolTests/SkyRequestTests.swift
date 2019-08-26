@@ -11,8 +11,11 @@ import Foundation
 @testable import SkyTool
 
 class SkyRequestTests: XCTestCase {
+    
+    let session: Session = Session.init(configuration: .default, queue: nil)
 
     override func setUp() {
+        _ = Config.init("")
     }
 
     override func tearDown() {
@@ -20,22 +23,20 @@ class SkyRequestTests: XCTestCase {
     }
     
     func testRequest() {
+        let promise = expectation(description: "Simple Request")
         let transportRequest = TransportRequest.init(path: "/api/test", params: ["key1": "value1"])
         let resp: ResponseHandler = { resp in
             switch resp.payload {
-            case .jsonDict(_):
-                XCTAssert(1 == 1)
-                break
-            case .none:
-                XCTAssert(1 == 2)
-                break
-            default:
-                break
+            case .jsonDict(let dic):
+                XCTAssertNotNil(dic["params"])
+                promise.fulfill()
+            default: break
             }
         }
         
         transportRequest.responseHandlers.append(resp)
-        Session.shared.send(transportRequest)
+        session.send(transportRequest)
+        waitForExpectations(timeout: 20, handler: nil)
     }
 
 }

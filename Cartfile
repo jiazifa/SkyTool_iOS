@@ -1,3 +1,4 @@
 github "jdg/MBProgressHUD"
 github "PureLayout/PureLayout"
 github "ibireme/YYKit"
+github "ReactiveX/RxSwift" ~> 5.0

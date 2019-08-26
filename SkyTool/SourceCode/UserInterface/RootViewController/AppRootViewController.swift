@@ -55,9 +55,7 @@ class AppRootViewController: UIViewController {
         mainWindow.makeKeyAndVisible()
         //        overlayWindow.makeKeyAndVisible()
         mainWindow.makeKey()
-        
         transition(to: .headless)
-        //        enqueueTransition(to: appStateController.appState)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -69,6 +67,7 @@ class AppRootViewController: UIViewController {
     }
     
     public func launch(with launchOptions: LaunchOptions) {
+        _ = Config.init("Debug")
         self.sessionManager.start(launchOptions: launchOptions)
     }
 }

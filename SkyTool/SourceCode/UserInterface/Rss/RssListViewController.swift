@@ -37,8 +37,15 @@ class RssListViewController: UIViewController {
         let rightItem = UIBarButtonItem.init(barButtonSystemItem: .add,
                                              target: self,
                                              action: #selector(addNewRssLinnk))
-        self.navigationItem.rightBarButtonItem = rightItem
-        self.view.addSubview(self.tableView)
+        let refreshItem = UIBarButtonItem.init(barButtonSystemItem: .refresh,
+                                               target: self,
+                                               action: #selector(refreshAction))
+        self.navigationItem.rightBarButtonItems = [rightItem, refreshItem]
+        self.view.addSubview(tableView)
+        tableView.register(UITableViewCell.self,
+                           forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
+        tableView.register(UINib.init(nibName: "RssListCell", bundle: nil),
+                           forCellReuseIdentifier: RssListCell.reuseIdentifier)
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -58,6 +65,11 @@ class RssListViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @objc func refreshAction() {
+        controller.load()
+        tableView.scrollToTop()
+    }
 }
 
 extension RssListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,17 +78,36 @@ extension RssListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: .value1, reuseIdentifier: "cell")
         let rss = self.controller.rsses[indexPath.row]
-        cell.textLabel?.text = rss.title
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.textColor = UIColor.textBlack
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RssListCell.reuseIdentifier) as? RssListCell else { fatalError() }
+        cell.rssTitleLabel.text = rss.title
+        if let imgUrl = rss.coverImgUrl {
+            cell.coverImageView.setImageWith(imgUrl, options: [.allowInvalidSSLCertificates])
+        } else {
+            cell.coverImageView.image = nil
+        }
+        if let date = rss.publishedDate {
+            let formatter = DateFormatter.init()
+            formatter.locale = Locale.current
+            formatter.dateFormat = "MM-dd HH:mm"
+            let timeString = formatter.string(from: date)
+            cell.updatelabel.text = "时间：\(timeString)"
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let rss = controller.rsses[indexPath.row]
+        if rss.coverImgUrl != nil {
+            return 100
+        }
+        return 80
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         let rss = self.controller.rsses[indexPath.row]
+        controller.read(rss)
         let task = WebControllerTask.init(rss.title,
                                           url: rss.link)
         task.viewController = self

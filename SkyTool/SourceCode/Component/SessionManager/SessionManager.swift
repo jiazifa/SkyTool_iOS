@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
 
@@ -19,6 +20,7 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     func sessionManagerWillLogout(error: Error?)
 }
 
+/// 任务管理是用来统筹主要的任务流模块的工具， 例如通知界面切换应用状态， 发送请求，管理用户，全局通知等
 @objcMembers public class SessionManager: NSObject {
     public static let maxNumberAccount: Int = 1
     
@@ -29,6 +31,8 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     private(set) var accountManager: AccountManager
     
     private(set) var isTest: Bool = false
+    
+    private(set) var urlSession: Session
     
     private static var _shared: SessionManager?
     public static var shared: SessionManager {
@@ -44,11 +48,11 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
         print("\(sharedContainerURL)")
         self.accountManager = AccountManager(sharedDirectory: sharedContainerURL)
         self.isTest = isTest
+        let configuration = URLSessionConfiguration.default
+        let queue = OperationQueue.current
+        self.urlSession = Session.init(configuration: configuration, queue: queue)
         super.init()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(onAccountUpdate(_:)),
-                                               name: AccountManagerDidUpdateAccountsNotificationName,
-                                               object: nil)
+        setupNotifications()
         SessionManager._shared = self
     }
     
@@ -63,10 +67,41 @@ public typealias LaunchOptions = [UIApplication.LaunchOptionsKey : Any]
     }
     
     private func selectInitialAccount(_ account: Account, launchOptions: LaunchOptions) {
-        Session.shared.authenticateAccount = account
+        urlSession.authenticateAccount = account
         let request = UserInfoRequest(account: account)
-        Session.shared.send(request)
+        send(request)
         delegate?.sessionManagerWillMigrateAccount(account: account)
+    }
+    
+    private func setupNotifications() {
+        // Session With Error
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onURLSessionError(_:)),
+                                               name: Session.SessionCompleteWithErrorNotification,
+                                               object: nil)
+        
+        // Account Manager
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onAccountUpdate(_:)),
+                                               name: AccountManagerDidUpdateAccountsNotificationName,
+                                               object: nil)
+    }
+    
+    @objc func onURLSessionError(_ notification: Notification) {
+        guard let originalError = notification.object as? Error else { return }
+        if let error = originalError as? AuthError {
+            let message: NotifyMessage = NotifyMessage.infoToast(content: error.description)
+            notify(message: message)
+            switch error {
+            case .tokenExpired:
+                guard let current = accountManager.selectedAccount else { return }
+                delete(account: current)
+            default: break
+            }
+        } else if let error = originalError as? SessionCommonError {
+            let message: NotifyMessage = NotifyMessage.infoToast(content: error.description)
+            notify(message: message)
+        }
     }
 }
 
@@ -81,22 +116,28 @@ extension SessionManager {
         let login = LoginRequest(account: account) { (account) in
             self.accountManager.addAndSelect(account)
         }
-        Session.shared.send(login)
+        urlSession.send(login)
     }
     
     func delete(account: Account) {
-        Session.shared.authenticateAccount = nil
+        urlSession.authenticateAccount = nil
         self.accountManager.remove(account)
         self.delegate?.sessionManagerWillLogout(error: nil)
     }
-}
-
-extension SessionManager {
+    
     @objc private func onAccountUpdate(_ notification: Notification) {
         guard let account = self.accountManager.selectedAccount else { return }
-        Session.shared.authenticateAccount = account
+        urlSession.authenticateAccount = account
         let request = UserInfoRequest(account: account)
-        Session.shared.send(request)
+        send(request)
         self.delegate?.sessionManagerWillMigrateAccount(account: account)
+    }
+}
+
+/// request
+extension SessionManager {
+    @discardableResult
+    func send<T: Request>(_ request: T) -> SessionTask? {
+        return urlSession.send(request)
     }
 }
