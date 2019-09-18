@@ -15,6 +15,7 @@ public struct Rss: Codable {
     var base: URL
     var coverImgUrl: URL?
     var publishedDate: Date?
+    var domain: String?
     
     enum CodingKeys: String, CodingKey {
         case title = "title"
@@ -23,6 +24,7 @@ public struct Rss: Codable {
         case base = "base"
         case coverImgUrl = "cover_img"
         case publishedDate = "published_time"
+        case domain = "domain"
     }
     
     public init(from decoder: Decoder) throws {
@@ -31,6 +33,9 @@ public struct Rss: Codable {
         self.link = try values.decode(URL.self, forKey: .link)
         self.id = try values.decode(Int.self, forKey: .id)
         self.base = try values.decode(URL.self, forKey: .base)
+        if let domain = try values.decode(String?.self, forKey: .domain) {
+            self.domain = domain
+        }
         if let cover_imgString = try values.decode(String?.self, forKey: .coverImgUrl) {
             self.coverImgUrl = URL(string: cover_imgString)
         }

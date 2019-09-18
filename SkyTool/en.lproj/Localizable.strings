@@ -31,3 +31,5 @@
 "alert.comfirm.action" = "Confirm";
 
 "alert.rss.add.title" = "Add Rss";
+
+"toast.picker.image.maxcount" = "over count";

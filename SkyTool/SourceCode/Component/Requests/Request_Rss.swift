@@ -45,25 +45,25 @@ public class RssListRequest: TransportRequest {
         self.generatParams()
     }
     
-    public override func complete(_ response: TransportResponse) {
+    public override func onComplete(_ response: TransportResponse) {
         if response.sessionError != nil {
             self.fetchComplete.call(self.rsses)
             return
         }
         switch response.payload {
-        case .jsonArray(let list):
-            guard let data = try? JSONSerialization.data(withJSONObject: list, options: []),
-                let rssList = try? decoder.decode([Rss].self, from: data) else {
-                    return
+        case .jsonDict(let dict):
+            if let pageInfo: PageWrapper<Rss> = try? decode(json: dict) {
+                let rssList = pageInfo.list
+                let total = pageInfo.total
+                if total == self.limit {
+                    self.canBackward = true
+                } else {
+                    self.canBackward = false
+                }
+                self.rsses.append(contentsOf: rssList)
+                self.fetchComplete.call(self.rsses)
             }
-            let total = list.count
-            if total == self.limit {
-                self.canBackward = true
-            } else {
-                self.canBackward = false
-            }
-            self.rsses.append(contentsOf: rssList)
-            self.fetchComplete.call(self.rsses)
+            
         case .none:
             break
         default:
@@ -79,11 +79,4 @@ public class RssReadedRequest: TransportRequest {
         super.init(path: "/api/rss/record", params: params)
     }
     
-    public override func complete(_ response: TransportResponse) {
-        switch response.payload {
-        case .boolValue(let value):
-            Log.print("\(self.path) -> \(value)")
-        default: break
-        }
-    }
 }

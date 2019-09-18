@@ -112,7 +112,7 @@ class Session: NSObject {
     func didComplete(request: Request, task: URLSessionTask, data: Data?, error: Error?) {
         var transportResponse: TransportResponse
         defer {
-            request.complete(transportResponse)
+            request.onComplete(transportResponse)
             self.delegate.remove(task)
         }
         if let e = error {
@@ -126,6 +126,11 @@ class Session: NSObject {
         }
         // 请求出错后，发出通知，由 SessionManager 捕获
         transportResponse = TransportResponse.response(with: response, data: data)
+        
+        for pipline in request.responsePiplines {
+            // 如果有需要处理，则在调用 完成函数前 调用
+            transportResponse = pipline.translate(response: transportResponse)
+        }
         if let error = transportResponse.sessionError {
             NotificationCenter.default.post(name: Session.SessionCompleteWithErrorNotification, object: error)
         }

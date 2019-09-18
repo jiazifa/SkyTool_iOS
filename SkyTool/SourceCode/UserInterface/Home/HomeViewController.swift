@@ -110,14 +110,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let task = self.controller.tasks[indexPath.item]
         cell.titleLabel.text = "\(task.name)"
         cell.contentView.backgroundColor = UIColor.randomColor()
-        cell.onOptionEvent.delegate(on: self) { (weakSelf, _) in
-            
+        cell.onOptionEvent.delegate(on: self) { (this, _) in
+            let cooridinator = PhotoPickerCoordinator.init()
+            cooridinator.options.maxiumSelecteCount = 10
+            let navigation = PhotoPickerNavigationController.init(cooridinator)
+            this.present(navigation, animated: true, completion: nil)
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard self.controller.isEditing == false else { return }
+        Log.print("\(defaultFontScheme.fontMapping)")
         let task = self.controller.tasks[indexPath.item]
         let command = MissionCommand(mission: task)
         command.viewController = self

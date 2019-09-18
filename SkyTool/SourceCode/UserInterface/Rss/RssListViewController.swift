@@ -67,7 +67,12 @@ class RssListViewController: UIViewController {
     }
     
     @objc func refreshAction() {
-        controller.load()
+        defer {
+            controller.load()
+        }
+        if controller.rsses.isEmpty {
+            return
+        }
         tableView.scrollToTop()
     }
 }
@@ -92,6 +97,9 @@ extension RssListViewController: UITableViewDelegate, UITableViewDataSource {
             formatter.dateFormat = "MM-dd HH:mm"
             let timeString = formatter.string(from: date)
             cell.updatelabel.text = "时间：\(timeString)"
+        }
+        if let domain = rss.domain {
+            cell.domainLabel.text = domain
         }
         return cell
     }

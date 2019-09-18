@@ -99,6 +99,7 @@ class PhotoCollectionViewController: UIViewController {
             }
         }
         self.coordinator.selectAssets(assetes)
+        self.coordinator.onCancel(from: self)
     }
     
     @objc func cancel() {
@@ -130,6 +131,7 @@ extension PhotoCollectionViewController: UICollectionViewDelegate, UICollectionV
             cell.imageView.layer.borderWidth = 0
         } else {
             if self.selectedIndex.count >= self.coordinator.options.maxiumSelecteCount {
+                toast(content: "toast.picker.image.maxcount".localized)
                 return
             }
             self.selectedIndex.insert(indexPath)

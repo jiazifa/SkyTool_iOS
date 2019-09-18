@@ -30,27 +30,11 @@ class RssController {
         guard let link = link else { return }
         let request = TransportRequest(path: "/api/rss/add",
                                        params: ["source": link])
-        let handler: ResponseHandler = { response in
-            Log.print("\(response.payload)")
-            if response.httpStatusCode == 200 {
-                Log.print("已添加")
-            }
-        }
-        request.responseHandlers.append(handler)
         SessionManager.shared.send(request)
     }
     
     func read(_ rss: Rss) {
         let request = RssReadedRequest.init(rss: rss)
-        request.responseHandlers = [
-            { (response) in
-                switch response.payload {
-                case .boolValue(let value):
-                    Log.print("\(value)")
-                default: break
-                }
-            }
-        ]
         SessionManager.shared.send(request)
     }
     

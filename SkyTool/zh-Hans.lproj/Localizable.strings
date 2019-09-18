@@ -30,3 +30,5 @@
 "alert.comfirm.action" = "确认";
 
 "alert.rss.add.title" = "添加订阅源";
+
+"toast.picker.image.maxcount" = "超过数量";

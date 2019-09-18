@@ -54,3 +54,22 @@ func guardSharedProperty<T>(_ input: T?) -> T {
 
 public let decoder = JSONDecoder()
 public let encoder = JSONEncoder()
+
+/// decode An object to Codable
+///
+/// - Parameter json: json object
+/// - Returns: value after decode
+/// - Throws: when JSONSerialization to data or decode may throw an error
+public func decode<T: Codable>(json: Any) throws -> T {
+    let data = try JSONSerialization.data(withJSONObject: json, options: [])
+    return try decoder.decode(T.self, from: data)
+}
+
+/// encode Codable to Data
+///
+/// - Parameter source: Codable object
+/// - Returns: Data
+/// - Throws: when encode crashed
+public func encode<T: Codable>(source: T) throws -> Data {
+    return try encoder.encode(source)
+}

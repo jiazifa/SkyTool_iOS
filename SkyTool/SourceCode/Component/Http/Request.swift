@@ -80,8 +80,12 @@ public enum HttpMethod: String {
     case GET
     case POST
 }
+public protocol TransportResponsePiplineType {
+    func translate(response: TransportResponse) -> TransportResponse
+}
 
-public typealias ResponseHandler = (TransportResponse) -> ()
+public typealias ResponseHandler = TransportResponsePiplineType
+
 public protocol Request {
     var path: String { get }
     var method: HttpMethod { get }
@@ -90,9 +94,9 @@ public protocol Request {
     var cachePolicy: URLRequest.CachePolicy { get }
     var encoding: ParameterEncoding { get }
     
-    var responseHandlers: [ResponseHandler] { get }
+    var responsePiplines: [ResponseHandler] { get }
     
-    func complete(_ response: TransportResponse)
+    func onComplete(_ response: TransportResponse)
 }
 
 extension Request {
@@ -102,7 +106,7 @@ extension Request {
 }
 
 public class TransportRequest: Request {
-    public var responseHandlers: [ResponseHandler] = []
+    public var responsePiplines: [ResponseHandler] = []
     
     public var path: String = ""
     
@@ -119,13 +123,37 @@ public class TransportRequest: Request {
         self.parmeter = params
     }
     
-    public func complete(_ response: TransportResponse) {
-        if let contentType = response.headers["Content-Type"] as? String,
-            contentType == "application/json" {
-        }
-        for handler in self.responseHandlers {
-            handler(response)
-        }
+    public func onComplete(_ response: TransportResponse) {}
+}
+
+public struct PageWrapper<T: Codable>: Codable {
+    var limit: Int
+    var pages: Int
+    var total: Int
+    var list: [T]
+    
+    enum CodingKeys: String, CodingKey {
+        case limit = "limit"
+        case pages = "pages"
+        case total = "total"
+        case list = "list"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: PageWrapper.CodingKeys.self)
+        self.limit = try values.decode(Int.self, forKey: .limit)
+        self.pages = try values.decode(Int.self, forKey: .pages)
+        self.total = try values.decode(Int.self, forKey: .total)
+        self.list = try values.decode([T].self, forKey: .list)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: PageWrapper.CodingKeys.self)
+        try container.encode(limit, forKey: .limit)
+        try container.encode(pages, forKey: .pages)
+        try container.encode(total, forKey: .total)
+        try container.encode(list, forKey: .list)
+        
     }
 }
 
@@ -134,7 +162,6 @@ public enum ResponseData {
     case jsonDict([String: Any])
     case jsonArray([Any])
     case json(Any)
-    case boolValue(Bool)
 }
 
 public class TransportResponse {
@@ -187,14 +214,14 @@ public extension TransportResponse {
                         err = SessionErrorCode.errorObject(code: code)
                     }
                 }
+                // payload
                 var payload = ResponseData.jsonDict(jsonDict)
-                if let boolValue = jsonDict["boolValue"] as? Bool {
-                    payload = ResponseData.boolValue(boolValue)
-                }else if let dataInJSON = jsonDict["data"] as? [String: Any] {
+                if let dataInJSON = jsonDict["data"] as? [String: Any] {
                     payload = ResponseData.jsonDict(dataInJSON)
                 } else if let dataInArray = jsonDict["data"] as? [Any] {
                     payload = ResponseData.jsonArray(dataInArray)
                 }
+                
                 return TransportResponse.init(payload: payload,
                                               httpStatus: statusCode,
                                               sessionError: err,

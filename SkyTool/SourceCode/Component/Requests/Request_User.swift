@@ -13,7 +13,7 @@ final public class LoginRequest: TransportRequest {
     
     let account: Account
     
-    public override func complete(_ response: TransportResponse) {
+    public override func onComplete(_ response: TransportResponse) {
         switch response.payload {
         case .jsonDict(let x):
             guard let token = x["token"] as? String,
@@ -45,7 +45,7 @@ final public class UserInfoRequest: TransportRequest {
         super.init(path: "/api/user/info", params: [:])
     }
     
-    public override func complete(_ response: TransportResponse) {
+    public override func onComplete(_ response: TransportResponse) {
         switch response.payload {
         case .jsonDict(let x):
             guard let data = try? JSONSerialization.data(withJSONObject: x, options: []),

@@ -23,7 +23,7 @@
                         <rect key="frame" x="20" y="10" width="370" height="120.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ds9-n9-GgC">
-                                <rect key="frame" x="0.0" y="0.0" width="265" height="120.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="305" height="120.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T26-WW-Urd">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -31,20 +31,30 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tna-Go-vDG">
-                                        <rect key="frame" x="0.0" y="100" width="69.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9WZ-xp-JCt">
+                                        <rect key="frame" x="0.0" y="100" width="136" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="domain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl3-P7-kEa">
+                                                <rect key="frame" x="0.0" y="0.0" width="56.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tna-Go-vDG">
+                                                <rect key="frame" x="66.5" y="0.0" width="69.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="T26-WW-Urd" firstAttribute="top" secondItem="ds9-n9-GgC" secondAttribute="top" id="4h1-Qa-HuO"/>
-                                    <constraint firstAttribute="bottom" secondItem="tna-Go-vDG" secondAttribute="bottom" id="gVY-yJ-7LT"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="self" translatesAutoresizingMaskIntoConstraints="NO" id="v7Q-dc-7if">
-                                <rect key="frame" x="270" y="0.0" width="100" height="120.5"/>
+                                <rect key="frame" x="310" y="0.0" width="60" height="120.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="F04-s2-uxv"/>
                                 </constraints>
@@ -67,6 +77,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="coverImageView" destination="v7Q-dc-7if" id="vue-HZ-FC0"/>
+                <outlet property="domainLabel" destination="nl3-P7-kEa" id="5uM-Ls-ihl"/>
                 <outlet property="rssTitleLabel" destination="T26-WW-Urd" id="04S-Xn-dPa"/>
                 <outlet property="updatelabel" destination="tna-Go-vDG" id="Hhu-5F-zkc"/>
             </connections>
